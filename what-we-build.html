@@ -465,6 +465,24 @@ function filterCards(){
   noResults.style.display=visible===0?'block':'none';
 }
 
+// Read ?filter= from URL and activate on load
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const f = params.get('filter');
+  if(f){
+    filterTabs.forEach(t=>{
+      t.classList.remove('active');
+      if(t.dataset.filter===f) t.classList.add('active');
+    });
+    activeFilter = f;
+    filterCards();
+    // Scroll past hero to workflow grid
+    setTimeout(()=>{
+      document.querySelector('.search-section').scrollIntoView({behavior:'smooth'});
+    }, 300);
+  }
+})();
+
 searchInput.addEventListener('input',filterCards);
 filterTabs.forEach(tab=>{
   tab.addEventListener('click',()=>{
