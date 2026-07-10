@@ -1,1331 +1,517 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zenmul | AI Workflow Automation Studio</title>
-  <meta name="description" content="Zenmul builds AI-powered workflow automation systems that run 24/7.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #070c08;
-      --bg2: #0b140c;
-      --card: #0d180e;
-      --border: #1c2d1e;
-      --green: #3de87c;
-      --green-hover: #28c45e;
-      --green-glow: rgba(61, 232, 124, 0.12);
-      --white: #ffffff;
-      --muted: #5d7a60;
-      --text2: #9db49f;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--white);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 200;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      background: rgba(7, 12, 8, 0.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(61, 232, 124, 0.08);
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 18px;
-      color: var(--white);
-    }
-
-    .nav-logo svg { color: var(--green); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text2);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--white); }
-
-    .btn-nav {
-      background: var(--green);
-      color: #000;
-      padding: 10px 22px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 14px;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-nav:hover { background: var(--green-hover); transform: translateY(-1px); }
-
-    /* ─── HERO ─── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 40px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(61,232,124,0.07) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    /* side decorative icons */
-    .side-icons {
-      position: fixed;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      opacity: 0.18;
-      pointer-events: none;
-      z-index: 10;
-    }
-
-    .side-icons svg {
-      width: 18px;
-      height: 18px;
-      color: var(--green);
-    }
-
-    .hero-tag {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      color: var(--green);
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-
-    .hero h1 {
-      font-size: clamp(44px, 7.5vw, 100px);
-      font-weight: 900;
-      line-height: 1.04;
-      letter-spacing: -0.035em;
-      max-width: 950px;
-      margin-bottom: 28px;
-    }
-
-    .hero h1 .green { color: var(--green); }
-
-    .hero-sub {
-      font-size: 18px;
-      color: var(--text2);
-      max-width: 540px;
-      line-height: 1.75;
-      margin-bottom: 48px;
-    }
-
-    .hero-btns {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn-primary {
-      background: var(--green);
-      color: #000;
-      padding: 15px 30px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 15px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-primary:hover { background: var(--green-hover); transform: translateY(-2px); }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,0.18);
-      color: var(--white);
-      padding: 15px 30px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 15px;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-outline:hover { border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.04); }
-
-    /* ─── TICKER ─── */
-    .ticker-wrap {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 40px 0;
-      overflow: hidden;
-      background: var(--bg2);
-    }
-
-    .ticker-label {
-      text-align: center;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: ticker 28s linear infinite;
-    }
-
-    .ticker-track:hover { animation-play-state: paused; }
-
-    .ticker-item {
-      padding: 0 28px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text2);
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .ticker-item::after {
-      content: '·';
-      color: var(--green);
-      font-size: 20px;
-    }
-
-    @keyframes ticker {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ─── LAYOUT HELPERS ─── */
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    .section { padding: 96px 0; }
-    .section-sm { padding: 64px 0; }
-
-    .label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .label::before {
-      content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-      display: block;
-    }
-
-    .section-title {
-      font-size: clamp(30px, 4vw, 52px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-    }
-
-    /* ─── CASE STUDY ─── */
-    .case-wrap {
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .case-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .case-panel {
-      padding: 48px;
-      background: var(--card);
-    }
-
-    .case-panel:first-child {
-      border-right: 1px solid var(--border);
-    }
-
-    .case-time-badge {
-      display: inline-block;
-      background: var(--green-glow);
-      border: 1px solid rgba(61,232,124,0.2);
-      border-radius: 8px;
-      padding: 6px 14px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--green);
-      margin-bottom: 8px;
-    }
-
-    .case-time-sub {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 36px;
-    }
-
-    .flow-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .flow-step {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 10px 0;
-      position: relative;
-    }
-
-    .flow-step:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      left: 9px;
-      top: 30px;
-      bottom: -10px;
-      width: 2px;
-      background: var(--border);
-    }
-
-    .flow-dot {
-      width: 20px; height: 20px;
-      border-radius: 50%;
-      border: 2px solid var(--green);
-      background: var(--card);
-      flex-shrink: 0;
-      z-index: 1;
-      position: relative;
-    }
-
-    .flow-dot.active {
-      background: var(--green);
-      box-shadow: 0 0 12px rgba(61,232,124,0.4);
-    }
-
-    .flow-name {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text2);
-    }
-    .flow-name.active { color: var(--white); font-weight: 600; }
-
-    .case-sub-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 10px;
-      margin-top: 28px;
-    }
-    .case-sub-label:first-child { margin-top: 0; }
-
-    .case-text {
-      font-size: 14px;
-      color: var(--text2);
-      line-height: 1.7;
-    }
-
-    .check-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .check-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      color: var(--text2);
-      line-height: 1.5;
-    }
-
-    .check-list li::before {
-      content: '';
-      width: 18px; height: 18px;
-      flex-shrink: 0;
-      margin-top: 1px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233de87c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='9 12 11 14 15 10'/%3E%3C/svg%3E") center/18px no-repeat;
-    }
-
-    .case-result {
-      grid-column: 1 / -1;
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      padding: 36px 48px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 32px;
-    }
-
-    .result-text {
-      font-size: 15px;
-      color: var(--text2);
-      line-height: 1.7;
-      max-width: 600px;
-    }
-
-    .tool-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-
-    .tag {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 5px 12px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text2);
-    }
-
-    /* ─── WHO WE SERVE ─── */
-    .serve-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-      margin-top: 48px;
-    }
-
-    .serve-card {
-      background: var(--card);
-      padding: 36px;
-      transition: background 0.2s;
-    }
-    .serve-card:hover { background: #101e12; }
-
-    .serve-icon {
-      width: 36px; height: 36px;
-      color: var(--green);
-      margin-bottom: 16px;
-    }
-
-    .serve-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .serve-desc {
-      font-size: 14px;
-      color: var(--text2);
-      line-height: 1.65;
-      margin-bottom: 18px;
-    }
-
-    .link-arrow {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--green);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .link-arrow:hover { gap: 10px; }
-    .link-arrow svg { transition: transform 0.2s; }
-    .link-arrow:hover svg { transform: translateX(3px); }
-
-    /* ─── HOW IT WORKS ─── */
-    .hiw-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 56px;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .step-card {
-      background: var(--card);
-      padding: 36px 32px;
-      position: relative;
-      transition: background 0.2s;
-    }
-    .step-card:hover { background: #101e12; }
-
-    .step-num {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--green);
-      margin-bottom: 20px;
-    }
-
-    .step-title {
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-
-    .step-desc {
-      font-size: 14px;
-      color: var(--text2);
-      line-height: 1.65;
-    }
-
-    .step-icon-wrap {
-      width: 44px; height: 44px;
-      background: var(--green-glow);
-      border: 1px solid rgba(61,232,124,0.2);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-    }
-
-    .step-icon-wrap svg {
-      width: 22px; height: 22px;
-      color: var(--green);
-    }
-
-    /* ─── STATS ─── */
-    .stats-wrap {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 72px 0;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    .stat-item {
-      text-align: center;
-      padding: 0 32px;
-      border-right: 1px solid var(--border);
-    }
-    .stat-item:last-child { border-right: none; }
-
-    .stat-num {
-      font-size: 56px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .stat-num .stat-suffix {
-      color: var(--green);
-    }
-
-    .stat-label {
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    /* ─── TESTIMONIALS ─── */
-    .testi-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-top: 48px;
-    }
-
-    .testi-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 40px;
-      position: relative;
-    }
-
-    .quote-mark {
-      font-size: 80px;
-      line-height: 0.6;
-      color: var(--green);
-      opacity: 0.3;
-      margin-bottom: 24px;
-      font-family: Georgia, serif;
-    }
-
-    .testi-text {
-      font-size: 16px;
-      line-height: 1.75;
-      color: var(--text2);
-      margin-bottom: 32px;
-    }
-
-    .testi-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .testi-avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--border);
-    }
-
-    .testi-name {
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .testi-role {
-      font-size: 12px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 600;
-      margin-top: 2px;
-    }
-
-    .testi-card.coming-soon {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 240px;
-      border-style: dashed;
-      border-color: var(--border);
-      background: transparent;
-    }
-
-    .coming-soon-text {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 12px;
-    }
-
-    .coming-soon-pill {
-      display: inline-block;
-      background: var(--green-glow);
-      border: 1px solid rgba(61,232,124,0.2);
-      border-radius: 20px;
-      padding: 6px 16px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--green);
-      margin-top: 16px;
-    }
-
-    /* ─── FAQ ─── */
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      margin-top: 48px;
-    }
-
-    .faq-item {
-      background: var(--card);
-    }
-
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 24px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      cursor: pointer;
-      text-align: left;
-      color: var(--white);
-      font-family: inherit;
-      font-size: 16px;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    .faq-question:hover { background: rgba(255,255,255,0.03); }
-
-    .faq-icon {
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      border: 1.5px solid var(--border);
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s, border-color 0.2s;
-      color: var(--text2);
-    }
-
-    .faq-item.open .faq-icon {
-      transform: rotate(45deg);
-      border-color: var(--green);
-      color: var(--green);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-      padding: 0 32px;
-    }
-
-    .faq-item.open .faq-answer {
-      max-height: 300px;
-      padding: 0 32px 24px;
-    }
-
-    .faq-answer p {
-      font-size: 15px;
-      color: var(--text2);
-      line-height: 1.7;
-    }
-
-    /* ─── CTA ─── */
-    .cta-section {
-      text-align: center;
-      padding: 120px 40px;
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .cta-title {
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-
-    .cta-title .green { color: var(--green); }
-
-    .cta-sub {
-      font-size: 17px;
-      color: var(--text2);
-      max-width: 480px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-    }
-
-    /* ─── FOOTER ─── */
-    footer {
-      padding: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 24px;
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 28px;
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-size: 14px;
-      color: var(--muted);
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--white); }
-
-    .footer-copy {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    /* ─── FLOATING CTA ─── */
-    .float-cta {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 100;
-      background: var(--green);
-      color: #000;
-      padding: 14px 24px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 8px 32px rgba(61,232,124,0.25);
-      transition: transform 0.2s, background 0.2s;
-    }
-    .float-cta:hover { transform: translateY(-2px); background: var(--green-hover); }
-
-    /* ─── DIVIDER ─── */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-    }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      .case-grid { grid-template-columns: 1fr; }
-      .case-panel:first-child { border-right: none; border-bottom: 1px solid var(--border); }
-      .serve-grid { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: 1fr 1fr; }
-      .stats-grid { grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
-      .stat-item { border-right: none; padding: 32px; background: var(--bg2); }
-      .testi-grid { grid-template-columns: 1fr; }
-      .hiw-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-      .case-result { flex-direction: column; }
-      footer { flex-direction: column; align-items: flex-start; }
-    }
-
-    @media (max-width: 600px) {
-      .steps-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 42px; }
-      .side-icons { display: none; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zenmul — AI Workflow Automation Studio</title>
+<meta name="description" content="Zenmul builds AI-powered automation systems that keep your leads followed up, appointments confirmed, and clients onboarded — automatically.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#34D399;--bg:#07090a;--card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--muted:#6b7280;--muted2:#9ca3af}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:#fff;font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;cursor:none}
+#cursor{position:fixed;width:12px;height:12px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+#cursor-glow{position:fixed;width:380px;height:380px;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(52,211,153,0.07) 0%,transparent 65%)}
+#bg-icons-layer{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.bg-icon{position:absolute;color:rgba(52,211,153,.16);animation:iconFloat var(--dur,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+.bg-icon svg{width:100%;height:100%;display:block}
+@keyframes iconFloat{0%,100%{transform:translateY(0px);opacity:.14}50%{transform:translateY(-18px);opacity:.26}}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(7,9,10,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:700;font-size:17px}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:14px;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.btn-nav{background:var(--green);color:#061210;font-weight:700;font-size:14px;padding:9px 20px;border-radius:8px;text-decoration:none}
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 48px 80px;z-index:10}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:24px;opacity:0;animation:fadeUp .7s ease forwards .1s}
+.hero-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+.hero h1{font-size:clamp(38px,6.5vw,74px);font-weight:900;letter-spacing:-2.5px;line-height:1.06;max-width:860px;margin:0 auto 28px;opacity:0;animation:fadeUp .8s ease forwards .3s}
+.hero h1 .green{color:var(--green)}
+.hero-sub{font-size:18px;color:rgba(255,255,255,.52);line-height:1.72;max-width:540px;margin:0 auto 40px;opacity:0;animation:fadeUp .7s ease forwards .5s}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .7s ease forwards .7s}
+.btn-primary{background:var(--green);color:#061210;font-weight:700;font-size:15px;padding:14px 28px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s,transform .2s}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;font-weight:600;font-size:15px;padding:14px 28px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);transition:border-color .2s,transform .2s}
+.btn-ghost:hover{border-color:rgba(52,211,153,.35);transform:translateY(-2px)}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(22px)}}
+/* TICKER */
+.ticker-wrap{overflow:hidden;width:100%;padding:24px 0;background:rgba(255,255,255,.025);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:10}
+.ticker-track{display:flex;gap:48px;animation:tickerScroll 28s linear infinite;width:max-content}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:13px;font-weight:500;color:rgba(255,255,255,.45)}
+.ticker-item span{color:var(--green);font-weight:600}
+.ticker-dot{width:4px;height:4px;border-radius:50%;background:rgba(52,211,153,.4)}
+/* SECTIONS */
+.section-wrap{padding:96px 48px;max-width:1100px;margin:0 auto;position:relative;z-index:10}
+.section-label{font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:14px}
+.section-h2{font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-1.2px;line-height:1.1;margin-bottom:16px}
+.section-sub{font-size:16px;color:rgba(255,255,255,.52);line-height:1.72;max-width:560px}
+/* CASE STUDY */
+.cs-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-top:52px}
+.cs-left{padding:40px;border-right:1px solid var(--border)}
+.cs-badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green);background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.2);border-radius:6px;padding:4px 12px;margin-bottom:20px}
+.cs-left h3{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px}
+.cs-left p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:24px}
+.flow-row{display:flex;flex-direction:column;gap:0}
+.flow-step{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+.flow-step:last-child{border-bottom:none}
+.flow-num{width:26px;height:26px;border-radius:50%;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.25);color:var(--green);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.flow-info h4{font-size:13px;font-weight:600;margin-bottom:2px}
+.flow-info p{font-size:12px;color:rgba(255,255,255,.45);line-height:1.5}
+.cs-right{padding:40px}
+.cs-block{margin-bottom:28px}
+.cs-block-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.cs-block h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.cs-block p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.65}
+.cs-result-tag{display:inline-block;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.2);border-radius:6px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--green);margin:4px 4px 4px 0}
+/* SERVE */
+.serve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.serve-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;transition:border-color .25s,transform .25s}
+.serve-card:hover{border-color:rgba(52,211,153,.22);transform:translateY(-4px)}
+.serve-icon{font-size:28px;margin-bottom:14px}
+.serve-card h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.serve-card p{font-size:13px;color:rgba(255,255,255,.48);line-height:1.6}
+/* HOW IT WORKS */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;position:relative}
+.steps-grid::before{content:'';position:absolute;top:28px;left:calc(12.5%);right:calc(12.5%);height:1px;background:linear-gradient(to right,transparent,var(--border) 20%,var(--border) 80%,transparent)}
+.step-card{padding:0 16px;text-align:center}
+.step-num-wrap{width:56px;height:56px;border-radius:50%;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative;z-index:2}
+.step-num{font-size:18px;font-weight:800;color:var(--green)}
+.step-card h3{font-size:15px;font-weight:700;margin-bottom:8px}
+.step-card p{font-size:13px;color:rgba(255,255,255,.48);line-height:1.6}
+/* STATS */
+.stats-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:64px 48px;max-width:1100px;margin:0 auto;position:relative;z-index:10}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stat-item{text-align:center}
+.stat-num{font-size:clamp(44px,6vw,68px);font-weight:900;letter-spacing:-2px;line-height:1;color:#fff;margin-bottom:8px}
+.stat-suffix{font-size:.52em;color:var(--green)}
+.stat-label{font-size:13px;color:var(--muted2);line-height:1.4}
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
+.testi-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px}
+.testi-stars{display:flex;gap:4px;margin-bottom:16px}
+.star{color:var(--green);font-size:15px}
+.testi-text{font-size:15px;color:rgba(255,255,255,.75);line-height:1.72;margin-bottom:24px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:14px}
+.testi-avatar{width:42px;height:42px;border-radius:50%;background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.25);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:var(--green)}
+.testi-name{font-size:14px;font-weight:700}
+.testi-role{font-size:12px;color:var(--muted2)}
+.testi-soon{background:var(--card);border:1px dashed rgba(255,255,255,.1);border-radius:20px;padding:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px}
+.testi-soon p{font-size:14px;color:rgba(255,255,255,.35);line-height:1.6}
+/* FAQ */
+.faq-list{margin-top:48px;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;cursor:none;font-size:15px;font-weight:600;gap:16px;transition:background .2s}
+.faq-q:hover{background:rgba(255,255,255,.03)}
+.faq-icon{width:22px;height:22px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--green);font-size:14px;transition:transform .25s}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-a{max-height:200px}
+.faq-a p{padding:0 28px 22px;font-size:14px;color:rgba(255,255,255,.55);line-height:1.72}
+/* CTA */
+.cta-section{padding:0 48px 96px;max-width:1100px;margin:0 auto;position:relative;z-index:10}
+.cta-box{background:linear-gradient(135deg,rgba(52,211,153,.08) 0%,rgba(52,211,153,.03) 100%);border:1px solid rgba(52,211,153,.18);border-radius:24px;padding:72px 48px;text-align:center}
+.cta-box h2{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-1.2px;margin-bottom:14px}
+.cta-box p{font-size:16px;color:rgba(255,255,255,.52);margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto}
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;position:relative;z-index:10}
+.footer-links-row{display:flex;gap:28px;list-style:none}
+.footer-links-row a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.footer-links-row a:hover{color:#fff}
+.footer-copy{font-size:13px;color:var(--muted)}
+/* STICKY BTN */
+.sticky-audit{position:fixed;bottom:28px;right:28px;z-index:300;background:var(--green);color:#061210;font-weight:700;font-size:13px;padding:12px 20px;border-radius:50px;text-decoration:none;display:flex;align-items:center;gap:8px;box-shadow:0 4px 24px rgba(52,211,153,.35);transition:transform .2s,box-shadow .2s;opacity:0;animation:fadeUp .7s ease forwards 1.2s}
+.sticky-audit:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(52,211,153,.45)}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}.rd4{transition-delay:.32s}
+/* RESPONSIVE */
+@media(max-width:960px){nav{padding:0 20px}.hero{padding:100px 20px 60px}.serve-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr 1fr;gap:24px}.steps-grid::before{display:none}.cs-wrap{grid-template-columns:1fr}.cs-left{border-right:none;border-bottom:1px solid var(--border)}.testi-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}.section-wrap,.stats-section,.cta-section{padding-left:20px;padding-right:20px}footer{padding:32px 20px}.sticky-audit{bottom:20px;right:16px}}
+@media(max-width:600px){.serve-grid{grid-template-columns:1fr}.steps-grid{grid-template-columns:1fr}.hero h1{font-size:36px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}body{cursor:auto}#cursor,#cursor-glow{display:none}}
+</style>
 </head>
 <body>
+<div id="bg-icons-layer"></div>
+<div id="cursor"></div>
+<div id="cursor-glow"></div>
 
-  <!-- Decorative side icons -->
-  <div class="side-icons" aria-hidden="true">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-  </div>
-
-  <!-- ─── NAVIGATION ─── -->
-  <nav>
-    <a href="/" class="nav-logo">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <path d="M4 22L10 6L14 16L18 8L24 22" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      Zenmul
-    </a>
-    <ul class="nav-links">
-      <li><a href="#what-we-build">What we build</a></li>
-      <li><a href="#how-it-works">How it works</a></li>
-      <li><a href="/case-studies">Case Studies</a></li>
-      <li><a href="/pricing">Pricing</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-    <a href="/contact" class="btn-nav">Free audit</a>
-  </nav>
-
-  <!-- ─── HERO ─── -->
-  <section class="hero">
-    <p class="hero-tag">AI Workflow Automation Studio</p>
-    <h1>
-      You're doing it<br>manually.<br>
-      That's the problem.<br>
-      <span class="green">I'm the solution.</span>
-    </h1>
-    <p class="hero-sub">
-      Zenmul builds AI-powered workflow automation systems for businesses worldwide. Smart workflows that run 24/7 without human input, eliminating the repetitive manual tasks that cost you time, money, and customers.
-    </p>
-    <div class="hero-btns">
-      <a href="/contact" class="btn-primary">
-        Get your free audit
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="#what-we-build" class="btn-outline">See what we build</a>
-    </div>
-  </section>
-
-  <!-- ─── TECH STACK TICKER ─── -->
-  <div class="ticker-wrap">
-    <p class="ticker-label">The stack we build on</p>
-    <div class="ticker-track" aria-hidden="true">
-      <!-- duplicated for seamless loop -->
-      <span class="ticker-item">n8n</span>
-      <span class="ticker-item">Groq AI</span>
-      <span class="ticker-item">Google Sheets</span>
-      <span class="ticker-item">Google Drive</span>
-      <span class="ticker-item">Google Forms</span>
-      <span class="ticker-item">Airtable</span>
-      <span class="ticker-item">Gmail</span>
-      <span class="ticker-item">Telegram</span>
-      <span class="ticker-item">Slack</span>
-      <span class="ticker-item">WhatsApp</span>
-      <span class="ticker-item">Apify</span>
-      <span class="ticker-item">Apollo</span>
-      <span class="ticker-item">Clearout</span>
-      <span class="ticker-item">Instantly</span>
-      <span class="ticker-item">WhoisFreaks</span>
-      <span class="ticker-item">Railway</span>
-      <span class="ticker-item">n8n</span>
-      <span class="ticker-item">Groq AI</span>
-      <span class="ticker-item">Google Sheets</span>
-      <span class="ticker-item">Google Drive</span>
-      <span class="ticker-item">Google Forms</span>
-      <span class="ticker-item">Airtable</span>
-      <span class="ticker-item">Gmail</span>
-      <span class="ticker-item">Telegram</span>
-      <span class="ticker-item">Slack</span>
-      <span class="ticker-item">WhatsApp</span>
-      <span class="ticker-item">Apify</span>
-      <span class="ticker-item">Apollo</span>
-      <span class="ticker-item">Clearout</span>
-      <span class="ticker-item">Instantly</span>
-      <span class="ticker-item">WhoisFreaks</span>
-      <span class="ticker-item">Railway</span>
-    </div>
-    <p style="text-align:center; font-size:12px; color:var(--muted); margin-top:16px;">And 400+ more through n8n's integration library.</p>
-  </div>
-
-  <!-- ─── CASE STUDY ─── -->
-  <div class="container section" id="what-we-build">
-    <div class="label">Client project</div>
-    <h2 class="section-title" style="margin-bottom:40px;">Daily lead gen on autopilot</h2>
-    <p style="font-size:16px; color:var(--text2); max-width:620px; line-height:1.7; margin-bottom:48px;">We built a pipeline for a B2B outreach agency that scrapes three startup job boards, finds the decision-maker, verifies their email, and delivers a clean lead list every morning. No dashboards, no manual work.</p>
-
-    <div class="case-wrap">
-      <div class="case-grid">
-        <div class="case-panel">
-          <div class="case-time-badge">8AM</div>
-          <p class="case-time-sub">Daily: verified, decision-maker-level leads, zero manual work.</p>
-
-          <div class="flow-steps">
-            <div class="flow-step">
-              <div class="flow-dot active"></div>
-              <span class="flow-name active">Scrape job boards</span>
-            </div>
-            <div class="flow-step">
-              <div class="flow-dot active"></div>
-              <span class="flow-name active">Enrich decision-maker</span>
-            </div>
-            <div class="flow-step">
-              <div class="flow-dot"></div>
-              <span class="flow-name">Verify email</span>
-            </div>
-            <div class="flow-step">
-              <div class="flow-dot"></div>
-              <span class="flow-name">Deliver to sheet</span>
-            </div>
-            <div class="flow-step">
-              <div class="flow-dot"></div>
-              <span class="flow-name">Telegram summary</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="case-panel">
-          <p class="case-sub-label">The Problem</p>
-          <p class="case-text">Finding decision-makers at startups actively hiring engineers meant hours of manual scraping across job boards, cross-referencing LinkedIn, and hunting for verified emails — every single day.</p>
-
-          <p class="case-sub-label">What we built</p>
-          <ul class="check-list">
-            <li>Scrapes three startup job boards (a16z, Y Combinator, Wellfound) for fresh engineering postings.</li>
-            <li>Identifies the decision-maker via Apollo: founders, CTOs, heads of engineering.</li>
-            <li>Verifies every email through Clearout, protecting sender reputation.</li>
-            <li>Delivers leads to a live Google Sheet, deduplicated and formatted.</li>
-            <li>Sends a daily Telegram summary.</li>
-          </ul>
-        </div>
-
-        <div class="case-result">
-          <p class="result-text">
-            <strong style="color:var(--white);">The Result — </strong>A hands-off system that turns three job boards into a verified, decision-maker-level lead list every morning at 8AM. Zero manual work. What used to be a daily research grind is now a notification on the client's phone.
-          </p>
-          <div class="tool-tags">
-            <span class="tag">n8n</span>
-            <span class="tag">Apify</span>
-            <span class="tag">Apollo</span>
-            <span class="tag">Clearout</span>
-            <span class="tag">Google Sheets</span>
-            <span class="tag">Telegram</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── WHO WE SERVE ─── -->
-  <div class="container section">
-    <div class="label">Who we serve</div>
-    <h2 class="section-title">Built for teams drowning<br>in repetition</h2>
-
-    <div class="serve-grid">
-      <div class="serve-card">
-        <svg class="serve-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <h3 class="serve-title">Property &amp; letting agencies</h3>
-        <p class="serve-desc">Enquiries, viewings, maintenance, and renewals — handled without the manual chase.</p>
-        <a href="#what-we-build" class="link-arrow">See the workflows <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-
-      <div class="serve-card">
-        <svg class="serve-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <h3 class="serve-title">Recruitment firms</h3>
-        <p class="serve-desc">Candidate follow-up and lead generation that runs on its own, around the clock.</p>
-        <a href="#what-we-build" class="link-arrow">See the workflows <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-
-      <div class="serve-card">
-        <svg class="serve-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        <h3 class="serve-title">Medical &amp; aesthetic clinics</h3>
-        <p class="serve-desc">Instant enquiry replies and reminders that cut no-shows and fill the calendar.</p>
-        <a href="#what-we-build" class="link-arrow">See the workflows <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-
-      <div class="serve-card">
-        <svg class="serve-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        <h3 class="serve-title">B2B SaaS</h3>
-        <p class="serve-desc">Lead scoring, trial conversion sequences, churn detection, and demo no-show prevention.</p>
-        <a href="#what-we-build" class="link-arrow">See the workflows <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-
-      <div class="serve-card">
-        <svg class="serve-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <h3 class="serve-title">Dropshipping stores</h3>
-        <p class="serve-desc">Abandoned cart recovery, order delay defence, WISMO autoresponder, and review harvesting. A full automation brain for your store.</p>
-        <a href="#what-we-build" class="link-arrow">See the workflows <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-
-      <div class="serve-card">
-        <svg class="serve-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <h3 class="serve-title">Logistics &amp; freight</h3>
-        <p class="serve-desc">Container matching, Excel ingestion, agent email extraction, and daily exception alerts. Turn a spreadsheet operation into a 24/7 automated freight brain.</p>
-        <a href="#what-we-build" class="link-arrow">See the workflows <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── HOW IT WORKS ─── -->
-  <div style="background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);" id="how-it-works">
-    <div class="container section">
-      <div class="hiw-header">
-        <div>
-          <div class="label">How it works</div>
-          <h2 class="section-title">From manual mess to a<br>workflow that just runs.</h2>
-        </div>
-        <a href="/how-it-works" class="link-arrow" style="font-size:14px; white-space:nowrap;">
-          See the full process
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-
-      <div class="steps-grid">
-        <div class="step-card">
-          <p class="step-num">01</p>
-          <div class="step-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </div>
-          <h3 class="step-title">Audit</h3>
-          <p class="step-desc">We map the repetitive work eating your team's week and identify what's actually worth automating.</p>
-        </div>
-
-        <div class="step-card">
-          <p class="step-num">02</p>
-          <div class="step-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-          </div>
-          <h3 class="step-title">Map &amp; design</h3>
-          <p class="step-desc">We design the workflow end to end: triggers, logic, and every tool it has to touch.</p>
-        </div>
-
-        <div class="step-card">
-          <p class="step-num">03</p>
-          <div class="step-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <h3 class="step-title">Build &amp; test</h3>
-          <p class="step-desc">We build it in n8n and validate against your real data and edge cases before go-live.</p>
-        </div>
-
-        <div class="step-card">
-          <p class="step-num">04</p>
-          <div class="step-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-          </div>
-          <h3 class="step-title">Run &amp; support</h3>
-          <p class="step-desc">It runs 24/7 with monitoring and hands-on support. We fix it if anything breaks.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── STATS ─── -->
-  <div class="stats-wrap">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-num"><span class="counter" data-target="6">0</span><span class="stat-suffix">+</span></div>
-        <p class="stat-label">Industries served</p>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num"><span class="counter" data-target="40">0</span><span class="stat-suffix">+</span></div>
-        <p class="stat-label">Workflows live</p>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num"><span class="counter" data-target="100">0</span><span class="stat-suffix">%</span></div>
-        <p class="stat-label">Client ownership</p>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num"><span class="stat-suffix">$</span><span class="counter" data-target="0">0</span></div>
-        <p class="stat-label">Recurring platform fees</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── TESTIMONIALS ─── -->
-  <div class="container section">
-    <div class="label">Client voices</div>
-    <h2 class="section-title">Words from the people<br>we build for</h2>
-
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="quote-mark">"</div>
-        <p class="testi-text">Before Zenmul built this, finding decision-makers meant hours of scraping job boards every single day. Now verified leads are just there every morning in my sheet, with a Telegram ping. I genuinely don't touch anything.</p>
-        <div class="testi-author">
-          <img class="testi-avatar" src="https://storage.googleapis.com/ployai/9c558b02-e758-4e0e-9857-3be91788d67e/user/673081a9-faisal.jpg" alt="Faisal Ahmed">
-          <div>
-            <p class="testi-name">Faisal Ahmed</p>
-            <p class="testi-role">Founder, SalDev</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card coming-soon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        <p class="coming-soon-text">More client stories on the way.</p>
-        <span class="coming-soon-pill">Coming soon</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── FAQ ─── -->
-  <div class="container section" style="padding-top:0;">
-    <div class="label">FAQ</div>
-    <h2 class="section-title">Questions, answered honestly.</h2>
-
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question">
-          Do I need to know how to code?
-          <div class="faq-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </div>
-        </button>
-        <div class="faq-answer">
-          <p>No. You do not need any technical knowledge. Zenmul builds everything and hands it over fully working.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          What tools do you use?
-          <div class="faq-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </div>
-        </button>
-        <div class="faq-answer">
-          <p>n8n for workflow automation, Groq AI for language model tasks, Google Sheets and Gmail for data and communication, Telegram for alerts, and specialist tools like Apify, Apollo, and Clearout depending on the project.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          How long does a build take?
-          <div class="faq-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </div>
-        </button>
-        <div class="faq-answer">
-          <p>Most single workflows go live within 5 to 7 days. Full suites typically take 2 to 3 weeks, depending on complexity and integrations involved.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          Do I own the workflows after you build them?
-          <div class="faq-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </div>
-        </button>
-        <div class="faq-answer">
-          <p>Yes. Everything is built on your own infrastructure using open tools like n8n. You own the workflows outright. If we ever stopped working together, your systems keep running.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          What if something breaks?
-          <div class="faq-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </div>
-        </button>
-        <div class="faq-answer">
-          <p>All workflows include monitoring and ongoing support. If something breaks, we fix it. You are not left managing a system you didn't build on your own.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── CTA ─── -->
-  <div class="cta-section">
-    <div class="container">
-      <h2 class="cta-title">Stop doing it by hand.<br><span class="green">Start with a free audit.</span></h2>
-      <p class="cta-sub">Tell me about your business and what's eating your week. I'll send back a personalised automation roadmap. Free, no call required.</p>
-      <a href="/contact" class="btn-primary" style="margin:0 auto; display:inline-flex;">
-        Get your free audit
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-  </div>
-
-  <!-- ─── FOOTER ─── -->
-  <footer>
-    <a href="/" class="nav-logo" style="font-size:16px;">
-      <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
-        <path d="M4 22L10 6L14 16L18 8L24 22" stroke="var(--green)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      Zenmul
-    </a>
-    <ul class="footer-links">
-      <li><a href="#what-we-build">What we build</a></li>
-      <li><a href="/how-it-works">How it works</a></li>
-      <li><a href="/case-studies">Case studies</a></li>
-      <li><a href="/pricing">Pricing</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Free audit</a></li>
-    </ul>
-    <p class="footer-copy">© 2026 Zenmul.</p>
-  </footer>
-
-  <!-- ─── FLOATING CTA ─── -->
-  <a href="/contact" class="float-cta">
-    Get your free audit
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>
+    Zenmul
   </a>
+  <ul class="nav-links">
+    <li><a href="what-we-build.html">What we build</a></li>
+    <li><a href="#how-it-works">How it works</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="contact.html" class="btn-nav">Free audit</a>
+</nav>
 
-  <script>
-    // FAQ accordion
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
-      });
-    });
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>AI Workflow Automation Studio</div>
+  <h1>You're doing it manually.<br>That's the problem.<br><span class="green">I'm the solution.</span></h1>
+  <p class="hero-sub">Zenmul builds AI-powered systems that handle your follow-ups, confirmations, and client onboarding — automatically, around the clock.</p>
+  <div class="hero-ctas">
+    <a href="contact.html" class="btn-primary">Get your free audit →</a>
+    <a href="what-we-build.html" class="btn-ghost">See what we build</a>
+  </div>
+</section>
 
-    // Counter animation
-    function animateCounter(el) {
-      const target = parseInt(el.dataset.target);
-      if (target === 0) return; // already 0, no need to animate
-      const duration = 1600;
-      const step = duration / target;
-      let current = 0;
-      const timer = setInterval(() => {
-        current += Math.ceil(target / 60);
-        if (current >= target) {
-          current = target;
-          clearInterval(timer);
-        }
-        el.textContent = current;
-      }, step);
-    }
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <div class="ticker-item"><span>n8n</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Groq AI</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Google Sheets</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Google Drive</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Google Forms</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Airtable</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Gmail</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Telegram</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Slack</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>WhatsApp</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Apify</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Apollo</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Clearout</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Instantly</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Railway</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item" style="color:rgba(255,255,255,.6)">400+ more tools</div><div class="ticker-dot"></div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><span>n8n</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Groq AI</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Google Sheets</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Google Drive</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Google Forms</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Airtable</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Gmail</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Telegram</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Slack</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>WhatsApp</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Apify</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Apollo</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Clearout</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Instantly</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item"><span>Railway</span></div><div class="ticker-dot"></div>
+    <div class="ticker-item" style="color:rgba(255,255,255,.6)">400+ more tools</div>
+  </div>
+</div>
 
-    // Trigger counters when stats come into view
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.querySelectorAll('.counter').forEach(animateCounter);
-          statsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
+<!-- CASE STUDY -->
+<div class="section-wrap">
+  <div class="section-label reveal">Featured case study</div>
+  <h2 class="section-h2 reveal">Daily lead gen on autopilot.</h2>
+  <p class="section-sub reveal">See how SalDev went from manually prospecting to a fully automated B2B outreach pipeline.</p>
+  <div class="cs-wrap reveal">
+    <div class="cs-left">
+      <div class="cs-badge">B2B Sales · SalDev</div>
+      <h3>Automated outreach pipeline</h3>
+      <p>Every morning, qualified leads are scraped, verified, personalised and queued — before the team has their first coffee.</p>
+      <div class="flow-row">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-info"><h4>Scrape LinkedIn &amp; Apollo</h4><p>Targeted ICPs collected daily via Apify</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-info"><h4>Verify email addresses</h4><p>Clearout filters invalid contacts before send</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-info"><h4>AI personalise each email</h4><p>Groq writes a unique first-line per lead</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-info"><h4>Push to Instantly campaign</h4><p>Warmed accounts send at optimal intervals</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">5</div>
+          <div class="flow-info"><h4>Log to Google Sheets</h4><p>Full visibility on every lead processed</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="cs-right">
+      <div class="cs-block">
+        <div class="cs-block-label">The problem</div>
+        <h4>Manual prospecting was eating 3h/day</h4>
+        <p>The team spent mornings searching LinkedIn, copying emails into spreadsheets, and writing one-by-one cold emails. Not scalable, quality suffered as volume grew.</p>
+      </div>
+      <div class="cs-block">
+        <div class="cs-block-label">What we built</div>
+        <h4>A daily automated prospecting engine</h4>
+        <p>n8n runs at 7am each day — scraping, verifying, personalising and queuing 80–120 leads automatically. Zero manual effort after setup.</p>
+      </div>
+      <div class="cs-block">
+        <div class="cs-block-label">The result</div>
+        <span class="cs-result-tag">80–120 leads/day automated</span>
+        <span class="cs-result-tag">3h → 0 prospecting time</span>
+        <span class="cs-result-tag">38% open rate</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-    const statsWrap = document.querySelector('.stats-wrap');
-    if (statsWrap) statsObserver.observe(statsWrap);
+<!-- WHO WE SERVE -->
+<div class="section-wrap" style="padding-top:0">
+  <div class="section-label reveal">Who we serve</div>
+  <h2 class="section-h2 reveal">Built for teams that can't<br>afford to miss a lead.</h2>
+  <p class="section-sub reveal">We specialise in six industries where speed-to-response and follow-up volume directly drive revenue.</p>
+  <div class="serve-grid">
+    <div class="serve-card reveal rd1">
+      <div class="serve-icon">🏠</div>
+      <h3>Property</h3>
+      <p>Instant portal lead replies, viewing reminders, offer chasers and vendor updates — all automated.</p>
+    </div>
+    <div class="serve-card reveal rd2">
+      <div class="serve-icon">🧑‍💼</div>
+      <h3>Recruitment</h3>
+      <p>CV screening, interview confirmations, post-interview follow-ups and candidate status updates on autopilot.</p>
+    </div>
+    <div class="serve-card reveal rd3">
+      <div class="serve-icon">⚕️</div>
+      <h3>Medical &amp; Clinics</h3>
+      <p>Appointment confirmations, 24h reminders, no-show recovery and patient intake — zero admin overhead.</p>
+    </div>
+    <div class="serve-card reveal rd1">
+      <div class="serve-icon">🚀</div>
+      <h3>B2B SaaS</h3>
+      <p>Trial onboarding sequences, lead enrichment, cold outreach engines and CRM data hygiene.</p>
+    </div>
+    <div class="serve-card reveal rd2">
+      <div class="serve-icon">📦</div>
+      <h3>Dropshipping</h3>
+      <p>Supplier order processing, customer dispatch notifications and return workflows — all handled.</p>
+    </div>
+    <div class="serve-card reveal rd3">
+      <div class="serve-icon">🚛</div>
+      <h3>Logistics</h3>
+      <p>Load confirmations, driver comms, ETD/ETA alerts and freight document processing automated end-to-end.</p>
+    </div>
+  </div>
+</div>
 
-    // Hide floating CTA when hero is visible
-    const floatCta = document.querySelector('.float-cta');
-    const hero = document.querySelector('.hero');
-    const heroObserver = new IntersectionObserver(([entry]) => {
-      floatCta.style.opacity = entry.isIntersecting ? '0' : '1';
-      floatCta.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
-    });
-    if (hero) heroObserver.observe(hero);
-  </script>
+<!-- HOW IT WORKS -->
+<div class="section-wrap" id="how-it-works" style="padding-top:0">
+  <div class="section-label reveal">How it works</div>
+  <h2 class="section-h2 reveal">From audit to automation<br>in under two weeks.</h2>
+  <div class="steps-grid">
+    <div class="step-card reveal rd1">
+      <div class="step-num-wrap"><div class="step-num">01</div></div>
+      <h3>Audit</h3>
+      <p>We map every manual task in your workflow. You see exactly what we'd automate and why — before spending anything.</p>
+    </div>
+    <div class="step-card reveal rd2">
+      <div class="step-num-wrap"><div class="step-num">02</div></div>
+      <h3>Map &amp; design</h3>
+      <p>We design the full automation architecture — every trigger, branch, and action — and get your sign-off before building.</p>
+    </div>
+    <div class="step-card reveal rd3">
+      <div class="step-num-wrap"><div class="step-num">03</div></div>
+      <h3>Build &amp; test</h3>
+      <p>We build in n8n, run real data through every path, and hand you documentation so you understand what's happening.</p>
+    </div>
+    <div class="step-card reveal rd4">
+      <div class="step-num-wrap"><div class="step-num">04</div></div>
+      <h3>Run &amp; support</h3>
+      <p>You own every workflow. We offer optional monthly support, but your systems run fine without us.</p>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-num"><span class="counter" data-target="7">7</span><span class="stat-suffix">+</span></div>
+      <div class="stat-label">Industries served</div>
+    </div>
+    <div class="stat-item reveal rd1">
+      <div class="stat-num"><span class="counter" data-target="23">23</span><span class="stat-suffix">+</span></div>
+      <div class="stat-label">Workflows live in production</div>
+    </div>
+    <div class="stat-item reveal rd2">
+      <div class="stat-num">100<span class="stat-suffix">%</span></div>
+      <div class="stat-label">Client ownership of every system</div>
+    </div>
+    <div class="stat-item reveal rd3">
+      <div class="stat-num">£0<span class="stat-suffix">/mo</span></div>
+      <div class="stat-label">Recurring platform fees from us</div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="section-wrap" style="padding-top:80px">
+  <div class="section-label reveal">Testimonials</div>
+  <h2 class="section-h2 reveal">What clients say.</h2>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="testi-text">"Nazmul built us a full lead gen pipeline that now runs every morning without us touching it. We went from manually prospecting for 3 hours a day to waking up with a qualified list ready to contact. The ROI was immediate."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">FA</div>
+        <div>
+          <div class="testi-name">Faisal Ahmed</div>
+          <div class="testi-role">Founder, SalDev</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-soon reveal rd1">
+      <div style="font-size:32px;opacity:.25">💬</div>
+      <p>More reviews coming soon.<br>We're busy building, not collecting badges.</p>
+      <a href="contact.html" class="btn-primary" style="margin-top:8px;font-size:13px;padding:10px 20px">Get your free audit →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section-wrap" style="padding-top:0">
+  <div class="section-label reveal">FAQ</div>
+  <h2 class="section-h2 reveal">Common questions.</h2>
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <div class="faq-q"><span>Do I need any technical knowledge to use the automations?</span><div class="faq-icon">+</div></div>
+      <div class="faq-a"><p>No. We build everything and document how it works in plain English. You interact with your existing tools (Google Sheets, email, etc.) the same way you always have. The automation runs invisibly in the background.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>What happens if the automation breaks?</span><div class="faq-icon">+</div></div>
+      <div class="faq-a"><p>n8n has built-in error handling and logging. If a workflow fails, it logs exactly which step and why. On support plans we monitor this for you. On one-off builds, we give you a walkthrough so you can identify issues yourself.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>Will I be locked into your platform if I stop working with you?</span><div class="faq-icon">+</div></div>
+      <div class="faq-a"><p>No. We build on n8n (open source) and Google Workspace tools you already own. All workflows, credentials, and documentation belong to you. If we disappeared tomorrow, your systems keep running.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>How long does it take to go live?</span><div class="faq-icon">+</div></div>
+      <div class="faq-a"><p>Most projects are live in 5–10 working days after sign-off on the design. Larger suites (multiple workflows with custom AI logic) can take 2–3 weeks. We give you a clear timeline in the audit phase.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>What's included in a free audit?</span><div class="faq-icon">+</div></div>
+      <div class="faq-a"><p>A 30-minute call where we map your current manual processes, identify the highest-leverage automations, and give you a no-obligation scope and rough quote. No payment card, no commitment.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-box reveal">
+    <div class="section-label" style="margin-bottom:20px">Ready to automate?</div>
+    <h2>Stop doing it by hand.<br>Start with a free audit.</h2>
+    <p>Tell us what you're manually doing right now. We'll show you exactly what can be automated, and how long it would take.</p>
+    <a href="contact.html" class="btn-primary">Book your free audit →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="nav-logo" style="font-size:15px">
+    <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>
+    Zenmul
+  </a>
+  <ul class="footer-links-row">
+    <li><a href="what-we-build.html">What we build</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 Zenmul. All rights reserved.</span>
+</footer>
+
+<!-- STICKY AUDIT BTN -->
+<a href="contact.html" class="sticky-audit">Get your free audit →</a>
+
+<script>
+// BG ICONS
+const ICONS=[
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>`,
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>`,
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`,
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1l2.1-2.1M17 7l2.1-2.1"/></svg>`,
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>`,
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+];
+const layer=document.getElementById('bg-icons-layer');
+const positions=[
+  {top:'8%',left:'6%',size:44},{top:'12%',left:'78%',size:36},{top:'22%',left:'88%',size:52},
+  {top:'38%',left:'3%',size:40},{top:'52%',left:'92%',size:32},{top:'64%',left:'15%',size:48},
+  {top:'74%',left:'72%',size:38},{top:'85%',left:'45%',size:30},{top:'30%',left:'50%',size:28},
+  {top:'18%',left:'38%',size:22},{top:'78%',left:'8%',size:34},{top:'45%',left:'58%',size:26}
+];
+positions.forEach((p,i)=>{
+  const el=document.createElement('div');
+  el.className='bg-icon';
+  el.style.cssText=`top:${p.top};left:${p.left};width:${p.size}px;height:${p.size}px;--dur:${8+i*1.1}s;--dl:${-i*0.7}s`;
+  el.innerHTML=ICONS[i%ICONS.length];
+  layer.appendChild(el);
+});
+
+// CUSTOM CURSOR
+const cursor=document.getElementById('cursor');
+const glow=document.getElementById('cursor-glow');
+let mx=window.innerWidth/2,my=window.innerHeight/2,gx=mx,gy=my;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+});
+document.querySelectorAll('a,button,[role="button"],.faq-q').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='22px';cursor.style.height='22px';cursor.style.opacity='.6'});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';cursor.style.opacity='1'});
+});
+(function glowLoop(){
+  gx+=(mx-gx)*0.15;gy+=(my-gy)*0.15;
+  glow.style.left=gx+'px';glow.style.top=gy+'px';
+  requestAnimationFrame(glowLoop);
+})();
+
+// REVEAL ON SCROLL
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// STAT COUNTERS
+const cio=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target;
+    const target=+el.dataset.target;
+    const dur=1400;const start=performance.now();
+    (function tick(now){
+      const pct=Math.min((now-start)/dur,1);
+      el.textContent=Math.round(pct*target);
+      if(pct<1)requestAnimationFrame(tick);
+    })(start);
+    cio.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('.counter[data-target]').forEach(el=>cio.observe(el));
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
+  });
+});
+</script>
 </body>
 </html>
