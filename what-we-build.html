@@ -423,6 +423,10 @@ filterTabs.forEach(tab=>{tab.addEventListener('click',()=>{filterTabs.forEach(t=
 const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=window.scrollY>50?'rgba(7,9,10,0.98)':'rgba(7,9,10,0.9)';},{passive:true});
+// Auto-apply filter from URL param
+const urlParams=new URLSearchParams(window.location.search);
+const paramFilter=urlParams.get('filter');
+if(paramFilter){const matchTab=[...filterTabs].find(t=>t.dataset.filter===paramFilter);if(matchTab){filterTabs.forEach(t=>t.classList.remove('active'));matchTab.classList.add('active');activeFilter=paramFilter;filterCards();}}
 </script>
 <script>
 (function(){
