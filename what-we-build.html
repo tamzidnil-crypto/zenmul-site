@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>What We Build | Zenmul</title>
-<meta name="description" content="Every automation system Zenmul builds. Filterable by industry. Real workflows solving real problems across recruitment, clinics, logistics, SaaS, property and dropshipping.">
+<meta name="description" content="Every automation system Zenmul builds. Filterable by industry. Real workflows solving real problems across recruitment, clinics, logistics, SaaS, property, dropshipping and beauty salons.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -19,13 +19,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .btn-nav{background:var(--green);color:#061210;font-weight:700;font-size:14px;padding:9px 20px;border-radius:8px;text-decoration:none;transition:opacity .2s}
 .btn-nav:hover{opacity:.88}
 #bg-icons-layer{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}
-/* PAGE HERO */
 .page-hero{padding:140px 48px 60px;max-width:1300px;margin:0 auto;position:relative;z-index:3}
 .eyebrow{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fadeUp .7s ease forwards .1s}
 .page-hero h1{font-size:clamp(36px,5vw,62px);font-weight:800;letter-spacing:-1.5px;margin-bottom:16px;line-height:1.08;opacity:0;animation:fadeUp .8s ease forwards .3s}
 .page-hero p{font-size:17px;color:rgba(255,255,255,.52);max-width:560px;line-height:1.72;opacity:0;animation:fadeUp .7s ease forwards .5s}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(22px)}}
-/* SEARCH + FILTERS */
 .search-section{padding:0 48px 48px;max-width:1300px;margin:0 auto;position:relative;z-index:3;opacity:0;animation:fadeUp .7s ease forwards .6s}
 .search-wrap{position:relative;margin-bottom:24px}
 .search-wrap svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
@@ -38,7 +36,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .filter-tab.active{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.4);color:var(--green)}
 .results-count{font-size:13px;color:var(--muted);margin-top:16px}
 .results-count span{color:rgba(255,255,255,.6)}
-/* WORKFLOW GRID */
 .section{padding:0 48px 96px;max-width:1300px;margin:0 auto;position:relative;z-index:3}
 .workflow-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .workflow-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;overflow:hidden}
@@ -63,7 +60,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .no-results{text-align:center;padding:80px 0;display:none}
 .no-results h3{font-size:20px;font-weight:700;margin-bottom:12px;color:rgba(255,255,255,.5)}
 .no-results p{font-size:14px;color:var(--muted)}
-/* CTA */
 .cta-box{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:20px;padding:72px 48px;text-align:center;max-width:700px;margin:0 auto 96px;transition:border-color .3s}
 .cta-box:hover{border-color:rgba(52,211,153,.2)}
 .cta-box h2{font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.8px;margin-bottom:16px}
@@ -105,7 +101,6 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   <p>Every system below is built and running in production. Each one kills a manual task that was costing time, money, or customers. Filter by your industry or search by problem.</p>
 </div>
 
-<!-- SEARCH + FILTERS -->
 <div class="search-section">
   <div class="search-wrap">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -119,20 +114,17 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
     <button class="filter-tab" data-filter="saas">B2B SaaS</button>
     <button class="filter-tab" data-filter="property">Property</button>
     <button class="filter-tab" data-filter="dropshipping">Dropshipping</button>
+    <button class="filter-tab" data-filter="salon">Beauty &amp; Salons</button>
   </div>
-  <div class="results-count"><span id="results-num">18</span> workflows</div>
+  <div class="results-count"><span id="results-num">23</span> workflows</div>
 </div>
 
-<!-- WORKFLOW CARDS -->
 <div class="section">
 <div class="workflow-grid" id="workflow-grid">
 
   <!-- RECRUITMENT -->
   <div class="workflow-card reveal rd1" data-category="recruitment" data-tags="recruitment candidate enquiry responder reply instant ai n8n groq gmail">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <span class="card-badge">Recruitment</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span class="card-badge">Recruitment</span></div>
     <h3>Candidate Enquiry Responder</h3>
     <div class="tagline">Response time: hours to under 60 seconds</div>
     <p>Every candidate enquiry gets an AI-written reply in under 60 seconds. The response is personalised to the role, routes to the right consultant, and logs the candidate in Google Sheets automatically.</p>
@@ -141,10 +133,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   </div>
 
   <div class="workflow-card reveal rd2" data-category="recruitment" data-tags="recruitment interview reminder no-show sequence automated schedule">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-      <span class="card-badge">Recruitment</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span class="card-badge">Recruitment</span></div>
     <h3>Interview Reminder Sequence</h3>
     <div class="tagline">No-shows cut with 3-stage automated reminders</div>
     <p>Three automatic reminders sent before every interview — 24h, 2h, and 30 minutes before. Candidates who don't confirm get flagged. No-shows drop without anyone chasing manually.</p>
@@ -153,10 +142,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   </div>
 
   <div class="workflow-card reveal rd3" data-category="recruitment" data-tags="recruitment client job brief intake form structured data google sheets">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <span class="card-badge">Recruitment</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><span class="card-badge">Recruitment</span></div>
     <h3>Client Job Brief Intake</h3>
     <div class="tagline">Structured briefs from clients, automatically</div>
     <p>Clients fill a form, the workflow captures every field, formats it into a clean brief, and routes it to the right consultant with a Telegram alert. No email chains, no missing information.</p>
@@ -165,10 +151,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   </div>
 
   <div class="workflow-card reveal rd4" data-category="recruitment" data-tags="recruitment placement follow up testimonial referral bot automated">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-      <span class="card-badge">Recruitment</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Recruitment</span></div>
     <h3>Placement Follow-Up Bot</h3>
     <div class="tagline">100% of placements followed up automatically</div>
     <p>Every placement triggers a follow-up sequence to both the candidate and the client. Testimonials and referrals are requested at the right moment. Nothing falls through the cracks.</p>
@@ -177,10 +160,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   </div>
 
   <div class="workflow-card reveal rd5" data-category="recruitment" data-tags="recruitment pipeline tracker candidate status google sheets automated">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
-      <span class="card-badge">Recruitment</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div><span class="card-badge">Recruitment</span></div>
     <h3>Candidate Pipeline Tracker</h3>
     <div class="tagline">Full pipeline visibility, zero manual updates</div>
     <p>Every status change — applied, screened, interviewed, placed — updates the Google Sheet automatically. The pipeline is always current without anyone touching it.</p>
@@ -190,10 +170,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 
   <!-- CLINICS -->
   <div class="workflow-card reveal rd1" data-category="clinic" data-tags="clinic medical aesthetic enquiry responder instant reply ai 60 seconds">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-      <span class="card-badge">Clinics</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><span class="card-badge">Clinics</span></div>
     <h3>Instant Enquiry Responder</h3>
     <div class="tagline">Sub-60 second AI reply to every enquiry</div>
     <p>Every clinic enquiry — treatment questions, booking requests, pricing — gets an AI-written reply in under 60 seconds. Intent is classified and routed to the right team member with a Telegram alert.</p>
@@ -202,10 +179,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   </div>
 
   <div class="workflow-card reveal rd2" data-category="clinic" data-tags="clinic no-show killer reminder appointment 48h 24h 3h sequence">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
-      <span class="card-badge">Clinics</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><span class="card-badge">Clinics</span></div>
     <h3>No-Show Killer</h3>
     <div class="tagline">3-stage reminder sequence cuts no-shows automatically</div>
     <p>Automated reminders at 48h, 24h, and 3h before every appointment. Patients who don't confirm are flagged. If no response, a follow-up is triggered automatically. Slots stay filled.</p>
@@ -215,34 +189,25 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 
   <!-- LOGISTICS -->
   <div class="workflow-card reveal rd1" data-category="logistics" data-tags="logistics freight cargo container excel ingestion batch normalise agent format">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-      <span class="card-badge">Logistics</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><span class="card-badge">Logistics</span></div>
     <h3>Batch Excel Ingestion</h3>
     <div class="tagline">Any agent format, normalised automatically</div>
-    <p>Watches Gmail for Excel attachments from freight agents. Parses every file regardless of column naming conventions — 7 variants of container number, 6 of booking reference — and writes clean rows to the Container Master sheet.</p>
+    <p>Watches Gmail for Excel attachments from freight agents. Parses every file regardless of column naming conventions and writes clean rows to the Container Master sheet.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Email with Excel</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Columns normalised</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Written to sheet</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
   </div>
 
   <div class="workflow-card reveal rd2" data-category="logistics" data-tags="logistics freight container matching engine ai groq deterministic customer requirements">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg></div>
-      <span class="card-badge">Logistics</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg></div><span class="card-badge">Logistics</span></div>
     <h3>Container Matching Engine</h3>
     <div class="tagline">1 to 4 day delay eliminated — matched within the hour</div>
-    <p>Runs every hour. Scores containers against customer requirements using deterministic rules first, then falls back to Groq AI for edge cases — name variants, near-miss ports, approximate dates. Writes results back automatically.</p>
+    <p>Runs every hour. Scores containers against customer requirements using deterministic rules first, then falls back to Groq AI for edge cases. Writes results back automatically.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Hourly trigger</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Score match</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI fallback</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Google Sheets</span></div>
   </div>
 
   <div class="workflow-card reveal rd3" data-category="logistics" data-tags="logistics freight agent email extractor free text structured groq ai parsing">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-      <span class="card-badge">Logistics</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><span class="card-badge">Logistics</span></div>
     <h3>Agent Email Extractor</h3>
     <div class="tagline">Free-text emails turned into structured data</div>
     <p>Catches incoming agent update emails written as plain text. Groq AI extracts container number, status, ETA, vessel name, and agent name from the body and updates the Container Master record automatically.</p>
@@ -251,59 +216,44 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   </div>
 
   <div class="workflow-card reveal rd4" data-category="logistics" data-tags="logistics freight exception delay alerter telegram daily digest stuck overdue unmatched">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-      <span class="card-badge">Logistics</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><span class="card-badge">Logistics</span></div>
     <h3>Exception and Delay Alerter</h3>
     <div class="tagline">Daily 8AM digest of every problem container</div>
-    <p>Runs every morning at 8AM. Scans the entire container master and flags three categories: stuck (no status update in 24h), overdue (ETA passed, still in transit), and unmatched (no agent claimed it). Sends a structured Telegram digest.</p>
+    <p>Runs every morning at 8AM. Scans the entire container master and flags stuck, overdue, and unmatched containers. Sends a structured Telegram digest.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">8AM trigger</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Scan all containers</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Telegram digest</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
   </div>
 
   <!-- B2B SAAS -->
   <div class="workflow-card reveal rd1" data-category="saas" data-tags="saas lead enrichment scoring engine ai groq inbound qualify">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-      <span class="card-badge">B2B SaaS</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><span class="card-badge">B2B SaaS</span></div>
     <h3>Lead Enrichment and Scoring Engine</h3>
     <div class="tagline">Lead scored and contacted in under 60 seconds</div>
-    <p>Every inbound lead is enriched and scored by AI the moment it arrives. High-value leads trigger an immediate personalised outreach. Low-value leads are logged and deprioritised. No manual qualification.</p>
+    <p>Every inbound lead is enriched and scored by AI the moment it arrives. High-value leads trigger an immediate personalised outreach. Low-value leads are logged and deprioritised.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Lead arrives</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI scores</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Outreach sent</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
   </div>
 
   <div class="workflow-card reveal rd2" data-category="saas" data-tags="saas trial to paid converter sequence day 1 3 7 onboarding email">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-      <span class="card-badge">B2B SaaS</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><span class="card-badge">B2B SaaS</span></div>
     <h3>Trial to Paid Converter</h3>
     <div class="tagline">Day 1, 3 and 7 sequences run automatically</div>
-    <p>Trial users get a personalised onboarding sequence timed to their behaviour. Day 1 welcome, Day 3 check-in, Day 7 conversion push. Each email is AI-written and tailored to what they've done in the product.</p>
+    <p>Trial users get a personalised onboarding sequence timed to their behaviour. Day 1 welcome, Day 3 check-in, Day 7 conversion push. Each email is AI-written and tailored to product usage.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Trial starts</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">D1 / D3 / D7</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Conversion tracked</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
   </div>
 
   <div class="workflow-card reveal rd3" data-category="saas" data-tags="saas churn risk detector weekly scan accounts at risk flag alert">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-      <span class="card-badge">B2B SaaS</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><span class="card-badge">B2B SaaS</span></div>
     <h3>Churn Risk Detector</h3>
     <div class="tagline">Weekly scan covers 100% of accounts</div>
-    <p>Every week, every account is scanned for churn signals — low usage, no logins, support tickets, approaching renewal date. At-risk accounts are flagged to the team with a suggested action and a draft re-engagement email.</p>
+    <p>Every week, every account is scanned for churn signals. At-risk accounts are flagged to the team with a suggested action and a draft re-engagement email.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Weekly trigger</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Scan all accounts</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Flag at-risk</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Team alerted</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
   </div>
 
   <div class="workflow-card reveal rd4" data-category="saas" data-tags="saas demo no-show killer reminder follow up reschedule automated">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-      <span class="card-badge">B2B SaaS</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="card-badge">B2B SaaS</span></div>
     <h3>Demo No-Show Killer</h3>
     <div class="tagline">Zero missed demo follow-ups</div>
     <p>Reminder sent 1 hour before every demo. If the prospect no-shows, an automatic follow-up goes out within 15 minutes offering to reschedule. No leads go cold from a missed call.</p>
@@ -313,10 +263,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 
   <!-- PROPERTY -->
   <div class="workflow-card reveal rd1" data-category="property" data-tags="property letting agency lead response bot enquiry instant reply">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
-      <span class="card-badge">Property</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div><span class="card-badge">Property</span></div>
     <h3>Lead Response Bot</h3>
     <div class="tagline">Response time: hours to seconds</div>
     <p>Every property enquiry gets an instant AI-written reply within seconds, routed to the right agent with a Telegram alert. No more leads going cold while staff are busy or out of office.</p>
@@ -325,47 +272,35 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   </div>
 
   <div class="workflow-card reveal rd2" data-category="property" data-tags="property letting post viewing feedback collector sentiment structured">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-      <span class="card-badge">Property</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Property</span></div>
     <h3>Post-Viewing Feedback Collector</h3>
     <div class="tagline">Every viewing generates structured feedback</div>
-    <p>After every viewing, an automated message goes to the prospective tenant asking for feedback. Responses are captured, sentiment is analysed, and results are logged to Google Sheets for the letting agent to review.</p>
+    <p>After every viewing, an automated message goes to the prospective tenant asking for feedback. Responses are captured, sentiment is analysed, and results are logged to Google Sheets.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Viewing ends</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Request sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sentiment logged</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
   </div>
 
   <div class="workflow-card reveal rd3" data-category="property" data-tags="property letting tenancy renewal reminder bot revenue churn">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
-      <span class="card-badge">Property</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><span class="card-badge">Property</span></div>
     <h3>Tenancy Renewal Reminder Bot</h3>
     <div class="tagline">No renewal ever missed</div>
-    <p>Monitors tenancy end dates. Sends automated renewal reminders to tenants at 90, 60, and 30 days out. Alerts the agency team at each stage. Renewals that slip through stop costing revenue.</p>
+    <p>Monitors tenancy end dates. Sends automated renewal reminders to tenants at 90, 60, and 30 days out. Alerts the agency team at each stage.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Date approaches</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">90/60/30d reminders</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Team alerted</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
   </div>
 
   <div class="workflow-card reveal rd4" data-category="property" data-tags="property letting maintenance request tracker audit trail routed logged">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-      <span class="card-badge">Property</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><span class="card-badge">Property</span></div>
     <h3>Maintenance Request Tracker</h3>
     <div class="tagline">Every request logged, routed, and auditable</div>
-    <p>Tenants submit maintenance issues via a simple form. Each request is automatically acknowledged, logged in Google Sheets, routed to the right contractor, and tracked to completion. Nothing gets lost in an inbox.</p>
+    <p>Tenants submit maintenance issues via a simple form. Each request is automatically acknowledged, logged, routed to the right contractor, and tracked to completion.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Request submitted</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Auto-acknowledged</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Routed and tracked</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Google Forms</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
   </div>
 
   <!-- DROPSHIPPING -->
   <div class="workflow-card reveal rd1" data-category="dropshipping" data-tags="dropshipping abandoned cart recovery email ai scored sequence ecommerce store">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
-      <span class="card-badge">Dropshipping</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><span class="card-badge">Dropshipping</span></div>
     <h3>Abandoned Cart Recovery Engine</h3>
     <div class="tagline">Carts scored and emailed within minutes</div>
     <p>Every abandoned cart is scored by AI based on cart value and customer history. High-value carts trigger an immediate personalised recovery email. Follow-ups are timed automatically.</p>
@@ -374,50 +309,86 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   </div>
 
   <div class="workflow-card reveal rd2" data-category="dropshipping" data-tags="dropshipping order delay defender proactive chargeback shipping late">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <span class="card-badge">Dropshipping</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><span class="card-badge">Dropshipping</span></div>
     <h3>Order Delay Defender</h3>
     <div class="tagline">Proactive delay emails before customers complain</div>
-    <p>Monitors order status against expected delivery dates. When a delay is detected, a proactive apology and update email goes to the customer before they raise a dispute. Chargebacks drop.</p>
+    <p>Monitors order status against expected delivery dates. When a delay is detected, a proactive apology and update email goes to the customer before they raise a dispute.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Delay detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Proactive email sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Case logged</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
   </div>
 
   <div class="workflow-card reveal rd3" data-category="dropshipping" data-tags="dropshipping wismo autoresponder where is my order support ticket classify reply">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-      <span class="card-badge">Dropshipping</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><span class="card-badge">Dropshipping</span></div>
     <h3>WISMO Autoresponder</h3>
     <div class="tagline">Where is my order — answered instantly</div>
-    <p>Support tickets asking about order status are automatically classified as WISMO. The workflow looks up the order, retrieves the tracking status, and sends a personalised reply. Zero manual support tickets for tracking queries.</p>
+    <p>Support tickets asking about order status are automatically classified as WISMO. The workflow looks up the order, retrieves the tracking status, and sends a personalised reply.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Ticket received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Classified as WISMO</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Status looked up</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reply sent</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
   </div>
 
   <div class="workflow-card reveal rd4" data-category="dropshipping" data-tags="dropshipping review ugc harvester request automated after delivery post purchase">
-    <div class="card-header">
-      <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-      <span class="card-badge">Dropshipping</span>
-    </div>
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="card-badge">Dropshipping</span></div>
     <h3>Review and UGC Harvester</h3>
     <div class="tagline">Review requests sent after every delivery</div>
-    <p>After every confirmed delivery, an automated review request goes out at the right time — not immediately, but when the customer has had time to use the product. Review rates increase without any manual work.</p>
+    <p>After every confirmed delivery, an automated review request goes out at the right time. Review rates increase without any manual work.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Delivery confirmed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Wait 3 days</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Review request sent</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
   </div>
 
-</div><!-- end workflow-grid -->
+  <!-- BEAUTY & SALONS -->
+  <div class="workflow-card reveal rd1" data-category="salon" data-tags="salon beauty hair appointment confirmation reminder sequence booking 48h 2h">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="card-badge">Beauty &amp; Salons</span></div>
+    <h3>Appointment Confirmation and Reminder Sequence</h3>
+    <div class="tagline">Instant confirmation, 48h and 2h reminders automated</div>
+    <p>New booking triggers an instant confirmation email, a 48h reminder, and a 2h reminder. Every step is logged in Google Sheets and a Telegram alert fires for each new booking. No-shows drop before they happen.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Booking added</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Confirmation sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">48h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">2h reminder</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="salon" data-tags="salon beauty no-show recovery bot missed appointment rebook follow up">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><span class="card-badge">Beauty &amp; Salons</span></div>
+    <h3>No-Show Recovery Bot</h3>
+    <div class="tagline">Missed appointments followed up within the hour</div>
+    <p>Runs every hour. Detects missed appointments, sends an empathetic follow-up email within 60 minutes, marks the client as a no-show in Google Sheets, and fires a Telegram alert. Slots get recovered automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Hourly scan</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">No-show detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Follow-up sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="salon" data-tags="salon beauty review harvester post visit google review request follow up ugc">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="card-badge">Beauty &amp; Salons</span></div>
+    <h3>Post-Visit Review Harvester</h3>
+    <div class="tagline">Review requests sent 24h after every visit</div>
+    <p>After every completed appointment, a personalised review request goes out 24h later. If no response, one follow-up fires at 72h. All tracked in Google Sheets. Review volume increases without any manual effort.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Visit completed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">24h request sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">72h follow-up</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Logged</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="salon" data-tags="salon beauty rebooking nudge engine lapsed client win back we miss you offer">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><span class="card-badge">Beauty &amp; Salons</span></div>
+    <h3>Rebooking Nudge Engine</h3>
+    <div class="tagline">Lapsed clients nudged back automatically at 30 days</div>
+    <p>Runs daily at 9AM. Detects clients who haven't rebooked within 30 days of their last visit. Sends a warm re-engagement email with a soft offer and fires a Telegram alert. Retention improves without chasing anyone manually.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Daily 9AM scan</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Lapsed detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Nudge sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd5" data-category="salon" data-tags="salon beauty enquiry responder ai webhook instant reply booking link groq">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Beauty &amp; Salons</span></div>
+    <h3>New Enquiry Responder</h3>
+    <div class="tagline">AI-written reply to every enquiry in under 60 seconds</div>
+    <p>Website or DM enquiry hits the webhook. Groq AI writes a personalised reply with services, pricing, and booking link. Enquiry is logged to the Google Sheet and a Telegram alert fires instantly.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI writes reply</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reply sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Logged + alerted</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+</div>
 
 <div class="no-results" id="no-results">
   <h3>No workflows found</h3>
   <p>Try a different search or filter.</p>
 </div>
-</div><!-- end section -->
+</div>
 
-<!-- CTA -->
 <div class="section">
   <div class="cta-box reveal">
     <h2>Don't see your exact problem?</h2>
@@ -440,75 +411,26 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 </footer>
 
 <script>
-// Search + filter
 const cards=[...document.querySelectorAll('.workflow-card')];
 const searchInput=document.getElementById('search-input');
 const filterTabs=document.querySelectorAll('.filter-tab');
 const noResults=document.getElementById('no-results');
 const resultsNum=document.getElementById('results-num');
 let activeFilter='all';
-
-function filterCards(){
-  const q=searchInput.value.toLowerCase().trim();
-  let visible=0;
-  cards.forEach(card=>{
-    const tags=card.dataset.tags.toLowerCase();
-    const title=card.querySelector('h3').textContent.toLowerCase();
-    const desc=card.querySelector('p').textContent.toLowerCase();
-    const cat=card.dataset.category;
-    const matchSearch=!q||tags.includes(q)||title.includes(q)||desc.includes(q);
-    const matchFilter=activeFilter==='all'||cat===activeFilter;
-    if(matchSearch&&matchFilter){card.classList.remove('hidden');visible++;}
-    else{card.classList.add('hidden');}
-  });
-  resultsNum.textContent=visible;
-  noResults.style.display=visible===0?'block':'none';
-}
-
-// Read ?filter= from URL and activate on load
-(function(){
-  const params = new URLSearchParams(window.location.search);
-  const f = params.get('filter');
-  if(f){
-    filterTabs.forEach(t=>{
-      t.classList.remove('active');
-      if(t.dataset.filter===f) t.classList.add('active');
-    });
-    activeFilter = f;
-    filterCards();
-    // Scroll past hero to workflow grid
-    setTimeout(()=>{
-      document.querySelector('.search-section').scrollIntoView({behavior:'smooth'});
-    }, 300);
-  }
-})();
-
+function filterCards(){const q=searchInput.value.toLowerCase().trim();let visible=0;cards.forEach(card=>{const tags=card.dataset.tags.toLowerCase();const title=card.querySelector('h3').textContent.toLowerCase();const desc=card.querySelector('p').textContent.toLowerCase();const cat=card.dataset.category;const matchSearch=!q||tags.includes(q)||title.includes(q)||desc.includes(q);const matchFilter=activeFilter==='all'||cat===activeFilter;if(matchSearch&&matchFilter){card.classList.remove('hidden');visible++;}else{card.classList.add('hidden');}});resultsNum.textContent=visible;noResults.style.display=visible===0?'block':'none';}
 searchInput.addEventListener('input',filterCards);
-filterTabs.forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    filterTabs.forEach(t=>t.classList.remove('active'));
-    tab.classList.add('active');
-    activeFilter=tab.dataset.filter;
-    filterCards();
-  });
-});
-
-// Scroll reveal
+filterTabs.forEach(tab=>{tab.addEventListener('click',()=>{filterTabs.forEach(t=>t.classList.remove('active'));tab.classList.add('active');activeFilter=tab.dataset.filter;filterCards();});});
 const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=window.scrollY>50?'rgba(7,9,10,0.98)':'rgba(7,9,10,0.9)';},{passive:true});
 </script>
-
 <script>
-// Cursor + icons
 (function(){
-  const cur=document.getElementById('cursor');
-  const glw=document.getElementById('cursor-glow');
-  const layer=document.getElementById('bg-icons-layer');
+  const cur=document.getElementById('cursor');const glw=document.getElementById('cursor-glow');const layer=document.getElementById('bg-icons-layer');
   const st=document.createElement('style');
   st.textContent='body{cursor:none}#cursor{position:fixed;width:14px;height:14px;background:#34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .18s,height .18s,background .18s,border .18s,box-shadow .18s}#cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(52,211,153,0.08) 0%,transparent 65%)}#bg-icons-layer{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}.bg-icon{position:absolute;color:rgba(52,211,153,0.15);transition:color .25s,filter .25s,transform .25s;animation:bgFloat var(--dur,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}.bg-icon svg{width:100%;height:100%;display:block}.bg-icon.glowing{color:rgba(52,211,153,0.95)!important;filter:drop-shadow(0 0 8px rgba(52,211,153,0.9)) drop-shadow(0 0 20px rgba(52,211,153,0.5));transform:scale(1.35)!important;animation-play-state:paused}@keyframes bgFloat{0%,100%{transform:translateY(0px) rotate(0deg)}25%{transform:translateY(-14px) rotate(3deg)}50%{transform:translateY(-22px) rotate(-2deg)}75%{transform:translateY(-10px) rotate(4deg)}}';
   document.head.appendChild(st);
-  const ICONS=['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/><line x1="9" y1="17" x2="15" y2="17"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>'];
+  const ICONS=['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>'];
   const pos=[{l:'3%',t:'6vh'},{l:'5%',t:'20vh'},{l:'2%',t:'36vh'},{l:'6%',t:'52vh'},{l:'3%',t:'68vh'},{l:'5%',t:'85vh'},{l:'2%',t:'102vh'},{l:'4%',t:'120vh'},{l:'3%',t:'138vh'},{l:'6%',t:'156vh'},{l:'2%',t:'174vh'},{l:'4%',t:'192vh'},{l:'3%',t:'210vh'},{l:'5%',t:'228vh'},{l:'93%',t:'10vh'},{l:'91%',t:'26vh'},{l:'94%',t:'42vh'},{l:'92%',t:'58vh'},{l:'90%',t:'74vh'},{l:'93%',t:'90vh'},{l:'91%',t:'108vh'},{l:'94%',t:'126vh'},{l:'92%',t:'144vh'},{l:'90%',t:'162vh'},{l:'93%',t:'180vh'},{l:'91%',t:'198vh'},{l:'94%',t:'216vh'},{l:'20%',t:'15vh'},{l:'76%',t:'35vh'},{l:'30%',t:'80vh'},{l:'68%',t:'100vh'},{l:'22%',t:'155vh'},{l:'74%',t:'175vh'}];
   pos.forEach((p,i)=>{const d=document.createElement('div');d.className='bg-icon';const sz=20+(i%5)*4;d.style.cssText=`left:${p.l};top:${p.t};width:${sz}px;height:${sz}px;--dur:${7+i%7}s;--dl:-${(i*0.45)%9}s`;d.innerHTML=ICONS[i%ICONS.length];layer.appendChild(d)});
   let mx=0,my=0,gx=0,gy=0;
