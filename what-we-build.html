@@ -115,8 +115,11 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
     <button class="filter-tab" data-filter="property">Property</button>
     <button class="filter-tab" data-filter="dropshipping">Dropshipping</button>
     <button class="filter-tab" data-filter="salon">Beauty &amp; Salons</button>
+    <button class="filter-tab" data-filter="restaurant">Restaurants</button>
+    <button class="filter-tab" data-filter="law">Law Firms</button>
+    <button class="filter-tab" data-filter="gym">Gyms &amp; PTs</button>
   </div>
-  <div class="results-count"><span id="results-num">23</span> workflows</div>
+  <div class="results-count"><span id="results-num">38</span> workflows</div>
 </div>
 
 <div class="section">
@@ -381,7 +384,145 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
     <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
   </div>
 
+  <!-- RESTAURANTS & CAFES -->
+  <div class="workflow-card reveal rd1" data-category="restaurant" data-tags="restaurant cafe reservation confirmation reminder sequence booking 24h 2h guest">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="card-badge">Restaurants</span></div>
+    <h3>Reservation Confirmation and Reminder Sequence</h3>
+    <div class="tagline">Instant confirmation, 24h and 2h reminders automated</div>
+    <p>New reservation triggers an instant confirmation email, a 24h reminder, and a 2h reminder. Every step is logged in Google Sheets and a Telegram alert fires for each new booking. No-shows drop before they happen.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Reservation added</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Confirmation sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">24h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">2h reminder</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="restaurant" data-tags="restaurant cafe no-show recovery bot missed reservation rebook follow up">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><span class="card-badge">Restaurants</span></div>
+    <h3>No-Show Recovery Bot</h3>
+    <div class="tagline">Missed reservations followed up within the hour</div>
+    <p>Runs every hour. Detects missed reservations, sends an empathetic follow-up email within 60 minutes, marks the guest as a no-show in Google Sheets, and fires a Telegram alert. Tables get recovered automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Hourly scan</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">No-show detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Follow-up sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="restaurant" data-tags="restaurant cafe review harvester post visit google review request follow up ugc">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="card-badge">Restaurants</span></div>
+    <h3>Post-Visit Review Harvester</h3>
+    <div class="tagline">Review requests sent a few hours after every meal</div>
+    <p>After every completed visit, a personalised review request goes out a few hours later. If no response, one follow-up fires at 72h. All tracked in Google Sheets. Review volume increases without any manual effort.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Visit completed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Review request sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">72h follow-up</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Logged</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="restaurant" data-tags="restaurant cafe catering private dining enquiry responder ai webhook instant reply event">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Restaurants</span></div>
+    <h3>Catering and Private Dining Enquiry Responder</h3>
+    <div class="tagline">AI-written reply to every event enquiry in under 60 seconds</div>
+    <p>Catering or private dining enquiry hits the webhook. Groq AI writes a warm, professional reply and confirms the team will follow up within 24 hours. Enquiry is logged to Google Sheets and a Telegram alert fires instantly.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI writes reply</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reply sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Logged + alerted</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd5" data-category="restaurant" data-tags="restaurant cafe loyalty return visit nudge lapsed guest win back re-engagement 30 days">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><span class="card-badge">Restaurants</span></div>
+    <h3>Loyalty and Return Visit Nudge</h3>
+    <div class="tagline">Lapsed guests nudged back automatically at 30 days</div>
+    <p>Runs daily at 9AM. Detects guests who haven't returned within 30 days of their last visit. Sends a warm re-engagement email with a soft invite back and fires a Telegram alert. Retention improves without chasing anyone manually.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Daily 9AM scan</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Lapsed detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Nudge sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
 </div>
+
+  <!-- GYMS & PERSONAL TRAINERS -->
+  <div class="workflow-card reveal rd1" data-category="gym" data-tags="gym personal trainer pt enquiry responder ai reply instant membership fitness">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><span class="card-badge">Gyms &amp; PTs</span></div>
+    <h3>New Member Enquiry Responder</h3>
+    <div class="tagline">AI reply to every enquiry in under 60 seconds</div>
+    <p>Every new gym or PT enquiry gets an instant AI-written reply, personalised to the enquiry type. Warm, energetic, and professional — sent before any human is involved, logged to Google Sheets automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI drafts reply</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sent instantly</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="gym" data-tags="gym personal trainer pt session reminder sequence confirmation 24h 2h no-show automated booking">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="card-badge">Gyms &amp; PTs</span></div>
+    <h3>Session Reminder Sequence</h3>
+    <div class="tagline">Instant confirmation, 24h and 2h reminders automated</div>
+    <p>New session triggers an instant confirmation, a 24-hour reminder, and a 2-hour reminder — all sent automatically. No-shows drop before they happen and every step is logged in Google Sheets.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Session booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Confirmation sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">24h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">2h reminder</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="gym" data-tags="gym personal trainer pt no-show recovery bot missed session rebook ai follow up">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><span class="card-badge">Gyms &amp; PTs</span></div>
+    <h3>No-Show Recovery Bot</h3>
+    <div class="tagline">Missed sessions followed up with a rebook offer instantly</div>
+    <p>The moment a session is marked No-Show, Groq AI writes a warm, motivating recovery email with a rebook offer and sends it automatically. Both the recovery and rebook flag are logged in Google Sheets.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">No-Show detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI writes email</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Recovery sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="gym" data-tags="gym personal trainer pt post session check in feedback retention ai automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Gyms &amp; PTs</span></div>
+    <h3>Post-Session Check-In Bot</h3>
+    <div class="tagline">AI check-in sent 3 hours after every session</div>
+    <p>3 hours after every session, an AI-written check-in email goes out asking how the client felt. Builds retention, surfaces feedback, and makes every client feel looked after — without any manual effort.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Session completed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Wait 3 hours</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI check-in sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd5" data-category="gym" data-tags="gym personal trainer pt lapsed member win back bot re-engagement 30 days daily scan retention">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><span class="card-badge">Gyms &amp; PTs</span></div>
+    <h3>Lapsed Member Win-Back Bot</h3>
+    <div class="tagline">Lapsed members nudged back automatically at 30 days</div>
+    <p>Runs every morning at 9AM. Detects members who haven't trained in 30 days, sends a warm AI-written re-engagement email with an invite to book their next session. Retention improves without chasing anyone manually.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Daily 9AM scan</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Lapsed detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Win-back sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <!-- LAW FIRMS -->
+  <div class="workflow-card reveal rd1" data-category="law" data-tags="law firm solicitor client enquiry responder ai reply instant legal matter">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Law Firms</span></div>
+    <h3>Client Enquiry Responder</h3>
+    <div class="tagline">AI reply to every legal enquiry in under 60 seconds</div>
+    <p>Every new client enquiry triggers an instant AI-written reply, personalised to the legal matter type. The response is professional and empathetic, confirms receipt, and sets expectations before any human is involved.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI drafts reply</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sent instantly</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="law" data-tags="law firm solicitor consultation reminder sequence confirmation 24h 2h no-show automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="card-badge">Law Firms</span></div>
+    <h3>Consultation Reminder Sequence</h3>
+    <div class="tagline">Instant confirmation, 24h and 2h reminders automated</div>
+    <p>New consultation triggers an instant confirmation email, a 24-hour reminder, and a 2-hour reminder — all sent automatically. No-shows drop before they happen and every step is logged in Google Sheets.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Consultation booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Confirmation sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">24h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">2h reminder</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="law" data-tags="law firm solicitor document chase bot follow up outstanding required 3 stage automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div><span class="card-badge">Law Firms</span></div>
+    <h3>Document Chase Bot</h3>
+    <div class="tagline">3 automated chase emails — no manual follow-up needed</div>
+    <p>When clients haven't submitted required documents, three progressively urgent emails go out automatically at 2, 5, and 10 day intervals. Cases stop getting stuck waiting on paperwork.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Row added</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Chase 1 at day 2</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Chase 2 at day 5</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Chase 3 at day 10</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="law" data-tags="law firm solicitor no-show recovery bot missed consultation rebook ai follow up">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><span class="card-badge">Law Firms</span></div>
+    <h3>No-Show Recovery Bot</h3>
+    <div class="tagline">Missed consultations followed up before clients go cold</div>
+    <p>The moment a consultation is marked as No-Show, Groq AI writes a warm recovery email with a rebook offer and sends it automatically. Both the recovery and rebook offer are logged in Google Sheets.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">No-Show detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI writes email</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Recovery sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd5" data-category="law" data-tags="law firm solicitor client onboarding welcome sequence matter reference next steps assigned">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span class="card-badge">Law Firms</span></div>
+    <h3>Client Onboarding Welcome Sequence</h3>
+    <div class="tagline">New client onboarded with personalised email in seconds</div>
+    <p>The moment a new client is added to the Onboarding tab, a personalised welcome email with their matter reference, assigned solicitor, and clear next steps is generated by AI and sent instantly.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Client added</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI writes welcome</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Email sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
 
 <div class="no-results" id="no-results">
   <h3>No workflows found</h3>
@@ -390,6 +531,48 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 </div>
 
 <div class="section">
+  <div style="margin-bottom:64px">
+    <div class="eyebrow reveal" style="opacity:1;animation:none;display:block;margin-bottom:20px">Coming Soon</div>
+    <h2 class="reveal" style="font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-.6px;margin-bottom:12px">More verticals in production</h2>
+    <p class="reveal" style="font-size:15px;color:rgba(255,255,255,.5);max-width:480px;margin-bottom:36px">New automation suites are built and shipped every few weeks. These are next in the pipeline.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
+      <div class="reveal" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:12px">
+        <span style="font-size:1.2rem">🏋️</span>
+        <div>
+          <div style="font-size:13px;font-weight:600;margin-bottom:2px">Real Estate Agents</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.35)">Coming soon</div>
+        </div>
+      </div>
+      <div class="reveal" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:12px">
+        <span style="font-size:1.2rem">📚</span>
+        <div>
+          <div style="font-size:13px;font-weight:600;margin-bottom:2px">E-learning &amp; Coaches</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.35)">Coming soon</div>
+        </div>
+      </div>
+      <div class="reveal" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:12px">
+        <span style="font-size:1.2rem">📊</span>
+        <div>
+          <div style="font-size:13px;font-weight:600;margin-bottom:2px">Accountants &amp; Bookkeepers</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.35)">Coming soon</div>
+        </div>
+      </div>
+      <div class="reveal" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:12px">
+        <span style="font-size:1.2rem">🦷</span>
+        <div>
+          <div style="font-size:13px;font-weight:600;margin-bottom:2px">Dental &amp; Physio Clinics</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.35)">Coming soon</div>
+        </div>
+      </div>
+      <div class="reveal" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:12px">
+        <span style="font-size:1.2rem">🎉</span>
+        <div>
+          <div style="font-size:13px;font-weight:600;margin-bottom:2px">Event Planners</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.35)">Coming soon</div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="cta-box reveal">
     <h2>Don't see your exact problem?</h2>
     <p>Every workflow starts with a free audit. Tell me what's eating your week and I'll map out exactly what should be automated and how.</p>
