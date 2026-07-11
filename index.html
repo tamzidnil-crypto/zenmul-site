@@ -85,7 +85,7 @@ section{position:relative;z-index:3}
 .step{position:relative;z-index:1;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px 28px;transition:border-color .25s,transform .25s}
 .step:hover{border-color:rgba(52,211,153,.25);transform:translateY(-4px)}
 .step-num{font-size:11px;font-weight:700;color:var(--green);letter-spacing:.12em;margin-bottom:20px;display:flex;align-items:center;gap:8px}
-.step-num::before{content:'';width:20px;height:1px;background:var(--green)}
+.step-num::before{display:none}
 .step h3{font-size:16px;font-weight:800;margin-bottom:10px;letter-spacing:-.3px}
 .step p{font-size:13px;color:rgba(255,255,255,.48);line-height:1.65}
 
@@ -204,7 +204,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
     <a href="what-we-build.html" class="btn-ghost">See what we build</a>
   </div>
   <div class="hero-stats">
-    <div><div class="hero-stat-num"><span>38</span>+</div><div class="hero-stat-label">Workflows live in production</div></div>
+    <div><div class="hero-stat-num"><span>44</span>+</div><div class="hero-stat-label">Workflows live in production</div></div>
     <div><div class="hero-stat-num"><span>10</span>+</div><div class="hero-stat-label">Industries automated</div></div>
     <div><div class="hero-stat-num"><span>100</span>%</div><div class="hero-stat-label">Custom, no templates</div></div>
   </div>
@@ -372,7 +372,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   <div class="section-inner">
     <div class="stats-grid">
       <div class="stat-card reveal rd1"><div class="stat-card-num">10+</div><div class="stat-card-label">Industries automated</div></div>
-      <div class="stat-card reveal rd2"><div class="stat-card-num">38+</div><div class="stat-card-label">Workflows live</div></div>
+      <div class="stat-card reveal rd2"><div class="stat-card-num">44+</div><div class="stat-card-label">Workflows live</div></div>
       <div class="stat-card reveal rd3"><div class="stat-card-num">60s</div><div class="stat-card-label">Average AI response time</div></div>
       <div class="stat-card reveal rd4"><div class="stat-card-num">100%</div><div class="stat-card-label">Custom built, no templates</div></div>
     </div>
@@ -387,21 +387,21 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
       <h2>Real results, real businesses</h2>
     </div>
     <div class="test-grid">
-      <div class="test-card reveal rd1">
+      <div class="test-card reveal rd1" style="border-color:rgba(52,211,153,.2);background:rgba(52,211,153,.03)">
         <div class="test-stars">★★★★★</div>
-        <blockquote>"The container matching system changed the business completely. What took days now happens in under an hour, without anyone touching it."</blockquote>
-        <div class="test-author">Operations Lead</div>
-        <div class="test-role">Cargo &amp; Freight Forwarding</div>
+        <blockquote>"Nazmul built us a full AI lead generation pipeline that scrapes funding databases, enriches leads through Apollo, verifies emails, and delivers a daily Telegram digest. It runs every day without anyone touching it. Exactly what we needed."</blockquote>
+        <div class="test-author">Faisal Ahmed</div>
+        <div class="test-role">Founder, SalDev (saldev.io)</div>
       </div>
       <div class="test-card reveal rd2">
         <div class="test-stars">★★★★★</div>
-        <blockquote>"Candidate enquiries used to sit for hours. Now they get a response in under a minute. We've had candidates say it felt more responsive than agencies three times our size."</blockquote>
-        <div class="test-author">Director</div>
-        <div class="test-role">Specialist Recruitment Agency</div>
+        <blockquote>"The container matching system changed the business completely. What took 1 to 4 days now happens in under an hour, without anyone touching it. We have not manually processed an Excel file since go-live."</blockquote>
+        <div class="test-author">Operations Lead</div>
+        <div class="test-role">Cargo and Freight Forwarding</div>
       </div>
       <div class="test-card reveal rd3">
         <div class="test-stars">★★★★★</div>
-        <blockquote>"Our no-shows dropped significantly within the first two weeks. The reminder sequence just works. It's saved us real money in missed appointments."</blockquote>
+        <blockquote>"Our no-shows dropped significantly within the first two weeks. The reminder sequence just works. It has saved us real money in missed appointments and our clients actually comment on how professional the communications feel."</blockquote>
         <div class="test-author">Practice Manager</div>
         <div class="test-role">Aesthetic Clinic</div>
       </div>
@@ -435,7 +435,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
       </div>
       <div class="faq-item">
         <div class="faq-q">What if my industry isn't listed? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Book a free audit anyway. The underlying problems — slow responses, missed follow-ups, manual data entry — exist in every service business. If we can solve it, we'll tell you exactly how.</div>
+        <div class="faq-a">Book a free audit anyway. The underlying problems to slow responses, missed follow-ups, manual data entry to exist in every service business. If we can solve it, we'll tell you exactly how.</div>
       </div>
     </div>
   </div>

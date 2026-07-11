@@ -147,38 +147,119 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 
 <section class="section" style="padding-top:80px">
   <div class="section-label reveal">The stack</div>
-  <h2 style="font-size:clamp(28px,3.5vw,46px);font-weight:800;letter-spacing:-1px;line-height:1.12;margin-bottom:48px" class="reveal">Tools we build with</h2>
-  <div class="tools-grid">
-    <div class="tool-card reveal rd1">
-      <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg>
-      <h3>n8n</h3>
-      <p>Self-hosted workflow automation. Open source, 400+ integrations, zero per-task fees. You own everything we build in it.</p>
+  <h2 style="font-size:clamp(28px,3.5vw,46px);font-weight:800;letter-spacing:-1px;line-height:1.12;margin-bottom:16px" class="reveal">Tools we build with</h2>
+  <p class="reveal" style="font-size:16px;color:rgba(255,255,255,.45);max-width:560px;margin-bottom:48px;line-height:1.7">Every tool below is actively used across Zenmul client builds. No bloated tech stacks, no tools added for show. Each one earns its place.</p>
+
+  <div style="margin-bottom:48px" class="reveal">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--green);text-transform:uppercase;margin-bottom:20px">Core Infrastructure</div>
+    <div class="tools-grid">
+      <div class="tool-card reveal rd1">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg>
+        <h3>n8n</h3>
+        <p>Self-hosted workflow automation engine. 400+ integrations, zero per-task fees, open source. You own everything we build.</p>
+      </div>
+      <div class="tool-card reveal rd2">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <h3>Groq AI (Llama 3.3 70B)</h3>
+        <p>Ultra-fast AI inference. Powers every intelligent decision in your workflows — from lead scoring to document generation.</p>
+      </div>
+      <div class="tool-card reveal rd3">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        <h3>Railway</h3>
+        <p>Cloud hosting for your self-hosted n8n instance. Always on, zero manual server management, automatic restarts.</p>
+      </div>
     </div>
-    <div class="tool-card reveal rd2">
-      <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-      <h3>Groq AI</h3>
-      <p>Fast, cheap inference for Llama 3.3 70B. Powers every AI decision in your workflows, from lead scoring to intent classification.</p>
+  </div>
+
+  <div style="margin-bottom:48px" class="reveal">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--green);text-transform:uppercase;margin-bottom:20px">Communication and Data</div>
+    <div class="tools-grid">
+      <div class="tool-card reveal rd1">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <h3>Gmail</h3>
+        <p>Automated email sending for confirmations, reminders, follow-ups, and onboarding sequences across every vertical.</p>
+      </div>
+      <div class="tool-card reveal rd2">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        <h3>Telegram</h3>
+        <p>Instant digest alerts, exception notifications, and daily summaries delivered to your phone the moment they matter.</p>
+      </div>
+      <div class="tool-card reveal rd3">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <h3>Google Sheets</h3>
+        <p>The operational data layer across all client builds. Triggers, logs, and updates live in sheets your team already uses.</p>
+      </div>
+      <div class="tool-card reveal rd1">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <h3>Google Drive</h3>
+        <p>File storage and document management. Workflows read, write, and organise files automatically without manual uploads.</p>
+      </div>
+      <div class="tool-card reveal rd2">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        <h3>Google Forms</h3>
+        <p>Intake forms that trigger workflows automatically. Enquiries, audits, onboarding — captured and processed in seconds.</p>
+      </div>
+      <div class="tool-card reveal rd3">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <h3>Google Calendar</h3>
+        <p>Appointment scheduling and reminder triggers. Syncs with booking flows to send confirmations and reminders automatically.</p>
+      </div>
     </div>
-    <div class="tool-card reveal rd3">
-      <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-      <h3>Google Workspace</h3>
-      <p>Sheets, Gmail, Drive, Forms. The data lives where your team already works, no new dashboards to learn.</p>
+  </div>
+
+  <div style="margin-bottom:48px" class="reveal">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--green);text-transform:uppercase;margin-bottom:20px">Lead Generation and Enrichment</div>
+    <div class="tools-grid">
+      <div class="tool-card reveal rd1">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <h3>Apollo.io</h3>
+        <p>B2B lead database and enrichment. Finds verified contact data for decision-makers across industries and company sizes.</p>
+      </div>
+      <div class="tool-card reveal rd2">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16"/></svg>
+        <h3>Clearout</h3>
+        <p>Email verification before any outreach is sent. Eliminates bounces, protects sender reputation, improves deliverability.</p>
+      </div>
+      <div class="tool-card reveal rd3">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <h3>Apify</h3>
+        <p>Web scraping and data extraction. Pulls leads from directories, funding databases, job boards, and company websites at scale.</p>
+      </div>
+      <div class="tool-card reveal rd1">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <h3>WhoisFreaks</h3>
+        <p>Domain WHOIS lookups and expiry monitoring. Powers the domain watchlist automation that alerts on expiring opportunities.</p>
+      </div>
+      <div class="tool-card reveal rd2">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <h3>REST APIs</h3>
+        <p>Custom HTTP integrations with any platform that has an API. If it has an endpoint, it can be automated.</p>
+      </div>
+      <div class="tool-card reveal rd3">
+        <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <h3>Webhooks</h3>
+        <p>Real-time event triggers from any external platform. Form submissions, payment events, CRM updates — caught instantly.</p>
+      </div>
     </div>
-    <div class="tool-card reveal rd1">
-      <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-      <h3>Telegram</h3>
-      <p>Instant alerts and summaries sent directly to your phone. No logging into dashboards to know if the workflow ran.</p>
+  </div>
+
+  <div class="reveal">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--green);text-transform:uppercase;margin-bottom:20px">Industry-Specific Tools</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(52,211,153,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><span style="color:var(--green)">⚡</span>Twilio (SMS)</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(52,211,153,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><span style="color:var(--green)">💬</span>WhatsApp API</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(52,211,153,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><span style="color:var(--green)">📅</span>Calendly</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(52,211,153,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><span style="color:var(--green)">💳</span>Stripe</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(52,211,153,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><span style="color:var(--green)">🗂️</span>Airtable</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(52,211,153,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><span style="color:var(--green)">📝</span>Notion</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(52,211,153,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><span style="color:var(--green)">💬</span>Slack</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(52,211,153,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><span style="color:var(--green)">🏠</span>GoHighLevel</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(52,211,153,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><span style="color:var(--green)">🔗</span>HubSpot</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(52,211,153,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><span style="color:var(--green)">📋</span>Typeform</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(52,211,153,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><span style="color:var(--green)">📊</span>Excel (XLSX)</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(52,211,153,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'"><span style="color:var(--green)">🔍</span>LinkedIn (Scraping)</div>
     </div>
-    <div class="tool-card reveal rd2">
-      <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-      <h3>Apollo + Clearout</h3>
-      <p>Lead enrichment and email verification. Finds the decision-maker and confirms the email before anything is sent.</p>
-    </div>
-    <div class="tool-card reveal rd3">
-      <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-      <h3>Railway</h3>
-      <p>Reliable hosting for your self-hosted n8n instance. Always on, always running, no manual server management.</p>
-    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,.3);margin-top:16px">Have a tool not listed? If it has an API or webhook, it can almost certainly be integrated.</p>
   </div>
 </section>
 

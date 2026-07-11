@@ -118,8 +118,10 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
     <button class="filter-tab" data-filter="restaurant">Restaurants</button>
     <button class="filter-tab" data-filter="gym">Gyms &amp; PTs</button>
     <button class="filter-tab" data-filter="law">Law Firms</button>
+    <button class="filter-tab" data-filter="coach">E-learning &amp; Coaches</button>
+    <button class="filter-tab" data-filter="tools">Standalone Tools</button>
   </div>
-  <div class="results-count"><span id="results-num">38</span> workflows</div>
+  <div class="results-count"><span id="results-num">44</span> workflows</div>
 </div>
 
 <div class="section">
@@ -166,7 +168,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
     <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div><span class="card-badge">Recruitment</span></div>
     <h3>Candidate Pipeline Tracker</h3>
     <div class="tagline">Full pipeline visibility, zero manual updates</div>
-    <p>Every status change — applied, screened, interviewed, placed — updates the Google Sheet automatically. The pipeline is always current without anyone touching it.</p>
+    <p>Every status change to applied, screened, interviewed, placed to updates the Google Sheet automatically. The pipeline is always current without anyone touching it.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Status changes</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Team notified</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
   </div>
@@ -176,7 +178,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
     <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><span class="card-badge">Clinics</span></div>
     <h3>Instant Enquiry Responder</h3>
     <div class="tagline">Sub-60 second AI reply to every enquiry</div>
-    <p>Every clinic enquiry — treatment questions, booking requests, pricing — gets an AI-written reply in under 60 seconds. Intent is classified and routed to the right team member with a Telegram alert.</p>
+    <p>Every clinic enquiry to treatment questions, booking requests, pricing to gets an AI-written reply in under 60 seconds. Intent is classified and routed to the right team member with a Telegram alert.</p>
     <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI classifies intent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reply sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Team alerted</span></div></div>
     <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Telegram</span></div>
   </div>
@@ -522,6 +524,62 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
     <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
   </div>
 
+  <!-- COACH BRAIN — E-LEARNING & COACHES -->
+  <div class="workflow-card reveal rd1" data-category="coach" data-tags="coach elearning student enquiry responder ai reply course interest instant">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Coaches &amp; E-learning</span></div>
+    <h3>New Student Enquiry Responder</h3>
+    <div class="tagline">AI reply to every course enquiry in under 60 seconds</div>
+    <p>Every new student enquiry triggers an instant AI-written reply personalised to the course interest. Warm, motivating, and professional before any human is involved. Logged to Google Sheets automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI drafts reply</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sent instantly</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="coach" data-tags="coach elearning session class reminder sequence confirmation 24h 2h automated booking">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="card-badge">Coaches &amp; E-learning</span></div>
+    <h3>Session and Class Reminder Sequence</h3>
+    <div class="tagline">Instant confirmation, 24h and 2h reminders automated</div>
+    <p>New session booked triggers an instant confirmation, a 24-hour reminder, and a 2-hour reminder — all sent automatically. No-shows drop and every step is logged in Google Sheets without manual work.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Session booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Confirmation sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">24h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">2h reminder</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="coach" data-tags="coach elearning no-show recovery bot missed session rebook ai follow up">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><span class="card-badge">Coaches &amp; E-learning</span></div>
+    <h3>No-Show Recovery Bot</h3>
+    <div class="tagline">Missed sessions followed up with a rebook offer instantly</div>
+    <p>The moment a session is marked No-Show, Groq AI writes a warm recovery email with a rebook offer and sends it automatically. Recovery sent and rebook offered flags are logged in Google Sheets.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">No-Show detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI writes email</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Recovery sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="coach" data-tags="coach elearning post session feedback collector ai survey retention automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><span class="card-badge">Coaches &amp; E-learning</span></div>
+    <h3>Post-Session Feedback Collector</h3>
+    <div class="tagline">AI feedback request sent automatically after every session</div>
+    <p>After every session, an AI-written feedback request goes out automatically. Responses are logged to Google Sheets, building a continuous picture of student satisfaction without any manual chasing.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Session completed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Wait and send</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Feedback logged</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd5" data-category="coach" data-tags="coach elearning lapsed student win back bot re-engagement 30 days daily scan retention">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><span class="card-badge">Coaches &amp; E-learning</span></div>
+    <h3>Lapsed Student Win-Back Bot</h3>
+    <div class="tagline">Lapsed students re-engaged automatically at 30 days</div>
+    <p>Runs every day at 9AM. Detects students who have not attended in 30 days and sends a warm AI-written re-engagement email with a return invite. Retention improves without manually chasing anyone.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Daily 9AM scan</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Lapsed detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Win-back sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Groq AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <!-- STANDALONE TOOLS -->
+  <div class="workflow-card reveal rd1" data-category="tools" data-tags="domain monitor watchlist whoisfreaks expiry alert telegram namecheap standalone tool">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><span class="card-badge">Standalone Tool</span></div>
+    <h3>Domain Watchlist Monitor</h3>
+    <div class="tagline">21-domain watchlist checked every 2 days automatically</div>
+    <p>Monitors a watchlist of 21 domains via WhoisFreaks API every 2 days. Detects expiring or expired domains, logs each result with priority and category to Google Sheets, and sends a Telegram alert with a direct Namecheap buy link before anyone else snaps it up.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Every 2 days</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">WHOIS checked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet logged</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Telegram alert</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">WhoisFreaks API</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
   <div class="no-results" id="no-results" style="grid-column:1/-1">
     <h3>No workflows found</h3>
     <p>Try a different search or filter.</p>
@@ -532,16 +590,35 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 
 <div class="section">
   <div style="margin-bottom:64px">
-    <div class="eyebrow reveal" style="opacity:1;animation:none;display:block;margin-bottom:20px">Coming Soon</div>
-    <h2 class="reveal" style="font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-.6px;margin-bottom:12px">More verticals in production</h2>
-    <p class="reveal" style="font-size:15px;color:rgba(255,255,255,.5);max-width:480px;margin-bottom:36px">New automation suites are built and shipped every few weeks. These are next in the pipeline.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
-      <div class="reveal" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:12px"><span style="font-size:1.2rem">🏠</span><div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Real Estate Agents</div><div style="font-size:11px;color:rgba(255,255,255,.35)">Coming soon</div></div></div>
-      <div class="reveal" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:12px"><span style="font-size:1.2rem">📚</span><div><div style="font-size:13px;font-weight:600;margin-bottom:2px">E-learning &amp; Coaches</div><div style="font-size:11px;color:rgba(255,255,255,.35)">Coming soon</div></div></div>
-      <div class="reveal" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:12px"><span style="font-size:1.2rem">📊</span><div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Accountants &amp; Bookkeepers</div><div style="font-size:11px;color:rgba(255,255,255,.35)">Coming soon</div></div></div>
-      <div class="reveal" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:12px"><span style="font-size:1.2rem">🦷</span><div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Dental &amp; Physio Clinics</div><div style="font-size:11px;color:rgba(255,255,255,.35)">Coming soon</div></div></div>
-      <div class="reveal" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:12px"><span style="font-size:1.2rem">🎉</span><div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Event Planners</div><div style="font-size:11px;color:rgba(255,255,255,.35)">Coming soon</div></div></div>
+    <div style="display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.16em;color:rgba(52,211,153,.9);text-transform:uppercase;margin-bottom:16px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:20px;padding:5px 14px">
+      <span style="width:6px;height:6px;background:#34D399;border-radius:50%;animation:pulse 2s ease infinite;display:inline-block"></span>
+      In Production
     </div>
+    <h2 class="reveal" style="font-size:clamp(24px,3vw,40px);font-weight:800;letter-spacing:-.8px;margin-bottom:14px">More verticals shipping soon</h2>
+    <p class="reveal" style="font-size:15px;color:rgba(255,255,255,.45);max-width:560px;margin-bottom:40px;line-height:1.7">New automation suites are built and deployed every few weeks. Every industry listed below is being actively researched or built. Request yours and it moves to the top of the queue.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:10px">
+      <div class="reveal rd1" style="background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.18);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px;transition:border-color .2s,transform .2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'"><span style="font-size:1.3rem">🏠</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Real Estate Agents</div><div style="font-size:11px;color:rgba(52,211,153,.6);font-weight:600">Building now</div></div></div>
+      <div class="reveal rd2" style="background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.18);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px;transition:border-color .2s,transform .2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'"><span style="font-size:1.3rem">📚</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">E-learning &amp; Coaches</div><div style="font-size:11px;color:rgba(52,211,153,.6);font-weight:600">Building now</div></div></div>
+      <div class="reveal rd3" style="background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.18);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px;transition:border-color .2s,transform .2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'"><span style="font-size:1.3rem">📊</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Accountants &amp; Bookkeepers</div><div style="font-size:11px;color:rgba(52,211,153,.6);font-weight:600">Building now</div></div></div>
+      <div class="reveal rd4" style="background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.18);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px;transition:border-color .2s,transform .2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'"><span style="font-size:1.3rem">🦷</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Dental &amp; Physio Clinics</div><div style="font-size:11px;color:rgba(52,211,153,.6);font-weight:600">Building now</div></div></div>
+      <div class="reveal rd5" style="background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.18);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px;transition:border-color .2s,transform .2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'"><span style="font-size:1.3rem">🎉</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Event Planners</div><div style="font-size:11px;color:rgba(52,211,153,.6);font-weight:600">Building now</div></div></div>
+      <div class="reveal rd1" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">🏗️</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Construction Companies</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd2" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">🏨</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Hotels &amp; Hospitality</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd3" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">🚗</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Auto Dealerships</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd4" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">🏫</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Schools &amp; Tutors</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd5" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">🛡️</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Insurance Brokers</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd1" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">💊</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Pharmacies</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd2" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">🧹</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Cleaning Companies</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd3" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">🐾</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Veterinary Practices</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd4" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">🎨</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Creative Agencies</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd5" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">🏦</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Financial Advisors</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd1" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">🧠</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Mental Health Practices</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd2" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">🔧</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Trades &amp; Contractors</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd3" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">🛒</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">eCommerce Brands</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd4" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">🌍</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Travel &amp; Tourism</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+      <div class="reveal rd5" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px"><span style="font-size:1.3rem">📦</span><div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Warehousing &amp; 3PL</div><div style="font-size:11px;color:rgba(255,255,255,.3)">Coming soon</div></div></div>
+    </div>
+    <p style="font-size:13px;color:rgba(255,255,255,.3);margin-top:20px;text-align:center">Your industry not listed? <a href="contact.html" style="color:rgba(52,211,153,.7);text-decoration:none">Request it here</a> and it moves to the top of the queue.</p>
   </div>
   <div class="cta-box reveal">
     <h2>Don't see your exact problem?</h2>
