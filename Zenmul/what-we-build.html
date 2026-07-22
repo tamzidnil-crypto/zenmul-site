@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What We Build | Zenmul</title>
+<meta name="description" content="Every automation system Zenmul builds. Filterable by industry. Real workflows solving real problems across recruitment, clinics, logistics, SaaS, property, dropshipping, salons, restaurants, gyms, and law firms.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#34D399;--bg:#07090a;--card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--muted:#6b7280;--muted2:#9ca3af}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:#fff;font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(7,9,10,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:background .3s}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:700;font-size:17px}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.btn-nav{background:var(--green);color:#061210;font-weight:700;font-size:14px;padding:9px 20px;border-radius:8px;text-decoration:none;transition:opacity .2s}
+.btn-nav:hover{opacity:.88}
+#bg-icons-layer{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.page-hero{padding:140px 48px 60px;max-width:1300px;margin:0 auto;position:relative;z-index:3}
+.eyebrow{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fadeUp .7s ease forwards .1s}
+.page-hero h1{font-size:clamp(36px,5vw,62px);font-weight:800;letter-spacing:-1.5px;margin-bottom:16px;line-height:1.08;opacity:0;animation:fadeUp .8s ease forwards .3s}
+.page-hero p{font-size:17px;color:rgba(255,255,255,.52);max-width:560px;line-height:1.72;opacity:0;animation:fadeUp .7s ease forwards .5s}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(22px)}}
+.search-section{padding:0 48px 48px;max-width:1300px;margin:0 auto;position:relative;z-index:3;opacity:0;animation:fadeUp .7s ease forwards .6s}
+.search-wrap{position:relative;margin-bottom:24px}
+.search-wrap svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+#search-input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:14px;color:#fff;font-family:'Inter',sans-serif;font-size:15px;padding:16px 18px 16px 52px;outline:none;transition:border-color .2s,background .2s;cursor:none}
+#search-input::placeholder{color:rgba(255,255,255,.3)}
+#search-input:focus{border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.03)}
+.filter-tabs{display:flex;gap:10px;flex-wrap:wrap}
+.filter-tab{background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;color:rgba(255,255,255,.55);font-size:13px;font-weight:500;padding:7px 18px;cursor:none;transition:all .2s;font-family:'Inter',sans-serif}
+.filter-tab:hover{border-color:rgba(52,211,153,.3);color:rgba(255,255,255,.8)}
+.filter-tab.active{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.4);color:var(--green)}
+.results-count{font-size:13px;color:var(--muted);margin-top:16px}
+.results-count span{color:rgba(255,255,255,.6)}
+.section{padding:0 48px 96px;max-width:1300px;margin:0 auto;position:relative;z-index:3}
+.workflow-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.workflow-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;overflow:hidden}
+.workflow-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(52,211,153,.25),transparent);opacity:0;transition:opacity .3s}
+.workflow-card:hover{transform:translateY(-5px);border-color:rgba(52,211,153,.25);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.workflow-card:hover::before{opacity:1}
+.workflow-card.hidden{display:none}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;gap:16px}
+.card-icon{width:44px;height:44px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0}
+.card-badge{font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--green);text-transform:uppercase;border:1px solid rgba(52,211,153,.25);border-radius:20px;padding:3px 10px;white-space:nowrap}
+.workflow-card h3{font-size:19px;font-weight:800;letter-spacing:-.4px;margin-bottom:10px;line-height:1.25}
+.workflow-card .tagline{font-size:13px;font-weight:600;color:var(--green);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.workflow-card .tagline::before{content:'';width:16px;height:1px;background:var(--green)}
+.workflow-card p{font-size:14px;color:rgba(255,255,255,.52);line-height:1.72;margin-bottom:24px}
+.flow-steps{display:flex;align-items:center;gap:0;margin-bottom:24px;flex-wrap:wrap;gap:4px}
+.flow-step{display:flex;align-items:center;gap:4px}
+.flow-pill{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:4px 12px;font-size:11px;color:rgba(255,255,255,.6);white-space:nowrap}
+.flow-arrow{color:rgba(52,211,153,.4);font-size:12px;margin:0 2px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:11px;color:rgba(255,255,255,.4);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:3px 10px;transition:border-color .2s,color .2s}
+.tag:hover{border-color:rgba(52,211,153,.3);color:var(--green)}
+.no-results{text-align:center;padding:80px 0;display:none}
+.no-results h3{font-size:20px;font-weight:700;margin-bottom:12px;color:rgba(255,255,255,.5)}
+.no-results p{font-size:14px;color:var(--muted)}
+.cta-box{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:20px;padding:72px 48px;text-align:center;max-width:700px;margin:0 auto 96px;transition:border-color .3s}
+.cta-box:hover{border-color:rgba(52,211,153,.2)}
+.cta-box h2{font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.8px;margin-bottom:16px}
+.cta-box p{color:rgba(255,255,255,.5);font-size:15px;margin-bottom:32px}
+.btn-primary{background:var(--green);color:#061210;font-weight:700;font-size:15px;padding:14px 28px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s,transform .2s}
+.btn-primary:hover{opacity:.9;transform:translateY(-2px)}
+footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;position:relative;z-index:3}
+.footer-links-row{display:flex;gap:28px;list-style:none;flex-wrap:wrap}
+.footer-links-row a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.footer-links-row a:hover{color:#fff}
+.footer-copy{font-size:13px;color:var(--muted)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.06s}.rd2{transition-delay:.12s}.rd3{transition-delay:.18s}.rd4{transition-delay:.24s}.rd5{transition-delay:.30s}.rd6{transition-delay:.36s}
+@media(max-width:900px){nav{padding:0 20px}.nav-links{display:none}.workflow-grid{grid-template-columns:1fr}.section,.search-section,.page-hero{padding-left:20px;padding-right:20px}footer{padding:32px 20px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+
+/* ═══ ZARA WIDGET CSS ═══ */
+#zenmul-toggle,#zenmul-panel,#zenmul-panel *{box-sizing:border-box;}
+#zenmul-toggle{position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#34D399;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10000;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 4px 24px rgba(52,211,153,0.35);}
+#zenmul-toggle:hover{transform:scale(1.08);box-shadow:0 0 0 10px rgba(52,211,153,0.12),0 4px 24px rgba(52,211,153,0.35);}
+#zenmul-toggle::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(52,211,153,0.4);animation:zm-pulse 2.4s ease-out infinite;}
+@keyframes zm-pulse{0%{transform:scale(1);opacity:1;}70%{transform:scale(1.55);opacity:0;}100%{transform:scale(1.55);opacity:0;}}
+#zenmul-panel{position:fixed;bottom:96px;right:28px;width:360px;max-height:560px;background:#0E1214;border:1px solid #1E2529;border-radius:14px;display:flex;flex-direction:column;z-index:9999;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.7),0 0 0 1px rgba(52,211,153,0.07);transform:translateY(18px) scale(0.96);opacity:0;pointer-events:none;transition:transform .22s ease,opacity .22s ease;}
+#zenmul-panel.zm-open{transform:translateY(0) scale(1);opacity:1;pointer-events:all;}
+.zm-hdr{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid #1E2529;background:#07090A;flex-shrink:0;}
+.zm-av{width:34px;height:34px;border-radius:50%;background:#34D399;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.zm-hdr-txt{flex:1;min-width:0;}
+.zm-hdr-txt strong{display:block;font-size:13px;font-weight:600;color:#E8EDEB;font-family:'Inter',system-ui,sans-serif;}
+.zm-hdr-txt em{display:flex;align-items:center;gap:5px;font-size:11px;color:#34D399;font-style:normal;font-family:'Inter',system-ui,sans-serif;}
+.zm-dot{width:6px;height:6px;border-radius:50%;background:#34D399;flex-shrink:0;animation:zmDotPulse 2s ease-in-out infinite;}
+@keyframes zmDotPulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.zm-x{background:none;border:none;color:#6B7C75;cursor:pointer;padding:5px;border-radius:6px;transition:color .15s;display:flex;align-items:center;line-height:1;}
+.zm-x:hover{color:#E8EDEB;}
+.zm-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:11px;scrollbar-width:thin;scrollbar-color:#1E2529 transparent;}
+.zm-msgs::-webkit-scrollbar{width:3px;}
+.zm-msgs::-webkit-scrollbar-thumb{background:#1E2529;border-radius:4px;}
+.zm-msg{display:flex;flex-direction:column;max-width:90%;}
+.zm-msg.zm-u{align-self:flex-end;align-items:flex-end;}
+.zm-msg.zm-a{align-self:flex-start;align-items:flex-start;}
+.zm-bbl{padding:10px 13px;border-radius:12px;font-size:13.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;font-family:'Inter',system-ui,sans-serif;}
+.zm-msg.zm-u .zm-bbl{background:#34D399;color:#07090A;font-weight:500;border-bottom-right-radius:3px;}
+.zm-msg.zm-a .zm-bbl{background:#151A1D;color:#E8EDEB;border:1px solid #1E2529;border-bottom-left-radius:3px;}
+.zm-typing{display:flex;align-items:center;gap:5px;padding:10px 14px;background:#151A1D;border:1px solid #1E2529;border-radius:12px;border-bottom-left-radius:3px;width:fit-content;}
+.zm-typing span{width:6px;height:6px;border-radius:50%;background:#34D399;animation:zm-bounce 1.2s ease-in-out infinite;}
+.zm-typing span:nth-child(2){animation-delay:.2s;}
+.zm-typing span:nth-child(3){animation-delay:.4s;}
+@keyframes zm-bounce{0%,60%,100%{transform:translateY(0);opacity:.4;}30%{transform:translateY(-5px);opacity:1;}}
+.zm-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 11px;flex-shrink:0;}
+.zm-chip{background:transparent;border:1px solid #1E2529;color:#6B7C75;font-size:11.5px;padding:5px 11px;border-radius:20px;cursor:pointer;font-family:'Inter',system-ui,sans-serif;transition:border-color .15s,color .15s;white-space:nowrap;}
+.zm-chip:hover{border-color:#34D399;color:#34D399;}
+.zm-inp-row{display:flex;align-items:flex-end;gap:8px;padding:11px 13px;border-top:1px solid #1E2529;background:#07090A;flex-shrink:0;}
+#zm-inp{flex:1;background:#151A1D;border:1px solid #1E2529;border-radius:10px;padding:9px 12px;font-size:13px;color:#E8EDEB;font-family:'Inter',system-ui,sans-serif;resize:none;outline:none;line-height:1.5;max-height:100px;transition:border-color .15s;scrollbar-width:none;}
+#zm-inp::-webkit-scrollbar{display:none;}
+#zm-inp::placeholder{color:#6B7C75;}
+#zm-inp:focus{border-color:#1a6e4e;}
+#zm-send-btn{width:36px;height:36px;border-radius:8px;background:#34D399;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,transform .1s;}
+#zm-send-btn:hover{background:#2bc887;}
+#zm-send-btn:active{transform:scale(0.92);}
+#zm-send-btn:disabled{background:#1E2529;cursor:not-allowed;}
+.zm-ft{text-align:center;font-size:10px;color:#6B7C75;padding:5px 0 9px;font-family:'Inter',system-ui,sans-serif;}
+@media(max-width:420px){#zenmul-panel{right:10px;left:10px;width:auto;bottom:86px;}#zenmul-toggle{right:14px;bottom:18px;}}
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);opacity:.08;}
+
+</style>
+</head>
+<body>
+<div id="bg-icons-layer"></div>
+<div id="cursor"></div>
+<div id="cursor-glow"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>Zenmul</a>
+      <ul class="nav-links">
+    <li><a href="what-we-build.html">What we build</a></li>
+    <li><a href="how-it-works.html">How it works</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="roi-calculator.html">ROI Calculator</a></li>
+    <li><a href="integrations.html">Integrations</a></li>
+    <li><a href="compare.html">Compare</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="contact.html" class="btn-nav">Free audit</a>
+</nav>
+
+<div class="page-hero">
+  <span class="eyebrow">What we build</span>
+  <h1>Specific problems.<br>Specific workflows.</h1>
+  <p>Every system below is built and running in production. Each one kills a manual task that was costing time, money, or customers. Filter by your industry or search by problem.</p>
+</div>
+
+<div class="search-section">
+  <div class="search-wrap">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="search-input" placeholder="Search by industry, tool, or problem...">
+  </div>
+  <div class="filter-tabs">
+    <button class="filter-tab active" data-filter="all">All</button>
+    <button class="filter-tab" data-filter="recruitment">Recruitment</button>
+    <button class="filter-tab" data-filter="clinic">Clinics</button>
+    <button class="filter-tab" data-filter="logistics">Logistics</button>
+    <button class="filter-tab" data-filter="saas">B2B SaaS</button>
+    <button class="filter-tab" data-filter="property">Property</button>
+    <button class="filter-tab" data-filter="dropshipping">Dropshipping</button>
+    <button class="filter-tab" data-filter="salon">Beauty &amp; Salons</button>
+    <button class="filter-tab" data-filter="restaurant">Restaurants</button>
+    <button class="filter-tab" data-filter="gym">Gyms &amp; PTs</button>
+    <button class="filter-tab" data-filter="law">Law Firms</button>
+    <button class="filter-tab" data-filter="coach">E-learning &amp; Coaches</button>
+        <button class="filter-tab" data-filter="realestate">Real Estate</button>
+    <button class="filter-tab" data-filter="elearning">E-learning</button>
+    <button class="filter-tab" data-filter="accountants">Accountants</button>
+    <button class="filter-tab" data-filter="dental">Dental &amp; Physio</button>
+    <button class="filter-tab" data-filter="events">Event Planners</button>
+    <button class="filter-tab" data-filter="construction">Construction</button>
+    <button class="filter-tab" data-filter="hotels">Hotels</button>
+    <button class="filter-tab" data-filter="auto">Auto Dealerships</button>
+    <button class="filter-tab" data-filter="schools">Schools &amp; Tutors</button>
+    <button class="filter-tab" data-filter="insurance">Insurance</button>
+    <button class="filter-tab" data-filter="pharmacy">Pharmacies</button>
+    <button class="filter-tab" data-filter="cleaning">Cleaning</button>
+    <button class="filter-tab" data-filter="veterinary">Veterinary</button>
+    <button class="filter-tab" data-filter="creative">Creative Agencies</button>
+    <button class="filter-tab" data-filter="financial">Financial Advisors</button>
+    <button class="filter-tab" data-filter="mentalhealth">Mental Health</button>
+    <button class="filter-tab" data-filter="trades">Trades &amp; Contractors</button>
+    <button class="filter-tab" data-filter="ecommerce2">eCommerce</button>
+    <button class="filter-tab" data-filter="travel">Travel &amp; Tourism</button>
+    <button class="filter-tab" data-filter="warehouse">Warehousing</button>
+    <button class="filter-tab" data-filter="tools">Standalone Tools</button>
+  </div>
+  <div class="results-count"><span id="results-num">74</span> workflows</div>
+</div>
+
+<div class="section">
+<div class="workflow-grid" id="workflow-grid">
+
+  <!-- RECRUITMENT -->
+  <div class="workflow-card reveal rd1" data-category="recruitment" data-tags="recruitment candidate enquiry responder reply instant ai n8n ai gmail">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span class="card-badge">Recruitment</span></div>
+    <h3>Candidate Enquiry Responder</h3>
+    <div class="tagline">Response time: hours to under 60 seconds</div>
+    <p>Every candidate enquiry gets an AI-written reply in under 60 seconds. The response is personalised to the role, routes to the right consultant, and logs the candidate in Google Sheets automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry in</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI drafts reply</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sent instantly</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Team alerted</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Telegram</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="recruitment" data-tags="recruitment interview reminder no-show sequence automated schedule">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span class="card-badge">Recruitment</span></div>
+    <h3>Interview Reminder Sequence</h3>
+    <div class="tagline">No-shows cut with 3-stage automated reminders</div>
+    <p>Three automatic reminders sent before every interview: 24h, 2h, and 30 minutes before. Candidates who don't confirm get flagged. No-shows drop without anyone chasing manually.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Interview booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">3 reminders sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">No reply flagged</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="recruitment" data-tags="recruitment client job brief intake form structured data google sheets">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><span class="card-badge">Recruitment</span></div>
+    <h3>Client Job Brief Intake</h3>
+    <div class="tagline">Structured briefs from clients, automatically</div>
+    <p>Clients fill a form, the workflow captures every field, formats it into a clean brief, and routes it to the right consultant with a Telegram alert. No email chains, no missing information.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Client fills form</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Brief formatted</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Routed to consultant</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Google Forms</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="recruitment" data-tags="recruitment placement follow up testimonial referral bot automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Recruitment</span></div>
+    <h3>Placement Follow-Up Bot</h3>
+    <div class="tagline">100% of placements followed up automatically</div>
+    <p>Every placement triggers a follow-up sequence to both the candidate and the client. Testimonials and referrals are requested at the right moment. Nothing falls through the cracks.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Placement confirmed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sequence triggered</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Testimonial requested</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd5" data-category="recruitment" data-tags="recruitment pipeline tracker candidate status google sheets automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div><span class="card-badge">Recruitment</span></div>
+    <h3>Candidate Pipeline Tracker</h3>
+    <div class="tagline">Full pipeline visibility, zero manual updates</div>
+    <p>Every status change to applied, screened, interviewed, placed to updates the Google Sheet automatically. The pipeline is always current without anyone touching it.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Status changes</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Team notified</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- CLINICS -->
+  <div class="workflow-card reveal rd1" data-category="clinic" data-tags="clinic medical aesthetic enquiry responder instant reply ai 60 seconds">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><span class="card-badge">Clinics</span></div>
+    <h3>Instant Enquiry Responder</h3>
+    <div class="tagline">Sub-60 second AI reply to every enquiry</div>
+    <p>Every clinic enquiry to treatment questions, booking requests, pricing to gets an AI-written reply in under 60 seconds. Intent is classified and routed to the right team member with a Telegram alert.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI classifies intent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reply sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Team alerted</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="clinic" data-tags="clinic no-show killer reminder appointment 48h 24h 3h sequence">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><span class="card-badge">Clinics</span></div>
+    <h3>No-Show Killer</h3>
+    <div class="tagline">3-stage reminder sequence cuts no-shows automatically</div>
+    <p>Automated reminders at 48h, 24h, and 3h before every appointment. Patients who don't confirm are flagged. If no response, a follow-up is triggered automatically. Slots stay filled.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Booking confirmed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">48h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">24h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">3h reminder</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- LOGISTICS -->
+  <div class="workflow-card reveal rd1" data-category="logistics" data-tags="logistics freight cargo container excel ingestion batch normalise agent format">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><span class="card-badge">Logistics</span></div>
+    <h3>Batch Excel Ingestion</h3>
+    <div class="tagline">Any agent format, normalised automatically</div>
+    <p>Watches Gmail for Excel attachments from freight agents. Parses every file regardless of column naming conventions and writes clean rows to the Container Master sheet.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Email with Excel</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Columns normalised</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Written to sheet</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="logistics" data-tags="logistics freight container matching engine ai ai deterministic customer requirements">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg></div><span class="card-badge">Logistics</span></div>
+    <h3>Container Matching Engine</h3>
+    <div class="tagline">1 to 4 day delay eliminated, matched within the hour</div>
+    <p>Runs every hour. Scores containers against customer requirements using deterministic rules first, then falls back to AI for edge cases. Writes results back automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Hourly trigger</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Score match</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI fallback</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="logistics" data-tags="logistics freight agent email extractor free text structured ai parsing">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><span class="card-badge">Logistics</span></div>
+    <h3>Agent Email Extractor</h3>
+    <div class="tagline">Free-text emails turned into structured data</div>
+    <p>Catches incoming agent update emails written as plain text. AI extracts container number, status, ETA, vessel name, and agent name from the body and updates the Container Master record automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Agent email in</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI extracts fields</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Record updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="logistics" data-tags="logistics freight exception delay alerter telegram daily digest stuck overdue unmatched">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><span class="card-badge">Logistics</span></div>
+    <h3>Exception and Delay Alerter</h3>
+    <div class="tagline">Daily 8AM digest of every problem container</div>
+    <p>Runs every morning at 8AM. Scans the entire container master and flags stuck, overdue, and unmatched containers. Sends a structured Telegram digest.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">8AM trigger</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Scan all containers</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Telegram digest</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- B2B SAAS -->
+  <div class="workflow-card reveal rd1" data-category="saas" data-tags="saas lead enrichment scoring engine ai ai inbound qualify">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><span class="card-badge">B2B SaaS</span></div>
+    <h3>Lead Enrichment and Scoring Engine</h3>
+    <div class="tagline">Lead scored and contacted in under 60 seconds</div>
+    <p>Every inbound lead is enriched and scored by AI the moment it arrives. High-value leads trigger an immediate personalised outreach. Low-value leads are logged and deprioritised.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Lead arrives</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI scores</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Outreach sent</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="saas" data-tags="saas trial to paid converter sequence day 1 3 7 onboarding email">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><span class="card-badge">B2B SaaS</span></div>
+    <h3>Trial to Paid Converter</h3>
+    <div class="tagline">Day 1, 3 and 7 sequences run automatically</div>
+    <p>Trial users get a personalised onboarding sequence timed to their behaviour. Day 1 welcome, Day 3 check-in, Day 7 conversion push. Each email is AI-written and tailored to product usage.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Trial starts</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">D1 / D3 / D7</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Conversion tracked</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="saas" data-tags="saas churn risk detector weekly scan accounts at risk flag alert">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><span class="card-badge">B2B SaaS</span></div>
+    <h3>Churn Risk Detector</h3>
+    <div class="tagline">Weekly scan covers 100% of accounts</div>
+    <p>Every week, every account is scanned for churn signals. At-risk accounts are flagged to the team with a suggested action and a draft re-engagement email.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Weekly trigger</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Scan all accounts</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Flag at-risk</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Team alerted</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="saas" data-tags="saas demo no-show killer reminder follow up reschedule automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="card-badge">B2B SaaS</span></div>
+    <h3>Demo No-Show Killer</h3>
+    <div class="tagline">Zero missed demo follow-ups</div>
+    <p>Reminder sent 1 hour before every demo. If the prospect no-shows, an automatic follow-up goes out within 15 minutes offering to reschedule. No leads go cold from a missed call.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Demo booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">1h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">No-show detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reschedule sent</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- PROPERTY -->
+  <div class="workflow-card reveal rd1" data-category="property" data-tags="property letting agency lead response bot enquiry instant reply">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div><span class="card-badge">Property</span></div>
+    <h3>Lead Response Bot</h3>
+    <div class="tagline">Response time: hours to seconds</div>
+    <p>Every property enquiry gets an instant AI-written reply within seconds, routed to the right agent with a Telegram alert. No more leads going cold while staff are busy or out of office.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry in</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI reply sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Agent alerted</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="property" data-tags="property letting post viewing feedback collector sentiment structured">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Property</span></div>
+    <h3>Post-Viewing Feedback Collector</h3>
+    <div class="tagline">Every viewing generates structured feedback</div>
+    <p>After every viewing, an automated message goes to the prospective tenant asking for feedback. Responses are captured, sentiment is analysed, and results are logged to Google Sheets.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Viewing ends</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Request sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sentiment logged</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="property" data-tags="property letting tenancy renewal reminder bot revenue churn">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><span class="card-badge">Property</span></div>
+    <h3>Tenancy Renewal Reminder Bot</h3>
+    <div class="tagline">No renewal ever missed</div>
+    <p>Monitors tenancy end dates. Sends automated renewal reminders to tenants at 90, 60, and 30 days out. Alerts the agency team at each stage.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Date approaches</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">90/60/30d reminders</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Team alerted</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="property" data-tags="property letting maintenance request tracker audit trail routed logged">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><span class="card-badge">Property</span></div>
+    <h3>Maintenance Request Tracker</h3>
+    <div class="tagline">Every request logged, routed, and auditable</div>
+    <p>Tenants submit maintenance issues via a simple form. Each request is automatically acknowledged, logged, routed to the right contractor, and tracked to completion.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Request submitted</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Auto-acknowledged</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Routed and tracked</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Google Forms</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- DROPSHIPPING -->
+  <div class="workflow-card reveal rd1" data-category="dropshipping" data-tags="dropshipping abandoned cart recovery email ai scored sequence ecommerce store">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><span class="card-badge">Dropshipping</span></div>
+    <h3>Abandoned Cart Recovery Engine</h3>
+    <div class="tagline">Carts scored and emailed within minutes</div>
+    <p>Every abandoned cart is scored by AI based on cart value and customer history. High-value carts trigger an immediate personalised recovery email. Follow-ups are timed automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Cart abandoned</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI scores value</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Recovery email sent</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="dropshipping" data-tags="dropshipping order delay defender proactive chargeback shipping late">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><span class="card-badge">Dropshipping</span></div>
+    <h3>Order Delay Defender</h3>
+    <div class="tagline">Proactive delay emails before customers complain</div>
+    <p>Monitors order status against expected delivery dates. When a delay is detected, a proactive apology and update email goes to the customer before they raise a dispute.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Delay detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Proactive email sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Case logged</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="dropshipping" data-tags="dropshipping wismo autoresponder where is my order support ticket classify reply">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><span class="card-badge">Dropshipping</span></div>
+    <h3>WISMO Autoresponder</h3>
+    <div class="tagline">Where is my order, answered instantly</div>
+    <p>Support tickets asking about order status are automatically classified as WISMO. The workflow looks up the order, retrieves the tracking status, and sends a personalised reply.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Ticket received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Classified as WISMO</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Status looked up</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reply sent</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="dropshipping" data-tags="dropshipping review ugc harvester request automated after delivery post purchase">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="card-badge">Dropshipping</span></div>
+    <h3>Review and UGC Harvester</h3>
+    <div class="tagline">Review requests sent after every delivery</div>
+    <p>After every confirmed delivery, an automated review request goes out at the right time. Review rates increase without any manual work.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Delivery confirmed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Wait 3 days</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Review request sent</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <!-- BEAUTY & SALONS -->
+  <div class="workflow-card reveal rd1" data-category="salon" data-tags="salon beauty hair appointment confirmation reminder sequence booking 48h 2h">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="card-badge">Beauty &amp; Salons</span></div>
+    <h3>Appointment Confirmation and Reminder Sequence</h3>
+    <div class="tagline">Instant confirmation, 48h and 2h reminders automated</div>
+    <p>New booking triggers an instant confirmation email, a 48h reminder, and a 2h reminder. Every step is logged in Google Sheets and a Telegram alert fires for each new booking. No-shows drop before they happen.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Booking added</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Confirmation sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">48h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">2h reminder</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="salon" data-tags="salon beauty no-show recovery bot missed appointment rebook follow up">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><span class="card-badge">Beauty &amp; Salons</span></div>
+    <h3>No-Show Recovery Bot</h3>
+    <div class="tagline">Missed appointments followed up within the hour</div>
+    <p>Runs every hour. Detects missed appointments, sends an empathetic follow-up email within 60 minutes, marks the client as a no-show in Google Sheets, and fires a Telegram alert. Slots get recovered automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Hourly scan</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">No-show detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Follow-up sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="salon" data-tags="salon beauty review harvester post visit google review request follow up ugc">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="card-badge">Beauty &amp; Salons</span></div>
+    <h3>Post-Visit Review Harvester</h3>
+    <div class="tagline">Review requests sent 24h after every visit</div>
+    <p>After every completed appointment, a personalised review request goes out 24h later. If no response, one follow-up fires at 72h. All tracked in Google Sheets. Review volume increases without any manual effort.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Visit completed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">24h request sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">72h follow-up</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Logged</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="salon" data-tags="salon beauty rebooking nudge engine lapsed client win back we miss you offer">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><span class="card-badge">Beauty &amp; Salons</span></div>
+    <h3>Rebooking Nudge Engine</h3>
+    <div class="tagline">Lapsed clients nudged back automatically at 30 days</div>
+    <p>Runs daily at 9AM. Detects clients who haven't rebooked within 30 days of their last visit. Sends a warm re-engagement email with a soft offer and fires a Telegram alert. Retention improves without chasing anyone manually.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Daily 9AM scan</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Lapsed detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Nudge sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd5" data-category="salon" data-tags="salon beauty enquiry responder ai webhook instant reply booking link ai">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Beauty &amp; Salons</span></div>
+    <h3>New Enquiry Responder</h3>
+    <div class="tagline">AI-written reply to every enquiry in under 60 seconds</div>
+    <p>Website or DM enquiry hits the webhook. AI writes a personalised reply with services, pricing, and booking link. Enquiry is logged to the Google Sheet and a Telegram alert fires instantly.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI writes reply</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reply sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Logged + alerted</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- RESTAURANTS & CAFES -->
+  <div class="workflow-card reveal rd1" data-category="restaurant" data-tags="restaurant cafe reservation confirmation reminder sequence booking 24h 2h guest">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="card-badge">Restaurants</span></div>
+    <h3>Reservation Confirmation and Reminder Sequence</h3>
+    <div class="tagline">Instant confirmation, 24h and 2h reminders automated</div>
+    <p>New reservation triggers an instant confirmation email, a 24h reminder, and a 2h reminder. Every step is logged in Google Sheets and a Telegram alert fires for each new booking. No-shows drop before they happen.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Reservation added</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Confirmation sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">24h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">2h reminder</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="restaurant" data-tags="restaurant cafe no-show recovery bot missed reservation rebook follow up">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><span class="card-badge">Restaurants</span></div>
+    <h3>No-Show Recovery Bot</h3>
+    <div class="tagline">Missed reservations followed up within the hour</div>
+    <p>Runs every hour. Detects missed reservations, sends an empathetic follow-up email within 60 minutes, marks the guest as a no-show in Google Sheets, and fires a Telegram alert. Tables get recovered automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Hourly scan</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">No-show detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Follow-up sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="restaurant" data-tags="restaurant cafe review harvester post visit google review request follow up ugc">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="card-badge">Restaurants</span></div>
+    <h3>Post-Visit Review Harvester</h3>
+    <div class="tagline">Review requests sent a few hours after every meal</div>
+    <p>After every completed visit, a personalised review request goes out a few hours later. If no response, one follow-up fires at 72h. All tracked in Google Sheets. Review volume increases without any manual effort.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Visit completed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Review request sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">72h follow-up</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Logged</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="restaurant" data-tags="restaurant cafe catering private dining enquiry responder ai webhook instant reply event">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Restaurants</span></div>
+    <h3>Catering and Private Dining Enquiry Responder</h3>
+    <div class="tagline">AI-written reply to every event enquiry in under 60 seconds</div>
+    <p>Catering or private dining enquiry hits the webhook. AI writes a warm, professional reply and confirms the team will follow up within 24 hours. Enquiry is logged to Google Sheets and a Telegram alert fires instantly.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI writes reply</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reply sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Logged + alerted</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd5" data-category="restaurant" data-tags="restaurant cafe loyalty return visit nudge lapsed guest win back re-engagement 30 days">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><span class="card-badge">Restaurants</span></div>
+    <h3>Loyalty and Return Visit Nudge</h3>
+    <div class="tagline">Lapsed guests nudged back automatically at 30 days</div>
+    <p>Runs daily at 9AM. Detects guests who haven't returned within 30 days of their last visit. Sends a warm re-engagement email with a soft invite back and fires a Telegram alert. Retention improves without chasing anyone manually.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Daily 9AM scan</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Lapsed detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Nudge sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- GYMS & PERSONAL TRAINERS -->
+  <div class="workflow-card reveal rd1" data-category="gym" data-tags="gym personal trainer pt enquiry responder ai reply instant membership fitness">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><span class="card-badge">Gyms &amp; PTs</span></div>
+    <h3>New Member Enquiry Responder</h3>
+    <div class="tagline">AI reply to every enquiry in under 60 seconds</div>
+    <p>Every new gym or PT enquiry gets an instant AI-written reply, personalised to the enquiry type. Warm, energetic, and professional, sent before any human is involved, logged to Google Sheets automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI drafts reply</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sent instantly</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="gym" data-tags="gym personal trainer pt session reminder sequence confirmation 24h 2h no-show automated booking">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="card-badge">Gyms &amp; PTs</span></div>
+    <h3>Session Reminder Sequence</h3>
+    <div class="tagline">Instant confirmation, 24h and 2h reminders automated</div>
+    <p>New session triggers an instant confirmation, a 24-hour reminder, and a 2-hour reminder, all sent automatically. No-shows drop before they happen and every step is logged in Google Sheets.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Session booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Confirmation sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">24h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">2h reminder</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="gym" data-tags="gym personal trainer pt no-show recovery bot missed session rebook ai follow up">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><span class="card-badge">Gyms &amp; PTs</span></div>
+    <h3>No-Show Recovery Bot</h3>
+    <div class="tagline">Missed sessions followed up with a rebook offer instantly</div>
+    <p>The moment a session is marked No-Show, AI writes a warm, motivating recovery email with a rebook offer and sends it automatically. Both the recovery and rebook flag are logged in Google Sheets.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">No-Show detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI writes email</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Recovery sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="gym" data-tags="gym personal trainer pt post session check in feedback retention ai automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Gyms &amp; PTs</span></div>
+    <h3>Post-Session Check-In Bot</h3>
+    <div class="tagline">AI check-in sent 3 hours after every session</div>
+    <p>3 hours after every session, an AI-written check-in email goes out asking how the client felt. Builds retention, surfaces feedback, and makes every client feel looked after, without any manual effort.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Session completed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Wait 3 hours</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI check-in sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd5" data-category="gym" data-tags="gym personal trainer pt lapsed member win back bot re-engagement 30 days daily scan retention">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><span class="card-badge">Gyms &amp; PTs</span></div>
+    <h3>Lapsed Member Win-Back Bot</h3>
+    <div class="tagline">Lapsed members nudged back automatically at 30 days</div>
+    <p>Runs every morning at 9AM. Detects members who haven't trained in 30 days, sends a warm AI-written re-engagement email with an invite to book their next session. Retention improves without chasing anyone manually.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Daily 9AM scan</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Lapsed detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Win-back sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <!-- LAW FIRMS -->
+  <div class="workflow-card reveal rd1" data-category="law" data-tags="law firm solicitor client enquiry responder ai reply instant legal matter">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Law Firms</span></div>
+    <h3>Client Enquiry Responder</h3>
+    <div class="tagline">AI reply to every legal enquiry in under 60 seconds</div>
+    <p>Every new client enquiry triggers an instant AI-written reply, personalised to the legal matter type. The response is professional and empathetic, confirms receipt, and sets expectations before any human is involved.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI drafts reply</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sent instantly</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="law" data-tags="law firm solicitor consultation reminder sequence confirmation 24h 2h no-show automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="card-badge">Law Firms</span></div>
+    <h3>Consultation Reminder Sequence</h3>
+    <div class="tagline">Instant confirmation, 24h and 2h reminders automated</div>
+    <p>New consultation triggers an instant confirmation email, a 24-hour reminder, and a 2-hour reminder, all sent automatically. No-shows drop before they happen and every step is logged in Google Sheets.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Consultation booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Confirmation sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">24h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">2h reminder</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="law" data-tags="law firm solicitor document chase bot follow up outstanding required 3 stage automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div><span class="card-badge">Law Firms</span></div>
+    <h3>Document Chase Bot</h3>
+    <div class="tagline">3 automated chase emails, no manual follow-up needed</div>
+    <p>When clients haven't submitted required documents, three progressively urgent emails go out automatically at 2, 5, and 10 day intervals. Cases stop getting stuck waiting on paperwork.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Row added</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Chase 1 at day 2</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Chase 2 at day 5</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Chase 3 at day 10</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="law" data-tags="law firm solicitor no-show recovery bot missed consultation rebook ai follow up">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><span class="card-badge">Law Firms</span></div>
+    <h3>No-Show Recovery Bot</h3>
+    <div class="tagline">Missed consultations followed up before clients go cold</div>
+    <p>The moment a consultation is marked as No-Show, AI writes a warm recovery email with a rebook offer and sends it automatically. Both the recovery and rebook offer are logged in Google Sheets.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">No-Show detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI writes email</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Recovery sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd5" data-category="law" data-tags="law firm solicitor client onboarding welcome sequence matter reference next steps assigned">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span class="card-badge">Law Firms</span></div>
+    <h3>Client Onboarding Welcome Sequence</h3>
+    <div class="tagline">New client onboarded with personalised email in seconds</div>
+    <p>The moment a new client is added to the Onboarding tab, a personalised welcome email with their matter reference, assigned solicitor, and clear next steps is generated by AI and sent instantly.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Client added</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI writes welcome</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Email sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <!-- COACH BRAIN — E-LEARNING & COACHES -->
+  <div class="workflow-card reveal rd1" data-category="coach" data-tags="coach elearning student enquiry responder ai reply course interest instant">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">Coaches &amp; E-learning</span></div>
+    <h3>New Student Enquiry Responder</h3>
+    <div class="tagline">AI reply to every course enquiry in under 60 seconds</div>
+    <p>Every new student enquiry triggers an instant AI-written reply personalised to the course interest. Warm, motivating, and professional before any human is involved. Logged to Google Sheets automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI drafts reply</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sent instantly</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd2" data-category="coach" data-tags="coach elearning session class reminder sequence confirmation 24h 2h automated booking">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="card-badge">Coaches &amp; E-learning</span></div>
+    <h3>Session and Class Reminder Sequence</h3>
+    <div class="tagline">Instant confirmation, 24h and 2h reminders automated</div>
+    <p>New session booked triggers an instant confirmation, a 24-hour reminder, and a 2-hour reminder — all sent automatically. No-shows drop and every step is logged in Google Sheets without manual work.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Session booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Confirmation sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">24h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">2h reminder</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd3" data-category="coach" data-tags="coach elearning no-show recovery bot missed session rebook ai follow up">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><span class="card-badge">Coaches &amp; E-learning</span></div>
+    <h3>No-Show Recovery Bot</h3>
+    <div class="tagline">Missed sessions followed up with a rebook offer instantly</div>
+    <p>The moment a session is marked No-Show, AI writes a warm recovery email with a rebook offer and sends it automatically. Recovery sent and rebook offered flags are logged in Google Sheets.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">No-Show detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI writes email</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Recovery sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd4" data-category="coach" data-tags="coach elearning post session feedback collector ai survey retention automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><span class="card-badge">Coaches &amp; E-learning</span></div>
+    <h3>Post-Session Feedback Collector</h3>
+    <div class="tagline">AI feedback request sent automatically after every session</div>
+    <p>After every session, an AI-written feedback request goes out automatically. Responses are logged to Google Sheets, building a continuous picture of student satisfaction without any manual chasing.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Session completed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Wait and send</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Feedback logged</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd5" data-category="coach" data-tags="coach elearning lapsed student win back bot re-engagement 30 days daily scan retention">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><span class="card-badge">Coaches &amp; E-learning</span></div>
+    <h3>Lapsed Student Win-Back Bot</h3>
+    <div class="tagline">Lapsed students re-engaged automatically at 30 days</div>
+    <p>Runs every day at 9AM. Detects students who have not attended in 30 days and sends a warm AI-written re-engagement email with a return invite. Retention improves without manually chasing anyone.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Daily 9AM scan</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Lapsed detected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Win-back sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+
+  <!-- STANDALONE TOOLS -->
+  
+  <!-- REAL ESTATE AGENTS -->
+  <div class="workflow-card reveal rd1" data-category="realestate" data-tags="real estate agent property enquiry responder ai reply instant lead">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><span class="card-badge">Real Estate</span></div>
+    <h3>Property Enquiry Responder</h3>
+    <div class="tagline">AI reply to every buyer and seller enquiry in under 60 seconds</div>
+    <p>Every new property enquiry gets an instant AI-written reply. Routes to the right agent, logs to Google Sheets, fires a Telegram alert. No lead goes cold while agents are on viewings.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry in</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI drafts reply</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sent instantly</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Agent alerted</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+  <div class="workflow-card reveal rd2" data-category="realestate" data-tags="real estate viewing reminder follow up post viewing feedback seller update automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="card-badge">Real Estate</span></div>
+    <h3>Viewing Reminder and Follow-Up Suite</h3>
+    <div class="tagline">Confirmation, reminder, post-viewing feedback — all automated</div>
+    <p>Sends confirmation when viewing is booked, 24h and 2h reminders before the viewing, then a post-viewing feedback request. Seller is updated automatically after every viewing.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Viewing booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reminders sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Feedback requested</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Seller updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+  <div class="workflow-card reveal rd3" data-category="realestate" data-tags="real estate tenancy renewal reminder bot property letting revenue">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><span class="card-badge">Real Estate</span></div>
+    <h3>Tenancy Renewal Reminder</h3>
+    <div class="tagline">Renewal reminders at 90, 60, and 30 days — no renewal ever missed</div>
+    <p>Monitors tenancy end dates and fires automated renewal reminders to tenants at 90, 60, and 30 days out. Agency team gets a Telegram alert at each stage. Zero renewals fall through.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Date approaches</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">90/60/30d emails</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Team alerted</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- E-LEARNING & COACHES -->
+  <div class="workflow-card reveal rd1" data-category="elearning" data-tags="elearning coach student enquiry responder ai reply course interest instant">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="card-badge">E-learning &amp; Coaches</span></div>
+    <h3>Student Enquiry Responder</h3>
+    <div class="tagline">AI reply to every course enquiry in under 60 seconds</div>
+    <p>Every new student enquiry gets an instant AI-written reply personalised to the course interest. Warm, motivating, professional before any human is involved.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI drafts reply</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sent instantly</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+  </div>
+  <div class="workflow-card reveal rd2" data-category="elearning" data-tags="elearning coach session reminder no-show recovery feedback lapsed student win-back">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><span class="card-badge">E-learning &amp; Coaches</span></div>
+    <h3>Full Student Lifecycle Suite</h3>
+    <div class="tagline">Reminders, no-show recovery, feedback, and win-back all automated</div>
+    <p>Session reminders at 24h and 2h, no-show recovery with rebook offer, post-session feedback collection, and lapsed student win-back at 30 days. Every step runs without anyone touching it.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Session booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reminders sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Feedback collected</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Win-back at 30d</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- ACCOUNTANTS & BOOKKEEPERS -->
+  <div class="workflow-card reveal rd1" data-category="accountants" data-tags="accountant bookkeeper client document chaser deadline reminder tax return vat">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span class="card-badge">Accountants</span></div>
+    <h3>Document Chaser and Deadline Reminder Suite</h3>
+    <div class="tagline">Missing documents chased, deadlines flagged — zero manual chasing</div>
+    <p>Monitors client document submissions. Chases missing records at day 3, 7, and 14. Sends deadline reminders for tax returns and VAT submissions to clients automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Document overdue</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Chase sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Deadline reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- DENTAL & PHYSIO -->
+  <div class="workflow-card reveal rd1" data-category="dental" data-tags="dental physio appointment reminder no-show recall patient review automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><span class="card-badge">Dental &amp; Physio</span></div>
+    <h3>Patient Appointment and Recall Suite</h3>
+    <div class="tagline">Reminders, no-show recovery, and 6-month recall — all automated</div>
+    <p>Appointment confirmations and 48h plus 2h reminders sent automatically. No-shows detected and followed up within the hour. 6-month recall reminders sent to patients who haven't rebooked.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Appointment booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reminders sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">No-show recovered</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">6-month recall</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- EVENT PLANNERS -->
+  <div class="workflow-card reveal rd1" data-category="events" data-tags="event planner enquiry vendor reminder client update rsvp follow up automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><span class="card-badge">Event Planners</span></div>
+    <h3>Event Planning Automation Suite</h3>
+    <div class="tagline">Enquiries, vendor chasers, client updates, and RSVP tracking automated</div>
+    <p>Replies to event enquiries instantly. Chases outstanding vendor confirmations. Sends client progress updates automatically. Tracks RSVP responses and flags missing confirmations.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Vendors chased</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Client updated</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">RSVPs tracked</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- CONSTRUCTION -->
+  <div class="workflow-card reveal rd1" data-category="construction" data-tags="construction company quote follow up site update client progress report subcontractor reminder">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20h20M4 20V10l8-6 8 6v10M10 20v-6h4v6"/></svg></div><span class="card-badge">Construction</span></div>
+    <h3>Construction Project Automation Suite</h3>
+    <div class="tagline">Quotes followed up, clients updated, subcontractors chased automatically</div>
+    <p>Follows up unanswered quotes after 3 days. Sends automated weekly site progress updates to clients. Chases subcontractors for confirmations and completion reports.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Quote unanswered</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Follow-up sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Weekly update</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Subcontractors chased</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- HOTELS -->
+  <div class="workflow-card reveal rd1" data-category="hotels" data-tags="hotel hospitality booking confirmation pre-arrival upsell post-stay review request automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><span class="card-badge">Hotels &amp; Hospitality</span></div>
+    <h3>Guest Journey Automation Suite</h3>
+    <div class="tagline">Confirmation, pre-arrival upsell, and post-stay review all automated</div>
+    <p>Booking confirmation sent instantly. Pre-arrival email 3 days before with upsell offers. Check-in reminder day of arrival. Post-stay review request sent 24h after checkout.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Booking confirmed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Pre-arrival upsell</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Check-in reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Review requested</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- AUTO DEALERSHIPS -->
+  <div class="workflow-card reveal rd1" data-category="auto" data-tags="auto dealership test drive follow up finance enquiry service reminder lead nurture">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><span class="card-badge">Auto Dealerships</span></div>
+    <h3>Dealership Lead and Service Automation Suite</h3>
+    <div class="tagline">Test drive follow-ups, service reminders, and finance enquiries automated</div>
+    <p>Follows up every test drive enquiry within 60 seconds. Sends service due reminders at 30 and 7 days. Responds to finance enquiries with AI instantly and routes to the right salesperson.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Test drive enquiry</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">AI replies instantly</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Service reminders</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Lead tracked</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- SCHOOLS & TUTORS -->
+  <div class="workflow-card reveal rd1" data-category="schools" data-tags="school tutor parent enquiry session reminder progress update fee reminder automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span class="card-badge">Schools &amp; Tutors</span></div>
+    <h3>Tutor and School Automation Suite</h3>
+    <div class="tagline">Enquiries, session reminders, progress updates, and fee reminders automated</div>
+    <p>Replies to parent enquiries instantly. Sends session reminders 24h before. Delivers weekly progress updates to parents automatically. Chases outstanding fee payments at day 3 and 7.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Enquiry received</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reminders sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Progress updates</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Fee chased</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- INSURANCE BROKERS -->
+  <div class="workflow-card reveal rd1" data-category="insurance" data-tags="insurance broker renewal reminder quote follow up claim update client onboarding automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><span class="card-badge">Insurance Brokers</span></div>
+    <h3>Insurance Renewal and Claims Automation Suite</h3>
+    <div class="tagline">Renewals, quote follow-ups, and claim updates automated end to end</div>
+    <p>Sends policy renewal reminders at 60 and 30 days. Follows up unanswered quotes after 3 days. Sends automated claim status updates to clients. Onboards new clients with a personalised welcome email.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Renewal approaching</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reminder sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Quote followed up</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Claim updated</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- PHARMACIES -->
+  <div class="workflow-card reveal rd1" data-category="pharmacy" data-tags="pharmacy prescription reminder refill alert patient follow up review request automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22h6a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M5 17a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M5 11v3"/><path d="M3.5 14.5l3-3"/></svg></div><span class="card-badge">Pharmacies</span></div>
+    <h3>Prescription Reminder and Refill Suite</h3>
+    <div class="tagline">Prescription ready alerts, refill reminders, and review requests automated</div>
+    <p>Notifies patients when prescriptions are ready for collection. Sends refill reminders 7 days before a prescription runs out. Requests a review 24h after collection. All without staff involvement.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Prescription ready</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Patient notified</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Refill reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Review requested</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- CLEANING COMPANIES -->
+  <div class="workflow-card reveal rd1" data-category="cleaning" data-tags="cleaning company booking confirmation job reminder review request rebooking win-back automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><span class="card-badge">Cleaning Companies</span></div>
+    <h3>Cleaning Business Automation Suite</h3>
+    <div class="tagline">Bookings confirmed, jobs reminded, reviews harvested, clients won back</div>
+    <p>Confirms every booking instantly. Reminds both client and cleaner 24h before. Sends a review request after every job. Re-engages lapsed clients at 30 days automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Booking confirmed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">24h reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Review requested</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Win-back at 30d</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- VETERINARY PRACTICES -->
+  <div class="workflow-card reveal rd1" data-category="veterinary" data-tags="veterinary vet appointment reminder vaccination recall review request no-show follow up">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><span class="card-badge">Veterinary</span></div>
+    <h3>Veterinary Practice Automation Suite</h3>
+    <div class="tagline">Reminders, vaccination recalls, and review requests all automated</div>
+    <p>Sends appointment reminders at 48h and 2h. Fires vaccination and annual checkup recalls at the right time. No-show recovery within the hour. Post-visit review request sent automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Appointment booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reminders sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Vaccination recall</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Review requested</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- CREATIVE AGENCIES -->
+  <div class="workflow-card reveal rd1" data-category="creative" data-tags="creative agency project update client approval revision request invoice follow up automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><span class="card-badge">Creative Agencies</span></div>
+    <h3>Creative Agency Project Automation Suite</h3>
+    <div class="tagline">Project updates, client approvals, and invoice chasers all automated</div>
+    <p>Sends automated project progress updates to clients. Chases outstanding creative approvals at day 2 and 5. Follows up unpaid invoices automatically. Requests testimonials on project completion.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Milestone reached</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Client updated</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Approval chased</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Invoice followed up</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- FINANCIAL ADVISORS -->
+  <div class="workflow-card reveal rd1" data-category="financial" data-tags="financial advisor annual review reminder client onboarding document request lead follow up automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div><span class="card-badge">Financial Advisors</span></div>
+    <h3>Financial Advisor Client Automation Suite</h3>
+    <div class="tagline">Annual reviews, document requests, and lead follow-ups automated</div>
+    <p>Sends annual review reminders to clients 60 and 30 days out. Chases outstanding documents for onboarding. Follows up new enquiries instantly with AI. Sends post-meeting summaries automatically.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Review due</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reminder sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Docs chased</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Enquiry replied</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- MENTAL HEALTH PRACTICES -->
+  <div class="workflow-card reveal rd1" data-category="mentalhealth" data-tags="mental health therapist counsellor appointment reminder no-show intake form onboarding automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><span class="card-badge">Mental Health</span></div>
+    <h3>Therapy Practice Automation Suite</h3>
+    <div class="tagline">Appointments, intake forms, reminders, and no-show recovery automated</div>
+    <p>Sends appointment confirmations and gentle 48h and 2h reminders. Delivers intake forms to new clients automatically. Handles no-show recovery with a warm rebook email. All without admin involvement.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Appointment booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Intake form sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Reminders sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">No-show recovered</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- TRADES & CONTRACTORS -->
+  <div class="workflow-card reveal rd1" data-category="trades" data-tags="trades contractor plumber electrician quote follow up job confirmation review request win-back">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><span class="card-badge">Trades &amp; Contractors</span></div>
+    <h3>Trades Business Automation Suite</h3>
+    <div class="tagline">Quotes followed up, jobs confirmed, reviews harvested automatically</div>
+    <p>Follows up every unanswered quote after 2 days. Confirms jobs with a reminder the day before. Requests a review after every completed job. Re-engages past clients at 90 days.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Quote sent</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">2d follow-up</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Job reminder</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Review requested</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- ECOMMERCE BRANDS -->
+  <div class="workflow-card reveal rd1" data-category="ecommerce2" data-tags="ecommerce brand order confirmation abandoned cart review request complaint handler weekly digest">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><span class="card-badge">eCommerce Brands</span></div>
+    <h3>eCommerce Brand Full Automation Suite</h3>
+    <div class="tagline">Orders confirmed, carts recovered, reviews requested, complaints handled</div>
+    <p>Order confirmations sent instantly. Abandoned carts recovered after 1 hour. Reviews requested 3 days after delivery. Complaints replied to instantly with empathetic AI response and Telegram alert.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Order placed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Cart recovered</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Review requested</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Complaint handled</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- TRAVEL & TOURISM -->
+  <div class="workflow-card reveal rd1" data-category="travel" data-tags="travel tourism booking confirmation pre-trip reminder post-trip review upsell automated">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><span class="card-badge">Travel &amp; Tourism</span></div>
+    <h3>Travel Agency Automation Suite</h3>
+    <div class="tagline">Bookings, pre-trip reminders, post-trip reviews, and upsells automated</div>
+    <p>Booking confirmation sent instantly. Pre-trip information email 7 days before departure. Post-trip review request 48h after return. Upsell email for next trip sent 30 days after return.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Booking confirmed</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Pre-trip info</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Review requested</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Upsell at 30d</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <!-- WAREHOUSING & 3PL -->
+  <div class="workflow-card reveal rd1" data-category="warehouse" data-tags="warehousing 3pl logistics inbound alert shipment update exception digest client notification">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><span class="card-badge">Warehousing &amp; 3PL</span></div>
+    <h3>Warehousing and 3PL Automation Suite</h3>
+    <div class="tagline">Inbound alerts, shipment updates, and daily exception digest automated</div>
+    <p>Sends inbound delivery alerts to warehouse team. Notifies clients of shipment status changes automatically. Fires a daily exception digest flagging delayed, damaged, or missing stock every morning.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Inbound booked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Team alerted</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Client updated</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Daily digest sent</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="workflow-card reveal rd1" data-category="tools" data-tags="domain monitor watchlist whoisfreaks expiry alert telegram namecheap standalone tool">
+    <div class="card-header"><div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><span class="card-badge">Standalone Tool</span></div>
+    <h3>Domain Watchlist Monitor</h3>
+    <div class="tagline">21-domain watchlist checked every 2 days automatically</div>
+    <p>Monitors a watchlist of 21 domains via WhoisFreaks API every 2 days. Detects expiring or expired domains, logs each result with priority and category to Google Sheets, and sends a Telegram alert with a direct Namecheap buy link before anyone else snaps it up.</p>
+    <div class="flow-steps"><div class="flow-step"><span class="flow-pill">Every 2 days</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">WHOIS checked</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Sheet logged</span><span class="flow-arrow">→</span></div><div class="flow-step"><span class="flow-pill">Telegram alert</span></div></div>
+    <div class="tags"><span class="tag">n8n</span><span class="tag">WhoisFreaks API</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+  </div>
+
+  <div class="no-results" id="no-results" style="grid-column:1/-1">
+    <h3>No workflows found</h3>
+    <p>Try a different search or filter.</p>
+  </div>
+
+</div><!-- end workflow-grid -->
+</div><!-- end section -->
+
+<div class="section">
+
+  <div class="cta-box reveal" style="margin-top:48px;">
+    <h2>Your industry not listed?</h2>
+    <p>Every workflow starts with a free audit. Tell me what's eating your week and I'll map out exactly what should be automated and how. If your industry isn't here yet, request it and it moves to the top of the queue.</p>
+    <a href="contact.html" class="btn-primary">Request your industry <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+
+  <div class="cta-box reveal">
+    <h2>Don't see your exact problem?</h2>
+    <p>Every workflow starts with a free audit. Tell me what's eating your week and I'll map out exactly what should be automated and how.</p>
+    <a href="contact.html" class="btn-primary">Get your free audit</a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="nav-logo"><svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>Zenmul</a>
+      <ul class="footer-links-row">
+    <li><a href="what-we-build.html">What we build</a></li>
+    <li><a href="how-it-works.html">How it works</a></li>
+    <li><a href="case-studies.html">Case studies</a></li>
+    <li><a href="roi-calculator.html">ROI Calculator</a></li>
+    <li><a href="integrations.html">Integrations</a></li>
+    <li><a href="compare.html">Compare</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Free audit</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Zenmul.</div>
+</footer>
+
+<script>
+const cards=[...document.querySelectorAll('.workflow-card')];
+const searchInput=document.getElementById('search-input');
+const filterTabs=document.querySelectorAll('.filter-tab');
+const noResults=document.getElementById('no-results');
+const resultsNum=document.getElementById('results-num');
+let activeFilter='all';
+function filterCards(){const q=searchInput.value.toLowerCase().trim();let visible=0;cards.forEach(card=>{const tags=card.dataset.tags.toLowerCase();const title=card.querySelector('h3').textContent.toLowerCase();const desc=card.querySelector('p').textContent.toLowerCase();const cat=card.dataset.category;const matchSearch=!q||tags.includes(q)||title.includes(q)||desc.includes(q);const matchFilter=activeFilter==='all'||cat===activeFilter;if(matchSearch&&matchFilter){card.classList.remove('hidden');visible++;}else{card.classList.add('hidden');}});resultsNum.textContent=visible;noResults.style.display=visible===0?'block':'none';}
+searchInput.addEventListener('input',filterCards);
+filterTabs.forEach(tab=>{tab.addEventListener('click',()=>{filterTabs.forEach(t=>t.classList.remove('active'));tab.classList.add('active');activeFilter=tab.dataset.filter;filterCards();});});
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=window.scrollY>50?'rgba(7,9,10,0.98)':'rgba(7,9,10,0.9)';},{passive:true});
+const urlParams=new URLSearchParams(window.location.search);
+const paramFilter=urlParams.get('filter');
+if(paramFilter){const matchTab=[...filterTabs].find(t=>t.dataset.filter===paramFilter);if(matchTab){filterTabs.forEach(t=>t.classList.remove('active'));matchTab.classList.add('active');activeFilter=paramFilter;filterCards();}}
+</script>
+<script>
+(function(){
+  const cur=document.getElementById('cursor');const glw=document.getElementById('cursor-glow');const layer=document.getElementById('bg-icons-layer');
+  const st=document.createElement('style');
+  st.textContent='body{cursor:none}#cursor{position:fixed;width:14px;height:14px;background:#34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .08s,height .08s,background .08s,border .08s,box-shadow .08s}#cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(52,211,153,0.08) 0%,transparent 65%)}#bg-icons-layer{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}.bg-icon{position:absolute;color:rgba(52,211,153,0.15);transition:color .25s,filter .25s,transform .25s;animation:bgFloat var(--dur,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}.bg-icon svg{width:100%;height:100%;display:block}.bg-icon.glowing{color:rgba(52,211,153,0.95)!important;filter:drop-shadow(0 0 8px rgba(52,211,153,0.9)) drop-shadow(0 0 20px rgba(52,211,153,0.5));transform:scale(1.35)!important;animation-play-state:paused}@keyframes bgFloat{0%,100%{transform:translateY(0px) rotate(0deg)}25%{transform:translateY(-14px) rotate(3deg)}50%{transform:translateY(-22px) rotate(-2deg)}75%{transform:translateY(-10px) rotate(4deg)}}';
+  document.head.appendChild(st);
+  const ICONS=['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>'];
+  const pos=[{l:'3%',t:'6vh'},{l:'5%',t:'20vh'},{l:'2%',t:'36vh'},{l:'6%',t:'52vh'},{l:'3%',t:'68vh'},{l:'5%',t:'85vh'},{l:'2%',t:'102vh'},{l:'4%',t:'120vh'},{l:'3%',t:'138vh'},{l:'6%',t:'156vh'},{l:'2%',t:'174vh'},{l:'4%',t:'192vh'},{l:'3%',t:'210vh'},{l:'5%',t:'228vh'},{l:'93%',t:'10vh'},{l:'91%',t:'26vh'},{l:'94%',t:'42vh'},{l:'92%',t:'58vh'},{l:'90%',t:'74vh'},{l:'93%',t:'90vh'},{l:'91%',t:'108vh'},{l:'94%',t:'126vh'},{l:'92%',t:'144vh'},{l:'90%',t:'162vh'},{l:'93%',t:'180vh'},{l:'91%',t:'198vh'},{l:'94%',t:'216vh'},{l:'20%',t:'15vh'},{l:'76%',t:'35vh'},{l:'30%',t:'80vh'},{l:'68%',t:'100vh'},{l:'22%',t:'155vh'},{l:'74%',t:'175vh'}];
+  pos.forEach((p,i)=>{const d=document.createElement('div');d.className='bg-icon';const sz=20+(i%5)*4;d.style.cssText=`left:${p.l};top:${p.t};width:${sz}px;height:${sz}px;--dur:${7+i%7}s;--dl:-${(i*0.45)%9}s`;d.innerHTML=ICONS[i%ICONS.length];layer.appendChild(d)});
+  let mx=0,my=0,gx=0,gy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';document.querySelectorAll('.bg-icon').forEach(ic=>{const r=ic.getBoundingClientRect();const cx=r.left+r.width/2,cy=r.top+r.height/2;ic.classList.toggle('glowing',Math.sqrt((mx-cx)**2+(my-cy)**2)<55)})});
+  (function anim(){gx+=(mx-gx)*0.15;gy+=(my-gy)*0.15;glw.style.left=gx+'px';glw.style.top=gy+'px';requestAnimationFrame(anim)})();
+  document.querySelectorAll('a,button,input').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.cssText='position:fixed;width:28px;height:28px;background:transparent;border:2px solid #34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 14px rgba(52,211,153,0.6);transition:width .08s,height .08s,background .08s,border .08s,box-shadow .08s;left:'+mx+'px;top:'+my+'px'});el.addEventListener('mouseleave',()=>{cur.style.cssText='position:fixed;width:14px;height:14px;background:#34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .08s,height .08s,background .08s,border .08s,box-shadow .08s;left:'+mx+'px;top:'+my+'px'})});
+})();
+</script>
+
+
+</body>
+</html>

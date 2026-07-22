@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Audit | Zenmul</title>
+<meta name="description" content="Get your free automation roadmap. Tell me about your business and what's eating your week. Free, no call required.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#34D399;--bg:#07090a;--card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--muted:#6b7280;--muted2:#9ca3af}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:#fff;font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;cursor:none}
+#cursor{position:fixed;width:12px;height:12px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+#cursor-glow{position:fixed;width:380px;height:380px;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(52,211,153,0.07) 0%,transparent 65%)}
+#bg-icons-layer{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.bg-icon{position:absolute;color:rgba(52,211,153,.16);animation:iconFloat var(--dur,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+.bg-icon svg{width:100%;height:100%;display:block}
+@keyframes iconFloat{0%,100%{transform:translateY(0px);opacity:.14}50%{transform:translateY(-18px);opacity:.26}}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(7,9,10,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:700;font-size:17px}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.btn-nav{background:var(--green);color:#061210;font-weight:700;font-size:14px;padding:9px 20px;border-radius:8px;text-decoration:none}
+.page-wrap{padding:120px 48px 96px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.left-col h1{font-size:clamp(32px,4vw,52px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease forwards .2s}
+.left-col .sub{font-size:16px;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:36px;opacity:0;animation:fadeUp .7s ease forwards .4s}
+.what-you-get{opacity:0;animation:fadeUp .7s ease forwards .6s}
+.what-label{font-size:11px;font-weight:600;letter-spacing:.16em;color:var(--green);text-transform:uppercase;margin-bottom:16px}
+.what-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.what-list li{display:flex;gap:12px;font-size:14px;color:rgba(255,255,255,.65);line-height:1.6}
+.check{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(20px)}}
+.form-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;opacity:0;animation:fadeUp .8s ease forwards .3s}
+.form-card h2{font-size:20px;font-weight:700;margin-bottom:28px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:13px;font-weight:500;color:rgba(255,255,255,.7);margin-bottom:8px}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:10px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;padding:12px 16px;outline:none;transition:border-color .2s;cursor:none}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.25)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(52,211,153,.5)}
+.form-group select option{background:#0d1210;color:#fff}
+.form-group textarea{min-height:130px;resize:vertical;line-height:1.65}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.btn-submit{width:100%;background:var(--green);color:#061210;font-weight:700;font-size:15px;padding:15px 28px;border-radius:10px;border:none;cursor:none;font-family:'Inter',sans-serif;transition:opacity .2s,transform .2s;margin-top:8px}
+.btn-submit:hover{opacity:.88;transform:translateY(-2px)}
+.form-note{font-size:12px;color:var(--muted);text-align:center;margin-top:14px}
+.success-msg{display:none;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);border-radius:12px;padding:24px;text-align:center;margin-top:20px}
+.success-msg h3{font-size:18px;font-weight:700;color:var(--green);margin-bottom:8px}
+.success-msg p{font-size:14px;color:rgba(255,255,255,.65)}
+footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-links-row{display:flex;gap:28px;list-style:none}
+.footer-links-row a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.footer-links-row a:hover{color:#fff}
+.footer-copy{font-size:13px;color:var(--muted)}
+@media(max-width:900px){nav{padding:0 20px}.page-wrap{grid-template-columns:1fr;padding:110px 20px 60px;gap:40px}.form-row{grid-template-columns:1fr}footer{padding:32px 20px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}body{cursor:auto}#cursor,#cursor-glow{display:none}}
+
+
+/* ═══ ZARA WIDGET CSS ═══ */
+#zenmul-toggle,#zenmul-panel,#zenmul-panel *{box-sizing:border-box;}
+#zenmul-toggle{position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#34D399;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10000;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 4px 24px rgba(52,211,153,0.35);}
+#zenmul-toggle:hover{transform:scale(1.08);box-shadow:0 0 0 10px rgba(52,211,153,0.12),0 4px 24px rgba(52,211,153,0.35);}
+#zenmul-toggle::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(52,211,153,0.4);animation:zm-pulse 2.4s ease-out infinite;}
+@keyframes zm-pulse{0%{transform:scale(1);opacity:1;}70%{transform:scale(1.55);opacity:0;}100%{transform:scale(1.55);opacity:0;}}
+#zenmul-panel{position:fixed;bottom:96px;right:28px;width:360px;max-height:560px;background:#0E1214;border:1px solid #1E2529;border-radius:14px;display:flex;flex-direction:column;z-index:9999;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.7),0 0 0 1px rgba(52,211,153,0.07);transform:translateY(18px) scale(0.96);opacity:0;pointer-events:none;transition:transform .22s ease,opacity .22s ease;}
+#zenmul-panel.zm-open{transform:translateY(0) scale(1);opacity:1;pointer-events:all;}
+.zm-hdr{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid #1E2529;background:#07090A;flex-shrink:0;}
+.zm-av{width:34px;height:34px;border-radius:50%;background:#34D399;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.zm-hdr-txt{flex:1;min-width:0;}
+.zm-hdr-txt strong{display:block;font-size:13px;font-weight:600;color:#E8EDEB;font-family:'Inter',system-ui,sans-serif;}
+.zm-hdr-txt em{display:flex;align-items:center;gap:5px;font-size:11px;color:#34D399;font-style:normal;font-family:'Inter',system-ui,sans-serif;}
+.zm-dot{width:6px;height:6px;border-radius:50%;background:#34D399;flex-shrink:0;animation:zmDotPulse 2s ease-in-out infinite;}
+@keyframes zmDotPulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.zm-x{background:none;border:none;color:#6B7C75;cursor:pointer;padding:5px;border-radius:6px;transition:color .15s;display:flex;align-items:center;line-height:1;}
+.zm-x:hover{color:#E8EDEB;}
+.zm-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:11px;scrollbar-width:thin;scrollbar-color:#1E2529 transparent;}
+.zm-msgs::-webkit-scrollbar{width:3px;}
+.zm-msgs::-webkit-scrollbar-thumb{background:#1E2529;border-radius:4px;}
+.zm-msg{display:flex;flex-direction:column;max-width:90%;}
+.zm-msg.zm-u{align-self:flex-end;align-items:flex-end;}
+.zm-msg.zm-a{align-self:flex-start;align-items:flex-start;}
+.zm-bbl{padding:10px 13px;border-radius:12px;font-size:13.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;font-family:'Inter',system-ui,sans-serif;}
+.zm-msg.zm-u .zm-bbl{background:#34D399;color:#07090A;font-weight:500;border-bottom-right-radius:3px;}
+.zm-msg.zm-a .zm-bbl{background:#151A1D;color:#E8EDEB;border:1px solid #1E2529;border-bottom-left-radius:3px;}
+.zm-typing{display:flex;align-items:center;gap:5px;padding:10px 14px;background:#151A1D;border:1px solid #1E2529;border-radius:12px;border-bottom-left-radius:3px;width:fit-content;}
+.zm-typing span{width:6px;height:6px;border-radius:50%;background:#34D399;animation:zm-bounce 1.2s ease-in-out infinite;}
+.zm-typing span:nth-child(2){animation-delay:.2s;}
+.zm-typing span:nth-child(3){animation-delay:.4s;}
+@keyframes zm-bounce{0%,60%,100%{transform:translateY(0);opacity:.4;}30%{transform:translateY(-5px);opacity:1;}}
+.zm-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 11px;flex-shrink:0;}
+.zm-chip{background:transparent;border:1px solid #1E2529;color:#6B7C75;font-size:11.5px;padding:5px 11px;border-radius:20px;cursor:pointer;font-family:'Inter',system-ui,sans-serif;transition:border-color .15s,color .15s;white-space:nowrap;}
+.zm-chip:hover{border-color:#34D399;color:#34D399;}
+.zm-inp-row{display:flex;align-items:flex-end;gap:8px;padding:11px 13px;border-top:1px solid #1E2529;background:#07090A;flex-shrink:0;}
+#zm-inp{flex:1;background:#151A1D;border:1px solid #1E2529;border-radius:10px;padding:9px 12px;font-size:13px;color:#E8EDEB;font-family:'Inter',system-ui,sans-serif;resize:none;outline:none;line-height:1.5;max-height:100px;transition:border-color .15s;scrollbar-width:none;}
+#zm-inp::-webkit-scrollbar{display:none;}
+#zm-inp::placeholder{color:#6B7C75;}
+#zm-inp:focus{border-color:#1a6e4e;}
+#zm-send-btn{width:36px;height:36px;border-radius:8px;background:#34D399;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,transform .1s;}
+#zm-send-btn:hover{background:#2bc887;}
+#zm-send-btn:active{transform:scale(0.92);}
+#zm-send-btn:disabled{background:#1E2529;cursor:not-allowed;}
+.zm-ft{text-align:center;font-size:10px;color:#6B7C75;padding:5px 0 9px;font-family:'Inter',system-ui,sans-serif;}
+@media(max-width:420px){#zenmul-panel{right:10px;left:10px;width:auto;bottom:86px;}#zenmul-toggle{right:14px;bottom:18px;}}
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);opacity:.08;}
+
+</style>
+</head>
+<body>
+<div id="bg-icons-layer"></div>
+<div id="cursor"></div>
+<div id="cursor-glow"></div>
+<nav>
+  <a href="index.html" class="nav-logo"><svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>Zenmul</a>
+      <ul class="nav-links">
+    <li><a href="what-we-build.html">What we build</a></li>
+    <li><a href="how-it-works.html">How it works</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="roi-calculator.html">ROI Calculator</a></li>
+    <li><a href="integrations.html">Integrations</a></li>
+    <li><a href="compare.html">Compare</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="contact.html" class="btn-nav">Free audit</a>
+</nav>
+
+<div class="page-wrap">
+  <div class="left-col">
+    <h1>Get your free automation roadmap.</h1>
+    <p class="sub">Tell me about your business and the manual tasks eating your week. I'll send back a personalised roadmap showing exactly what's worth automating and what it would save you. Free, no call required.</p>
+    <div class="what-you-get">
+      <div class="what-label">What you get</div>
+      <ul class="what-list">
+        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>A prioritised list of automation opportunities specific to your business</li>
+        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>An honest time-savings estimate, no inflated numbers</li>
+        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Yours to keep, whether or not you work with me</li>
+        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Reply within one business day</li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div class="form-card">
+      <h2>Tell me about your business</h2>
+      <form id="audit-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="First name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Work email</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Your company name">
+        </div>
+        <div class="form-group">
+          <label for="industry">Industry</label>
+          <select id="industry" name="industry">
+            <option value="" disabled selected>Select your industry</option>
+            <option>Property &amp; Lettings / Real Estate</option>
+            <option>Recruitment</option>
+            <option>Medical / Aesthetic Clinic</option>
+            <option>Dental &amp; Physio</option>
+            <option>Mental Health Practice</option>
+            <option>Pharmacy</option>
+            <option>Veterinary Practice</option>
+            <option>B2B SaaS</option>
+            <option>Logistics &amp; Freight</option>
+            <option>Warehousing &amp; 3PL</option>
+            <option>Dropshipping / E-commerce</option>
+            <option>eCommerce Brand</option>
+            <option>Beauty &amp; Salons</option>
+            <option>Gym &amp; Personal Training</option>
+            <option>Restaurant &amp; Hospitality</option>
+            <option>Hotels &amp; Hospitality</option>
+            <option>Travel &amp; Tourism</option>
+            <option>Law Firm</option>
+            <option>Architecture Studio</option>
+            <option>Creative Agency</option>
+            <option>Financial Advisor</option>
+            <option>Accountant &amp; Bookkeeper</option>
+            <option>Insurance Broker</option>
+            <option>E-learning &amp; Coaching</option>
+            <option>School &amp; Tutoring</option>
+            <option>Event Planning</option>
+            <option>Construction Company</option>
+            <option>Trades &amp; Contractors</option>
+            <option>Cleaning Company</option>
+            <option>Auto Dealership</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Describe your business and the manual tasks eating your time</label>
+          <textarea id="message" name="message" placeholder="e.g. We respond to 50+ enquiries a day manually, chase clients for feedback after every job, and manually compile weekly reports..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="links">Links (optional)</label>
+          <input type="text" id="links" name="links" placeholder="Your website, LinkedIn, anything helpful">
+        </div>
+        <button type="submit" class="btn-submit">Get my free automation roadmap</button>
+        <p class="form-note">Free, no call required. Reply within one business day.</p>
+      </form>
+      <div class="success-msg" id="success">
+        <h3>Roadmap request received.</h3>
+        <p>I'll review your details and send your personalised automation roadmap within one business day.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="nav-logo"><svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>Zenmul</a>
+      <ul class="footer-links-row">
+    <li><a href="what-we-build.html">What we build</a></li>
+    <li><a href="how-it-works.html">How it works</a></li>
+    <li><a href="case-studies.html">Case studies</a></li>
+    <li><a href="roi-calculator.html">ROI Calculator</a></li>
+    <li><a href="integrations.html">Integrations</a></li>
+    <li><a href="compare.html">Compare</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Free audit</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Zenmul.</div>
+</footer>
+
+<script>
+function handleSubmit(e){
+  e.preventDefault();
+  const form=document.getElementById('audit-form');
+  const btn=form.querySelector('.btn-submit');
+  btn.textContent='Sending...';btn.disabled=true;
+  const data=new FormData(form);
+  const body=`Name: ${data.get('name')}\nEmail: ${data.get('email')}\nCompany: ${data.get('company')}\nIndustry: ${data.get('industry')}\nMessage: ${data.get('message')}\nLinks: ${data.get('links')}`;
+  window.location.href=`mailto:nazmul@zenmul.com?subject=Free Audit Request from ${data.get('name')}&body=${encodeURIComponent(body)}`;
+  setTimeout(()=>{form.style.display='none';document.getElementById('success').style.display='block'},500);
+}
+</script>
+<script>
+(function(){
+  const cur=document.getElementById('cursor');const glw=document.getElementById('cursor-glow');const layer=document.getElementById('bg-icons-layer');
+  const st=document.createElement('style');
+  st.textContent='body{cursor:none}#cursor{position:fixed;width:14px;height:14px;background:#34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .08s,height .08s,background .08s,border .08s,box-shadow .08s}#cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(52,211,153,0.08) 0%,transparent 65%)}#bg-icons-layer{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}.bg-icon{position:absolute;color:rgba(52,211,153,0.15);transition:color .25s,filter .25s,transform .25s;animation:bgFloat var(--dur,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}.bg-icon svg{width:100%;height:100%;display:block}.bg-icon.glowing{color:rgba(52,211,153,0.95)!important;filter:drop-shadow(0 0 8px rgba(52,211,153,0.9)) drop-shadow(0 0 20px rgba(52,211,153,0.5));transform:scale(1.35)!important;animation-play-state:paused}@keyframes bgFloat{0%,100%{transform:translateY(0px) rotate(0deg)}25%{transform:translateY(-14px) rotate(3deg)}50%{transform:translateY(-22px) rotate(-2deg)}75%{transform:translateY(-10px) rotate(4deg)}}';
+  document.head.appendChild(st);
+  const ICONS=['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>'];
+  const pos=[{l:'4%',t:'8vh'},{l:'6%',t:'35vh'},{l:'3%',t:'65vh'},{l:'92%',t:'15vh'},{l:'90%',t:'45vh'},{l:'94%',t:'75vh'},{l:'20%',t:'20vh'},{l:'75%',t:'60vh'}];
+  pos.forEach((p,i)=>{const d=document.createElement('div');d.className='bg-icon';const sz=20+(i%5)*4;d.style.cssText=`left:${p.l};top:${p.t};width:${sz}px;height:${sz}px;--dur:${7+i%7}s;--dl:-${(i*0.45)%9}s`;d.innerHTML=ICONS[i%ICONS.length];layer.appendChild(d)});
+  let mx=0,my=0,gx=0,gy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';document.querySelectorAll('.bg-icon').forEach(ic=>{const r=ic.getBoundingClientRect();const cx=r.left+r.width/2,cy=r.top+r.height/2;ic.classList.toggle('glowing',Math.sqrt((mx-cx)**2+(my-cy)**2)<55)})});
+  (function anim(){gx+=(mx-gx)*0.15;gy+=(my-gy)*0.15;glw.style.left=gx+'px';glw.style.top=gy+'px';requestAnimationFrame(anim)})();
+  document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.cssText='position:fixed;width:28px;height:28px;background:transparent;border:2px solid #34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 14px rgba(52,211,153,0.6);transition:width .08s,height .08s,background .08s,border .08s,box-shadow .08s;left:'+mx+'px;top:'+my+'px'});el.addEventListener('mouseleave',()=>{cur.style.cssText='position:fixed;width:14px;height:14px;background:#34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .08s,height .08s,background .08s,border .08s,box-shadow .08s;left:'+mx+'px;top:'+my+'px'})});
+})();
+</script>
+
+
+</body>
+</html>

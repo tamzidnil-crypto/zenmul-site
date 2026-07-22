@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integrations | Zenmul — Every Tool We Connect</title>
+<meta name="description" content="See every platform Zenmul integrates with. n8n, AI, Gmail, Google Sheets, Telegram, Apollo, Clearout, WhoisFreaks, Twilio, WhatsApp, Stripe, Calendly, Airtable, Notion, Slack and more.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#34D399;--bg:#07090a;--card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--muted:#6b7280}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:#fff;font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;cursor:none}
+#cursor{position:fixed;width:14px;height:14px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .08s,height .08s}
+#cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(52,211,153,0.07) 0%,transparent 65%)}
+#bg-icons-layer{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.bg-icon{position:absolute;color:rgba(52,211,153,.1);animation:bgFloat var(--dur,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+.bg-icon svg{width:100%;height:100%;display:block}
+@keyframes bgFloat{0%,100%{transform:translateY(0px)}50%{transform:translateY(-18px)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(7,9,10,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:700;font-size:17px}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.btn-nav{background:var(--green);color:#061210;font-weight:700;font-size:14px;padding:9px 20px;border-radius:8px;text-decoration:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.5);opacity:.7}}
+.page-hero{padding:140px 48px 64px;max-width:1300px;margin:0 auto;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fadeUp .7s ease forwards .1s}
+.eyebrow-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s ease infinite}
+.page-hero h1{font-size:clamp(36px,5vw,64px);font-weight:900;letter-spacing:-2px;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease forwards .3s;line-height:1.05}
+.page-hero h1 em{font-style:normal;color:var(--green)}
+.page-hero p{font-size:17px;color:rgba(255,255,255,.5);max-width:520px;margin:0 auto;line-height:1.72;opacity:0;animation:fadeUp .7s ease forwards .5s}
+.section{max-width:1300px;margin:0 auto;padding:0 48px 80px}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--green);text-transform:uppercase;margin-bottom:16px}
+.section-title{font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-.8px;margin-bottom:12px}
+.section-sub{font-size:15px;color:rgba(255,255,255,.45);max-width:520px;margin-bottom:40px;line-height:1.65}
+.int-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.int-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px;transition:border-color .25s,transform .25s,box-shadow .25s}
+.int-card:hover{border-color:rgba(52,211,153,.25);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.int-icon{width:44px;height:44px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:18px;transition:box-shadow .25s}
+.int-card:hover .int-icon{box-shadow:0 0 16px rgba(52,211,153,.25)}
+.int-name{font-size:15px;font-weight:700;margin-bottom:6px}
+.int-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:14px}
+.int-uses{list-style:none;display:flex;flex-direction:column;gap:5px}
+.int-uses li{font-size:12px;color:rgba(255,255,255,.35);display:flex;gap:7px;align-items:flex-start}
+.int-uses li::before{content:"→";color:var(--green);flex-shrink:0;font-size:11px;margin-top:1px}
+.int-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:6px;margin-top:14px}
+.int-badge.core{background:rgba(52,211,153,.12);color:rgba(52,211,153,.9);border:1px solid rgba(52,211,153,.2)}
+.int-badge.comm{background:rgba(99,102,241,.12);color:rgba(165,180,252,.9);border:1px solid rgba(99,102,241,.2)}
+.int-badge.data{background:rgba(251,191,36,.08);color:rgba(251,191,36,.8);border:1px solid rgba(251,191,36,.15)}
+.int-badge.enrich{background:rgba(236,72,153,.08);color:rgba(251,182,206,.8);border:1px solid rgba(236,72,153,.15)}
+.int-badge.crm{background:rgba(59,130,246,.08);color:rgba(147,197,253,.8);border:1px solid rgba(59,130,246,.15)}
+.divider{border:none;border-top:1px solid var(--border);margin:0 48px}
+.cta-section{max-width:1300px;margin:0 auto;padding:64px 48px 96px}
+.cta-box{background:rgba(52,211,153,.05);border:1px solid rgba(52,211,153,.2);border-radius:20px;padding:64px 48px;text-align:center}
+.cta-box h2{font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.8px;margin-bottom:16px}
+.cta-box p{color:rgba(255,255,255,.5);font-size:15px;margin-bottom:32px;max-width:440px;margin-left:auto;margin-right:auto}
+.btn-primary{background:var(--green);color:#061210;font-weight:700;font-size:15px;padding:14px 28px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s,transform .2s;cursor:none}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+.rd1{transition-delay:.06s}.rd2{transition-delay:.12s}.rd3{transition-delay:.18s}.rd4{transition-delay:.24s}.rd5{transition-delay:.30s}.rd6{transition-delay:.36s}
+footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-links-row{display:flex;gap:28px;list-style:none;flex-wrap:wrap}
+.footer-links-row a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.footer-links-row a:hover{color:#fff}
+.footer-copy{font-size:13px;color:var(--muted)}
+@media(max-width:900px){nav{padding:0 20px}.nav-links{display:none}.page-hero,.section,.divider,.cta-section{padding-left:20px;padding-right:20px}footer{padding:32px 20px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}body{cursor:auto}#cursor,#cursor-glow{display:none}}
+
+
+/* ═══ ZARA WIDGET CSS ═══ */
+#zenmul-toggle,#zenmul-panel,#zenmul-panel *{box-sizing:border-box;}
+#zenmul-toggle{position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#34D399;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10000;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 4px 24px rgba(52,211,153,0.35);}
+#zenmul-toggle:hover{transform:scale(1.08);box-shadow:0 0 0 10px rgba(52,211,153,0.12),0 4px 24px rgba(52,211,153,0.35);}
+#zenmul-toggle::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(52,211,153,0.4);animation:zm-pulse 2.4s ease-out infinite;}
+@keyframes zm-pulse{0%{transform:scale(1);opacity:1;}70%{transform:scale(1.55);opacity:0;}100%{transform:scale(1.55);opacity:0;}}
+#zenmul-panel{position:fixed;bottom:96px;right:28px;width:360px;max-height:560px;background:#0E1214;border:1px solid #1E2529;border-radius:14px;display:flex;flex-direction:column;z-index:9999;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.7),0 0 0 1px rgba(52,211,153,0.07);transform:translateY(18px) scale(0.96);opacity:0;pointer-events:none;transition:transform .22s ease,opacity .22s ease;}
+#zenmul-panel.zm-open{transform:translateY(0) scale(1);opacity:1;pointer-events:all;}
+.zm-hdr{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid #1E2529;background:#07090A;flex-shrink:0;}
+.zm-av{width:34px;height:34px;border-radius:50%;background:#34D399;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.zm-hdr-txt{flex:1;min-width:0;}
+.zm-hdr-txt strong{display:block;font-size:13px;font-weight:600;color:#E8EDEB;font-family:'Inter',system-ui,sans-serif;}
+.zm-hdr-txt em{display:flex;align-items:center;gap:5px;font-size:11px;color:#34D399;font-style:normal;font-family:'Inter',system-ui,sans-serif;}
+.zm-dot{width:6px;height:6px;border-radius:50%;background:#34D399;flex-shrink:0;animation:zmDotPulse 2s ease-in-out infinite;}
+@keyframes zmDotPulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.zm-x{background:none;border:none;color:#6B7C75;cursor:pointer;padding:5px;border-radius:6px;transition:color .15s;display:flex;align-items:center;line-height:1;}
+.zm-x:hover{color:#E8EDEB;}
+.zm-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:11px;scrollbar-width:thin;scrollbar-color:#1E2529 transparent;}
+.zm-msgs::-webkit-scrollbar{width:3px;}
+.zm-msgs::-webkit-scrollbar-thumb{background:#1E2529;border-radius:4px;}
+.zm-msg{display:flex;flex-direction:column;max-width:90%;}
+.zm-msg.zm-u{align-self:flex-end;align-items:flex-end;}
+.zm-msg.zm-a{align-self:flex-start;align-items:flex-start;}
+.zm-bbl{padding:10px 13px;border-radius:12px;font-size:13.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;font-family:'Inter',system-ui,sans-serif;}
+.zm-msg.zm-u .zm-bbl{background:#34D399;color:#07090A;font-weight:500;border-bottom-right-radius:3px;}
+.zm-msg.zm-a .zm-bbl{background:#151A1D;color:#E8EDEB;border:1px solid #1E2529;border-bottom-left-radius:3px;}
+.zm-typing{display:flex;align-items:center;gap:5px;padding:10px 14px;background:#151A1D;border:1px solid #1E2529;border-radius:12px;border-bottom-left-radius:3px;width:fit-content;}
+.zm-typing span{width:6px;height:6px;border-radius:50%;background:#34D399;animation:zm-bounce 1.2s ease-in-out infinite;}
+.zm-typing span:nth-child(2){animation-delay:.2s;}
+.zm-typing span:nth-child(3){animation-delay:.4s;}
+@keyframes zm-bounce{0%,60%,100%{transform:translateY(0);opacity:.4;}30%{transform:translateY(-5px);opacity:1;}}
+.zm-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 11px;flex-shrink:0;}
+.zm-chip{background:transparent;border:1px solid #1E2529;color:#6B7C75;font-size:11.5px;padding:5px 11px;border-radius:20px;cursor:pointer;font-family:'Inter',system-ui,sans-serif;transition:border-color .15s,color .15s;white-space:nowrap;}
+.zm-chip:hover{border-color:#34D399;color:#34D399;}
+.zm-inp-row{display:flex;align-items:flex-end;gap:8px;padding:11px 13px;border-top:1px solid #1E2529;background:#07090A;flex-shrink:0;}
+#zm-inp{flex:1;background:#151A1D;border:1px solid #1E2529;border-radius:10px;padding:9px 12px;font-size:13px;color:#E8EDEB;font-family:'Inter',system-ui,sans-serif;resize:none;outline:none;line-height:1.5;max-height:100px;transition:border-color .15s;scrollbar-width:none;}
+#zm-inp::-webkit-scrollbar{display:none;}
+#zm-inp::placeholder{color:#6B7C75;}
+#zm-inp:focus{border-color:#1a6e4e;}
+#zm-send-btn{width:36px;height:36px;border-radius:8px;background:#34D399;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,transform .1s;}
+#zm-send-btn:hover{background:#2bc887;}
+#zm-send-btn:active{transform:scale(0.92);}
+#zm-send-btn:disabled{background:#1E2529;cursor:not-allowed;}
+.zm-ft{text-align:center;font-size:10px;color:#6B7C75;padding:5px 0 9px;font-family:'Inter',system-ui,sans-serif;}
+@media(max-width:420px){#zenmul-panel{right:10px;left:10px;width:auto;bottom:86px;}#zenmul-toggle{right:14px;bottom:18px;}}
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);opacity:.08;}
+
+</style>
+</head>
+<body>
+<div id="bg-icons-layer"></div>
+<div id="cursor"></div>
+<div id="cursor-glow"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>Zenmul</a>
+      <ul class="nav-links">
+    <li><a href="what-we-build.html">What we build</a></li>
+    <li><a href="how-it-works.html">How it works</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="roi-calculator.html">ROI Calculator</a></li>
+    <li><a href="integrations.html">Integrations</a></li>
+    <li><a href="compare.html">Compare</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="contact.html" class="btn-nav">Free audit</a>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow"><span class="eyebrow-dot"></span>Integrations</div>
+  <h1>Every tool<br>we <em>connect</em>.</h1>
+  <p>Zenmul builds on platforms your business already uses. No new software to learn, no extra subscriptions, no lock-in.</p>
+</div>
+
+<!-- CORE -->
+<section class="section">
+  <div class="section-label reveal">Core Infrastructure</div>
+  <h2 class="section-title reveal">The foundation every system is built on</h2>
+  <p class="section-sub reveal">These three tools power every single Zenmul build. Everything else plugs into them.</p>
+  <div class="int-grid">
+    <div class="int-card reveal rd1">
+      <div class="int-icon">⚙️</div>
+      <div class="int-name">n8n</div>
+      <div class="int-desc">Self-hosted workflow automation engine. Open source, 400+ native integrations, zero per-task fees. You own and control everything built inside it.</div>
+      <ul class="int-uses">
+        <li>Workflow orchestration for every automation</li>
+        <li>HTTP requests, webhooks, scheduled triggers</li>
+        <li>Conditional logic, loops, error handling</li>
+        <li>Connects every other tool in this list</li>
+      </ul>
+      <span class="int-badge core">Core</span>
+    </div>
+    <div class="int-card reveal rd2">
+      <div class="int-icon">🤖</div>
+      <div class="int-name">AI Language Model</div>
+      <div class="int-desc">Powers every intelligent task in your automations. We select the best AI model for each use case — speed, cost, and accuracy all factor in.</div>
+      <ul class="int-uses">
+        <li>AI email drafting and reply generation</li>
+        <li>Lead scoring and intent classification</li>
+        <li>Document summarisation and extraction</li>
+        <li>Personalised content at scale</li>
+      </ul>
+      <span class="int-badge core">Core</span>
+    </div>
+    <div class="int-card reveal rd3">
+      <div class="int-icon">☁️</div>
+      <div class="int-name">Self-Hosted Infrastructure</div>
+      <div class="int-desc">Your n8n instance runs on your own infrastructure. Always-on, automatic restarts, zero manual server management. Your data never leaves your environment.</div>
+      <ul class="int-uses">
+        <li>Hosts your n8n instance 24/7</li>
+        <li>Automatic deployment and restarts</li>
+        <li>Environment variable management</li>
+        <li>Scales with your workflow volume</li>
+      </ul>
+      <span class="int-badge core">Core</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- COMMUNICATION -->
+<section class="section" style="padding-top:64px">
+  <div class="section-label reveal">Communication</div>
+  <h2 class="section-title reveal">Send emails, messages, and alerts automatically</h2>
+  <p class="section-sub reveal">Every outbound communication in your automations flows through these tools.</p>
+  <div class="int-grid">
+    <div class="int-card reveal rd1">
+      <div class="int-icon">📧</div>
+      <div class="int-name">Gmail</div>
+      <div class="int-desc">OAuth-connected email sending for confirmations, reminders, follow-ups, onboarding sequences, and AI-generated replies across every vertical.</div>
+      <ul class="int-uses">
+        <li>Enquiry auto-replies and confirmations</li>
+        <li>Appointment and session reminders</li>
+        <li>Document chase sequences</li>
+        <li>Win-back and re-engagement campaigns</li>
+      </ul>
+      <span class="int-badge comm">Communication</span>
+    </div>
+    <div class="int-card reveal rd2">
+      <div class="int-icon">📱</div>
+      <div class="int-name">Telegram</div>
+      <div class="int-desc">Instant alerts and daily digests sent directly to your phone. Know the moment something needs attention without logging into any dashboard.</div>
+      <ul class="int-uses">
+        <li>Daily container and lead digests</li>
+        <li>Domain expiry alerts with buy links</li>
+        <li>Exception and error notifications</li>
+        <li>New lead and enquiry alerts</li>
+      </ul>
+      <span class="int-badge comm">Communication</span>
+    </div>
+    <div class="int-card reveal rd3">
+      <div class="int-icon">💬</div>
+      <div class="int-name">WhatsApp API</div>
+      <div class="int-desc">Automated WhatsApp messaging for appointment reminders, order updates, and follow-up sequences where clients prefer chat over email.</div>
+      <ul class="int-uses">
+        <li>Appointment confirmations and reminders</li>
+        <li>Order status updates</li>
+        <li>No-show recovery messages</li>
+        <li>Re-engagement campaigns</li>
+      </ul>
+      <span class="int-badge comm">Communication</span>
+    </div>
+    <div class="int-card reveal rd4">
+      <div class="int-icon">⚡</div>
+      <div class="int-name">Twilio (SMS)</div>
+      <div class="int-desc">SMS messaging for time-sensitive alerts and reminders where instant delivery matters and email open rates fall short.</div>
+      <ul class="int-uses">
+        <li>Urgent appointment reminders</li>
+        <li>Delivery and order alerts</li>
+        <li>Two-factor and verification flows</li>
+        <li>High-priority client notifications</li>
+      </ul>
+      <span class="int-badge comm">Communication</span>
+    </div>
+    <div class="int-card reveal rd5">
+      <div class="int-icon">💬</div>
+      <div class="int-name">Slack</div>
+      <div class="int-desc">Internal team notifications and alerts. Keep your team informed about new leads, completed automations, and exceptions without leaving Slack.</div>
+      <ul class="int-uses">
+        <li>New lead and enquiry notifications</li>
+        <li>Workflow completion summaries</li>
+        <li>Exception and error alerts</li>
+        <li>Daily performance digests</li>
+      </ul>
+      <span class="int-badge comm">Communication</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- DATA -->
+<section class="section" style="padding-top:64px">
+  <div class="section-label reveal">Data and Storage</div>
+  <h2 class="section-title reveal">Where your data lives and flows</h2>
+  <p class="section-sub reveal">Every automation reads from and writes back to tools your team already uses daily.</p>
+  <div class="int-grid">
+    <div class="int-card reveal rd1">
+      <div class="int-icon">📊</div>
+      <div class="int-name">Google Sheets</div>
+      <div class="int-desc">The operational data layer across all Zenmul builds. Triggers, logs, status updates, and client records — all managed automatically in sheets your team already uses.</div>
+      <ul class="int-uses">
+        <li>Client master sheets for each vertical</li>
+        <li>Workflow trigger and status logging</li>
+        <li>Lead and pipeline tracking</li>
+        <li>Daily report generation</li>
+      </ul>
+      <span class="int-badge data">Data</span>
+    </div>
+    <div class="int-card reveal rd2">
+      <div class="int-icon">📁</div>
+      <div class="int-name">Google Drive</div>
+      <div class="int-desc">Automated file organisation, document storage, and report archiving. Workflows create, move, and organise files without manual uploads.</div>
+      <ul class="int-uses">
+        <li>Auto-saving processed documents</li>
+        <li>Report and digest archiving</li>
+        <li>File sharing trigger flows</li>
+        <li>Organised folder management</li>
+      </ul>
+      <span class="int-badge data">Data</span>
+    </div>
+    <div class="int-card reveal rd3">
+      <div class="int-icon">📋</div>
+      <div class="int-name">Google Forms</div>
+      <div class="int-desc">Intake forms that trigger workflows the moment they are submitted. Enquiries, audits, onboarding, and feedback — captured and processed in seconds.</div>
+      <ul class="int-uses">
+        <li>New enquiry intake forms</li>
+        <li>Client onboarding questionnaires</li>
+        <li>Post-session feedback collection</li>
+        <li>Audit submission triggers</li>
+      </ul>
+      <span class="int-badge data">Data</span>
+    </div>
+    <div class="int-card reveal rd4">
+      <div class="int-icon">📅</div>
+      <div class="int-name">Google Calendar</div>
+      <div class="int-desc">Appointment scheduling integration. Syncs with booking flows to trigger confirmation and reminder sequences automatically at the right time.</div>
+      <ul class="int-uses">
+        <li>Appointment confirmation triggers</li>
+        <li>Timed reminder sequences</li>
+        <li>Availability checking flows</li>
+        <li>Calendar event creation</li>
+      </ul>
+      <span class="int-badge data">Data</span>
+    </div>
+    <div class="int-card reveal rd5">
+      <div class="int-icon">🗂️</div>
+      <div class="int-name">Airtable</div>
+      <div class="int-desc">Relational database alternative for more complex data structures. Used where Google Sheets reaches its limits for multi-table workflows.</div>
+      <ul class="int-uses">
+        <li>Complex relational data models</li>
+        <li>Multi-table workflow triggers</li>
+        <li>Advanced filtering and views</li>
+        <li>Team collaboration on live data</li>
+      </ul>
+      <span class="int-badge data">Data</span>
+    </div>
+    <div class="int-card reveal rd6">
+      <div class="int-icon">📝</div>
+      <div class="int-name">Notion</div>
+      <div class="int-desc">Documentation and knowledge base integration. Workflows can create, update, and retrieve Notion pages for SOPs, reports, and knowledge management.</div>
+      <ul class="int-uses">
+        <li>Auto-generated client reports</li>
+        <li>SOP and documentation updates</li>
+        <li>Project status syncing</li>
+        <li>Knowledge base population</li>
+      </ul>
+      <span class="int-badge data">Data</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ENRICHMENT -->
+<section class="section" style="padding-top:64px">
+  <div class="section-label reveal">Lead Generation and Enrichment</div>
+  <h2 class="section-title reveal">Find, verify, and enrich leads automatically</h2>
+  <p class="section-sub reveal">Every outbound workflow at Zenmul uses verified, enriched data before a single message is sent.</p>
+  <div class="int-grid">
+    <div class="int-card reveal rd1">
+      <div class="int-icon">🔍</div>
+      <div class="int-name">Apollo.io</div>
+      <div class="int-desc">B2B lead database and enrichment API. Finds verified contact data for decision-makers based on company, role, and industry filters.</div>
+      <ul class="int-uses">
+        <li>Decision-maker contact discovery</li>
+        <li>Company and firmographic enrichment</li>
+        <li>Outbound sequence building</li>
+        <li>CRM data enrichment</li>
+      </ul>
+      <span class="int-badge enrich">Enrichment</span>
+    </div>
+    <div class="int-card reveal rd2">
+      <div class="int-icon">✅</div>
+      <div class="int-name">Clearout</div>
+      <div class="int-desc">Email verification and bounce prevention. Every lead email is verified before outreach, protecting sender reputation and improving deliverability.</div>
+      <ul class="int-uses">
+        <li>Real-time email verification</li>
+        <li>Bounce prevention before sends</li>
+        <li>Sender reputation protection</li>
+        <li>Bulk list cleaning</li>
+      </ul>
+      <span class="int-badge enrich">Enrichment</span>
+    </div>
+    <div class="int-card reveal rd3">
+      <div class="int-icon">🕷️</div>
+      <div class="int-name">Apify</div>
+      <div class="int-desc">Scalable web scraping and data extraction. Pulls lead data from directories, funding databases, job boards, and company websites at volume.</div>
+      <ul class="int-uses">
+        <li>Lead scraping from directories</li>
+        <li>VC and funding database monitoring</li>
+        <li>Job board and LinkedIn extraction</li>
+        <li>Competitor and market intelligence</li>
+      </ul>
+      <span class="int-badge enrich">Enrichment</span>
+    </div>
+    <div class="int-card reveal rd4">
+      <div class="int-icon">🌐</div>
+      <div class="int-name">WhoisFreaks</div>
+      <div class="int-desc">Domain WHOIS API for expiry monitoring and domain intelligence. Powers the domain watchlist automation that catches opportunities before they are gone.</div>
+      <ul class="int-uses">
+        <li>Domain expiry monitoring</li>
+        <li>WHOIS data lookups</li>
+        <li>Domain watchlist automation</li>
+        <li>Competitor domain tracking</li>
+      </ul>
+      <span class="int-badge enrich">Enrichment</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CRM / PAYMENTS -->
+<section class="section" style="padding-top:64px">
+  <div class="section-label reveal">CRM, Payments, and Scheduling</div>
+  <h2 class="section-title reveal">Connect your existing business tools</h2>
+  <p class="section-sub reveal">If your business already uses any of these, Zenmul can plug directly into them.</p>
+  <div class="int-grid">
+    <div class="int-card reveal rd1">
+      <div class="int-icon">🏠</div>
+      <div class="int-name">GoHighLevel</div>
+      <div class="int-desc">Full CRM and marketing automation platform. Zenmul connects n8n workflows directly to GHL for lead routing, pipeline updates, and contact management.</div>
+      <ul class="int-uses">
+        <li>Lead capture and CRM syncing</li>
+        <li>Pipeline stage automation</li>
+        <li>Contact tagging and segmentation</li>
+        <li>Appointment booking triggers</li>
+      </ul>
+      <span class="int-badge crm">CRM</span>
+    </div>
+    <div class="int-card reveal rd2">
+      <div class="int-icon">🔗</div>
+      <div class="int-name">HubSpot</div>
+      <div class="int-desc">CRM integration for teams already on HubSpot. Workflows write back to HubSpot deals, contacts, and activities automatically.</div>
+      <ul class="int-uses">
+        <li>Deal and contact creation</li>
+        <li>Activity logging from automations</li>
+        <li>Pipeline stage updates</li>
+        <li>Email sequence triggering</li>
+      </ul>
+      <span class="int-badge crm">CRM</span>
+    </div>
+    <div class="int-card reveal rd3">
+      <div class="int-icon">💳</div>
+      <div class="int-name">Stripe</div>
+      <div class="int-desc">Payment event triggers. When a payment is made, failed, or refunded, Zenmul can fire the right automation — onboarding, churn alerts, or recovery flows.</div>
+      <ul class="int-uses">
+        <li>Payment success onboarding triggers</li>
+        <li>Failed payment recovery flows</li>
+        <li>Subscription churn alerts</li>
+        <li>Invoice and receipt automation</li>
+      </ul>
+      <span class="int-badge crm">Payments</span>
+    </div>
+    <div class="int-card reveal rd4">
+      <div class="int-icon">📅</div>
+      <div class="int-name">Calendly</div>
+      <div class="int-desc">Booking triggers for automated confirmation and reminder sequences. When a meeting is booked in Calendly, the workflow fires instantly.</div>
+      <ul class="int-uses">
+        <li>Instant booking confirmations</li>
+        <li>Pre-meeting reminder sequences</li>
+        <li>Post-meeting follow-up flows</li>
+        <li>No-show detection and recovery</li>
+      </ul>
+      <span class="int-badge crm">Scheduling</span>
+    </div>
+    <div class="int-card reveal rd5">
+      <div class="int-icon">📋</div>
+      <div class="int-name">Typeform</div>
+      <div class="int-desc">Form submission triggers for more complex intake flows. Typeform responses can fire any downstream automation instantly via webhook.</div>
+      <ul class="int-uses">
+        <li>Lead intake and qualification</li>
+        <li>Onboarding questionnaire triggers</li>
+        <li>Survey response routing</li>
+        <li>Audit submission processing</li>
+      </ul>
+      <span class="int-badge crm">Forms</span>
+    </div>
+    <div class="int-card reveal rd6">
+      <div class="int-icon">🌐</div>
+      <div class="int-name">REST APIs and Webhooks</div>
+      <div class="int-desc">If a platform has an API or can send a webhook, it can be integrated. This covers virtually every SaaS tool on the market.</div>
+      <ul class="int-uses">
+        <li>Custom API integrations</li>
+        <li>Real-time webhook triggers</li>
+        <li>Data transformation pipelines</li>
+        <li>Any platform with an endpoint</li>
+      </ul>
+      <span class="int-badge core">Universal</span>
+    </div>
+  </div>
+</section>
+
+<div class="cta-section">
+  <div class="cta-box reveal">
+    <h2>Using a tool that is not listed?</h2>
+    <p>If it has an API or webhook, it can almost certainly be integrated. Tell us what you use and we will map out how to connect it.</p>
+    <a href="contact.html" class="btn-primary">Book your free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="nav-logo"><svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>Zenmul</a>
+      <ul class="footer-links-row">
+    <li><a href="what-we-build.html">What we build</a></li>
+    <li><a href="how-it-works.html">How it works</a></li>
+    <li><a href="case-studies.html">Case studies</a></li>
+    <li><a href="roi-calculator.html">ROI Calculator</a></li>
+    <li><a href="integrations.html">Integrations</a></li>
+    <li><a href="compare.html">Compare</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Free audit</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Zenmul.</div>
+</footer>
+
+<script>
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:.06});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=window.scrollY>50?'rgba(7,9,10,0.98)':'rgba(7,9,10,0.92)';},{passive:true});
+</script>
+<script>
+(function(){
+  const cur=document.getElementById('cursor');const glw=document.getElementById('cursor-glow');const layer=document.getElementById('bg-icons-layer');
+  const ICONS=['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>'];
+  const pos=[{l:'3%',t:'12vh'},{l:'5%',t:'35vh'},{l:'2%',t:'58vh'},{l:'4%',t:'80vh'},{l:'3%',t:'105vh'},{l:'5%',t:'130vh'},{l:'93%',t:'18vh'},{l:'91%',t:'42vh'},{l:'94%',t:'65vh'},{l:'92%',t:'88vh'},{l:'90%',t:'112vh'},{l:'93%',t:'138vh'}];
+  pos.forEach((p,i)=>{const d=document.createElement('div');d.className='bg-icon';const sz=22+(i%4)*4;d.style.cssText=`left:${p.l};top:${p.t};width:${sz}px;height:${sz}px;--dur:${8+i%5}s;--dl:-${(i*0.55)%8}s`;d.innerHTML=ICONS[i%ICONS.length];layer.appendChild(d)});
+  let mx=0,my=0,gx=0,gy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+  (function anim(){gx+=(mx-gx)*0.15;gy+=(my-gy)*0.15;glw.style.left=gx+'px';glw.style.top=gy+'px';requestAnimationFrame(anim)})();
+  document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.cssText='position:fixed;width:28px;height:28px;background:transparent;border:2px solid #34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 14px rgba(52,211,153,0.6);left:'+mx+'px;top:'+my+'px'});el.addEventListener('mouseleave',()=>{cur.style.cssText='position:fixed;width:14px;height:14px;background:#34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);left:'+mx+'px;top:'+my+'px'})});
+})();
+</script>
+
+
+</body>
+</html>
