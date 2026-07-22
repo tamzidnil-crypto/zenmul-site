@@ -232,15 +232,81 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 </footer>
 
 <script>
-function handleSubmit(e){
+async function handleSubmit(e){
   e.preventDefault();
   const form=document.getElementById('audit-form');
   const btn=form.querySelector('.btn-submit');
   btn.textContent='Sending...';btn.disabled=true;
   const data=new FormData(form);
-  const body=`Name: ${data.get('name')}\nEmail: ${data.get('email')}\nCompany: ${data.get('company')}\nIndustry: ${data.get('industry')}\nMessage: ${data.get('message')}\nLinks: ${data.get('links')}`;
-  window.location.href=`mailto:nazmul@zenmul.com?subject=Free Audit Request from ${data.get('name')}&body=${encodeURIComponent(body)}`;
-  setTimeout(()=>{form.style.display='none';document.getElementById('success').style.display='block'},500);
+  const payload={
+    name:data.get('name'),
+    email:data.get('email'),
+    company:data.get('company'),
+    industry:data.get('industry'),
+    message:data.get('message'),
+    links:data.get('links')||'Not provided',
+    submitted_at:new Date().toLocaleString('en-GB',{timeZone:'Asia/Dhaka'})
+  };
+
+  /* 1. Save to Google Sheets via your n8n webhook
+     Replace the URL below with your n8n webhook URL */
+  const WEBHOOK_URL = 'https://your-n8n-instance.com/webhook/audit-booking';
+
+  /* 2. Send email notification via Web3Forms
+     Replace with your Web3Forms access key */
+  const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
+
+  try {
+    /* Send to Web3Forms for email notification */
+    const emailRes = await fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject: `Free Audit Request from ${payload.name} — ${payload.company}`,
+        from_name: 'Zenmul Audit Form',
+        name: payload.name,
+        email: payload.email,
+        message: [
+          '=== NEW FREE AUDIT REQUEST ===',
+          '',
+          `Name: ${payload.name}`,
+          `Email: ${payload.email}`,
+          `Company: ${payload.company}`,
+          `Industry: ${payload.industry}`,
+          `Website / Links: ${payload.links}`,
+          '',
+          'What they told us:',
+          payload.message,
+          '',
+          `Submitted: ${payload.submitted_at}`,
+          '',
+          '=== END ==='
+        ].join('\n')
+      })
+    });
+
+    /* Also send to n8n webhook to save in Google Sheets */
+    if(WEBHOOK_URL && !WEBHOOK_URL.includes('your-n8n')){
+      await fetch(WEBHOOK_URL,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(payload)
+      });
+    }
+
+    form.style.display='none';
+    document.getElementById('success').style.display='block';
+  } catch(err){
+    console.error(err);
+    /* Fallback to mailto if everything fails */
+    const body=`Name: ${payload.name}\nEmail: ${payload.email}\nCompany: ${payload.company}\nIndustry: ${payload.industry}\nMessage: ${payload.message}\nLinks: ${payload.links}`;
+    window.location.href=`mailto:nazmul@zenmul.com?subject=Free Audit Request from ${payload.name}&body=${encodeURIComponent(body)}`;
+    setTimeout(()=>{form.style.display='none';document.getElementById('success').style.display='block'},500);
+  } finally {
+    btn.textContent='Get my free automation roadmap';
+    btn.disabled=false;
+  }
 }
 </script>
 <script>
