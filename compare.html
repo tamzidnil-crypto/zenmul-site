@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zenmul vs the Alternatives | Why Businesses Choose Zenmul</title>
-<meta name="description" content="Compare Zenmul vs hiring a VA, Zapier, Make, manual follow-up, and traditional agencies. See why AI automation built on n8n beats every alternative on cost, control, and results.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Zenmul</title>
+<meta name="description" content="Zenmul is an AI workflow automation studio founded by Nazmul Hossen. Built to keep working with or without us.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--green:#34D399;--bg:#07090a;--card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--muted:#6b7280;--red:#f87171}
+:root{--green:#34D399;--bg:#07090a;--card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--muted:#6b7280;--muted2:#9ca3af}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:#fff;font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;cursor:none}
-#cursor{position:fixed;width:14px;height:14px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .08s,height .08s}
-#cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(52,211,153,0.07) 0%,transparent 65%)}
+#cursor{position:fixed;width:12px;height:12px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+#cursor-glow{position:fixed;width:380px;height:380px;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(52,211,153,0.07) 0%,transparent 65%)}
 #bg-icons-layer{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
-.bg-icon{position:absolute;color:rgba(52,211,153,.1);animation:bgFloat var(--dur,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+.bg-icon{position:absolute;color:rgba(52,211,153,.16);animation:iconFloat var(--dur,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}
 .bg-icon svg{width:100%;height:100%;display:block}
-@keyframes bgFloat{0%,100%{transform:translateY(0px)}50%{transform:translateY(-18px)}}
+@keyframes iconFloat{0%,100%{transform:translateY(0px);opacity:.14}50%{transform:translateY(-18px);opacity:.26}}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(7,9,10,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:700;font-size:17px}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;transition:color .2s}
 .nav-links a:hover{color:#fff}
 .btn-nav{background:var(--green);color:#061210;font-weight:700;font-size:14px;padding:9px 20px;border-radius:8px;text-decoration:none}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.5);opacity:.7}}
-.page-hero{padding:140px 48px 64px;max-width:1300px;margin:0 auto;text-align:center}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fadeUp .7s ease forwards .1s}
-.eyebrow-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s ease infinite}
-.page-hero h1{font-size:clamp(36px,5vw,64px);font-weight:900;letter-spacing:-2px;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease forwards .3s;line-height:1.05}
-.page-hero h1 em{font-style:normal;color:var(--green)}
-.page-hero p{font-size:17px;color:rgba(255,255,255,.5);max-width:540px;margin:0 auto;line-height:1.72;opacity:0;animation:fadeUp .7s ease forwards .5s}
-.section{max-width:1200px;margin:0 auto;padding:0 48px 80px}
-.comp-block{margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid var(--border)}
-.comp-block:last-of-type{border-bottom:none}
-.comp-label{font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--green);text-transform:uppercase;margin-bottom:12px}
-.comp-title{font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-.8px;margin-bottom:16px;line-height:1.15}
-.comp-sub{font-size:15px;color:rgba(255,255,255,.45);max-width:600px;margin-bottom:40px;line-height:1.65}
-.comp-table{width:100%;border-collapse:collapse;border-radius:16px;overflow:hidden}
-.comp-table th{background:rgba(255,255,255,.04);padding:14px 20px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);border-bottom:1px solid var(--border)}
-.comp-table th:not(:first-child){text-align:center}
-.comp-table td{padding:14px 20px;font-size:14px;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.7)}
-.comp-table td:not(:first-child){text-align:center}
-.comp-table tr:last-child td{border-bottom:none}
-.comp-table .col-zen{background:rgba(52,211,153,.03);font-weight:600}
-.comp-table th.col-zen{background:rgba(52,211,153,.08);color:var(--green)}
-.yes{color:var(--green);font-size:16px}
-.no{color:var(--red);font-size:16px}
-.maybe{color:rgba(251,191,36,.8);font-size:14px}
-.verdict{background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.18);border-radius:14px;padding:24px 28px;margin-top:28px;display:flex;gap:16px;align-items:flex-start}
-.verdict-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
-.verdict-text{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7}
-.verdict-text strong{color:#fff;font-weight:600}
-.cta-section{max-width:1200px;margin:0 auto;padding:0 48px 96px}
-.cta-box{background:rgba(52,211,153,.05);border:1px solid rgba(52,211,153,.2);border-radius:20px;padding:64px 48px;text-align:center}
-.cta-box h2{font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.8px;margin-bottom:16px}
-.cta-box p{color:rgba(255,255,255,.5);font-size:15px;margin-bottom:32px;max-width:440px;margin-left:auto;margin-right:auto}
-.btn-primary{background:var(--green);color:#061210;font-weight:700;font-size:15px;padding:14px 28px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s,transform .2s;cursor:none}
+.page-hero{padding:140px 48px 80px;max-width:900px;margin:0 auto}
+.eyebrow{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fadeUp .7s ease forwards .1s}
+.page-hero h1{font-size:clamp(32px,5vw,56px);font-weight:800;letter-spacing:-1.5px;margin-bottom:24px;line-height:1.1;opacity:0;animation:fadeUp .8s ease forwards .3s}
+.page-hero p{font-size:17px;color:rgba(255,255,255,.55);line-height:1.78;opacity:0;animation:fadeUp .7s ease forwards .5s}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(20px)}}
+.section{padding:0 48px 80px;max-width:900px;margin:0 auto}
+.story-text{font-size:17px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:20px}
+.principles-label{font-size:11px;font-weight:600;letter-spacing:.16em;color:var(--green);text-transform:uppercase;margin-bottom:16px}
+.section-h2{font-size:clamp(26px,3vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:40px}
+.principles-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:64px}
+.principle-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:transform .25s,border-color .25s}
+.principle-card:hover{transform:translateY(-4px);border-color:rgba(52,211,153,.2)}
+.principle-num{font-size:28px;font-weight:900;color:var(--green);margin-bottom:14px;letter-spacing:-1px}
+.principle-card h3{font-size:16px;font-weight:700;margin-bottom:10px}
+.principle-card p{font-size:13px;color:rgba(255,255,255,.52);line-height:1.65}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:48px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:64px}
+.stat-item .stat-num{font-size:clamp(40px,5vw,64px);font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:8px}
+.stat-label{font-size:13px;color:var(--muted2)}
+.founder-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;display:flex;gap:32px;align-items:flex-start;margin-bottom:64px;transition:border-color .25s}
+.founder-card:hover{border-color:rgba(52,211,153,.2)}
+.founder-avatar{width:72px;height:72px;border-radius:50%;background:rgba(52,211,153,.15);border:2px solid rgba(52,211,153,.3);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:var(--green);flex-shrink:0}
+.founder-name{font-size:20px;font-weight:800;margin-bottom:4px}
+.founder-role{font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--green);text-transform:uppercase;margin-bottom:16px}
+.founder-bio{font-size:14px;color:rgba(255,255,255,.6);line-height:1.75}
+.founder-links{display:flex;gap:12px;margin-top:16px}
+.founder-links a{font-size:13px;color:var(--green);text-decoration:none;display:flex;align-items:center;gap:6px;transition:opacity .2s}
+.founder-links a:hover{opacity:.7}
+.cta-box{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:20px;padding:64px 40px;text-align:center;margin-bottom:96px}
+.cta-box h2{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-.8px;margin-bottom:14px}
+.cta-box p{color:rgba(255,255,255,.52);font-size:15px;margin-bottom:28px}
+.btn-primary{background:var(--green);color:#061210;font-weight:700;font-size:15px;padding:14px 28px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s,transform .2s}
 .btn-primary:hover{opacity:.88;transform:translateY(-2px)}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:none}
 footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-links-row{display:flex;gap:28px;list-style:none;flex-wrap:wrap}
+.footer-links-row{display:flex;gap:28px;list-style:none}
 .footer-links-row a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
 .footer-links-row a:hover{color:#fff}
 .footer-copy{font-size:13px;color:var(--muted)}
-@media(max-width:900px){nav{padding:0 20px}.nav-links{display:none}.page-hero,.section,.cta-section{padding-left:20px;padding-right:20px}.comp-table{font-size:12px}footer{padding:32px 20px}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}
+@media(max-width:900px){nav{padding:0 20px}.principles-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr 1fr;gap:24px}.founder-card{flex-direction:column}.section,.page-hero{padding-left:20px;padding-right:20px}footer{padding:32px 20px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}body{cursor:auto}#cursor,#cursor-glow{display:none}}
 
 
@@ -122,8 +122,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 <div id="bg-icons-layer"></div>
 <div id="cursor"></div>
 <div id="cursor-glow"></div>
-
-<nav id="nav">
+<nav>
   <a href="index.html" class="nav-logo"><svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>Zenmul</a>
       <ul class="nav-links">
     <li><a href="what-we-build.html">What we build</a></li>
@@ -139,171 +138,65 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 </nav>
 
 <div class="page-hero">
-  <div class="eyebrow"><span class="eyebrow-dot"></span>Comparisons</div>
-  <h1>Why businesses<br>choose <em>Zenmul</em>.</h1>
-  <p>Five honest comparisons. Every business looks at these options before choosing automation. Here is what the numbers actually say.</p>
+  <span class="eyebrow">About</span>
+  <h1>Small teams shouldn't lose business to slow follow-ups.</h1>
+  <p>Zenmul builds the automation layer that keeps enquiries answered, appointments kept, and clients followed up, while you do the actual work.</p>
 </div>
 
-<section class="section">
+<div class="section">
+  <p class="story-text reveal">Zenmul is an automation studio founded by Nazmul Hossen. What started as building a single lead-generation pipeline for a B2B startup grew into full automation suites for clinics, recruitment agencies, property firms, dropshipping stores, logistics operators, and beauty salons.</p>
+  <p class="story-text reveal">Every system we ship comes from the same conviction: most businesses don't need more software. They need the software they already use to talk to each other. A freight operator drowning in Excel files and agent emails doesn't need a new platform — they need the data they already receive to flow somewhere useful automatically.</p>
 
-  <!-- VS VA -->
-  <div class="comp-block reveal">
-    <div class="comp-label">Comparison 01</div>
-    <h2 class="comp-title">Zenmul vs Hiring a VA</h2>
-    <p class="comp-sub">A VA is a person. People sleep, get sick, make mistakes, and need managing. An automation runs 24 hours a day, every day, without any of that.</p>
-    <table class="comp-table">
-      <thead>
-        <tr>
-          <th>Factor</th>
-          <th class="col-zen">Zenmul</th>
-          <th>Virtual Assistant</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Monthly cost</td><td class="col-zen">$247 to $797</td><td>$800 to $2,500+</td></tr>
-        <tr><td>Works 24/7</td><td class="col-zen"><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
-        <tr><td>Response time</td><td class="col-zen">Under 60 seconds</td><td>Minutes to hours</td></tr>
-        <tr><td>Scales with volume</td><td class="col-zen"><span class="yes">✓</span></td><td><span class="no">✗</span> (hire more)</td></tr>
-        <tr><td>Consistent quality</td><td class="col-zen"><span class="yes">✓</span> Every time</td><td><span class="maybe">Varies</span></td></tr>
-        <tr><td>Sick days / holidays</td><td class="col-zen"><span class="yes">✓</span> Never</td><td><span class="no">✗</span></td></tr>
-        <tr><td>Training required</td><td class="col-zen">None</td><td>Weeks to months</td></tr>
-        <tr><td>Data ownership</td><td class="col-zen"><span class="yes">✓</span> 100% yours</td><td><span class="maybe">Depends</span></td></tr>
-        <tr><td>Handles 100 tasks at once</td><td class="col-zen"><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
-      </tbody>
-    </table>
-    <div class="verdict">
-      <div class="verdict-icon">⚡</div>
-      <div class="verdict-text"><strong>Bottom line:</strong> A VA makes sense for tasks that genuinely require human judgment. For repetitive, rule-based tasks like sending reminders, updating records, and chasing documents, automation is faster, cheaper, and more consistent. Most businesses need both, but they often use a VA for things automation should be handling.</div>
+  <div class="principles-label reveal" style="margin-top:48px">How we work</div>
+  <h2 class="section-h2 reveal">Built to keep working,<br>with or without us.</h2>
+  <div class="principles-grid">
+    <div class="principle-card reveal rd1">
+      <div class="principle-num">01</div>
+      <h3>You own everything</h3>
+      <p>We build on proven, open tools like n8n and Google Workspace. No proprietary lock-in. If we disappeared tomorrow, your systems keep running.</p>
+    </div>
+    <div class="principle-card reveal rd2">
+      <div class="principle-num">02</div>
+      <h3>Fixed pricing, no surprises</h3>
+      <p>Every project is scoped and priced upfront. You know the cost before we write a single workflow.</p>
+    </div>
+    <div class="principle-card reveal rd3">
+      <div class="principle-num">03</div>
+      <h3>Audit first, build second</h3>
+      <p>Every engagement starts with a free audit. You see exactly what we'd automate and why, before spending anything.</p>
     </div>
   </div>
 
-  <!-- VS ZAPIER -->
-  <div class="comp-block reveal">
-    <div class="comp-label">Comparison 02</div>
-    <h2 class="comp-title">Zenmul vs Zapier</h2>
-    <p class="comp-sub">Zapier is a great product for simple automations. Once you hit volume or complexity, the per-task billing model becomes a problem very quickly.</p>
-    <table class="comp-table">
-      <thead>
-        <tr>
-          <th>Factor</th>
-          <th class="col-zen">Zenmul (n8n)</th>
-          <th>Zapier</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Monthly cost at 10,000 tasks</td><td class="col-zen">$247 flat</td><td>$299 to $599+</td></tr>
-        <tr><td>Per-task billing</td><td class="col-zen"><span class="yes">✓</span> None</td><td><span class="no">✗</span> Yes</td></tr>
-        <tr><td>Self-hosted option</td><td class="col-zen"><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
-        <tr><td>Data leaves your environment</td><td class="col-zen"><span class="yes">✓</span> Never</td><td><span class="no">✗</span> Always</td></tr>
-        <tr><td>Complex logic support</td><td class="col-zen"><span class="yes">✓</span> Full</td><td><span class="maybe">Limited</span></td></tr>
-        <tr><td>AI integration built in</td><td class="col-zen"><span class="yes">✓</span></td><td><span class="maybe">Basic</span></td></tr>
-        <tr><td>Custom code nodes</td><td class="col-zen"><span class="yes">✓</span></td><td><span class="maybe">Limited</span></td></tr>
-        <tr><td>You own what is built</td><td class="col-zen"><span class="yes">✓</span> 100%</td><td><span class="no">✗</span> Locked in</td></tr>
-      </tbody>
-    </table>
-    <div class="verdict">
-      <div class="verdict-icon">💡</div>
-      <div class="verdict-text"><strong>Bottom line:</strong> Zapier is fine at low volumes for simple two-step automations. For anything with AI, complex branching logic, or meaningful task volume, n8n self-hosted is significantly cheaper and more capable. Zenmul builds on n8n so you never pay more as your volume grows.</div>
+  <div class="stats-row reveal">
+    <div class="stat-item"><div class="stat-num" data-target="54" data-suffix="+">0</div><div class="stat-label">Workflows in production</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="12">0</div><div class="stat-label">Industries served</div></div>
+    <div class="stat-item"><div class="stat-num" data-suffix="s">&lt;60</div><div class="stat-label">Average automated response time</div></div>
+    <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">Automations working while you sleep</div></div>
+  </div>
+
+  <div class="founder-card reveal">
+    <div class="founder-avatar">NH</div>
+    <div>
+      <div class="founder-name">Nazmul Hossen</div>
+      <div class="founder-role">Founder</div>
+      <p class="founder-bio">Self-taught automation engineer. Nazmul builds every Zenmul system personally and works directly with every client from first audit to final handover. No account managers, no handoffs. You work directly with the person who builds it.</p>
+      <div class="founder-links">
+        <a href="https://www.linkedin.com/in/nazmul-hossen-7a6aa7265" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:nazmul@zenmul.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          nazmul@zenmul.com
+        </a>
+      </div>
     </div>
   </div>
 
-  <!-- VS MAKE -->
-  <div class="comp-block reveal">
-    <div class="comp-label">Comparison 03</div>
-    <h2 class="comp-title">Zenmul vs Make (formerly Integromat)</h2>
-    <p class="comp-sub">Make is more capable than Zapier and better value. It still runs in the cloud, still has operation limits, and still means your data flows through their servers.</p>
-    <table class="comp-table">
-      <thead>
-        <tr>
-          <th>Factor</th>
-          <th class="col-zen">Zenmul (n8n)</th>
-          <th>Make</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Hosting</td><td class="col-zen">Self-hosted (yours)</td><td>Cloud only</td></tr>
-        <tr><td>Operation limits</td><td class="col-zen">None</td><td>10k to 150k ops/month</td></tr>
-        <tr><td>Data privacy</td><td class="col-zen"><span class="yes">✓</span> Stays on your server</td><td><span class="no">✗</span> Their servers</td></tr>
-        <tr><td>AI workflow support</td><td class="col-zen"><span class="yes">✓</span> Native</td><td><span class="maybe">Limited</span></td></tr>
-        <tr><td>Visual complexity ceiling</td><td class="col-zen">None</td><td>Gets unwieldy fast</td></tr>
-        <tr><td>Custom logic</td><td class="col-zen"><span class="yes">✓</span> JavaScript nodes</td><td><span class="maybe">Partial</span></td></tr>
-        <tr><td>Vendor dependency</td><td class="col-zen">None (open source)</td><td>High</td></tr>
-        <tr><td>Cost at scale</td><td class="col-zen">Flat $247/mo</td><td>Grows with volume</td></tr>
-      </tbody>
-    </table>
-    <div class="verdict">
-      <div class="verdict-icon">🔒</div>
-      <div class="verdict-text"><strong>Bottom line:</strong> Make is genuinely good and better value than Zapier for most use cases. The self-hosting advantage of n8n still wins for data-sensitive businesses and high-volume workflows. If your data should not leave your environment, self-hosted n8n is the only logical choice.</div>
-    </div>
-  </div>
-
-  <!-- VS MANUAL -->
-  <div class="comp-block reveal">
-    <div class="comp-label">Comparison 04</div>
-    <h2 class="comp-title">Zenmul vs Manual Follow-Up</h2>
-    <p class="comp-sub">Most service businesses are still doing this manually. The cost is invisible but real: hours lost, leads that go cold, and follow-ups that never happen.</p>
-    <table class="comp-table">
-      <thead>
-        <tr>
-          <th>Factor</th>
-          <th class="col-zen">Zenmul</th>
-          <th>Manual Process</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>First response time</td><td class="col-zen">Under 60 seconds</td><td>Hours to days</td></tr>
-        <tr><td>Leads lost to slow response</td><td class="col-zen">Near zero</td><td>15 to 35%</td></tr>
-        <tr><td>Follow-ups always sent</td><td class="col-zen"><span class="yes">✓</span> 100%</td><td><span class="no">✗</span> Gets forgotten</td></tr>
-        <tr><td>Works outside office hours</td><td class="col-zen"><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
-        <tr><td>Staff time cost (weekly)</td><td class="col-zen">~0 hours</td><td>5 to 20+ hours</td></tr>
-        <tr><td>Human error rate</td><td class="col-zen">Zero</td><td>High</td></tr>
-        <tr><td>Scales with enquiry volume</td><td class="col-zen"><span class="yes">✓</span></td><td><span class="no">✗</span> Breaks</td></tr>
-        <tr><td>Consistent client experience</td><td class="col-zen"><span class="yes">✓</span></td><td><span class="no">✗</span> Varies daily</td></tr>
-      </tbody>
-    </table>
-    <div class="verdict">
-      <div class="verdict-icon">📉</div>
-      <div class="verdict-text"><strong>Bottom line:</strong> Research consistently shows that responding to a lead within 5 minutes makes you 9x more likely to convert them than responding after 30 minutes. Most businesses respond in hours. Every hour of delay is compounding revenue loss. Automation removes the delay entirely.</div>
-    </div>
-  </div>
-
-  <!-- VS AGENCIES -->
-  <div class="comp-block reveal">
-    <div class="comp-label">Comparison 05</div>
-    <h2 class="comp-title">Zenmul vs Traditional Automation Agencies</h2>
-    <p class="comp-sub">Traditional agencies charge more, deliver slower, and often use expensive platforms that charge you again every month. Zenmul is different by design.</p>
-    <table class="comp-table">
-      <thead>
-        <tr>
-          <th>Factor</th>
-          <th class="col-zen">Zenmul</th>
-          <th>Traditional Agency</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Setup cost</td><td class="col-zen">$697 to $1,997</td><td>$5,000 to $30,000+</td></tr>
-        <tr><td>Monthly retainer</td><td class="col-zen">$247 to $797</td><td>$1,500 to $5,000+</td></tr>
-        <tr><td>You own the system</td><td class="col-zen"><span class="yes">✓</span> Always</td><td><span class="no">✗</span> Often locked in</td></tr>
-        <tr><td>Platform fees passed to you</td><td class="col-zen">None</td><td>Often yes</td></tr>
-        <tr><td>Time to first workflow live</td><td class="col-zen">5 to 10 days</td><td>4 to 12 weeks</td></tr>
-        <tr><td>Industry-specific expertise</td><td class="col-zen"><span class="yes">✓</span> 10+ verticals</td><td><span class="maybe">Generic</span></td></tr>
-        <tr><td>Direct founder access</td><td class="col-zen"><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
-        <tr><td>AI-native build approach</td><td class="col-zen"><span class="yes">✓</span></td><td><span class="maybe">Varies</span></td></tr>
-      </tbody>
-    </table>
-    <div class="verdict">
-      <div class="verdict-icon">🏆</div>
-      <div class="verdict-text"><strong>Bottom line:</strong> Traditional agencies make sense for enterprise-scale projects with complex multi-team requirements. For small and medium service businesses, they are significantly overpriced for what they deliver. Zenmul delivers the same output faster, at a fraction of the cost, with you owning everything at the end.</div>
-    </div>
-  </div>
-
-</section>
-
-<div class="cta-section">
   <div class="cta-box reveal">
-    <h2>Ready to make the switch?</h2>
-    <p>Get a free audit showing exactly what your business should automate and what it would cost. No call required.</p>
-    <a href="contact.html" class="btn-primary">Book your free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <h2>Work directly with the person who builds it.</h2>
+    <p>Start with a free automation audit. No call required.</p>
+    <a href="contact.html" class="btn-primary">Get your free automation audit</a>
   </div>
 </div>
 
@@ -324,20 +217,25 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 </footer>
 
 <script>
-const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:.05});
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=window.scrollY>50?'rgba(7,9,10,0.98)':'rgba(7,9,10,0.92)';},{passive:true});
+function animCounters(){document.querySelectorAll('.stat-num[data-target]').forEach(el=>{const t=parseInt(el.dataset.target),s=el.dataset.suffix||'';if(t===0){el.textContent='0'+s;return}const t0=performance.now(),dur=1400;function tick(now){const p=Math.min((now-t0)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.floor(e*t)+s;if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)})}
+const co=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){animCounters();co.disconnect()}})},{threshold:.3});
+const se=document.querySelector('.stats-row');if(se)co.observe(se);
 </script>
 <script>
 (function(){
   const cur=document.getElementById('cursor');const glw=document.getElementById('cursor-glow');const layer=document.getElementById('bg-icons-layer');
-  const ICONS=['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>'];
-  const pos=[{l:'3%',t:'10vh'},{l:'5%',t:'30vh'},{l:'2%',t:'55vh'},{l:'4%',t:'80vh'},{l:'3%',t:'110vh'},{l:'5%',t:'140vh'},{l:'93%',t:'15vh'},{l:'91%',t:'40vh'},{l:'94%',t:'65vh'},{l:'92%',t:'90vh'},{l:'90%',t:'120vh'},{l:'93%',t:'150vh'}];
-  pos.forEach((p,i)=>{const d=document.createElement('div');d.className='bg-icon';const sz=22+(i%4)*4;d.style.cssText=`left:${p.l};top:${p.t};width:${sz}px;height:${sz}px;--dur:${8+i%5}s;--dl:-${(i*0.55)%8}s`;d.innerHTML=ICONS[i%ICONS.length];layer.appendChild(d)});
+  const st=document.createElement('style');
+  st.textContent='body{cursor:none}#cursor{position:fixed;width:14px;height:14px;background:#34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .08s,height .08s,background .08s,border .08s,box-shadow .08s}#cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(52,211,153,0.08) 0%,transparent 65%)}#bg-icons-layer{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}.bg-icon{position:absolute;color:rgba(52,211,153,0.15);transition:color .25s,filter .25s,transform .25s;animation:bgFloat var(--dur,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}.bg-icon svg{width:100%;height:100%;display:block}.bg-icon.glowing{color:rgba(52,211,153,0.95)!important;filter:drop-shadow(0 0 8px rgba(52,211,153,0.9)) drop-shadow(0 0 20px rgba(52,211,153,0.5));transform:scale(1.35)!important;animation-play-state:paused}@keyframes bgFloat{0%,100%{transform:translateY(0px) rotate(0deg)}25%{transform:translateY(-14px) rotate(3deg)}50%{transform:translateY(-22px) rotate(-2deg)}75%{transform:translateY(-10px) rotate(4deg)}}';
+  document.head.appendChild(st);
+  const ICONS=['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>'];
+  const pos=[{l:'3%',t:'6vh'},{l:'5%',t:'18vh'},{l:'2%',t:'32vh'},{l:'6%',t:'46vh'},{l:'3%',t:'60vh'},{l:'5%',t:'74vh'},{l:'2%',t:'90vh'},{l:'93%',t:'10vh'},{l:'91%',t:'25vh'},{l:'94%',t:'40vh'},{l:'92%',t:'55vh'},{l:'90%',t:'70vh'},{l:'18%',t:'14vh'},{l:'78%',t:'30vh'}];
+  pos.forEach((p,i)=>{const d=document.createElement('div');d.className='bg-icon';const sz=20+(i%5)*4;d.style.cssText=`left:${p.l};top:${p.t};width:${sz}px;height:${sz}px;--dur:${7+i%7}s;--dl:-${(i*0.45)%9}s`;d.innerHTML=ICONS[i%ICONS.length];layer.appendChild(d)});
   let mx=0,my=0,gx=0,gy=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';document.querySelectorAll('.bg-icon').forEach(ic=>{const r=ic.getBoundingClientRect();const cx=r.left+r.width/2,cy=r.top+r.height/2;ic.classList.toggle('glowing',Math.sqrt((mx-cx)**2+(my-cy)**2)<55)})});
   (function anim(){gx+=(mx-gx)*0.15;gy+=(my-gy)*0.15;glw.style.left=gx+'px';glw.style.top=gy+'px';requestAnimationFrame(anim)})();
-  document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.cssText='position:fixed;width:28px;height:28px;background:transparent;border:2px solid #34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 14px rgba(52,211,153,0.6);left:'+mx+'px;top:'+my+'px'});el.addEventListener('mouseleave',()=>{cur.style.cssText='position:fixed;width:14px;height:14px;background:#34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);left:'+mx+'px;top:'+my+'px'})});
+  document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.cssText='position:fixed;width:28px;height:28px;background:transparent;border:2px solid #34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 14px rgba(52,211,153,0.6);transition:width .08s,height .08s,background .08s,border .08s,box-shadow .08s;left:'+mx+'px;top:'+my+'px'});el.addEventListener('mouseleave',()=>{cur.style.cssText='position:fixed;width:14px;height:14px;background:#34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .08s,height .08s,background .08s,border .08s,box-shadow .08s;left:'+mx+'px;top:'+my+'px'})});
 })();
 </script>
 

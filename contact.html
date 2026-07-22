@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Audit | Zenmul</title>
-<meta name="description" content="Get your free automation roadmap. Tell me about your business and what's eating your week. Free, no call required.">
+<title>Case Studies | Zenmul</title>
+<meta name="description" content="Real workflows. Real results. Proof of the automation systems Zenmul builds.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -15,46 +16,74 @@ body{background:var(--bg);color:#fff;font-family:'Inter',sans-serif;font-size:16
 #cursor{position:fixed;width:12px;height:12px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s}
 #cursor-glow{position:fixed;width:380px;height:380px;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(52,211,153,0.07) 0%,transparent 65%)}
 #bg-icons-layer{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
-.bg-icon{position:absolute;color:rgba(52,211,153,.16);animation:iconFloat var(--dur,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+.bg-icon{position:absolute;color:rgba(52,211,153,.15);animation:iconFloat var(--dur,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}
 .bg-icon svg{width:100%;height:100%;display:block}
-@keyframes iconFloat{0%,100%{transform:translateY(0px);opacity:.14}50%{transform:translateY(-18px);opacity:.26}}
+@keyframes iconFloat{0%,100%{transform:translateY(0px);opacity:.13}50%{transform:translateY(-16px);opacity:.24}}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(7,9,10,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:700;font-size:17px}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;transition:color .2s}
-.nav-links a:hover{color:#fff}
-.btn-nav{background:var(--green);color:#061210;font-weight:700;font-size:14px;padding:9px 20px;border-radius:8px;text-decoration:none}
-.page-wrap{padding:120px 48px 96px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.left-col h1{font-size:clamp(32px,4vw,52px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease forwards .2s}
-.left-col .sub{font-size:16px;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:36px;opacity:0;animation:fadeUp .7s ease forwards .4s}
-.what-you-get{opacity:0;animation:fadeUp .7s ease forwards .6s}
-.what-label{font-size:11px;font-weight:600;letter-spacing:.16em;color:var(--green);text-transform:uppercase;margin-bottom:16px}
-.what-list{list-style:none;display:flex;flex-direction:column;gap:14px}
-.what-list li{display:flex;gap:12px;font-size:14px;color:rgba(255,255,255,.65);line-height:1.6}
-.check{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.btn-nav{background:var(--green);color:#061210;font-weight:700;font-size:14px;padding:9px 20px;border-radius:8px;text-decoration:none;transition:opacity .2s}
+.btn-nav:hover{opacity:.88}
+.page-hero{padding:140px 48px 60px;max-width:1300px;margin:0 auto}
+.eyebrow{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fadeUp .7s ease forwards .1s}
+.page-hero h1{font-size:clamp(36px,5vw,60px);font-weight:800;letter-spacing:-1.5px;margin-bottom:16px;opacity:0;animation:fadeUp .8s ease forwards .3s}
+.page-hero p{font-size:17px;color:rgba(255,255,255,.52);max-width:520px;line-height:1.72;opacity:0;animation:fadeUp .7s ease forwards .5s}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(20px)}}
-.form-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;opacity:0;animation:fadeUp .8s ease forwards .3s}
-.form-card h2{font-size:20px;font-weight:700;margin-bottom:28px}
-.form-group{margin-bottom:20px}
-.form-group label{display:block;font-size:13px;font-weight:500;color:rgba(255,255,255,.7);margin-bottom:8px}
-.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:10px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;padding:12px 16px;outline:none;transition:border-color .2s;cursor:none}
-.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.25)}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(52,211,153,.5)}
-.form-group select option{background:#0d1210;color:#fff}
-.form-group textarea{min-height:130px;resize:vertical;line-height:1.65}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.btn-submit{width:100%;background:var(--green);color:#061210;font-weight:700;font-size:15px;padding:15px 28px;border-radius:10px;border:none;cursor:none;font-family:'Inter',sans-serif;transition:opacity .2s,transform .2s;margin-top:8px}
-.btn-submit:hover{opacity:.88;transform:translateY(-2px)}
-.form-note{font-size:12px;color:var(--muted);text-align:center;margin-top:14px}
-.success-msg{display:none;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);border-radius:12px;padding:24px;text-align:center;margin-top:20px}
-.success-msg h3{font-size:18px;font-weight:700;color:var(--green);margin-bottom:8px}
-.success-msg p{font-size:14px;color:rgba(255,255,255,.65)}
+.search-section{padding:0 48px 48px;max-width:1300px;margin:0 auto;opacity:0;animation:fadeUp .7s ease forwards .6s}
+.search-wrap{position:relative;margin-bottom:24px}
+.search-wrap svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+#search-input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:14px;color:#fff;font-family:'Inter',sans-serif;font-size:15px;padding:16px 18px 16px 52px;outline:none;transition:border-color .2s,background .2s;cursor:none}
+#search-input::placeholder{color:rgba(255,255,255,.3)}
+#search-input:focus{border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.03)}
+.filter-tabs{display:flex;gap:10px;flex-wrap:wrap}
+.filter-tab{background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;color:rgba(255,255,255,.55);font-size:13px;font-weight:500;padding:7px 18px;cursor:none;transition:all .2s;font-family:'Inter',sans-serif}
+.filter-tab:hover{border-color:rgba(52,211,153,.3);color:rgba(255,255,255,.8)}
+.filter-tab.active{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.4);color:var(--green)}
+.results-count{font-size:13px;color:var(--muted);margin-top:16px}
+.results-count span{color:rgba(255,255,255,.6)}
+.section{padding:0 48px 96px;max-width:1300px;margin:0 auto}
+.case-grid{display:grid;grid-template-columns:1fr;gap:20px}
+.case-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;display:grid;grid-template-columns:1.2fr 1fr;gap:48px;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;overflow:hidden}
+.case-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(52,211,153,.2),transparent);opacity:0;transition:opacity .3s}
+.case-card:hover{transform:translateY(-4px);border-color:rgba(52,211,153,.2);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.case-card:hover::before{opacity:1}
+.case-card.hidden{display:none}
+.case-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--green);text-transform:uppercase;border:1px solid rgba(52,211,153,.25);border-radius:20px;padding:4px 12px;margin-bottom:20px}
+.case-card h2{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-bottom:14px;line-height:1.25}
+.case-desc{font-size:14px;color:rgba(255,255,255,.52);line-height:1.75;margin-bottom:24px}
+.tech-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:12px;color:rgba(255,255,255,.45);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:4px 10px;transition:border-color .2s,color .2s}
+.tag:hover{border-color:rgba(52,211,153,.3);color:var(--green)}
+.results-label{font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:16px}
+.results-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.results-list li{display:flex;gap:10px;font-size:14px;color:rgba(255,255,255,.68);line-height:1.55}
+.result-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:7px}
+.no-results{text-align:center;padding:80px 0;display:none}
+.no-results h3{font-size:20px;font-weight:700;margin-bottom:12px;color:rgba(255,255,255,.6)}
+.no-results p{font-size:14px;color:var(--muted)}
+.testi-section{background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.15);border-radius:20px;padding:52px;margin-bottom:48px;text-align:center}
+.testi-section blockquote{font-size:18px;color:rgba(255,255,255,.78);line-height:1.8;max-width:680px;margin:0 auto 28px;font-style:normal}
+.testi-author{display:flex;align-items:center;justify-content:center;gap:14px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;overflow:hidden;border:1.5px solid rgba(52,211,153,.3)}
+.testi-avatar img{width:100%;height:100%;object-fit:cover}
+.testi-name{font-size:15px;font-weight:700;text-align:left}
+.testi-role{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.cta-box{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:20px;padding:72px 48px;text-align:center;max-width:680px;margin:0 auto 96px;transition:border-color .3s}
+.cta-box:hover{border-color:rgba(52,211,153,.2)}
+.cta-box h2{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-.8px;margin-bottom:14px}
+.cta-box p{color:rgba(255,255,255,.52);font-size:15px;margin-bottom:28px}
+.btn-primary{background:var(--green);color:#061210;font-weight:700;font-size:15px;padding:14px 28px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s,transform .2s}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px)}
 footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .footer-links-row{display:flex;gap:28px;list-style:none}
 .footer-links-row a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
 .footer-links-row a:hover{color:#fff}
 .footer-copy{font-size:13px;color:var(--muted)}
-@media(max-width:900px){nav{padding:0 20px}.page-wrap{grid-template-columns:1fr;padding:110px 20px 60px;gap:40px}.form-row{grid-template-columns:1fr}footer{padding:32px 20px}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:900px){nav{padding:0 20px}.nav-links{display:none}.case-card{grid-template-columns:1fr}.page-hero,.search-section,.section{padding-left:20px;padding-right:20px}footer{padding:32px 20px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}body{cursor:auto}#cursor,#cursor-glow{display:none}}
 
 
@@ -111,6 +140,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 <div id="bg-icons-layer"></div>
 <div id="cursor"></div>
 <div id="cursor-glow"></div>
+
 <nav>
   <a href="index.html" class="nav-logo"><svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>Zenmul</a>
       <ul class="nav-links">
@@ -126,68 +156,681 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   <a href="contact.html" class="btn-nav">Free audit</a>
 </nav>
 
-<div class="page-wrap">
-  <div class="left-col">
-    <h1>Get your free automation roadmap.</h1>
-    <p class="sub">Tell me about your business and the manual tasks eating your week. I'll send back a personalised roadmap showing exactly what's worth automating and what it would save you. Free, no call required.</p>
-    <div class="what-you-get">
-      <div class="what-label">What you get</div>
-      <ul class="what-list">
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>A prioritised list of automation opportunities specific to your business</li>
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>An honest time-savings estimate, no inflated numbers</li>
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Yours to keep, whether or not you work with me</li>
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Reply within one business day</li>
-      </ul>
-    </div>
+<div class="page-hero">
+  <span class="eyebrow">Case Studies</span>
+  <h1>Real workflows.<br>Real results.</h1>
+  <p>Every system we build solves a specific problem. Here's the proof.</p>
+</div>
+
+<div class="search-section">
+  <div class="search-wrap">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="search-input" placeholder="Search case studies by industry, tool, or problem...">
   </div>
-  <div>
-    <div class="form-card">
-      <h2>Tell me about your business</h2>
-      <form id="audit-form" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Your name</label>
-            <input type="text" id="name" name="name" placeholder="First name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Work email</label>
-            <input type="email" id="email" name="email" placeholder="you@company.com" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="company">Company</label>
-          <input type="text" id="company" name="company" placeholder="Your company name">
-        </div>
-        <div class="form-group">
-          <label for="industry">Industry</label>
-          <select id="industry" name="industry">
-            <option value="" disabled selected>Select your industry</option>
-            <option>Property &amp; Lettings</option>
-            <option>Recruitment</option>
-            <option>Medical / Aesthetic Clinic</option>
-            <option>B2B SaaS</option>
-            <option>Dropshipping / E-commerce</option>
-            <option>Logistics &amp; Freight</option>
-            <option>Beauty &amp; Salons</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Describe your business and the manual tasks eating your time</label>
-          <textarea id="message" name="message" placeholder="e.g. We respond to 50+ enquiries a day manually, chase clients for feedback after every job, and manually compile weekly reports..." required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="links">Links (optional)</label>
-          <input type="text" id="links" name="links" placeholder="Your website, LinkedIn, anything helpful">
-        </div>
-        <button type="submit" class="btn-submit">Get my free automation roadmap</button>
-        <p class="form-note">Free, no call required. Reply within one business day.</p>
-      </form>
-      <div class="success-msg" id="success">
-        <h3>Roadmap request received.</h3>
-        <p>I'll review your details and send your personalised automation roadmap within one business day.</p>
+  <div class="filter-tabs">
+    <button class="filter-tab active" data-filter="all">All</button>
+    <button class="filter-tab" data-filter="b2b-saas">B2B SaaS</button>
+    <button class="filter-tab" data-filter="clinic">Clinics</button>
+    <button class="filter-tab" data-filter="recruitment">Recruitment</button>
+    <button class="filter-tab" data-filter="dropshipping">Dropshipping</button>
+    <button class="filter-tab" data-filter="logistics">Logistics</button>
+    <button class="filter-tab" data-filter="salon">Beauty &amp; Salons</button>
+    <button class="filter-tab" data-filter="restaurant">Restaurants</button>
+    <button class="filter-tab" data-filter="law">Law Firms</button>
+    <button class="filter-tab" data-filter="gym">Gyms &amp; PTs</button>
+    <button class="filter-tab" data-filter="coach">Coaches &amp; E-learning</button>
+    <button class="filter-tab" data-filter="realestate">Real Estate</button>
+    <button class="filter-tab" data-filter="elearning">E-learning</button>
+    <button class="filter-tab" data-filter="accountants">Accountants</button>
+    <button class="filter-tab" data-filter="dental">Dental &amp; Physio</button>
+    <button class="filter-tab" data-filter="events">Events</button>
+    <button class="filter-tab" data-filter="construction">Construction</button>
+    <button class="filter-tab" data-filter="hotels">Hotels</button>
+    <button class="filter-tab" data-filter="auto">Auto</button>
+    <button class="filter-tab" data-filter="schools">Schools</button>
+    <button class="filter-tab" data-filter="insurance">Insurance</button>
+    <button class="filter-tab" data-filter="pharmacy">Pharmacy</button>
+    <button class="filter-tab" data-filter="cleaning">Cleaning</button>
+    <button class="filter-tab" data-filter="veterinary">Veterinary</button>
+    <button class="filter-tab" data-filter="creative">Creative</button>
+    <button class="filter-tab" data-filter="financial">Financial</button>
+    <button class="filter-tab" data-filter="mentalhealth">Mental Health</button>
+    <button class="filter-tab" data-filter="trades">Trades</button>
+    <button class="filter-tab" data-filter="ecommerce2">eCommerce</button>
+    <button class="filter-tab" data-filter="travel">Travel</button>
+    <button class="filter-tab" data-filter="warehouse">Warehousing</button>
+    <button class="filter-tab" data-filter="tools">Standalone Tools</button>
+  </div>
+  <div class="results-count"><span id="results-num">32</span> case studies</div>
+</div>
+
+<div class="section">
+  <div class="case-grid" id="case-grid">
+
+    <div class="case-card reveal" data-tags="b2b-saas saas lead generation apollo clearout n8n apify telegram google sheets startup" data-category="b2b-saas">
+      <div>
+        <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>B2B SaaS</span>
+        <h2>Automated Lead Generation Pipeline for SalDev</h2>
+        <p class="case-desc">A fully automated daily pipeline scraping startup job boards, enriching leads via Apollo, verifying emails via Clearout, and delivering qualified prospects to Google Sheets with Telegram summaries. Zero manual work from the client every morning.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">Apify</span><span class="tag">Apollo</span><span class="tag">Clearout</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>100+ verified leads delivered daily</li>
+          <li><span class="result-dot"></span>Zero manual prospecting</li>
+          <li><span class="result-dot"></span>Operational in under 7 days</li>
+          <li><span class="result-dot"></span>Decision-maker level contacts every morning</li>
+        </ul>
       </div>
     </div>
+
+    <div class="case-card reveal" data-tags="clinic medical aesthetic enquiry no-show reminder n8n ai gmail telegram" data-category="clinic">
+      <div>
+        <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Medical &amp; Aesthetic Clinic</span>
+        <h2>Instant Enquiry Responder + No-Show Killer</h2>
+        <p class="case-desc">Two-workflow system that replies to clinic enquiries in under 60 seconds using AI, routes by intent, and sends a 3-stage appointment reminder sequence that cuts no-shows automatically.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Telegram</span><span class="tag">Google Sheets</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Sub-60 second AI reply to every enquiry</li>
+          <li><span class="result-dot"></span>48h, 24h and 3h automated reminder sequence</li>
+          <li><span class="result-dot"></span>Follow-up sent if no booking confirmed</li>
+          <li><span class="result-dot"></span>Staff freed from repetitive inbox work</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="recruitment candidate screening interview reminder placement follow up pipeline n8n ai google sheets" data-category="recruitment">
+      <div>
+        <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Recruitment</span>
+        <h2>AI Candidate Screening and Complete Recruitment Automation Suite</h2>
+        <p class="case-desc">A 5-workflow automation suite that screens candidates with AI, cuts interview no-shows, captures client job briefs, follows up on every placement, and tracks the full pipeline automatically.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Response time cut from hours to under 60 seconds</li>
+          <li><span class="result-dot"></span>3 automatic reminders before every interview</li>
+          <li><span class="result-dot"></span>100% of placements followed up automatically</li>
+          <li><span class="result-dot"></span>Full pipeline tracked in Google Sheets</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="b2b saas lead scoring trial conversion churn detection demo no-show n8n ai gmail" data-category="b2b-saas">
+      <div>
+        <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>B2B SaaS Suite</span>
+        <h2>B2B SaaS Lead and Retention Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite that scores inbound leads with AI, converts trial users with automated sequences, detects churn risk weekly, and eliminates demo no-shows with timed reminders.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Lead scored and contacted in under 60 seconds</li>
+          <li><span class="result-dot"></span>Day 1, day 3 and day 7 trial sequences automated</li>
+          <li><span class="result-dot"></span>Weekly churn scan covers 100% of accounts</li>
+          <li><span class="result-dot"></span>Zero missed demo follow-ups</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="dropshipping ecommerce store abandoned cart wismo review ugc order delay n8n ai" data-category="dropshipping">
+      <div>
+        <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Dropshipping Suite</span>
+        <h2>Dropshipping Store Brain Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite that recovers abandoned carts with AI-scored emails, defends against shipping delays and chargebacks, auto-responds to WISMO support tickets, and harvests reviews on autopilot.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Telegram</span><span class="tag">Google Sheets</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Abandoned carts scored and emailed within minutes</li>
+          <li><span class="result-dot"></span>Proactive delay emails sent before complaints</li>
+          <li><span class="result-dot"></span>WISMO tickets auto-classified and replied instantly</li>
+          <li><span class="result-dot"></span>Review requests sent after every delivery</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="logistics freight cargo container shipping excel ingestion matching ai n8n telegram google sheets agent email" data-category="logistics">
+      <div>
+        <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Logistics &amp; Freight</span>
+        <h2>Cargo Brain: Logistics Automation Suite</h2>
+        <p class="case-desc">Four-workflow automation suite that eliminates the human sitting between container data, customer requirements, and agent updates. Batch Excel ingestion with automatic column normalisation, AI-powered container matching, agent email extraction, and a daily exception alert digest.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Google Sheets</span><span class="tag">Gmail</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>1 to 4 day matching delay eliminated to containers matched within the hour</li>
+          <li><span class="result-dot"></span>Excel files from any agent format ingested and normalised automatically</li>
+          <li><span class="result-dot"></span>Free-text agent emails parsed into structured data by AI</li>
+          <li><span class="result-dot"></span>Daily Telegram digest flags every stuck, overdue, and unmatched container by 8AM</li>
+          <li><span class="result-dot"></span>Running cost: $5 to $15/month</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="salon beauty hair appointment no-show review rebooking enquiry n8n ai gmail telegram google sheets" data-category="salon">
+      <div>
+        <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Beauty &amp; Salons</span>
+        <h2>Salon Brain: Full Client Lifecycle Automation Suite</h2>
+        <p class="case-desc">A 5-workflow automation suite that confirms appointments instantly, recovers no-shows within the hour, harvests reviews after every visit, nudges lapsed clients back at 30 days, and replies to every new enquiry with AI in under 60 seconds.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Instant confirmation and 48h plus 2h reminders automated</li>
+          <li><span class="result-dot"></span>No-shows detected and followed up within 60 minutes</li>
+          <li><span class="result-dot"></span>Review requests sent 24h after every completed visit</li>
+          <li><span class="result-dot"></span>Lapsed clients nudged back automatically at 30 days</li>
+          <li><span class="result-dot"></span>Every new enquiry answered by AI in under 60 seconds</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="restaurant cafe reservation no-show review catering loyalty nudge n8n ai gmail telegram google sheets" data-category="restaurant">
+      <div>
+        <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>Restaurants &amp; Cafes</span>
+        <h2>Restaurant Brain: Full Guest Lifecycle Automation Suite</h2>
+        <p class="case-desc">A 5-workflow automation suite that confirms reservations instantly, recovers no-shows within the hour, harvests reviews after every visit, replies to catering enquiries with AI in under 60 seconds, and nudges lapsed guests back at 30 days automatically.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Instant confirmation and 24h plus 2h reminders automated</li>
+          <li><span class="result-dot"></span>No-shows detected and followed up within 60 minutes</li>
+          <li><span class="result-dot"></span>Review requests sent after every completed visit</li>
+          <li><span class="result-dot"></span>Every catering enquiry answered by AI in under 60 seconds</li>
+          <li><span class="result-dot"></span>Lapsed guests nudged back automatically at 30 days</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="gym personal trainer pt enquiry session reminder no-show recovery check-in win-back lapsed member n8n ai gmail google sheets" data-category="gym">
+      <div>
+        <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>Gyms &amp; PTs</span>
+        <h2>Gym Brain: Full Member Lifecycle Automation Suite</h2>
+        <p class="case-desc">A 5-workflow automation suite built for gyms and personal trainers. Replies to every new enquiry with AI in under 60 seconds, sends session reminders automatically, recovers no-shows with a motivating rebook email, checks in with clients 3 hours after every session, and wins back lapsed members at 30 days with a daily automated scan.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Every new enquiry answered by AI in under 60 seconds</li>
+          <li><span class="result-dot"></span>Instant confirmation, 24h and 2h session reminders automated</li>
+          <li><span class="result-dot"></span>No-shows recovered with AI-written rebook email instantly</li>
+          <li><span class="result-dot"></span>Post-session check-in sent automatically 3 hours after every session</li>
+          <li><span class="result-dot"></span>Lapsed members nudged back automatically at 30 days</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="law firm solicitor enquiry responder consultation reminder document chase no-show recovery onboarding n8n ai gmail google sheets" data-category="law">
+      <div>
+        <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Law Firms</span>
+        <h2>Law Brain: Full Client Lifecycle Automation Suite</h2>
+        <p class="case-desc">A 5-workflow automation suite built for law firms and solicitors. Replies to new enquiries in under 60 seconds using AI, sends consultation reminders automatically, chases outstanding documents with 3 timed emails, recovers missed consultations with an AI-written rebook offer, and sends personalised onboarding emails the moment a new client is added.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Every new enquiry answered by AI in under 60 seconds</li>
+          <li><span class="result-dot"></span>Instant confirmation, 24h and 2h consultation reminders automated</li>
+          <li><span class="result-dot"></span>Outstanding documents chased at day 2, 5, and 10 automatically</li>
+          <li><span class="result-dot"></span>No-shows recovered with AI-written rebook email before clients go cold</li>
+          <li><span class="result-dot"></span>New clients onboarded with personalised welcome email in seconds</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+    <div class="case-card reveal" data-tags="coach elearning student enquiry session reminder no-show recovery feedback lapsed win-back ai gmail google sheets n8n" data-category="coach">
+      <div>
+        <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Coaches &amp; E-learning</span>
+        <h2>Coach Brain: Full Student Lifecycle Automation Suite</h2>
+        <p class="case-desc">A 5-workflow automation suite built for coaches and e-learning businesses. Replies to every new student enquiry with AI in under 60 seconds, sends session reminders automatically, recovers no-shows with a motivating rebook email, collects post-session feedback without manual chasing, and wins back lapsed students at 30 days with a daily automated scan.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Every new enquiry answered by AI in under 60 seconds</li>
+          <li><span class="result-dot"></span>Instant confirmation, 24h and 2h session reminders automated</li>
+          <li><span class="result-dot"></span>No-shows recovered with AI-written rebook email instantly</li>
+          <li><span class="result-dot"></span>Post-session feedback collected automatically after every class</li>
+          <li><span class="result-dot"></span>Lapsed students re-engaged automatically at 30 days</li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <div class="case-card reveal" data-tags="real estate agent property viewing reminder tenancy renewal enquiry responder n8n ai gmail google sheets telegram" data-category="realestate">
+      <div>
+        <span class="case-badge">🏠 Real Estate</span>
+        <h2>Real Estate Brain: Full Agent Automation Suite</h2>
+        <p class="case-desc">A 3-workflow automation suite for property agents. Replies to every buyer and seller enquiry in under 60 seconds, automates the full viewing cycle from confirmation to post-viewing feedback, and sends tenancy renewal reminders at 90, 60, and 30 days.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Every enquiry answered by AI in under 60 seconds</li>
+          <li><span class="result-dot"></span>Viewing reminders at 24h and 2h sent automatically</li>
+          <li><span class="result-dot"></span>Post-viewing feedback collected without manual chasing</li>
+          <li><span class="result-dot"></span>Zero tenancy renewals missed with 3-stage reminder sequence</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="elearning coach student session reminder no-show recovery feedback win-back n8n ai gmail" data-category="elearning">
+      <div>
+        <span class="case-badge">📚 E-learning &amp; Coaches</span>
+        <h2>Coach Brain: Full Student Lifecycle Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite for coaches and online educators. Replies to every student enquiry instantly, sends session reminders, recovers no-shows with an AI rebook offer, collects post-session feedback, and wins back lapsed students at 30 days.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Every enquiry answered by AI in under 60 seconds</li>
+          <li><span class="result-dot"></span>Session reminders at 24h and 2h automated</li>
+          <li><span class="result-dot"></span>No-shows recovered with AI rebook email instantly</li>
+          <li><span class="result-dot"></span>Lapsed students re-engaged automatically at 30 days</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="accountant bookkeeper document chaser deadline reminder tax vat n8n ai gmail google sheets" data-category="accountants">
+      <div>
+        <span class="case-badge">📊 Accountants</span>
+        <h2>Accountant Brain: Document and Deadline Automation Suite</h2>
+        <p class="case-desc">A 2-workflow automation suite for accountants and bookkeepers. Chases missing client documents at day 3, 7, and 14 automatically, and sends tax return and VAT deadline reminders to clients without any manual effort.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Missing documents chased automatically at day 3, 7, and 14</li>
+          <li><span class="result-dot"></span>Tax and VAT deadline reminders sent to every client on time</li>
+          <li><span class="result-dot"></span>Zero manual chasing by staff</li>
+          <li><span class="result-dot"></span>Every chase and reminder logged in Google Sheets</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="dental physio appointment reminder no-show recall patient review n8n ai gmail google sheets telegram" data-category="dental">
+      <div>
+        <span class="case-badge">🦷 Dental &amp; Physio</span>
+        <h2>Dental and Physio Brain: Patient Lifecycle Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite for dental and physio practices. Confirms appointments instantly, sends 48h and 2h reminders, recovers no-shows within the hour, fires 6-month recall reminders automatically, and requests reviews after every visit.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Instant confirmation and 48h plus 2h reminders automated</li>
+          <li><span class="result-dot"></span>No-shows followed up within the hour</li>
+          <li><span class="result-dot"></span>6-month recalls sent automatically to every patient</li>
+          <li><span class="result-dot"></span>Review requests sent after every completed appointment</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="event planner enquiry vendor chaser client update rsvp tracking n8n ai gmail" data-category="events">
+      <div>
+        <span class="case-badge">🎉 Event Planners</span>
+        <h2>Event Brain: Full Event Planning Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite for event planners. Replies to event enquiries instantly, chases outstanding vendor confirmations, sends automated client progress updates, and tracks RSVP responses with automatic follow-ups.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Every event enquiry answered by AI in under 60 seconds</li>
+          <li><span class="result-dot"></span>Vendor confirmations chased automatically</li>
+          <li><span class="result-dot"></span>Clients updated on progress without manual emails</li>
+          <li><span class="result-dot"></span>RSVP non-responses followed up automatically</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="construction company quote follow up site update client subcontractor reminder n8n ai gmail" data-category="construction">
+      <div>
+        <span class="case-badge">🏗️ Construction</span>
+        <h2>Construction Brain: Project and Quote Automation Suite</h2>
+        <p class="case-desc">A 3-workflow automation suite for construction companies. Follows up unanswered quotes after 3 days, sends weekly automated site progress updates to clients, and chases subcontractors for confirmations and completion reports.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Unanswered quotes followed up automatically after 3 days</li>
+          <li><span class="result-dot"></span>Weekly site progress updates sent to clients without manual effort</li>
+          <li><span class="result-dot"></span>Subcontractor confirmations chased automatically</li>
+          <li><span class="result-dot"></span>Every action logged in Google Sheets</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="hotel hospitality booking confirmation pre-arrival upsell review post-stay n8n ai gmail" data-category="hotels">
+      <div>
+        <span class="case-badge">🏨 Hotels &amp; Hospitality</span>
+        <h2>Hotel Brain: Full Guest Journey Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite for hotels and hospitality businesses. Sends instant booking confirmations, pre-arrival emails with upsell offers 3 days before, check-in reminders on the day, and post-stay review requests 24h after checkout.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Instant booking confirmation sent automatically</li>
+          <li><span class="result-dot"></span>Pre-arrival upsell email sent 3 days before every stay</li>
+          <li><span class="result-dot"></span>Check-in reminder sent on the day of arrival</li>
+          <li><span class="result-dot"></span>Post-stay review requested 24h after checkout</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="auto dealership test drive service reminder finance enquiry lead follow up n8n ai gmail" data-category="auto">
+      <div>
+        <span class="case-badge">🚗 Auto Dealerships</span>
+        <h2>Dealership Brain: Lead and Service Automation Suite</h2>
+        <p class="case-desc">A 3-workflow automation suite for auto dealerships. Responds to every test drive and finance enquiry instantly with AI, sends service due reminders at 30 and 7 days, and follows up every lead that hasn't converted within a week.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Every test drive enquiry answered by AI in under 60 seconds</li>
+          <li><span class="result-dot"></span>Service reminders sent at 30 and 7 days automatically</li>
+          <li><span class="result-dot"></span>Unconverted leads followed up at 7 days</li>
+          <li><span class="result-dot"></span>All leads and service records tracked in Google Sheets</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="school tutor parent enquiry session reminder progress update fee reminder n8n ai gmail" data-category="schools">
+      <div>
+        <span class="case-badge">🏫 Schools &amp; Tutors</span>
+        <h2>Tutor Brain: Full Student and Parent Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite for tutors and schools. Replies to parent enquiries instantly, sends session reminders, delivers weekly progress updates to parents automatically, and chases outstanding fee payments at day 3 and 7.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Every parent enquiry answered by AI in under 60 seconds</li>
+          <li><span class="result-dot"></span>Session reminders sent 24h before every class</li>
+          <li><span class="result-dot"></span>Weekly progress updates delivered to parents automatically</li>
+          <li><span class="result-dot"></span>Outstanding fees chased at day 3 and 7 without manual follow-up</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="insurance broker renewal reminder quote follow up claim update onboarding n8n ai gmail" data-category="insurance">
+      <div>
+        <span class="case-badge">🛡️ Insurance Brokers</span>
+        <h2>Insurance Brain: Renewal and Claims Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite for insurance brokers. Sends policy renewal reminders at 60 and 30 days, follows up unanswered quotes after 3 days, sends automated claim status updates, and onboards new clients with personalised welcome emails.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Policy renewals flagged at 60 and 30 days automatically</li>
+          <li><span class="result-dot"></span>Unanswered quotes followed up after 3 days</li>
+          <li><span class="result-dot"></span>Claim updates sent to clients without manual involvement</li>
+          <li><span class="result-dot"></span>New clients onboarded with personalised welcome email instantly</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="pharmacy prescription reminder refill alert collection notification review request n8n ai gmail" data-category="pharmacy">
+      <div>
+        <span class="case-badge">💊 Pharmacies</span>
+        <h2>Pharmacy Brain: Prescription and Patient Automation Suite</h2>
+        <p class="case-desc">A 3-workflow automation suite for pharmacies. Notifies patients when prescriptions are ready for collection, sends refill reminders 7 days before a prescription runs out, and requests a review 24h after collection.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Patients notified instantly when prescriptions are ready</li>
+          <li><span class="result-dot"></span>Refill reminders sent 7 days before prescription runs out</li>
+          <li><span class="result-dot"></span>Review requests sent 24h after every collection</li>
+          <li><span class="result-dot"></span>Zero manual patient communications required</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="cleaning company booking confirmation job reminder review request win-back n8n ai gmail" data-category="cleaning">
+      <div>
+        <span class="case-badge">🧹 Cleaning Companies</span>
+        <h2>Cleaning Brain: Full Client Lifecycle Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite for cleaning businesses. Confirms every booking instantly, reminds both client and cleaner 24h before the job, requests a review after every completed clean, and re-engages lapsed clients at 30 days.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Every booking confirmed instantly with automated email</li>
+          <li><span class="result-dot"></span>Client and cleaner reminded 24h before every job</li>
+          <li><span class="result-dot"></span>Review requested after every completed clean</li>
+          <li><span class="result-dot"></span>Lapsed clients re-engaged automatically at 30 days</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="veterinary vet appointment reminder vaccination recall review no-show n8n ai gmail" data-category="veterinary">
+      <div>
+        <span class="case-badge">🐾 Veterinary</span>
+        <h2>Vet Brain: Full Patient Lifecycle Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite for veterinary practices. Sends appointment reminders at 48h and 2h, recovers no-shows within the hour, fires vaccination and annual checkup recalls at the right time, and requests reviews after every visit.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Appointment reminders at 48h and 2h sent automatically</li>
+          <li><span class="result-dot"></span>No-shows followed up within the hour</li>
+          <li><span class="result-dot"></span>Vaccination and annual recall reminders sent at the right time</li>
+          <li><span class="result-dot"></span>Review requests sent after every visit</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="creative agency project update approval chaser invoice follow up testimonial request n8n ai gmail" data-category="creative">
+      <div>
+        <span class="case-badge">🎨 Creative Agencies</span>
+        <h2>Creative Brain: Project and Client Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite for creative agencies. Sends automated project progress updates to clients, chases outstanding creative approvals at day 2 and 5, follows up unpaid invoices, and requests testimonials on project completion.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Automated project updates sent to clients at every milestone</li>
+          <li><span class="result-dot"></span>Approval chasers sent at day 2 and 5 without manual follow-up</li>
+          <li><span class="result-dot"></span>Unpaid invoices followed up automatically</li>
+          <li><span class="result-dot"></span>Testimonial requests sent on every project completion</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="financial advisor annual review document request onboarding enquiry responder n8n ai gmail" data-category="financial">
+      <div>
+        <span class="case-badge">🏦 Financial Advisors</span>
+        <h2>Financial Advisor Brain: Client Lifecycle Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite for financial advisors. Replies to new enquiries instantly, sends annual review reminders at 60 and 30 days, chases outstanding onboarding documents, and sends post-meeting summaries automatically.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Every new enquiry answered by AI in under 60 seconds</li>
+          <li><span class="result-dot"></span>Annual review reminders at 60 and 30 days automated</li>
+          <li><span class="result-dot"></span>Onboarding documents chased automatically</li>
+          <li><span class="result-dot"></span>Post-meeting summaries sent to clients without manual effort</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="mental health therapist counsellor appointment intake form reminder no-show n8n ai gmail" data-category="mentalhealth">
+      <div>
+        <span class="case-badge">🧠 Mental Health</span>
+        <h2>Therapy Brain: Practice Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite for therapists and counsellors. Sends appointment confirmations and gentle 48h and 2h reminders, delivers intake forms to new clients automatically, and handles no-show recovery with a warm rebook email.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Instant confirmation and 48h plus 2h reminders automated</li>
+          <li><span class="result-dot"></span>Intake forms sent to new clients automatically</li>
+          <li><span class="result-dot"></span>No-shows recovered with a warm rebook email</li>
+          <li><span class="result-dot"></span>Zero admin involvement in any of these steps</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="trades contractor plumber electrician quote follow up job confirmation review request n8n ai gmail" data-category="trades">
+      <div>
+        <span class="case-badge">🔧 Trades &amp; Contractors</span>
+        <h2>Trades Brain: Full Business Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite for trades and contractors. Follows up every unanswered quote after 2 days, confirms jobs with a reminder the day before, requests a review after every completed job, and re-engages past clients at 90 days.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Unanswered quotes followed up after 2 days automatically</li>
+          <li><span class="result-dot"></span>Job day-before reminder sent to every client</li>
+          <li><span class="result-dot"></span>Review requested after every completed job</li>
+          <li><span class="result-dot"></span>Past clients re-engaged at 90 days</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="ecommerce brand order abandoned cart review complaint weekly digest n8n ai gmail" data-category="ecommerce2">
+      <div>
+        <span class="case-badge">🛒 eCommerce Brands</span>
+        <h2>eCommerce Brain: Full Store Automation Suite</h2>
+        <p class="case-desc">A 5-workflow automation suite for ecommerce brands. Sends AI order confirmations instantly, recovers abandoned carts after 1 hour, requests reviews 3 days after delivery, handles complaints instantly with Telegram alerts, and delivers a weekly sales digest every Monday.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Order confirmations sent the moment every order lands</li>
+          <li><span class="result-dot"></span>Abandoned carts recovered with AI email within 1 hour</li>
+          <li><span class="result-dot"></span>Reviews requested automatically 3 days after delivery</li>
+          <li><span class="result-dot"></span>Every complaint replied to instantly with team Telegram alert</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="travel tourism booking confirmation pre-trip review upsell automated n8n ai gmail" data-category="travel">
+      <div>
+        <span class="case-badge">🌍 Travel &amp; Tourism</span>
+        <h2>Travel Brain: Full Guest Journey Automation Suite</h2>
+        <p class="case-desc">A 4-workflow automation suite for travel agencies. Sends booking confirmations instantly, pre-trip information 7 days before departure, post-trip review requests 48h after return, and an upsell email for the next trip 30 days after return.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Booking confirmations sent instantly</li>
+          <li><span class="result-dot"></span>Pre-trip email sent 7 days before every departure</li>
+          <li><span class="result-dot"></span>Review requested 48h after every return</li>
+          <li><span class="result-dot"></span>Next trip upsell sent 30 days after return automatically</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="warehousing 3pl inbound alert shipment update exception digest client notification n8n ai telegram" data-category="warehouse">
+      <div>
+        <span class="case-badge">📦 Warehousing &amp; 3PL</span>
+        <h2>Warehouse Brain: Logistics Notification Automation Suite</h2>
+        <p class="case-desc">A 3-workflow automation suite for warehouses and 3PL operators. Sends inbound delivery alerts to the warehouse team, notifies clients of shipment status changes automatically, and fires a daily exception digest flagging delayed or missing stock every morning.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>Inbound delivery alerts sent to warehouse team automatically</li>
+          <li><span class="result-dot"></span>Clients notified of shipment status changes without manual emails</li>
+          <li><span class="result-dot"></span>Daily exception digest flags delayed or missing stock every morning</li>
+          <li><span class="result-dot"></span>Zero manual client communications required</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-card reveal" data-tags="domain monitor watchlist whoisfreaks expiry alert telegram namecheap standalone tool automated" data-category="tools">
+      <div>
+        <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Standalone Tool</span>
+        <h2>Domain Watchlist Monitor: 21-Domain Expiry Alert System</h2>
+        <p class="case-desc">A standalone automation that monitors a watchlist of 21 target domains via the WhoisFreaks API every 2 days. Detects expiring and expired domains, logs each result with priority level and category to Google Sheets, and fires a Telegram alert with the domain name, priority rating, and a direct Namecheap buy link the moment an opportunity opens up.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">WhoisFreaks API</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+      </div>
+      <div>
+        <div class="results-label">Results</div>
+        <ul class="results-list">
+          <li><span class="result-dot"></span>21 domains monitored automatically every 2 days</li>
+          <li><span class="result-dot"></span>Expiring domains detected before competitors act</li>
+          <li><span class="result-dot"></span>Every result logged with priority and category to Google Sheets</li>
+          <li><span class="result-dot"></span>Instant Telegram alert with direct Namecheap buy link</li>
+          <li><span class="result-dot"></span>Zero manual checking required</li>
+        </ul>
+      </div>
+    </div>
+
+  <div class="no-results" id="no-results">
+    <h3>No case studies found</h3>
+    <p>Try a different search term or filter.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="reveal" style="margin-bottom:32px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:32px 40px;text-align:center">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:20px">Every system is built on</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">⚙️ n8n (self-hosted)</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">🤖 AI</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">📧 Gmail</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">📊 Google Sheets</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">📱 Telegram</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">🚂 Cloud Infrastructure</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">🔗 Webhooks</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">📋 Google Forms</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">🌐 REST APIs</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">📁 Google Drive</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">📅 Google Calendar</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">🔍 Apollo.io</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">✅ Clearout</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">🕷️ Apify</span>
+      <span style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:500">🔄 WhoisFreaks</span>
+    </div>
+    <div style="font-size:12px;color:rgba(255,255,255,.25);margin-top:16px">No recurring SaaS fees. 100% client owned. Running cost: $5 to $15/month.</div>
+  </div>
+  <div class="testi-section reveal">
+    <blockquote>The lead generation pipeline Nazmul built for us completely transformed our outreach. We went from manual prospecting to 100+ verified leads landing in our sheet every single day. Exceptional work.</blockquote>
+    <div class="testi-author">
+      <div class="testi-avatar"><img src="https://storage.googleapis.com/ployai/9c558b02-e758-4e0e-9857-3be91788d67e/user/673081a9-faisal.jpg" alt="Faisal Ahmed" onerror="this.style.display='none'"></div>
+      <div><div class="testi-name">Faisal Ahmed</div><div class="testi-role">Founder, SalDev</div></div>
+    </div>
+  </div>
+  <div class="cta-box reveal">
+    <h2>Want results like these?</h2>
+    <p>Get a free automation roadmap for your business. No call required.</p>
+    <a href="contact.html" class="btn-primary">Get your free audit</a>
   </div>
 </div>
 
@@ -208,16 +851,17 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 </footer>
 
 <script>
-function handleSubmit(e){
-  e.preventDefault();
-  const form=document.getElementById('audit-form');
-  const btn=form.querySelector('.btn-submit');
-  btn.textContent='Sending...';btn.disabled=true;
-  const data=new FormData(form);
-  const body=`Name: ${data.get('name')}\nEmail: ${data.get('email')}\nCompany: ${data.get('company')}\nIndustry: ${data.get('industry')}\nMessage: ${data.get('message')}\nLinks: ${data.get('links')}`;
-  window.location.href=`mailto:nazmul@zenmul.com?subject=Free Audit Request from ${data.get('name')}&body=${encodeURIComponent(body)}`;
-  setTimeout(()=>{form.style.display='none';document.getElementById('success').style.display='block'},500);
-}
+const cards=[...document.querySelectorAll('.case-card')];
+const searchInput=document.getElementById('search-input');
+const filterTabs=document.querySelectorAll('.filter-tab');
+const noResults=document.getElementById('no-results');
+const resultsNum=document.getElementById('results-num');
+let activeFilter='all';
+function filterCards(){const query=searchInput.value.toLowerCase().trim();let visible=0;cards.forEach(card=>{const tags=card.dataset.tags.toLowerCase();const title=card.querySelector('h2').textContent.toLowerCase();const desc=card.querySelector('.case-desc').textContent.toLowerCase();const category=card.dataset.category;const matchesSearch=!query||tags.includes(query)||title.includes(query)||desc.includes(query);const matchesFilter=activeFilter==='all'||category===activeFilter;if(matchesSearch&&matchesFilter){card.classList.remove('hidden');visible++;}else{card.classList.add('hidden');}});resultsNum.textContent=visible;noResults.style.display=visible===0?'block':'none';}
+searchInput.addEventListener('input',filterCards);
+filterTabs.forEach(tab=>{tab.addEventListener('click',()=>{filterTabs.forEach(t=>t.classList.remove('active'));tab.classList.add('active');activeFilter=tab.dataset.filter;filterCards();});});
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 </script>
 <script>
 (function(){
@@ -225,8 +869,8 @@ function handleSubmit(e){
   const st=document.createElement('style');
   st.textContent='body{cursor:none}#cursor{position:fixed;width:14px;height:14px;background:#34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .08s,height .08s,background .08s,border .08s,box-shadow .08s}#cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(52,211,153,0.08) 0%,transparent 65%)}#bg-icons-layer{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}.bg-icon{position:absolute;color:rgba(52,211,153,0.15);transition:color .25s,filter .25s,transform .25s;animation:bgFloat var(--dur,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}.bg-icon svg{width:100%;height:100%;display:block}.bg-icon.glowing{color:rgba(52,211,153,0.95)!important;filter:drop-shadow(0 0 8px rgba(52,211,153,0.9)) drop-shadow(0 0 20px rgba(52,211,153,0.5));transform:scale(1.35)!important;animation-play-state:paused}@keyframes bgFloat{0%,100%{transform:translateY(0px) rotate(0deg)}25%{transform:translateY(-14px) rotate(3deg)}50%{transform:translateY(-22px) rotate(-2deg)}75%{transform:translateY(-10px) rotate(4deg)}}';
   document.head.appendChild(st);
-  const ICONS=['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>'];
-  const pos=[{l:'4%',t:'8vh'},{l:'6%',t:'35vh'},{l:'3%',t:'65vh'},{l:'92%',t:'15vh'},{l:'90%',t:'45vh'},{l:'94%',t:'75vh'},{l:'20%',t:'20vh'},{l:'75%',t:'60vh'}];
+  const ICONS=['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'];
+  const pos=[{l:'3%',t:'6vh'},{l:'5%',t:'18vh'},{l:'2%',t:'32vh'},{l:'6%',t:'46vh'},{l:'3%',t:'60vh'},{l:'5%',t:'74vh'},{l:'2%',t:'90vh'},{l:'4%',t:'106vh'},{l:'3%',t:'122vh'},{l:'93%',t:'10vh'},{l:'91%',t:'25vh'},{l:'94%',t:'40vh'},{l:'92%',t:'55vh'},{l:'90%',t:'70vh'},{l:'93%',t:'86vh'},{l:'18%',t:'14vh'},{l:'78%',t:'30vh'}];
   pos.forEach((p,i)=>{const d=document.createElement('div');d.className='bg-icon';const sz=20+(i%5)*4;d.style.cssText=`left:${p.l};top:${p.t};width:${sz}px;height:${sz}px;--dur:${7+i%7}s;--dl:-${(i*0.45)%9}s`;d.innerHTML=ICONS[i%ICONS.length];layer.appendChild(d)});
   let mx=0,my=0,gx=0,gy=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';document.querySelectorAll('.bg-icon').forEach(ic=>{const r=ic.getBoundingClientRect();const cx=r.left+r.width/2,cy=r.top+r.height/2;ic.classList.toggle('glowing',Math.sqrt((mx-cx)**2+(my-cy)**2)<55)})});
