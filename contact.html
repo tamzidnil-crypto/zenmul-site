@@ -6,6 +6,12 @@
 <title>Free Audit | Zenmul</title>
 <meta name="description" content="Get your free automation roadmap. Tell me about your business and what's eating your week. Free, no call required.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -263,7 +269,7 @@ async function handleSubmit(e){
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
         access_key: WEB3FORMS_KEY,
-        subject: `Free Audit Request from ${payload.name} — ${payload.company}`,
+        subject: `Free Audit Request from ${payload.name}, ${payload.company}`,
         from_name: 'Zenmul Audit Form',
         name: payload.name,
         email: payload.email,
