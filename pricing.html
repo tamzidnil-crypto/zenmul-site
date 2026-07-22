@@ -124,184 +124,7 @@ footer{border-top:1px solid var(--border);padding:48px;max-width:1300px;margin:0
 .zm-ft{text-align:center;font-size:10px;color:#6B7C75;padding:5px 0 9px;letter-spacing:.02em;font-family:'Inter',system-ui,sans-serif;flex-shrink:0;}
 @media(max-width:420px){#zenmul-panel{right:10px;left:10px;width:auto;bottom:86px;}#zenmul-toggle{right:14px;bottom:18px;}}
 
-/* ═══ MOTION GRAPHICS ═══ */
-.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);animation:orbFloat var(--dur,18s) ease-in-out infinite;opacity:.08;}
-@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(var(--dx1,4vw),var(--dy1,6vh)) scale(1.08);}66%{transform:translate(var(--dx2,-3vw),var(--dy2,10vh)) scale(0.96);}}
-.word-reveal .word{display:inline-block;opacity:0;transform:translateY(20px);animation:wordUp .5s cubic-bezier(0.22,1,0.36,1) forwards;}
-@keyframes wordUp{to{opacity:1;transform:translateY(0);}}
-@keyframes shimmerSlide{0%{left:-75%;}100%{left:125%;}}
-@keyframes dotPop{from{opacity:0;transform:scale(0);}to{opacity:1;transform:scale(1);}}
-@keyframes tagSlide{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
-@keyframes featureIn{from{opacity:0;transform:translateX(-10px);}to{opacity:1;transform:translateX(0);}}
-@keyframes yesPop{from{opacity:0;transform:scale(0) rotate(-15deg);}to{opacity:1;transform:scale(1) rotate(0deg);}}
-@keyframes noPop{from{opacity:0;transform:scale(0);}to{opacity:1;transform:scale(1);}}
-@keyframes numGlow{0%,100%{text-shadow:0 0 8px rgba(52,211,153,0.3);}50%{text-shadow:0 0 24px rgba(52,211,153,0.8),0 0 48px rgba(52,211,153,0.3);}}
-@keyframes arrowPulse{0%,100%{transform:translateX(0);opacity:.5;}50%{transform:translateX(4px);opacity:1;}}
-@keyframes cardShimmer{from{left:-75%;}to{left:125%;}}
-@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,0);}50%{box-shadow:0 0 12px 2px rgba(52,211,153,0.2);}}
-@keyframes iconPulse{from{transform:scale(0.8);opacity:1;}to{transform:scale(1.4);opacity:0;}}
-@keyframes lineGrow{to{width:60%;}}
-@keyframes priceReveal{from{opacity:0;transform:scale(0.7);}to{opacity:1;transform:scale(1);}}
-.serve-card{position:relative;overflow:hidden;}
-.serve-card::after{content:'';position:absolute;inset:0;border-radius:18px;background:radial-gradient(circle at 50% 50%,rgba(52,211,153,0.12),transparent 70%);opacity:0;transition:opacity .35s;pointer-events:none;}
-.serve-card:hover::after{opacity:1;}
-.serve-icon{position:relative;}
-.workflow-card{position:relative;overflow:hidden;}
-.workflow-card::after{content:'';position:absolute;top:-50%;left:-75%;width:50%;height:200%;background:linear-gradient(105deg,transparent,rgba(52,211,153,0.05),transparent);pointer-events:none;}
-.workflow-card:hover::after{animation:cardShimmer .7s ease forwards;}
-.card-badge{animation:badgePulse 3s ease-in-out infinite;}
-.tag{transition:background .2s,border-color .2s,color .2s,transform .2s;}
-.tag:hover{transform:translateY(-2px);}
-.workflow-card.visible .flow-arrow{display:inline-block;animation:arrowPulse 1.4s ease-in-out infinite;color:rgba(52,211,153,0.7);}
-.tool-icon{transition:transform .3s ease,filter .3s ease;}
-.tool-card:hover .tool-icon{transform:translateY(-4px) scale(1.08);filter:drop-shadow(0 0 8px rgba(52,211,153,0.5));}
-.price-card{transition:transform .3s cubic-bezier(0.34,1.56,0.64,1),border-color .25s,box-shadow .25s;}
-.price-card:hover{transform:translateY(-10px) scale(1.01);box-shadow:0 30px 80px rgba(0,0,0,0.6),0 0 40px rgba(52,211,153,0.08);}
-.price-card.featured{position:relative;overflow:hidden;}
-.price-card.featured::before{content:'';position:absolute;inset:0;border-radius:20px;background:linear-gradient(135deg,rgba(52,211,153,0.08),transparent 60%);pointer-events:none;}
-.verdict{transition:border-color .25s,box-shadow .25s,transform .25s;}
-.verdict:hover{border-color:rgba(52,211,153,0.35);box-shadow:0 8px 32px rgba(52,211,153,0.08);transform:translateY(-2px);}
-.comp-table tbody tr{transition:background .2s;}
-.comp-table tbody tr:hover{background:rgba(52,211,153,0.03);}
-.final-cta-box{position:relative;overflow:hidden;}
-.final-cta-box::after{content:'';position:absolute;top:-50%;left:-75%;width:50%;height:200%;background:linear-gradient(105deg,transparent,rgba(52,211,153,0.06),transparent);animation:shimmerSlide 4s ease-in-out infinite;pointer-events:none;}
-@media(prefers-reduced-motion:reduce){.orb{display:none;}*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}}
-</style>
 
-</head>
-<body>
-<div id="bg-icons-layer"></div>
-<div id="cursor"></div>
-<div id="cursor-glow"></div>
-<nav>
-  <a href="index.html" class="nav-logo">
-    <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>
-    Zenmul
-  </a>
-      <ul class="nav-links">
-    <li><a href="what-we-build.html">What we build</a></li>
-    <li><a href="how-it-works.html">How it works</a></li>
-    <li><a href="case-studies.html">Case Studies</a></li>
-    <li><a href="roi-calculator.html">ROI Calculator</a></li>
-    <li><a href="integrations.html">Integrations</a></li>
-    <li><a href="compare.html">Compare</a></li>
-    <li><a href="pricing.html">Pricing</a></li>
-    <li><a href="about.html">About</a></li>
-  </ul>
-  <a href="contact.html" class="btn-nav">Free audit</a>
-</nav>
-
-<div class="page-hero">
-  <span class="eyebrow">Pricing</span>
-  <h1>Simple pricing.<br>Priced to pay for itself.</h1>
-  <p>One setup fee, one flat monthly. No per-task billing, no surprises. Billed worldwide in USD.</p>
-</div>
-
-<div class="section">
-  <div class="pricing-grid">
-    <div class="price-card reveal rd1">
-      <div class="price-tier">Starter</div>
-      <div class="price-tag"><span class="amount">$697</span><span class="period">setup</span></div>
-      <div class="price-monthly">then <strong>$247/month</strong></div>
-      <div class="price-divider"></div>
-      <ul class="price-features">
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>One core automation workflow</li>
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Built, tested and deployed</li>
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Monitoring and maintenance</li>
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Email support</li>
-      </ul>
-      <a href="contact.html" class="btn-outline-full">Get your free audit</a>
-    </div>
-    <div class="price-card featured reveal rd2">
-      <div class="featured-badge">Most popular</div>
-      <div class="price-tier">Full Suite</div>
-      <div class="price-tag"><span class="amount">$997</span><span class="period">setup</span></div>
-      <div class="price-monthly">then <strong>$397/month</strong></div>
-      <div class="price-divider"></div>
-      <ul class="price-features">
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Multiple workflows</li>
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Full design, build and integration</li>
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Monitoring, maintenance and optimisation</li>
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Priority support</li>
-      </ul>
-      <a href="contact.html" class="btn-primary">Get your free audit</a>
-    </div>
-    <div class="price-card reveal rd3">
-      <div class="price-tier">Automation Partner</div>
-      <div class="price-tag"><span class="amount">$1,997</span><span class="period">setup</span></div>
-      <div class="price-monthly">then <strong>$797/month</strong></div>
-      <div class="price-divider"></div>
-      <ul class="price-features">
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Unlimited workflows, built and iterated continuously</li>
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Monthly automation review</li>
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Priority same-day support</li>
-        <li><span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#34D399" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Quarterly optimisation report</li>
-      </ul>
-      <a href="contact.html" class="btn-outline-full">Get your free audit</a>
-    </div>
-  </div>
-  <p class="price-note">Bigger or more complex build? Every roadmap comes with a custom quote. These tiers cover most businesses — from clinics and recruitment firms to freight forwarders and SaaS operators.</p>
-</div>
-
-<div class="faq-section">
-  <h2 class="faq-title reveal">Questions, answered honestly.</h2>
-  <div class="faq-item open reveal">
-    <button class="faq-btn" onclick="toggleFaq(this)">I'm not technical. Can I actually use this?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-    <div class="faq-answer">Yes. The workflows run in the background. You interact through tools you already use, like email, Telegram, and Google Sheets. Zenmul handles all the technical maintenance, so there's nothing new for you to learn or manage.</div>
-  </div>
-  <div class="faq-item reveal">
-    <button class="faq-btn" onclick="toggleFaq(this)">What happens if something breaks?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-    <div class="faq-answer">All workflows include monitoring and ongoing support as part of the monthly retainer. If something breaks, we fix it. You're not left managing a system you didn't build on your own.</div>
-  </div>
-  <div class="faq-item reveal">
-    <button class="faq-btn" onclick="toggleFaq(this)">Why n8n instead of Zapier or Make?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-    <div class="faq-answer">n8n is self-hosted, which means you own it. No per-task fees that scale against you as volume grows, no vendor lock-in, no data leaving your environment. It also has 400+ integrations and is more powerful for complex logic than either alternative.</div>
-  </div>
-  <div class="faq-item reveal">
-    <button class="faq-btn" onclick="toggleFaq(this)">How fast will my first workflow go live?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-    <div class="faq-answer">Most single workflows go live within 5 to 7 days. Full suites typically take 2 to 3 weeks, depending on complexity and the number of integrations involved.</div>
-  </div>
-  <div class="faq-item reveal">
-    <button class="faq-btn" onclick="toggleFaq(this)">What does the free audit involve?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-    <div class="faq-answer">You tell me about your business and the manual tasks eating your week. I send back a personalised automation roadmap showing exactly what's worth automating and what it would save you. Free, no call required, yours to keep whether or not you work with me.</div>
-  </div>
-</div>
-
-<div style="padding:0 48px;max-width:1300px;margin:0 auto">
-  <div class="cta-box reveal">
-    <h2>Get your free automation roadmap.</h2>
-    <p>Tell me about your business and what's eating your week. Free, no call required.</p>
-    <a href="contact.html" class="btn-primary" style="width:auto;display:inline-flex">Get my free roadmap</a>
-  </div>
-</div>
-
-<footer style="border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
-  <a href="index.html" class="nav-logo"><svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>Zenmul</a>
-      <ul class="footer-links-row">
-    <li><a href="what-we-build.html">What we build</a></li>
-    <li><a href="how-it-works.html">How it works</a></li>
-    <li><a href="case-studies.html">Case studies</a></li>
-    <li><a href="roi-calculator.html">ROI Calculator</a></li>
-    <li><a href="integrations.html">Integrations</a></li>
-    <li><a href="compare.html">Compare</a></li>
-    <li><a href="pricing.html">Pricing</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Free audit</a></li>
-  </ul>
-  <div class="footer-copy">© 2026 Zenmul.</div>
-</footer>
-
-<script>
-
-const cur=document.getElementById('cursor'),glow=document.getElementById('cursor-glow');
-let mx=0,my=0,gx=0,gy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
-(function animG(){gx+=(mx-gx)*.07;gy+=(my-gy)*.07;glow.style.left=gx+'px';glow.style.top=gy+'px';requestAnimationFrame(animG)})();
-document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.transform='translate(-50%,-50%) scale(2)';cur.style.opacity='.5'});el.addEventListener('mouseleave',()=>{cur.style.transform='translate(-50%,-50%) scale(1)';cur.style.opacity='1'})});
-const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-function toggleFaq(btn){const item=btn.parentElement;const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open')}
-</script>
 <script>
 (function(){
   const cur=document.getElementById('cursor')||document.createElement('div');
@@ -409,79 +232,175 @@ What does your business do, and what's eating the most time in your week right n
   }
 })();
 
-/* ═══ MOTION GRAPHICS ═══ */
+
+
+
+<script>
+/* ═══ ZENMUL MOTION GRAPHICS — SAFE VERSION ═══ */
 (function(){
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  // Floating orbs
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  /* 1. FLOATING ORBS */
   var orbDefs=[
-    {w:500,h:500,top:'5vh',left:'-8vw',dur:'18s',dx1:'5vw',dy1:'8vh',dx2:'-3vw',dy2:'14vh'},
-    {w:350,h:350,top:'40vh',left:'72vw',dur:'22s',dx1:'-6vw',dy1:'-5vh',dx2:'3vw',dy2:'9vh'},
-    {w:280,h:280,top:'75vh',left:'15vw',dur:'16s',dx1:'4vw',dy1:'-7vh',dx2:'-2vw',dy2:'4vh'}
+    {w:500,h:500,top:'5vh',  left:'-8vw', dur:'18s',dx1:'5vw', dy1:'8vh', dx2:'-3vw',dy2:'14vh'},
+    {w:350,h:350,top:'40vh', left:'72vw', dur:'22s',dx1:'-6vw',dy1:'-5vh',dx2:'3vw', dy2:'9vh'},
+    {w:280,h:280,top:'75vh', left:'15vw', dur:'16s',dx1:'4vw', dy1:'-7vh',dx2:'-2vw',dy2:'4vh'}
   ];
   orbDefs.forEach(function(o){
     var el=document.createElement('div');
-    el.className='orb';
-    el.style.cssText='width:'+o.w+'px;height:'+o.h+'px;top:'+o.top+';left:'+o.left+';--dur:'+o.dur+';--dx1:'+o.dx1+';--dy1:'+o.dy1+';--dx2:'+o.dx2+';--dy2:'+o.dy2+';background:radial-gradient(circle,rgba(52,211,153,0.16) 0%,transparent 70%);';
+    el.style.cssText='position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);width:'+o.w+'px;height:'+o.h+'px;top:'+o.top+';left:'+o.left+';background:radial-gradient(circle,rgba(52,211,153,0.13) 0%,transparent 70%);opacity:0.08;animation:zenmulOrb '+o.dur+' ease-in-out infinite;';
+    el.setAttribute('data-orb','1');
     document.body.appendChild(el);
+    var keyframes='@keyframes zenmulOrb{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate('+o.dx1+','+o.dy1+') scale(1.08);}66%{transform:translate('+o.dx2+','+o.dy2+') scale(0.96);}}';
+    if(!document.getElementById('zenmul-orb-style')){
+      var st=document.createElement('style');
+      st.id='zenmul-orb-style';
+      st.textContent=keyframes;
+      document.head.appendChild(st);
+    }
   });
-  // Word reveal on h1
-  document.querySelectorAll('.page-hero h1,.hero h1').forEach(function(el){
-    var delay=0.05;
-    el.classList.add('word-reveal');
-    el.innerHTML=el.innerHTML.replace(/(<[^>]+>)|(\S+)/g,function(m,tag,word){
-      if(tag)return tag;
-      var s='<span class="word" style="animation-delay:'+delay.toFixed(2)+'s">'+word+'</span>';
-      delay+=0.06;return s;
+
+  /* 2. PARTICLE CANVAS — hero only */
+  var hero=document.querySelector('.hero');
+  if(hero){
+    var canvas=document.createElement('canvas');
+    canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:0.28;';
+    hero.style.position='relative';
+    hero.insertBefore(canvas,hero.firstChild);
+    /* make hero children sit above canvas */
+    Array.prototype.forEach.call(hero.children,function(el){
+      if(el!==canvas){el.style.position='relative';el.style.zIndex='2';}
     });
-  });
-  // Tool card stagger
-  var toolCards=document.querySelectorAll('.tool-card,.int-card');
-  if(toolCards.length){
-    var tcObs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e,i){
-        if(e.isIntersecting){setTimeout(function(){e.target.style.opacity='1';e.target.style.transform='translateY(0)';},i*50);tcObs.unobserve(e.target);}
+    var ctx=canvas.getContext('2d'),W=0,H=0,pts=[];
+    function resize(){W=canvas.width=hero.offsetWidth;H=canvas.height=hero.offsetHeight;}
+    resize();
+    window.addEventListener('resize',resize,{passive:true});
+    for(var i=0;i<18;i++) pts.push({x:Math.random()*1200,y:Math.random()*600,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,p:Math.random()*Math.PI*2});
+    var pkts=[];
+    setInterval(function(){
+      if(pkts.length<12){
+        var a=Math.floor(Math.random()*pts.length),b=Math.floor(Math.random()*pts.length);
+        if(a!==b) pkts.push({f:pts[a],t:pts[b],p:0,s:.006+Math.random()*.005});
+      }
+    },1000);
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      pts.forEach(function(p){
+        p.x+=p.vx; p.y+=p.vy; p.p+=.018;
+        if(p.x<0||p.x>W) p.vx*=-1;
+        if(p.y<0||p.y>H) p.vy*=-1;
+        var a=0.35+Math.sin(p.p)*0.25;
+        ctx.beginPath();ctx.arc(p.x,p.y,1.2,0,Math.PI*2);
+        ctx.fillStyle='rgba(52,211,153,'+a+')';ctx.fill();
       });
-    },{threshold:0.1});
-    toolCards.forEach(function(c){c.style.opacity='0';c.style.transform='translateY(16px)';c.style.transition='opacity .4s ease,transform .4s ease';tcObs.observe(c);});
+      for(var i=0;i<pts.length;i++){
+        for(var j=i+1;j<pts.length;j++){
+          var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+          if(d<155){
+            ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+            ctx.strokeStyle='rgba(52,211,153,'+(1-d/155)*.13+')';ctx.lineWidth=0.5;ctx.stroke();
+          }
+        }
+      }
+      pkts.forEach(function(pk,idx){
+        pk.p+=pk.s;
+        if(pk.p>1){pkts.splice(idx,1);return;}
+        var x=pk.f.x+(pk.t.x-pk.f.x)*pk.p,y=pk.f.y+(pk.t.y-pk.f.y)*pk.p;
+        ctx.beginPath();ctx.arc(x,y,2,0,Math.PI*2);
+        ctx.fillStyle='rgba(52,211,153,'+(0.85*(1-pk.p))+')';
+        ctx.shadowColor='#34D399';ctx.shadowBlur=5;ctx.fill();ctx.shadowBlur=0;
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
   }
-  // Compare table yes/no animate
+
+  /* 3. TOOL CARD / INT CARD STAGGER ON SCROLL */
+  var staggerCards=document.querySelectorAll('.tool-card,.int-card,.principle-card');
+  if(staggerCards.length){
+    var scObs=new IntersectionObserver(function(entries){
+      var visible=[];
+      entries.forEach(function(e){if(e.isIntersecting)visible.push(e.target);});
+      visible.forEach(function(el,i){
+        setTimeout(function(){
+          el.style.opacity='1';el.style.transform='translateY(0)';
+        },i*55);
+        scObs.unobserve(el);
+      });
+    },{threshold:0.08});
+    staggerCards.forEach(function(c){
+      c.style.opacity='0';c.style.transform='translateY(18px)';
+      c.style.transition='opacity .45s ease,transform .45s ease';
+      scObs.observe(c);
+    });
+  }
+
+  /* 4. COMPARE TABLE YES/NO POP */
   var tables=document.querySelectorAll('.comp-table');
   if(tables.length){
     var tObs=new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if(e.isIntersecting){
-          e.target.querySelectorAll('.yes,.no,.maybe').forEach(function(el,i){
-            el.style.opacity='0';el.style.display='inline-block';
-            setTimeout(function(){el.style.transition='opacity .3s,transform .3s';el.style.opacity='1';el.style.transform='scale(1)';},i*40+100);
-            el.style.transform='scale(0)';
-          });
-          tObs.unobserve(e.target);
-        }
+        if(!e.isIntersecting) return;
+        e.target.querySelectorAll('.yes,.no,.maybe').forEach(function(el,i){
+          el.style.opacity='0';el.style.transform='scale(0)';el.style.display='inline-block';
+          setTimeout(function(){
+            el.style.transition='opacity .25s,transform .25s';
+            el.style.opacity='1';el.style.transform='scale(1)';
+          },i*35+80);
+        });
+        tObs.unobserve(e.target);
       });
     },{threshold:0.1});
     tables.forEach(function(t){tObs.observe(t);});
   }
-  // Particle canvas on hero
-  var hero=document.querySelector('.hero');
-  if(hero){
-    var canvas=document.createElement('canvas');
-    canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:0.3;';
-    hero.style.position='relative';
-    hero.insertBefore(canvas,hero.firstChild);
-    hero.querySelectorAll(':not(canvas)').forEach(function(el){if(el.style&&!el.style.position)el.style.position='relative';if(el.style)el.style.zIndex='2';});
-    var ctx=canvas.getContext('2d'),W,H,pts=[];
-    function resize(){W=canvas.width=hero.offsetWidth;H=canvas.height=hero.offsetHeight;}
-    resize();window.addEventListener('resize',resize,{passive:true});
-    for(var i=0;i<20;i++)pts.push({x:Math.random()*1200,y:Math.random()*600,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,p:Math.random()*Math.PI*2});
-    var pkts=[];setInterval(function(){var a=Math.floor(Math.random()*pts.length),b=Math.floor(Math.random()*pts.length);if(a!==b)pkts.push({f:pts[a],t:pts[b],p:0,s:.007+Math.random()*.005});},900);
-    function draw(){
-      ctx.clearRect(0,0,W,H);
-      pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.p+=.02;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;var g=.4+Math.sin(p.p)*.3;ctx.beginPath();ctx.arc(p.x,p.y,1.2,0,Math.PI*2);ctx.fillStyle='rgba(52,211,153,'+g+')';ctx.fill();});
-      for(var i=0;i<pts.length;i++)for(var j=i+1;j<pts.length;j++){var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<160){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(52,211,153,'+(1-d/160)*.15+')';ctx.lineWidth=.5;ctx.stroke();}}
-      pkts.forEach(function(pk,idx){pk.p+=pk.s;if(pk.p>1){pkts.splice(idx,1);return;}var x=pk.f.x+(pk.t.x-pk.f.x)*pk.p,y=pk.f.y+(pk.t.y-pk.f.y)*pk.p;ctx.beginPath();ctx.arc(x,y,2.2,0,Math.PI*2);ctx.fillStyle='rgba(52,211,153,'+(0.9*(1-pk.p))+')';ctx.shadowColor='#34D399';ctx.shadowBlur=6;ctx.fill();ctx.shadowBlur=0;});
-      requestAnimationFrame(draw);
-    }draw();
-  }
+
+  /* 5. SERVE CARD INNER GLOW */
+  document.querySelectorAll('.serve-card').forEach(function(card){
+    card.addEventListener('mouseenter',function(){
+      card.style.boxShadow='0 0 0 1px rgba(52,211,153,0.3),0 20px 50px rgba(52,211,153,0.08)';
+    });
+    card.addEventListener('mouseleave',function(){
+      card.style.boxShadow='';
+    });
+  });
+
+  /* 6. PRICE CARD HOVER LIFT */
+  document.querySelectorAll('.price-card').forEach(function(card){
+    card.addEventListener('mouseenter',function(){
+      card.style.transform='translateY(-8px)';
+      card.style.transition='transform .3s cubic-bezier(0.34,1.56,0.64,1),box-shadow .3s';
+      card.style.boxShadow='0 24px 64px rgba(0,0,0,0.5),0 0 40px rgba(52,211,153,0.06)';
+    });
+    card.addEventListener('mouseleave',function(){
+      card.style.transform='';
+      card.style.boxShadow='';
+    });
+  });
+
+  /* 7. WORKFLOW CARD SHIMMER ON HOVER */
+  document.querySelectorAll('.workflow-card').forEach(function(card){
+    card.style.overflow='hidden';
+    card.style.position='relative';
+  });
+
+  /* 8. RESULT DOT STAGGER in case-studies */
+  document.querySelectorAll('.case-card').forEach(function(card){
+    var dotsObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        e.target.querySelectorAll('.result-dot').forEach(function(dot,i){
+          dot.style.opacity='0';dot.style.transform='scale(0)';
+          setTimeout(function(){
+            dot.style.transition='opacity .3s,transform .3s cubic-bezier(0.34,1.56,0.64,1)';
+            dot.style.opacity='1';dot.style.transform='scale(1)';
+          },i*80+100);
+        });
+        dotsObs.unobserve(e.target);
+      });
+    },{threshold:0.15});
+    dotsObs.observe(card);
+  });
+
 })();
 </script>
 
