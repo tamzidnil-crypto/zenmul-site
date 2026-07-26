@@ -54,8 +54,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .card-icon{width:44px;height:44px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0}
 .card-badge{font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--green);text-transform:uppercase;border:1px solid rgba(52,211,153,.25);border-radius:20px;padding:3px 10px;white-space:nowrap}
 .workflow-card h3{font-size:19px;font-weight:800;letter-spacing:-.4px;margin-bottom:10px;line-height:1.25}
-.workflow-card .tagline{font-size:13px;font-weight:600;color:var(--green);margin-bottom:14px;display:flex;align-items:center;gap:6px}
-.workflow-card .tagline::before{content:'';width:16px;height:1px;background:var(--green)}
+.workflow-card .tagline{font-size:13px;font-weight:600;color:var(--green);margin-bottom:14px}
 .workflow-card p{font-size:14px;color:rgba(255,255,255,.52);line-height:1.72;margin-bottom:24px}
 .flow-steps{display:flex;align-items:center;gap:0;margin-bottom:24px;flex-wrap:wrap;gap:4px}
 .flow-step{display:flex;align-items:center;gap:4px}
@@ -142,7 +141,8 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 <nav id="nav">
   <a href="index.html" class="nav-logo"><svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>Zenmul</a>
       <ul class="nav-links">
-    <li><a href="what-we-build.html">What we build</a></li>
+    <li><a href="what-we-build.html" class="active">What we build</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
     <li><a href="how-it-works.html">How it works</a></li>
     <li><a href="case-studies.html">Case Studies</a></li>
     <li><a href="roi-calculator.html">ROI Calculator</a></li>
@@ -1517,10 +1517,24 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   </div>
 </div>
 
+
+<!-- SOLUTIONS CALLOUT -->
+<div style="max-width:1300px;margin:0 auto 64px;padding:0 48px;position:relative;z-index:3">
+  <div style="background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.18);border-radius:20px;padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:10px">Beyond single workflows</div>
+      <h3 style="font-size:22px;font-weight:800;letter-spacing:-.4px;margin-bottom:8px">Looking for a complete automation layer?</h3>
+      <p style="font-size:14px;color:rgba(255,255,255,.48);max-width:480px;line-height:1.7">These individual workflows are powerful. But Zenmul's eight solutions stack them into complete systems that cover your entire operation, from attracting leads to reporting on results.</p>
+    </div>
+    <a href="solutions.html" style="background:var(--green);color:#061210;font-weight:700;font-size:14px;padding:13px 24px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0">Explore all 8 solutions <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+</div>
+
 <footer>
   <a href="index.html" class="nav-logo"><svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>Zenmul</a>
       <ul class="footer-links-row">
-    <li><a href="what-we-build.html">What we build</a></li>
+    <li><a href="what-we-build.html" class="active">What we build</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
     <li><a href="how-it-works.html">How it works</a></li>
     <li><a href="case-studies.html">Case studies</a></li>
     <li><a href="roi-calculator.html">ROI Calculator</a></li>

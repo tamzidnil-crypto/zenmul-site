@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solutions | Zenmul — AI Automation for Growing Businesses</title>
+<meta name="description" content="Eight AI automation solutions from Zenmul — Knowledge Brain, Lead Generation Engine, Workflow Agents, Voice Agents, Support Agent, Onboarding Brain, Data Intelligence, and Reporting Brain.">
+<link rel="canonical" href="https://zenmul.com/solutions.html">
+<meta property="og:title" content="Solutions | Zenmul">
+<meta property="og:description" content="Eight AI automation solutions that cover every layer of your business.">
+<meta property="og:url" content="https://zenmul.com/solutions.html">
+<meta property="og:image" content="https://zenmul.com/favicon-512.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Solutions","url":"https://zenmul.com/solutions.html","isPartOf":{"@type":"WebSite","name":"Zenmul","url":"https://zenmul.com/"}}</script>
+<link rel="icon" type="image/svg+xml" href="https://zenmul.com/favicon.svg">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#34D399;--bg:#07090a;--card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--muted:#6b7280}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:#fff;font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;cursor:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(7,9,10,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:background .3s}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:700;font-size:17px}
+.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:var(--green)}
+.btn-nav{background:var(--green);color:#061210;font-weight:700;font-size:14px;padding:9px 20px;border-radius:8px;text-decoration:none;transition:opacity .2s;cursor:none}
+.btn-nav:hover{opacity:.88}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-burger{display:none;background:none;border:none;width:40px;height:40px;cursor:pointer;padding:8px;flex-direction:column;justify-content:center;gap:5px}
+.nav-burger span{display:block;width:100%;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .25s}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+#mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;z-index:199;background:rgba(7,9,10,0.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 20px 24px;flex-direction:column}
+#mobile-menu.open{display:flex}
+#mobile-menu a{color:rgba(255,255,255,.75);text-decoration:none;font-size:15px;font-weight:500;padding:13px 8px;border-bottom:1px solid var(--border);transition:color .2s}
+#mobile-menu a:hover{color:var(--green)}
+#mobile-menu .mm-cta{margin-top:16px;background:var(--green);color:#061210;font-weight:700;text-align:center;border-radius:10px;padding:13px;border-bottom:none}
+
+/* CURSOR */
+#cursor{position:fixed;width:14px;height:14px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .08s,height .08s,background .08s,border .08s,box-shadow .08s}
+#cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(52,211,153,0.07) 0%,transparent 65%)}
+#bg-icons-layer{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.bg-icon{position:absolute;color:rgba(52,211,153,0.12);transition:color .25s,filter .25s,transform .25s;animation:bgFloat var(--dur,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+.bg-icon svg{width:100%;height:100%;display:block}
+.bg-icon.glowing{color:rgba(52,211,153,0.95)!important;filter:drop-shadow(0 0 8px rgba(52,211,153,0.9)) drop-shadow(0 0 20px rgba(52,211,153,0.5));transform:scale(1.35)!important;animation-play-state:paused}
+@keyframes bgFloat{0%,100%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-14px) rotate(3deg)}50%{transform:translateY(-22px) rotate(-2deg)}75%{transform:translateY(-10px) rotate(4deg)}}
+
+/* SHARED */
+section{position:relative;z-index:3}
+.section-inner{max-width:1300px;margin:0 auto;padding:0 48px}
+.section-eyebrow{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:14px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.04s}.rd2{transition-delay:.10s}.rd3{transition-delay:.04s}.rd4{transition-delay:.10s}.rd5{transition-delay:.04s}.rd6{transition-delay:.10s}.rd7{transition-delay:.04s}.rd8{transition-delay:.10s}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(22px)}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.7}}
+
+/* HERO */
+.page-hero{padding:148px 48px 64px;max-width:1300px;margin:0 auto;position:relative;z-index:3;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:24px;opacity:0;animation:fadeUp .7s ease forwards .1s}
+.eyebrow-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+.page-hero h1{font-size:clamp(36px,5.5vw,70px);font-weight:900;letter-spacing:-2.5px;line-height:1.05;margin-bottom:20px;opacity:0;animation:fadeUp .9s ease forwards .3s}
+.page-hero h1 em{font-style:normal;color:var(--green);position:relative}
+.page-hero h1 em::after{content:'';position:absolute;left:0;bottom:-2px;right:0;height:2px;background:linear-gradient(90deg,var(--green),transparent);opacity:.5}
+.page-hero-sub{font-size:17px;color:rgba(255,255,255,.45);max-width:520px;margin:0 auto 36px;line-height:1.75;opacity:0;animation:fadeUp .8s ease forwards .5s}
+
+/* FILTER TABS */
+.sol-filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:52px;opacity:0;animation:fadeUp .7s ease forwards .65s}
+.sol-tab{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:20px;color:rgba(255,255,255,.5);font-size:13px;font-weight:500;padding:8px 20px;cursor:none;transition:all .2s;font-family:'Inter',sans-serif}
+.sol-tab:hover{border-color:rgba(52,211,153,.3);color:rgba(255,255,255,.85)}
+.sol-tab.active{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.4);color:var(--green)}
+
+/* SOLUTIONS GRID */
+.solutions{padding:0 0 96px}
+.solutions-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+
+/* SOLUTION CARD */
+.sol-card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:40px;transition:border-color .3s,transform .3s,background .3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sol-card::before{content:'';position:absolute;inset:0;border-radius:22px;background:radial-gradient(ellipse at top right,rgba(52,211,153,0.06),transparent 55%);opacity:0;transition:opacity .3s;pointer-events:none}
+.sol-card:hover{border-color:rgba(52,211,153,.3);transform:translateY(-5px);background:rgba(52,211,153,.025)}
+.sol-card:hover::before{opacity:1}
+
+.sol-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px}
+.sol-icon{width:50px;height:50px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.18);border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0}
+.sol-num{font-size:11px;font-weight:700;color:rgba(255,255,255,.2);letter-spacing:.1em}
+
+.sol-type{font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--green);text-transform:uppercase;margin-bottom:10px;opacity:.8}
+.sol-name{font-size:23px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;line-height:1.18}
+.sol-tagline{font-size:13px;color:rgba(52,211,153,.8);font-weight:500;margin-bottom:16px}
+.sol-desc{font-size:14px;color:rgba(255,255,255,.48);line-height:1.8;margin-bottom:24px;flex:1}
+
+.sol-outcomes{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:10px}
+.sol-outcomes li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,.7);line-height:1.5}
+.sol-check{color:var(--green);flex-shrink:0;margin-top:1px}
+
+.sol-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:20px;margin-top:auto}
+.sol-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--green);text-decoration:none;transition:gap .2s;cursor:none}
+.sol-link:hover{gap:12px}
+.sol-badge{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;border:1px solid rgba(52,211,153,.3);color:rgba(52,211,153,.7)}
+.sol-badge.live{background:rgba(52,211,153,.08)}
+
+/* LAYER SECTION */
+.layers{padding:80px 0;background:rgba(255,255,255,.015);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.layers-inner{max-width:1200px;margin:0 auto;padding:0 48px}
+.layers-head{text-align:center;margin-bottom:48px}
+.layers-head h2{font-size:clamp(24px,3vw,38px);font-weight:800;letter-spacing:-.8px;margin-bottom:12px;margin-top:12px}
+.layers-head p{font-size:15px;color:rgba(255,255,255,.45);max-width:520px;margin:0 auto;line-height:1.75}
+.layers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.layer-col{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px 24px}
+.layer-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:18px}
+.layer-items{display:flex;flex-direction:column;gap:10px}
+.layer-item{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.65)}
+.layer-dot{width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;opacity:.7}
+
+/* FINAL CTA */
+.final-cta{padding:96px 48px;text-align:center;max-width:1300px;margin:0 auto;position:relative;z-index:3}
+.final-cta-box{background:rgba(52,211,153,.05);border:1px solid rgba(52,211,153,.2);border-radius:28px;padding:80px 60px;position:relative;overflow:hidden}
+.final-cta-box::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(52,211,153,.12),transparent 65%);pointer-events:none}
+.final-cta-box h2{font-size:clamp(28px,4vw,46px);font-weight:900;letter-spacing:-1.5px;margin-bottom:16px;line-height:1.1;position:relative}
+.final-cta-box p{font-size:17px;color:rgba(255,255,255,.48);margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--green);color:#061210;font-weight:700;font-size:15px;padding:14px 28px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s,transform .2s;cursor:none}
+.btn-primary:hover{opacity:.9;transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75);font-weight:600;font-size:15px;padding:14px 24px;border-radius:10px;text-decoration:none;transition:border-color .2s,color .2s;cursor:none}
+.btn-ghost:hover{border-color:rgba(255,255,255,.4);color:#fff}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;position:relative;z-index:3}
+.footer-links-row{display:flex;gap:28px;list-style:none;flex-wrap:wrap}
+.footer-links-row a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.footer-links-row a:hover{color:#fff}
+.footer-copy{font-size:13px;color:var(--muted)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){.layers-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){
+  nav{padding:0 20px}.nav-links{display:none}
+  .nav-burger{display:flex}
+  body{cursor:auto}#cursor,#cursor-glow{display:none}
+  .page-hero{padding:100px 20px 48px}
+  .section-inner,.layers-inner,.final-cta{padding:0 20px}
+  .solutions-grid{grid-template-columns:1fr}
+  .sol-card{padding:28px}
+  .layers-grid{grid-template-columns:1fr 1fr}
+  footer{padding:32px 20px}
+  .final-cta-box{padding:48px 24px}
+}
+@media(max-width:560px){.layers-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="bg-icons-layer"></div>
+<div id="cursor"></div>
+<div id="cursor-glow"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>Zenmul</a>
+  <ul class="nav-links">
+    <li><a href="what-we-build.html">What we build</a></li>
+    <li><a href="solutions.html" class="active">Solutions</a></li>
+    <li><a href="how-it-works.html">How it works</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="roi-calculator.html">ROI Calculator</a></li>
+    <li><a href="integrations.html">Integrations</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="btn-nav">Free audit</a>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="what-we-build.html">What we build</a>
+  <a href="solutions.html">Solutions</a>
+  <a href="how-it-works.html">How it works</a>
+  <a href="case-studies.html">Case Studies</a>
+  <a href="roi-calculator.html">ROI Calculator</a>
+  <a href="integrations.html">Integrations</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="about.html">About</a>
+  <a href="contact.html" class="mm-cta">Get your free audit</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="eyebrow"><span class="eyebrow-dot"></span>What Zenmul Solves</div>
+  <h1>Eight solutions.<br>Every layer of your <em>business</em>.</h1>
+  <p class="page-hero-sub">From generating your first lead to reporting on your numbers at the end of the week, every layer covered and automated.</p>
+  <div class="sol-filters" id="sol-filters">
+    <button class="sol-tab active" data-cat="all">All Solutions</button>
+    <button class="sol-tab" data-cat="attract">Attract</button>
+    <button class="sol-tab" data-cat="convert">Convert</button>
+    <button class="sol-tab" data-cat="serve">Serve</button>
+    <button class="sol-tab" data-cat="operate">Operate</button>
+  </div>
+</div>
+
+<!-- SOLUTIONS GRID -->
+<section class="solutions">
+  <div class="section-inner">
+    <div class="solutions-grid" id="solutions-grid">
+
+      <!-- 01 Knowledge Brain -->
+      <div class="sol-card reveal rd1" data-cat="operate">
+        <div class="sol-card-top">
+          <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <span class="sol-num">01</span>
+        </div>
+        <div class="sol-type">Document Intelligence</div>
+        <h2 class="sol-name">Knowledge Brain</h2>
+        <p class="sol-tagline">Your documents, made searchable and actionable</p>
+        <p class="sol-desc">Valuable knowledge locked in PDFs, SOPs, email threads, and old spreadsheets that nobody can find fast enough. Knowledge Brain ingests all of it and turns it into a custom AI assistant your team can query in plain English, instantly.</p>
+        <ul class="sol-outcomes">
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Find any piece of company knowledge in seconds</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Onboard new staff without weeks of shadowing</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Turn scattered documents into a live, queryable brain</li>
+        </ul>
+        <div class="sol-footer">
+          <a href="contact.html" class="sol-link">Get this built <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <span class="sol-badge live">Available Now</span>
+        </div>
+      </div>
+
+      <!-- 02 Lead Generation Engine -->
+      <div class="sol-card reveal rd2" data-cat="attract">
+        <div class="sol-card-top">
+          <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+          <span class="sol-num">02</span>
+        </div>
+        <div class="sol-type">Outbound Intelligence</div>
+        <h2 class="sol-name">Lead Generation Engine</h2>
+        <p class="sol-tagline">A daily pipeline of qualified prospects, built automatically</p>
+        <p class="sol-desc">Scrapes funding databases and directories, enriches each lead through Apollo, verifies emails, scores by fit, and delivers a daily Telegram or email digest of the best prospects. No manual research, no missed opportunities. Already proven in production.</p>
+        <ul class="sol-outcomes">
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Fresh qualified leads delivered every morning</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>AI scores each lead before it reaches you</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Zero manual research or list-building required</li>
+        </ul>
+        <div class="sol-footer">
+          <a href="contact.html" class="sol-link">Get this built <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <span class="sol-badge live">Production Ready</span>
+        </div>
+      </div>
+
+      <!-- 03 Autonomous Workflow Agents -->
+      <div class="sol-card reveal rd3" data-cat="operate">
+        <div class="sol-card-top">
+          <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="10.8" x2="16.6" y2="7"/><line x1="7.5" y1="13.2" x2="16.6" y2="17"/></svg></div>
+          <span class="sol-num">03</span>
+        </div>
+        <div class="sol-type">Agent Orchestration</div>
+        <h2 class="sol-name">Autonomous Workflow Agents</h2>
+        <p class="sol-tagline">Multi-step processes that run themselves, end to end</p>
+        <p class="sol-desc">Multiple AI agents work in sequence, each picking up where the last one left off, making decisions and taking actions until the entire job is complete. No single-step automations. Full processes handled from trigger to resolution.</p>
+        <ul class="sol-outcomes">
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>End-to-end processes that need zero hand-holding</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Agents that reason, retry, and adapt to edge cases</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Fewer emails, fewer handoffs, fewer delays</li>
+        </ul>
+        <div class="sol-footer">
+          <a href="contact.html" class="sol-link">Get this built <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <span class="sol-badge live">Available Now</span>
+        </div>
+      </div>
+
+      <!-- 04 AI Support Agent -->
+      <div class="sol-card reveal rd4" data-cat="serve">
+        <div class="sol-card-top">
+          <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <span class="sol-num">04</span>
+        </div>
+        <div class="sol-type">Support Automation</div>
+        <h2 class="sol-name">AI Support Agent</h2>
+        <p class="sol-tagline">Inbound support handled, resolved, and logged automatically</p>
+        <p class="sol-desc">Handles inbound support emails, chat messages, and tickets automatically. Classifies the issue, pulls the relevant answer from your knowledge base, responds in your tone, and escalates to a human only when it genuinely cannot resolve it on its own.</p>
+        <ul class="sol-outcomes">
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Routine queries resolved without human input</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Consistent, on-brand replies at any volume</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Complex issues escalated to the right person instantly</li>
+        </ul>
+        <div class="sol-footer">
+          <a href="contact.html" class="sol-link">Get this built <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <span class="sol-badge live">Available Now</span>
+        </div>
+      </div>
+
+      <!-- 05 AI Voice Agents -->
+      <div class="sol-card reveal rd5" data-cat="attract">
+        <div class="sol-card-top">
+          <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.92 12 19.79 19.79 0 0 1 1.87 3.4 2 2 0 0 1 3.84 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <span class="sol-num">05</span>
+        </div>
+        <div class="sol-type">Voice Automation</div>
+        <h2 class="sol-name">AI Voice Agents</h2>
+        <p class="sol-tagline">A phone agent that works 24 hours a day</p>
+        <p class="sol-desc">Answers inbound calls, qualifies leads, books appointments, and handles routine enquiries in a natural conversation. Follows your script, sounds like your business, and escalates to a human only when it genuinely needs to.</p>
+        <ul class="sol-outcomes">
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Calls answered and handled at any hour</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Leads qualified before they reach your team</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Appointments booked without a receptionist on duty</li>
+        </ul>
+        <div class="sol-footer">
+          <a href="contact.html" class="sol-link">Get this built <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <span class="sol-badge live">Available Now</span>
+        </div>
+      </div>
+
+      <!-- 06 Client Onboarding Brain -->
+      <div class="sol-card reveal rd6" data-cat="convert">
+        <div class="sol-card-top">
+          <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <span class="sol-num">06</span>
+        </div>
+        <div class="sol-type">Onboarding Automation</div>
+        <h2 class="sol-name">Client Onboarding Brain</h2>
+        <p class="sol-tagline">Every new client onboarded without anyone managing it</p>
+        <p class="sol-desc">When a new client signs or a customer pays, the entire onboarding sequence runs itself. Welcome emails, document collection, task creation, kickoff scheduling, progress tracking, and follow-up reminders. All triggered, all automatic, nothing falls through the gap.</p>
+        <ul class="sol-outcomes">
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>New clients onboarded in hours, not days</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>No task falls through the gap between payment and kickoff</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>First impression is always consistent and professional</li>
+        </ul>
+        <div class="sol-footer">
+          <a href="contact.html" class="sol-link">Get this built <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <span class="sol-badge live">Available Now</span>
+        </div>
+      </div>
+
+      <!-- 07 Industry Data Intelligence -->
+      <div class="sol-card reveal rd7" data-cat="operate">
+        <div class="sol-card-top">
+          <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><path d="M2 20h20"/></svg></div>
+          <span class="sol-num">07</span>
+        </div>
+        <div class="sol-type">Data Automation</div>
+        <h2 class="sol-name">Industry Data Intelligence</h2>
+        <p class="sol-tagline">Your business tools, made to think and act</p>
+        <p class="sol-desc">Your data is already in Shopify, Zoho, QuickBooks, or your industry platform. We build intelligence layers on top that watch it, flag the things that need attention, and trigger the right action automatically. Not dashboards to check. Systems that act.</p>
+        <ul class="sol-outcomes">
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Exceptions flagged before they become problems</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Decisions driven by real-time business data</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Actions triggered automatically, no one needs to check</li>
+        </ul>
+        <div class="sol-footer">
+          <a href="contact.html" class="sol-link">Get this built <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <span class="sol-badge live">Production Ready</span>
+        </div>
+      </div>
+
+      <!-- 08 Reporting Brain -->
+      <div class="sol-card reveal rd8" data-cat="operate">
+        <div class="sol-card-top">
+          <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <span class="sol-num">08</span>
+        </div>
+        <div class="sol-type">Business Intelligence</div>
+        <h2 class="sol-name">Reporting Brain</h2>
+        <p class="sol-tagline">Your KPIs, compiled and delivered automatically</p>
+        <p class="sol-desc">Instead of opening five different tools to piece together how the business is doing, Reporting Brain pulls data from all of them, calculates what matters, and sends a clean weekly or daily digest. Numbers you actually need, without building a dashboard nobody checks.</p>
+        <ul class="sol-outcomes">
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Weekly KPI digest delivered to Slack or email</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Spot trends and problems before they compound</li>
+          <li><span class="sol-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>No more logging into 5 tools just to check one number</li>
+        </ul>
+        <div class="sol-footer">
+          <a href="contact.html" class="sol-link">Get this built <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <span class="sol-badge live">Available Now</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LAYER MAP -->
+<section class="layers">
+  <div class="layers-inner">
+    <div class="layers-head reveal">
+      <span class="section-eyebrow">The full picture</span>
+      <h2>Every layer of your business, covered.</h2>
+      <p>Each solution targets a different part of how work gets done. Use one, or stack them all.</p>
+    </div>
+    <div class="layers-grid reveal">
+      <div class="layer-col">
+        <div class="layer-label">Attract</div>
+        <div class="layer-items">
+          <div class="layer-item"><span class="layer-dot"></span>Lead Generation Engine</div>
+          <div class="layer-item"><span class="layer-dot"></span>AI Voice Agents</div>
+        </div>
+      </div>
+      <div class="layer-col">
+        <div class="layer-label">Convert</div>
+        <div class="layer-items">
+          <div class="layer-item"><span class="layer-dot"></span>Client Onboarding Brain</div>
+          <div class="layer-item"><span class="layer-dot"></span>AI Support Agent</div>
+        </div>
+      </div>
+      <div class="layer-col">
+        <div class="layer-label">Operate</div>
+        <div class="layer-items">
+          <div class="layer-item"><span class="layer-dot"></span>Autonomous Workflow Agents</div>
+          <div class="layer-item"><span class="layer-dot"></span>Industry Data Intelligence</div>
+        </div>
+      </div>
+      <div class="layer-col">
+        <div class="layer-label">Know</div>
+        <div class="layer-items">
+          <div class="layer-item"><span class="layer-dot"></span>Knowledge Brain</div>
+          <div class="layer-item"><span class="layer-dot"></span>Reporting Brain</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <div class="final-cta-box reveal">
+    <h2>Not sure which solution fits your business?</h2>
+    <p>Book a free 30-minute audit. We will map out exactly which solutions apply and what each one would save you.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-primary">Book your free audit <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="what-we-build.html" class="btn-ghost">Browse all workflows</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="nav-logo"><svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M4 22L11 8L18 16L22 10L26 22" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="22" r="2.2" fill="#34D399"/></svg>Zenmul</a>
+  <ul class="footer-links-row">
+    <li><a href="what-we-build.html">What we build</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="how-it-works.html">How it works</a></li>
+    <li><a href="case-studies.html">Case studies</a></li>
+    <li><a href="roi-calculator.html">ROI Calculator</a></li>
+    <li><a href="integrations.html">Integrations</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Free audit</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Zenmul.</div>
+</footer>
+
+<script>
+const ro = new IntersectionObserver(e => { e.forEach(x => { if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);} }); }, {threshold:.08});
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+const burger=document.getElementById('nav-burger'),mm=document.getElementById('mobile-menu');
+burger.addEventListener('click',()=>{const open=mm.classList.toggle('open');burger.classList.toggle('open',open);burger.setAttribute('aria-expanded',open);});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');burger.classList.remove('open');}));
+window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=window.scrollY>50?'rgba(7,9,10,0.98)':'rgba(7,9,10,0.9)';},{passive:true});
+
+// Filter tabs
+document.querySelectorAll('.sol-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.sol-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const cat = tab.dataset.cat;
+    document.querySelectorAll('.sol-card').forEach(card => {
+      if(cat === 'all' || card.dataset.cat === cat) {
+        card.style.display = 'flex';
+        setTimeout(() => card.style.opacity = '1', 10);
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+<script>
+(function(){
+  const cur=document.getElementById('cursor'),glw=document.getElementById('cursor-glow'),layer=document.getElementById('bg-icons-layer');
+  const ICONS=['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>'];
+  const pos=[{l:'3%',t:'6vh'},{l:'5%',t:'20vh'},{l:'2%',t:'36vh'},{l:'6%',t:'52vh'},{l:'3%',t:'68vh'},{l:'5%',t:'85vh'},{l:'2%',t:'102vh'},{l:'4%',t:'120vh'},{l:'3%',t:'138vh'},{l:'6%',t:'156vh'},{l:'2%',t:'174vh'},{l:'93%',t:'10vh'},{l:'91%',t:'26vh'},{l:'94%',t:'42vh'},{l:'92%',t:'58vh'},{l:'90%',t:'74vh'},{l:'93%',t:'90vh'},{l:'91%',t:'108vh'},{l:'94%',t:'126vh'},{l:'92%',t:'144vh'},{l:'90%',t:'162vh'},{l:'93%',t:'180vh'},{l:'20%',t:'15vh'},{l:'76%',t:'35vh'},{l:'30%',t:'80vh'},{l:'68%',t:'100vh'}];
+  pos.forEach((p,i)=>{const d=document.createElement('div');d.className='bg-icon';const sz=20+(i%5)*4;d.style.cssText=`left:${p.l};top:${p.t};width:${sz}px;height:${sz}px;--dur:${7+i%7}s;--dl:-${(i*.45)%9}s`;d.innerHTML=ICONS[i%ICONS.length];layer.appendChild(d);});
+  let mx=0,my=0,gx=0,gy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';document.querySelectorAll('.bg-icon').forEach(ic=>{const r=ic.getBoundingClientRect();const cx=r.left+r.width/2,cy=r.top+r.height/2;ic.classList.toggle('glowing',Math.sqrt((mx-cx)**2+(my-cy)**2)<55);});});
+  (function anim(){gx+=(mx-gx)*.15;gy+=(my-gy)*.15;glw.style.left=gx+'px';glw.style.top=gy+'px';requestAnimationFrame(anim);})();
+  document.querySelectorAll('a,button,input').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.cssText=`position:fixed;width:28px;height:28px;background:transparent;border:2px solid #34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 14px rgba(52,211,153,0.6);transition:width .08s,height .08s,background .08s,border .08s,box-shadow .08s;left:${mx}px;top:${my}px`;});el.addEventListener('mouseleave',()=>{cur.style.cssText=`position:fixed;width:14px;height:14px;background:#34D399;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .08s,height .08s,background .08s,border .08s,box-shadow .08s;left:${mx}px;top:${my}px`;});});
+})();
+</script>
+</body>
+</html>
