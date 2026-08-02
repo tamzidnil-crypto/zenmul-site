@@ -56,6 +56,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .case-card:hover{transform:translateY(-4px);border-color:rgba(52,211,153,.2);box-shadow:0 20px 60px rgba(0,0,0,.5)}
 .case-card:hover::before{opacity:1}
 .case-card.hidden{display:none}
+a.case-card{text-decoration:none;color:inherit;cursor:none}
+a.case-card:hover{border-color:rgba(52,211,153,.35)}
+.case-more{display:inline-flex;align-items:center;gap:7px;margin-top:22px;font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--green)}
+.case-more svg{transition:transform .2s}
+a.case-card:hover .case-more svg{transform:translateX(4px)}
 .case-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--green);text-transform:uppercase;border:1px solid rgba(52,211,153,.25);border-radius:20px;padding:4px 12px;margin-bottom:20px}
 .case-card h2{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-bottom:14px;line-height:1.25}
 .case-desc{font-size:14px;color:rgba(255,255,255,.52);line-height:1.75;margin-bottom:24px}
@@ -214,31 +219,32 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 <div class="section">
   <div class="case-grid" id="case-grid">
 
-    <div class="case-card reveal" data-tags="b2b-saas saas lead generation apollo clearout n8n apify telegram google sheets startup" data-category="b2b-saas">
+    <a href="case-saldev.html" class="case-card reveal" data-tags="b2b-saas saas lead generation apollo clearout n8n apify telegram google sheets startup" data-category="b2b-saas">
       <div>
         <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>B2B SaaS</span>
         <h2>Automated Lead Generation Pipeline for SalDev</h2>
-        <p class="case-desc">A fully automated daily pipeline scraping startup job boards, enriching leads via Apollo, verifying emails via Clearout, and delivering qualified prospects to Google Sheets with Telegram summaries. Zero manual work from the client every morning.</p>
-        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">Apify</span><span class="tag">Apollo</span><span class="tag">Clearout</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        <p class="case-desc">A fully automated daily pipeline scraping startup job boards, enriching leads via Apollo, verifying emails via Clearout, and delivering qualified prospects to Google Sheets with a daily summary. Zero manual work from the client every morning.</p>
+        <div class="tech-tags"><span class="tag">n8n</span><span class="tag">Apify</span><span class="tag">Apollo</span><span class="tag">Clearout</span><span class="tag">Google Sheets</span></div>
+        <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </div>
       <div>
         <div class="results-label">Results</div>
         <ul class="results-list">
-          <li><span class="result-dot"></span>100+ verified leads delivered daily</li>
+          <li><span class="result-dot"></span>Verified, decision-maker leads delivered daily</li>
           <li><span class="result-dot"></span>Zero manual prospecting</li>
           <li><span class="result-dot"></span>Operational in under 7 days</li>
-          <li><span class="result-dot"></span>Decision-maker level contacts every morning</li>
+          <li><span class="result-dot"></span>Every email verified before it reaches the list</li>
         </ul>
       </div>
-    </div>
+    </a>
 
-    <div class="case-card reveal" data-tags="clinic medical aesthetic enquiry no-show reminder n8n ai gmail telegram" data-category="clinic">
+    <a href="case-clinic.html" class="case-card reveal" data-tags="clinic medical aesthetic enquiry no-show reminder n8n ai gmail telegram" data-category="clinic">
       <div>
         <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Medical &amp; Aesthetic Clinic</span>
         <h2>Instant Enquiry Responder + No-Show Killer</h2>
         <p class="case-desc">Two-workflow system that replies to clinic enquiries in under 60 seconds using AI, routes by intent, and sends a 3-stage appointment reminder sequence that cuts no-shows automatically.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Telegram</span><span class="tag">Google Sheets</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Results</div>
         <ul class="results-list">
@@ -248,15 +254,15 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Staff freed from repetitive inbox work</li>
         </ul>
       </div>
-    </div>
+    </a>
 
-    <div class="case-card reveal" data-tags="recruitment candidate screening interview reminder placement follow up pipeline n8n ai google sheets" data-category="recruitment">
+    <a href="case-recruitment.html" class="case-card reveal" data-tags="recruitment candidate screening interview reminder placement follow up pipeline n8n ai google sheets" data-category="recruitment">
       <div>
         <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Recruitment</span>
         <h2>AI Candidate Screening and Complete Recruitment Automation Suite</h2>
         <p class="case-desc">A 5-workflow automation suite that screens candidates with AI, cuts interview no-shows, captures client job briefs, follows up on every placement, and tracks the full pipeline automatically.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Results</div>
         <ul class="results-list">
@@ -266,15 +272,15 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Full pipeline tracked in Google Sheets</li>
         </ul>
       </div>
-    </div>
+    </a>
 
-    <div class="case-card reveal" data-tags="b2b saas lead scoring trial conversion churn detection demo no-show n8n ai gmail" data-category="b2b-saas">
+    <a href="case-saas-suite.html" class="case-card reveal" data-tags="b2b saas lead scoring trial conversion churn detection demo no-show n8n ai gmail" data-category="b2b-saas">
       <div>
         <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>B2B SaaS Suite</span>
         <h2>B2B SaaS Lead and Retention Automation Suite</h2>
         <p class="case-desc">A 4-workflow automation suite that scores inbound leads with AI, converts trial users with automated sequences, detects churn risk weekly, and eliminates demo no-shows with timed reminders.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Results</div>
         <ul class="results-list">
@@ -284,15 +290,15 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Zero missed demo follow-ups</li>
         </ul>
       </div>
-    </div>
+    </a>
 
-    <div class="case-card reveal" data-tags="dropshipping ecommerce store abandoned cart wismo review ugc order delay n8n ai" data-category="dropshipping">
+    <a href="case-dropshipping.html" class="case-card reveal" data-tags="dropshipping ecommerce store abandoned cart wismo review ugc order delay n8n ai" data-category="dropshipping">
       <div>
         <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Dropshipping Suite</span>
         <h2>Dropshipping Store Brain Automation Suite</h2>
         <p class="case-desc">A 4-workflow automation suite that recovers abandoned carts with AI-scored emails, defends against shipping delays and chargebacks, auto-responds to WISMO support tickets, and harvests reviews on autopilot.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Telegram</span><span class="tag">Google Sheets</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Results</div>
         <ul class="results-list">
@@ -302,15 +308,15 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Review requests sent after every delivery</li>
         </ul>
       </div>
-    </div>
+    </a>
 
-    <div class="case-card reveal" data-tags="logistics freight cargo container shipping excel ingestion matching ai n8n telegram google sheets agent email" data-category="logistics">
+    <a href="case-logistics.html" class="case-card reveal" data-tags="logistics freight cargo container shipping excel ingestion matching ai n8n telegram google sheets agent email" data-category="logistics">
       <div>
         <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Logistics &amp; Freight</span>
         <h2>Cargo Brain: Logistics Automation Suite</h2>
         <p class="case-desc">Four-workflow automation suite that eliminates the human sitting between container data, customer requirements, and agent updates. Batch Excel ingestion with automatic column normalisation, AI-powered container matching, agent email extraction, and a daily exception alert digest.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Google Sheets</span><span class="tag">Gmail</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Results</div>
         <ul class="results-list">
@@ -321,15 +327,15 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Running cost: $5 to $15/month</li>
         </ul>
       </div>
-    </div>
+    </a>
 
-    <div class="case-card reveal" data-tags="salon beauty hair appointment no-show review rebooking enquiry n8n ai gmail telegram google sheets" data-category="salon">
+    <a href="case-salon.html" class="case-card reveal" data-tags="salon beauty hair appointment no-show review rebooking enquiry n8n ai gmail telegram google sheets" data-category="salon">
       <div>
         <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Beauty &amp; Salons</span>
         <h2>Salon Brain: Full Client Lifecycle Automation Suite</h2>
         <p class="case-desc">A 5-workflow automation suite that confirms appointments instantly, recovers no-shows within the hour, harvests reviews after every visit, nudges lapsed clients back at 30 days, and replies to every new enquiry with AI in under 60 seconds.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Results</div>
         <ul class="results-list">
@@ -340,15 +346,15 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Every new enquiry answered by AI in under 60 seconds</li>
         </ul>
       </div>
-    </div>
+    </a>
 
-    <div class="case-card reveal" data-tags="restaurant cafe reservation no-show review catering loyalty nudge n8n ai gmail telegram google sheets" data-category="restaurant">
+    <a href="case-restaurant.html" class="case-card reveal" data-tags="restaurant cafe reservation no-show review catering loyalty nudge n8n ai gmail telegram google sheets" data-category="restaurant">
       <div>
         <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>Restaurants &amp; Cafes</span>
         <h2>Restaurant Brain: Full Guest Lifecycle Automation Suite</h2>
         <p class="case-desc">A 5-workflow automation suite that confirms reservations instantly, recovers no-shows within the hour, harvests reviews after every visit, replies to catering enquiries with AI in under 60 seconds, and nudges lapsed guests back at 30 days automatically.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Results</div>
         <ul class="results-list">
@@ -359,15 +365,15 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Lapsed guests nudged back automatically at 30 days</li>
         </ul>
       </div>
-    </div>
+    </a>
 
-    <div class="case-card reveal" data-tags="gym personal trainer pt enquiry session reminder no-show recovery check-in win-back lapsed member n8n ai gmail google sheets" data-category="gym">
+    <a href="case-gym.html" class="case-card reveal" data-tags="gym personal trainer pt enquiry session reminder no-show recovery check-in win-back lapsed member n8n ai gmail google sheets" data-category="gym">
       <div>
         <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>Gyms &amp; PTs</span>
         <h2>Gym Brain: Full Member Lifecycle Automation Suite</h2>
         <p class="case-desc">A 5-workflow automation suite built for gyms and personal trainers. Replies to every new enquiry with AI in under 60 seconds, sends session reminders automatically, recovers no-shows with a motivating rebook email, checks in with clients 3 hours after every session, and wins back lapsed members at 30 days with a daily automated scan.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Results</div>
         <ul class="results-list">
@@ -378,15 +384,15 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Lapsed members nudged back automatically at 30 days</li>
         </ul>
       </div>
-    </div>
+    </a>
 
-    <div class="case-card reveal" data-tags="law firm solicitor enquiry responder consultation reminder document chase no-show recovery onboarding n8n ai gmail google sheets" data-category="law">
+    <a href="case-law.html" class="case-card reveal" data-tags="law firm solicitor enquiry responder consultation reminder document chase no-show recovery onboarding n8n ai gmail google sheets" data-category="law">
       <div>
         <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Law Firms</span>
         <h2>Law Brain: Full Client Lifecycle Automation Suite</h2>
         <p class="case-desc">A 5-workflow automation suite built for law firms and solicitors. Replies to new enquiries in under 60 seconds using AI, sends consultation reminders automatically, chases outstanding documents with 3 timed emails, recovers missed consultations with an AI-written rebook offer, and sends personalised onboarding emails the moment a new client is added.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Results</div>
         <ul class="results-list">
@@ -397,16 +403,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>New clients onboarded with personalised welcome email in seconds</li>
         </ul>
       </div>
-    </div>
+    </a>
 
   </div>
-    <div class="case-card reveal" data-tags="coach elearning student enquiry session reminder no-show recovery feedback lapsed win-back ai gmail google sheets n8n" data-category="coach">
+    <a href="case-coach.html" class="case-card reveal" data-tags="coach elearning student enquiry session reminder no-show recovery feedback lapsed win-back ai gmail google sheets n8n" data-category="coach">
       <div>
         <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Coaches &amp; E-learning</span>
         <h2>Coach Brain: Full Student Lifecycle Automation Suite</h2>
         <p class="case-desc">A 5-workflow automation suite built for coaches and e-learning businesses. Replies to every new student enquiry with AI in under 60 seconds, sends session reminders automatically, recovers no-shows with a motivating rebook email, collects post-session feedback without manual chasing, and wins back lapsed students at 30 days with a daily automated scan.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Results</div>
         <ul class="results-list">
@@ -417,18 +423,18 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Lapsed students re-engaged automatically at 30 days</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     
 
     <!-- REAL ESTATE -->
-    <div class="case-card reveal" data-tags="real estate agent property viewing reminder tenancy renewal enquiry responder n8n ai gmail google sheets telegram" data-category="realestate">
+    <a href="case-realestate.html" class="case-card reveal" data-tags="real estate agent property viewing reminder tenancy renewal enquiry responder n8n ai gmail google sheets telegram" data-category="realestate">
       <div>
         <span class="case-badge">🏠 Real Estate</span>
         <h2>PropFlow: The Complete Property Agent Automation System</h2>
         <p class="case-desc">A 5-workflow system built for residential and lettings agents. Replies to every buyer and seller enquiry in under 60 seconds, runs a full viewing lifecycle from confirmation to post-viewing feedback, sends 3-stage tenancy renewal reminders, re-engages cold leads at 14 and 30 days, and delivers a weekly pipeline digest to the team every Monday morning.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -439,16 +445,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Weekly Pipeline Digest: Monday 8AM Telegram summary of all active listings and leads</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- E-LEARNING & COACHES -->
-    <div class="case-card reveal" data-tags="elearning coach student session reminder no-show recovery feedback win-back n8n ai gmail google sheets telegram" data-category="elearning">
+    <a href="case-elearning.html" class="case-card reveal" data-tags="elearning coach student session reminder no-show recovery feedback win-back n8n ai gmail google sheets telegram" data-category="elearning">
       <div>
         <span class="case-badge">📚 E-learning &amp; Coaches</span>
         <h2>LearnLoop: Full Student Lifecycle Automation for Coaches and Educators</h2>
         <p class="case-desc">A 5-workflow automation system for online coaches, tutors, and course creators. Handles every enquiry instantly with a personalised AI reply, sends session reminders at 24h and 2h, recovers no-shows with a warm rebook offer, collects post-session feedback automatically, and re-engages lapsed students at 30 and 60 days with a targeted win-back sequence.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -459,16 +465,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Lapsed Student Win-Back: re-engagement email at 30 and 60 days of inactivity</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- ACCOUNTANTS -->
-    <div class="case-card reveal" data-tags="accountant bookkeeper document chaser deadline reminder tax vat onboarding n8n ai gmail google sheets telegram" data-category="accountants">
+    <a href="case-accountants.html" class="case-card reveal" data-tags="accountant bookkeeper document chaser deadline reminder tax vat onboarding n8n ai gmail google sheets telegram" data-category="accountants">
       <div>
         <span class="case-badge">📊 Accountants</span>
         <h2>ClearBooks Ops: The Accountant's Hands-Free Client Management System</h2>
         <p class="case-desc">A 5-workflow automation system built for accounting firms and bookkeepers. Eliminates manual document chasing, automates tax and VAT deadline reminders, onboards new clients with a personalised welcome sequence, handles all new enquiries with an instant AI reply, and delivers a weekly workload digest to the team every Monday.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -479,16 +485,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Weekly Workload Digest: Monday morning Telegram summary of outstanding tasks and deadlines</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- DENTAL & PHYSIO -->
-    <div class="case-card reveal" data-tags="dental physio appointment reminder no-show recall patient review intake n8n ai gmail google sheets telegram" data-category="dental">
+    <a href="case-dental.html" class="case-card reveal" data-tags="dental physio appointment reminder no-show recall patient review intake n8n ai gmail google sheets telegram" data-category="dental">
       <div>
         <span class="case-badge">🦷 Dental &amp; Physio</span>
         <h2>CareFlow: The Complete Patient Journey Automation System</h2>
         <p class="case-desc">A 5-workflow system for dental practices, physiotherapists, and specialist clinics. Sends appointment confirmations and 48h plus 2h reminders, recovers no-shows within the hour, fires 6-month recall reminders automatically, requests reviews after every visit, and delivers new patient intake forms before their first appointment.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -499,16 +505,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>New Patient Intake Flow: intake form and welcome info sent automatically before first visit</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- EVENT PLANNERS -->
-    <div class="case-card reveal" data-tags="event planner enquiry vendor chaser client update rsvp tracking post event n8n ai gmail google sheets" data-category="events">
+    <a href="case-events.html" class="case-card reveal" data-tags="event planner enquiry vendor chaser client update rsvp tracking post event n8n ai gmail google sheets" data-category="events">
       <div>
         <span class="case-badge">🎉 Event Planners</span>
         <h2>EventEngine: The Event Planner's Complete Communication Automation System</h2>
         <p class="case-desc">A 5-workflow system for event planners, wedding coordinators, and venue managers. Replies to every event enquiry instantly, chases vendor confirmations automatically, keeps clients updated on progress without manual emails, tracks RSVP responses with automated follow-ups, and requests a testimonial after every successful event.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -519,16 +525,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Post-Event Testimonial Request: review and testimonial request sent 48h after every event</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- CONSTRUCTION -->
-    <div class="case-card reveal" data-tags="construction company quote follow up site update client subcontractor reminder invoice weekly digest n8n ai gmail google sheets" data-category="construction">
+    <a href="case-construction.html" class="case-card reveal" data-tags="construction company quote follow up site update client subcontractor reminder invoice weekly digest n8n ai gmail google sheets" data-category="construction">
       <div>
         <span class="case-badge">🏗️ Construction</span>
         <h2>BuildTrack: The Construction Company's Project and Client Communication System</h2>
         <p class="case-desc">A 5-workflow system for construction companies, builders, and project managers. Follows up unanswered quotes after 2 days, sends weekly automated site progress updates to clients, chases subcontractors for confirmations and completion reports, follows up unpaid invoices at 7 and 14 days, and delivers a Monday morning project status digest to the site team.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -539,16 +545,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Monday Project Digest: weekly project status summary sent to team via Telegram</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- HOTELS -->
-    <div class="case-card reveal" data-tags="hotel hospitality booking confirmation pre-arrival upsell review post-stay no-show re-engagement n8n ai gmail google sheets" data-category="hotels">
+    <a href="case-hotels.html" class="case-card reveal" data-tags="hotel hospitality booking confirmation pre-arrival upsell review post-stay no-show re-engagement n8n ai gmail google sheets" data-category="hotels">
       <div>
         <span class="case-badge">🏨 Hotels &amp; Hospitality</span>
         <h2>GuestPath: The Hotel's Complete Guest Lifecycle Automation System</h2>
         <p class="case-desc">A 5-workflow system for hotels, B&amp;Bs, and hospitality businesses. Sends instant booking confirmations, a pre-arrival email with upsell offers 3 days before, check-in reminder on the day, post-stay review request 24h after checkout, and a win-back offer to guests who haven't returned in 90 days.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -559,16 +565,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Lapsed Guest Win-Back: exclusive return offer sent to guests inactive for 90 days</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- AUTO DEALERSHIPS -->
-    <div class="case-card reveal" data-tags="auto dealership test drive service reminder finance enquiry lead follow up unsold lead n8n ai gmail google sheets telegram" data-category="auto">
+    <a href="case-auto.html" class="case-card reveal" data-tags="auto dealership test drive service reminder finance enquiry lead follow up unsold lead n8n ai gmail google sheets telegram" data-category="auto">
       <div>
         <span class="case-badge">🚗 Auto Dealerships</span>
         <h2>DriveLine: The Car Dealership's Lead and Service Automation System</h2>
         <p class="case-desc">A 5-workflow system for car dealerships and vehicle sales businesses. Responds to every test drive and finance enquiry in under 60 seconds with AI, sends service due reminders at 30 and 7 days, follows up every unconverted lead at 7 and 14 days, re-engages customers due for their next vehicle at 24 months, and delivers a weekly sales and service digest every Monday.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -579,16 +585,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Weekly Sales Digest: Monday morning Telegram summary of leads, test drives, and conversions</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- SCHOOLS & TUTORS -->
-    <div class="case-card reveal" data-tags="school tutor parent enquiry session reminder progress update fee reminder attendance n8n ai gmail google sheets telegram" data-category="schools">
+    <a href="case-schools.html" class="case-card reveal" data-tags="school tutor parent enquiry session reminder progress update fee reminder attendance n8n ai gmail google sheets telegram" data-category="schools">
       <div>
         <span class="case-badge">🏫 Schools &amp; Tutors</span>
         <h2>ClassSync: The Tutor's Complete Parent and Student Communication System</h2>
         <p class="case-desc">A 5-workflow system for tutors, private schools, and education centres. Replies to every parent enquiry instantly with AI, sends session reminders 24h before every class, delivers weekly progress updates to parents automatically, chases outstanding fee payments at day 3 and 7, and re-engages students who haven't rebooked in 3 weeks.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -599,16 +605,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Student Re-engagement Flow: automated rebook nudge for students inactive for 21 days</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- INSURANCE BROKERS -->
-    <div class="case-card reveal" data-tags="insurance broker renewal reminder quote follow up claim update onboarding lapsed client n8n ai gmail google sheets telegram" data-category="insurance">
+    <a href="case-insurance.html" class="case-card reveal" data-tags="insurance broker renewal reminder quote follow up claim update onboarding lapsed client n8n ai gmail google sheets telegram" data-category="insurance">
       <div>
         <span class="case-badge">🛡️ Insurance Brokers</span>
         <h2>RenewalReady: The Insurance Broker's Client Retention and Conversion System</h2>
         <p class="case-desc">A 5-workflow system for insurance brokers and financial protection advisors. Sends policy renewal reminders at 60, 30, and 7 days, follows up unanswered quotes after 3 days, sends automated claim status updates to clients, onboards new clients with a personalised 3-step welcome sequence, and re-engages lapsed clients who didn't renew.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -619,16 +625,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Lapsed Client Win-Back: re-engagement offer sent to clients who did not renew their policy</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- PHARMACIES -->
-    <div class="case-card reveal" data-tags="pharmacy prescription reminder refill alert collection notification review request repeat prescription n8n ai gmail google sheets" data-category="pharmacy">
+    <a href="case-pharmacy.html" class="case-card reveal" data-tags="pharmacy prescription reminder refill alert collection notification review request repeat prescription n8n ai gmail google sheets" data-category="pharmacy">
       <div>
         <span class="case-badge">💊 Pharmacies</span>
         <h2>ScriptFlow: The Pharmacy's Prescription and Patient Engagement System</h2>
         <p class="case-desc">A 4-workflow system for independent pharmacies and dispensing practices. Notifies patients the moment their prescription is ready, sends refill reminders 7 days before a prescription runs out, requests a review 24h after collection, and sends a repeat prescription reminder to patients who haven't reordered in 28 days.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -638,16 +644,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Repeat Prescription Nudge: reminder sent to patients who haven't reordered in 28 days</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- CLEANING COMPANIES -->
-    <div class="case-card reveal" data-tags="cleaning company booking confirmation job reminder review request win-back upsell recurring n8n ai gmail google sheets telegram" data-category="cleaning">
+    <a href="case-cleaning.html" class="case-card reveal" data-tags="cleaning company booking confirmation job reminder review request win-back upsell recurring n8n ai gmail google sheets telegram" data-category="cleaning">
       <div>
         <span class="case-badge">🧹 Cleaning Companies</span>
         <h2>SparkOps: The Cleaning Company's Complete Client Automation System</h2>
         <p class="case-desc">A 5-workflow system for residential and commercial cleaning businesses. Confirms every booking instantly, sends reminders to client and cleaner 24h before each job, requests a review after every completed clean, re-engages lapsed clients at 30 days, and upsells a recurring clean package to one-off customers after their second booking.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -658,16 +664,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Recurring Package Upsell: automated pitch for a monthly plan after a client's second one-off booking</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- VETERINARY -->
-    <div class="case-card reveal" data-tags="veterinary vet appointment reminder vaccination recall review no-show health check lapsed pet n8n ai gmail google sheets telegram" data-category="veterinary">
+    <a href="case-veterinary.html" class="case-card reveal" data-tags="veterinary vet appointment reminder vaccination recall review no-show health check lapsed pet n8n ai gmail google sheets telegram" data-category="veterinary">
       <div>
         <span class="case-badge">🐾 Veterinary Practices</span>
         <h2>PawTrack: The Veterinary Practice's Complete Patient Lifecycle System</h2>
         <p class="case-desc">A 5-workflow system for veterinary practices and animal clinics. Sends appointment reminders at 48h and 2h, recovers no-shows within the hour with a rebook offer, fires vaccination and annual health check recalls at the right time, requests a review after every visit, and re-engages pet owners who haven't booked in over 6 months.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -678,16 +684,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Lapsed Patient Re-engagement: win-back email to pet owners inactive for 6 months</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- CREATIVE AGENCIES -->
-    <div class="case-card reveal" data-tags="creative agency project update approval chaser invoice follow up testimonial request onboarding n8n ai gmail google sheets telegram" data-category="creative">
+    <a href="case-creative.html" class="case-card reveal" data-tags="creative agency project update approval chaser invoice follow up testimonial request onboarding n8n ai gmail google sheets telegram" data-category="creative">
       <div>
         <span class="case-badge">🎨 Creative Agencies</span>
         <h2>StudioOps: The Creative Agency's Project and Client Communication System</h2>
         <p class="case-desc">A 5-workflow system for creative agencies, design studios, and marketing firms. Sends automated project progress updates at every milestone, chases outstanding creative approvals at day 2 and 5, follows up unpaid invoices at 7 and 14 days, delivers new client onboarding sequences automatically, and requests testimonials on project completion.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -698,16 +704,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Post-Project Testimonial Request: review and case study request sent on project completion</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- FINANCIAL ADVISORS -->
-    <div class="case-card reveal" data-tags="financial advisor annual review document request onboarding enquiry responder post meeting summary n8n ai gmail google sheets telegram" data-category="financial">
+    <a href="case-financial.html" class="case-card reveal" data-tags="financial advisor annual review document request onboarding enquiry responder post meeting summary n8n ai gmail google sheets telegram" data-category="financial">
       <div>
         <span class="case-badge">🏦 Financial Advisors</span>
         <h2>AdvisorFlow: The Financial Advisor's Client Lifecycle Automation System</h2>
         <p class="case-desc">A 5-workflow system for independent financial advisors and wealth managers. Replies to every new enquiry instantly with AI, sends annual review reminders at 60 and 30 days, chases outstanding onboarding documents, delivers post-meeting summaries to clients automatically, and re-engages dormant clients who haven't had a review in over 12 months.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -718,16 +724,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Dormant Client Re-engagement: personalised re-engagement email to clients with no review in 12 months</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- MENTAL HEALTH -->
-    <div class="case-card reveal" data-tags="mental health therapist counsellor appointment intake form reminder no-show session notes re-engagement n8n ai gmail google sheets telegram" data-category="mentalhealth">
+    <a href="case-mentalhealth.html" class="case-card reveal" data-tags="mental health therapist counsellor appointment intake form reminder no-show session notes re-engagement n8n ai gmail google sheets telegram" data-category="mentalhealth">
       <div>
         <span class="case-badge">🧠 Mental Health Practices</span>
         <h2>TherapyOps: The Therapy Practice's Complete Admin Automation System</h2>
         <p class="case-desc">A 5-workflow system for therapists, counsellors, and mental health practitioners. Sends appointment confirmations and gentle 48h and 2h reminders, delivers intake forms to new clients automatically, handles no-show recovery with a warm rebook email, sends a between-session check-in to clients in active treatment, and re-engages clients who paused their sessions.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -738,16 +744,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Paused Client Re-engagement: gentle return invitation sent to clients who stopped sessions</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- TRADES & CONTRACTORS -->
-    <div class="case-card reveal" data-tags="trades contractor plumber electrician quote follow up job confirmation review request win-back invoice n8n ai gmail google sheets telegram" data-category="trades">
+    <a href="case-trades.html" class="case-card reveal" data-tags="trades contractor plumber electrician quote follow up job confirmation review request win-back invoice n8n ai gmail google sheets telegram" data-category="trades">
       <div>
         <span class="case-badge">🔧 Trades &amp; Contractors</span>
         <h2>TradeSync: The Tradesperson's Lead Conversion and Client Retention System</h2>
         <p class="case-desc">A 5-workflow system for plumbers, electricians, builders, and specialist contractors. Follows up every unanswered quote after 2 days with an AI-written nudge, sends a job day-before reminder to the client, requests a review within 2 hours of every completed job, chases unpaid invoices at 7 and 14 days, and re-engages past clients at 90 days with a seasonal offer.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -758,16 +764,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Past Client Re-engagement: seasonal offer email sent to clients inactive for 90 days</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- ECOMMERCE BRANDS -->
-    <div class="case-card reveal" data-tags="ecommerce brand order abandoned cart review complaint weekly digest win-back n8n ai gmail google sheets telegram" data-category="ecommerce2">
+    <a href="case-ecommerce.html" class="case-card reveal" data-tags="ecommerce brand order abandoned cart review complaint weekly digest win-back n8n ai gmail google sheets telegram" data-category="ecommerce2">
       <div>
         <span class="case-badge">🛒 eCommerce Brands</span>
         <h2>StoreFlow: The eCommerce Brand's Full Revenue and Retention Automation System</h2>
         <p class="case-desc">A 6-workflow system for ecommerce brands and online stores. Sends AI order confirmations the moment every order lands, recovers abandoned carts after 1 hour, requests reviews 3 days after delivery, handles complaints instantly with empathetic AI response and team Telegram alert, re-engages customers who haven't purchased in 60 days, and delivers a weekly sales digest every Monday.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -779,16 +785,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Weekly Sales Digest: total orders, revenue, and top product sent to team every Monday</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- TRAVEL & TOURISM -->
-    <div class="case-card reveal" data-tags="travel tourism booking confirmation pre-trip review upsell lapsed customer re-engagement n8n ai gmail google sheets telegram" data-category="travel">
+    <a href="case-travel.html" class="case-card reveal" data-tags="travel tourism booking confirmation pre-trip review upsell lapsed customer re-engagement n8n ai gmail google sheets telegram" data-category="travel">
       <div>
         <span class="case-badge">🌍 Travel &amp; Tourism</span>
         <h2>JourneyOps: The Travel Agency's Complete Guest Lifecycle Automation System</h2>
         <p class="case-desc">A 5-workflow system for travel agencies, tour operators, and holiday booking businesses. Sends instant booking confirmations, pre-trip information and packing tips 7 days before departure, post-trip review requests 48h after return, a next-trip upsell 30 days after return, and a re-engagement campaign to customers who haven't booked in 6 months.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -799,16 +805,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Lapsed Customer Campaign: re-engagement offer sent to customers inactive for 6 months</li>
         </ul>
       </div>
-    </div>
+    </a>
 
     <!-- WAREHOUSING & 3PL -->
-    <div class="case-card reveal" data-tags="warehousing 3pl inbound alert shipment update exception digest client reporting weekly kpi n8n ai gmail google sheets telegram" data-category="warehouse">
+    <a href="case-warehouse.html" class="case-card reveal" data-tags="warehousing 3pl inbound alert shipment update exception digest client reporting weekly kpi n8n ai gmail google sheets telegram" data-category="warehouse">
       <div>
         <span class="case-badge">📦 Warehousing &amp; 3PL</span>
         <h2>WareFlow: The 3PL Operator's Complete Client Communication and Exception System</h2>
         <p class="case-desc">A 5-workflow system for warehouse operators and 3PL providers. Sends inbound delivery alerts to the team the moment a booking is logged, notifies clients of shipment status changes automatically, fires a daily exception digest flagging delayed or missing stock every morning, sends weekly KPI reports to each client, and alerts the team immediately when stock drops below minimum threshold.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Workflows included</div>
         <ul class="results-list">
@@ -819,15 +825,15 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Low Stock Alert: instant Telegram alert when any SKU drops below its minimum threshold</li>
         </ul>
       </div>
-    </div>
+    </a>
 
-        <div class="case-card reveal" data-tags="domain monitor watchlist whoisfreaks expiry alert telegram namecheap standalone tool automated" data-category="tools">
+        <a href="case-domains.html" class="case-card reveal" data-tags="domain monitor watchlist whoisfreaks expiry alert telegram namecheap standalone tool automated" data-category="tools">
       <div>
         <span class="case-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Standalone Tool</span>
         <h2>Domain Watchlist Monitor: 21-Domain Expiry Alert System</h2>
         <p class="case-desc">A standalone automation that monitors a watchlist of 21 target domains via the WhoisFreaks API every 2 days. Detects expiring and expired domains, logs each result with priority level and category to Google Sheets, and fires a Telegram alert with the domain name, priority rating, and a direct Namecheap buy link the moment an opportunity opens up.</p>
         <div class="tech-tags"><span class="tag">n8n</span><span class="tag">WhoisFreaks API</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
-      </div>
+      <span class="case-more">Read the full case study<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       <div>
         <div class="results-label">Results</div>
         <ul class="results-list">
@@ -838,7 +844,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <li><span class="result-dot"></span>Zero manual checking required</li>
         </ul>
       </div>
-    </div>
+    </a>
 
   <div class="no-results" id="no-results">
     <h3>No case studies found</h3>

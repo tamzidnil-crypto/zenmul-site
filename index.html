@@ -33,6 +33,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;transition:color .2s}
 .nav-links a:hover{color:#fff}
+.nav-dd{position:relative}
+.nav-dd-toggle{display:inline-flex;align-items:center;gap:5px;cursor:pointer}
+.nav-dd-toggle svg{transition:transform .25s;opacity:.6}
+.nav-dd:hover .nav-dd-toggle svg{transform:rotate(180deg)}
+.nav-dd-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(8px);min-width:300px;background:rgba(12,15,17,0.98);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:16px;padding:10px;opacity:0;visibility:hidden;transition:opacity .22s,transform .22s;box-shadow:0 24px 60px rgba(0,0,0,.5);z-index:210}
+.nav-dd::after{content:'';position:absolute;top:100%;left:0;right:0;height:20px}
+.nav-dd:hover .nav-dd-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.nav-dd-menu a{display:flex;flex-direction:column;gap:2px;padding:11px 14px;border-radius:10px;transition:background .18s}
+.nav-dd-menu a:hover{background:rgba(52,211,153,.08)}
+.nav-dd-menu a .ddt{font-size:13.5px;font-weight:600;color:#fff}
+.nav-dd-menu a .ddd{font-size:11.5px;color:rgba(255,255,255,.45);line-height:1.4}
+.nav-dd-all{margin-top:6px;border-top:1px solid var(--border);padding-top:6px!important}
+.nav-dd-all .ddt{color:var(--green)!important;display:inline-flex;align-items:center;gap:6px}
 .btn-nav{background:var(--green);color:#061210;font-weight:700;font-size:14px;padding:9px 20px;border-radius:8px;text-decoration:none;transition:opacity .2s}
 .btn-nav:hover{opacity:.88}
 .nav-right{display:flex;align-items:center;gap:12px}
@@ -92,6 +105,23 @@ section{position:relative;z-index:3}
 .section-inner{max-width:1300px;margin:0 auto;padding:0 48px}
 .section-head{text-align:center;margin-bottom:56px}
 .section-eyebrow{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:16px}
+.cases-feature{padding:100px 0;border-top:1px solid var(--border)}
+.cases-feature-head{text-align:center;max-width:640px;margin:0 auto 56px}
+.cases-feature-head h2{font-size:clamp(28px,3.6vw,44px);font-weight:800;letter-spacing:-1.5px;margin:14px 0 16px;line-height:1.1}
+.cases-feature-head p{font-size:17px;color:rgba(255,255,255,.55);line-height:1.7}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.fcase{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px 26px;text-decoration:none;transition:border-color .25s,transform .25s,background .25s;position:relative;overflow:hidden}
+.fcase:hover{border-color:rgba(52,211,153,.35);transform:translateY(-4px);background:rgba(52,211,153,.035)}
+.fcase-tag{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);border:1px solid rgba(52,211,153,.25);border-radius:20px;padding:4px 11px;margin-bottom:18px}
+.fcase h3{font-size:18px;font-weight:700;color:#fff;letter-spacing:-.4px;margin-bottom:10px;line-height:1.3}
+.fcase p{font-size:13.5px;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:20px;flex-grow:1}
+.fcase-more{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:var(--green)}
+.fcase-more svg{transition:transform .2s}
+.fcase:hover .fcase-more svg{transform:translateX(4px)}
+.cases-feature-cta{text-align:center;margin-top:44px}
+.cases-feature-cta a{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:#061210;font-weight:700;font-size:15px;padding:14px 30px;border-radius:11px;text-decoration:none;transition:opacity .2s,transform .2s}
+.cases-feature-cta a:hover{opacity:.9;transform:translateY(-2px)}
+@media(max-width:900px){.cases-grid{grid-template-columns:1fr}.cases-feature{padding:64px 0}}
 .section-head h2{font-size:clamp(28px,3.8vw,48px);font-weight:800;letter-spacing:-1.2px;margin-bottom:16px}
 .section-head p{font-size:16px;color:rgba(255,255,255,.48);max-width:480px;margin:0 auto;line-height:1.7}
 
@@ -276,7 +306,18 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
     <li><a href="what-we-build.html">What we build</a></li>
     <li><a href="solutions.html">Solutions</a></li>
     <li><a href="how-it-works.html">How it works</a></li>
-    <li><a href="case-studies.html">Case Studies</a></li>
+    <li class="nav-dd">
+      <a href="case-studies.html" class="nav-dd-toggle">Case Studies<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="nav-dd-menu">
+        <a href="case-saldev.html"><span class="ddt">SalDev Lead Generation</span><span class="ddd">Automated daily B2B lead pipeline</span></a>
+        <a href="case-logistics.html"><span class="ddt">Cargo Brain: Logistics</span><span class="ddd">Container matching cut to under an hour</span></a>
+        <a href="case-recruitment.html"><span class="ddt">Recruitment Automation</span><span class="ddd">AI screening and full pipeline suite</span></a>
+        <a href="case-clinic.html"><span class="ddt">Clinic No-Show Killer</span><span class="ddd">Instant replies and reminder sequences</span></a>
+        <a href="case-ecommerce.html"><span class="ddt">eCommerce Revenue Suite</span><span class="ddd">Cart recovery to win-back, six workflows</span></a>
+        <a href="case-realestate.html"><span class="ddt">PropFlow: Property Agents</span><span class="ddd">Full buyer, seller and tenant journey</span></a>
+        <a href="case-studies.html" class="nav-dd-all"><span class="ddt">View all 32 case studies <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
+      </div>
+    </li>
     <li><a href="roi-calculator.html">ROI Calculator</a></li>
     <li><a href="integrations.html">Integrations</a></li>
     <li><a href="compare.html">Compare</a></li>
@@ -523,6 +564,58 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
         <div class="flow-row"><span class="flow-pill-lg">8AM digest</span><span class="flow-arrow-lg">→</span><span class="flow-pill-lg">Exceptions flagged</span></div>
         <div class="case-label">Runs 24/7. Zero manual steps.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED CASE STUDIES -->
+<section class="cases-feature">
+  <div class="section-inner">
+    <div class="cases-feature-head reveal">
+      <span class="section-eyebrow">Detailed case studies</span>
+      <h2>See exactly how each system solves the problem</h2>
+      <p>Every build has its own story: the problem, the workflows, and the result. Open any one to read the full breakdown.</p>
+    </div>
+    <div class="cases-grid">
+      <a href="case-saldev.html" class="fcase reveal">
+        <span class="fcase-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>B2B SaaS</span>
+        <h3>Automated Lead Generation for SalDev</h3>
+        <p>A daily pipeline that scrapes, enriches, and verifies decision-maker leads, delivered every morning with zero manual work.</p>
+        <span class="fcase-more">Read the full case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a href="case-logistics.html" class="fcase reveal rd1">
+        <span class="fcase-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Logistics</span>
+        <h3>Cargo Brain: Logistics Suite</h3>
+        <p>Container matching that took one to four days by hand now happens within the hour, with a daily exception digest by 8AM.</p>
+        <span class="fcase-more">Read the full case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a href="case-recruitment.html" class="fcase reveal rd2">
+        <span class="fcase-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Recruitment</span>
+        <h3>AI Candidate Screening Suite</h3>
+        <p>Five workflows that screen candidates with AI, cut interview no-shows, and follow up every placement automatically.</p>
+        <span class="fcase-more">Read the full case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a href="case-clinic.html" class="fcase reveal">
+        <span class="fcase-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l7.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>Clinic</span>
+        <h3>Enquiry Responder & No-Show Killer</h3>
+        <p>Every enquiry answered in under 60 seconds, and a timed reminder sequence that quietly kills no-shows before they happen.</p>
+        <span class="fcase-more">Read the full case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a href="case-ecommerce.html" class="fcase reveal rd1">
+        <span class="fcase-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>eCommerce</span>
+        <h3>StoreFlow: Revenue & Retention</h3>
+        <p>Six workflows covering the whole journey, order confirmations, cart recovery, reviews, complaints, win-back, and a weekly digest.</p>
+        <span class="fcase-more">Read the full case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a href="case-realestate.html" class="fcase reveal rd2">
+        <span class="fcase-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Property</span>
+        <h3>PropFlow: Property Agent System</h3>
+        <p>The full buyer, seller, and tenant journey: instant enquiry replies, viewing lifecycle, renewals, and a weekly pipeline digest.</p>
+        <span class="fcase-more">Read the full case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+    <div class="cases-feature-cta reveal">
+      <a href="case-studies.html">View all 32 case studies <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </div>
 </section>
