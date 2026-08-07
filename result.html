@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Workflow Result - Zenmul</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0B0F19;
+  --bg-card: #111827;
+  --bg-card-hover: #1F2937;
+  --border: #1F2937;
+  --border-light: #374151;
+  --text: #F9FAFB;
+  --text-muted: #9CA3AF;
+  --accent: #34D399;
+  --accent-dark: #059669;
+  --accent-glow: rgba(52, 211, 153, 0.15);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+nav { background: rgba(11, 15, 25, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.nav-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+.btn-primary { background: var(--accent); color: #064E3B; }
+.btn-primary:hover { background: #6EE7B7; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(52, 211, 153, 0.3); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border-light); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+.btn-large { padding: 16px 32px; font-size: 1rem; }
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px; transition: all 0.3s; }
+footer { border-top: 1px solid var(--border); padding: 40px 0; margin-top: 80px; text-align: center; color: var(--text-muted); font-size: 0.875rem; }
+
+.result-hero { padding: 80px 0 60px; text-align: center; position: relative; }
+.result-hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 50% 30%, rgba(52,211,153,0.06) 0%, transparent 50%); pointer-events: none; }
+.result-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-glow); border: 1px solid rgba(52,211,153,0.2); color: var(--accent); padding: 8px 16px; border-radius: 100px; font-size: 0.875rem; font-weight: 500; margin-bottom: 24px; }
+.result-hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -1px; }
+.result-hero .workflow-name { color: var(--accent); }
+.result-hero p { color: var(--text-muted); font-size: 1.125rem; max-width: 600px; margin: 0 auto 32px; }
+
+.workflow-diagram { max-width: 800px; margin: 0 auto 60px; padding: 0 24px; }
+.flow-step { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+.flow-node { flex: 1; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; gap: 16px; transition: all 0.3s; }
+.flow-node:hover { border-color: var(--accent); background: var(--accent-glow); }
+.flow-icon { width: 44px; height: 44px; background: rgba(52,211,153,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
+.flow-text h4 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 2px; }
+.flow-text p { font-size: 0.8125rem; color: var(--text-muted); margin: 0; }
+.flow-arrow { width: 40px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.25rem; }
+.flow-connector { width: 2px; height: 24px; background: linear-gradient(to bottom, var(--accent), transparent); margin-left: 92px; opacity: 0.5; }
+
+.result-section { padding: 60px 0; }
+.result-section.alt { background: rgba(17, 24, 39, 0.5); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 32px; text-align: center; }
+
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 900px; margin: 0 auto; }
+.feature-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: all 0.3s; }
+.feature-card:hover { border-color: var(--border-light); transform: translateY(-2px); }
+.feature-card.highlight { border-color: rgba(52,211,153,0.3); background: var(--accent-glow); }
+.feature-card .f-icon { width: 36px; height: 36px; background: rgba(52,211,153,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; margin-bottom: 12px; color: var(--accent); }
+.feature-card h4 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 6px; }
+.feature-card p { font-size: 0.8125rem; color: var(--text-muted); line-height: 1.5; margin: 0; }
+
+.impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: 800px; margin: 0 auto; }
+.impact-card { text-align: center; padding: 32px 24px; }
+.impact-number { font-size: 2.5rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+.impact-label { color: var(--text-muted); font-size: 0.875rem; }
+
+.share-section { text-align: center; padding: 60px 0; }
+.share-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+.share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); font-family: inherit; transition: all 0.2s; }
+.share-btn:hover { border-color: var(--accent); color: var(--accent); }
+.share-btn.copied { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+
+.result-cta { text-align: center; padding: 80px 0; position: relative; }
+.result-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(52,211,153,0.05) 0%, transparent 60%); pointer-events: none; }
+.result-cta h2 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; }
+.result-cta p { color: var(--text-muted); margin-bottom: 32px; font-size: 1.0625rem; }
+
+.tool-tag { display: inline-block; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); padding: 6px 14px; border-radius: 6px; font-size: 0.8125rem; margin: 4px; }
+.tool-tag.active { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+
+@media (max-width: 768px) {
+  .result-hero h1 { font-size: 1.75rem; }
+  .flow-connector { margin-left: 20px; }
+  .flow-step { gap: 8px; }
+  .flow-arrow { width: 24px; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">Zen<span>mul</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="quiz.html">Scanner</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+    </ul>
+    <a href="index.html#scanner" class="btn btn-outline">New Scan</a>
+  </div>
+</nav>
+
+<section class="result-hero">
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="result-badge">
+      <span style="color: var(--accent);">&#9679;</span>
+      Your Personalized Workflow
+    </div>
+    <h1><span id="result-icon"></span> <span class="workflow-name" id="workflow-name"></span></h1>
+    <p id="workflow-desc"></p>
+    <div id="tool-tags" style="margin-top: 16px;"></div>
+  </div>
+</section>
+
+<div class="workflow-diagram" id="workflow-diagram"></div>
+
+<section class="result-section alt">
+  <div class="container">
+    <h2 class="section-title">What this workflow solves</h2>
+    <div class="features-grid" id="features-grid"></div>
+  </div>
+</section>
+
+<section class="result-section">
+  <div class="container">
+    <h2 class="section-title">Estimated impact for your business</h2>
+    <div class="impact-grid">
+      <div class="card impact-card">
+        <div class="impact-number" id="hours-saved">15+</div>
+        <div class="impact-label">Hours saved per week</div>
+      </div>
+      <div class="card impact-card">
+        <div class="impact-number" id="cost-saved">$2K+</div>
+        <div class="impact-label">Monthly cost reduction</div>
+      </div>
+      <div class="card impact-card">
+        <div class="impact-number">60s</div>
+        <div class="impact-label">Average AI response time</div>
+      </div>
+      <div class="card impact-card">
+        <div class="impact-number">100%</div>
+        <div class="impact-label">Custom built for you</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="share-section">
+  <div class="container">
+    <h2 class="section-title">Share this workflow</h2>
+    <p style="color: var(--text-muted); margin-bottom: 8px;">Know someone with the same pain point?</p>
+    <div class="share-buttons">
+      <button class="share-btn" onclick="copyLink()">
+        <span>&#128279;</span> Copy Link
+      </button>
+      <button class="share-btn" onclick="shareTwitter()">
+        <span>&#128036;</span> Share on X
+      </button>
+      <button class="share-btn" onclick="shareLinkedIn()">
+        <span>&#128188;</span> Share on LinkedIn
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="result-cta">
+  <div class="container" style="position: relative; z-index: 1;">
+    <h2>Want this built for you?</h2>
+    <p>Get a free 3-minute video audit showing exactly how this workflow would look with your data.</p>
+    <a href="contact.html" class="btn btn-primary btn-large">Get My Free Video Audit</a>
+    <p style="margin-top: 16px; font-size: 0.8125rem; color: var(--text-muted);">No calls. No pressure. Just a personalized Loom video in 24 hours.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Zenmul. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const workflowData = {
+  logistics: {
+    name: "Cargo Brain: Logistics Suite",
+    icon: "&#128674;",
+    desc: "An end-to-end automation system that matches containers, ingests Excel data, alerts on exceptions, and keeps customers updated without human intervention.",
+    flow: [
+      { icon: "&#128230;", title: "Shipment Ingest", desc: "Auto-read emails, PDFs, and Excel files" },
+      { icon: "&#129302;", title: "AI Matching Engine", desc: "Match shipments to containers using AI" },
+      { icon: "&#9888;", title: "Exception Alerting", desc: "Instant alerts for delays and issues" },
+      { icon: "&#128231;", title: "Customer Updates", desc: "Auto-send tracking notifications" }
+    ],
+    features: [
+      { icon: "&#9989;", title: "Smart Container Matching", desc: "AI reads shipment data and suggests optimal container allocation in seconds." },
+      { icon: "&#9989;", title: "Excel Auto-Ingestion", desc: "Drop a spreadsheet and the system maps, validates, and imports every row." },
+      { icon: "&#9989;", title: "Real-Time Exception Alerts", desc: "Get Slack, email, or WhatsApp alerts the moment a delay is detected." },
+      { icon: "&#9989;", title: "Customer Self-Service", desc: "Automated tracking updates reduce support tickets by 80%." },
+      { icon: "&#9989;", title: "Invoice Reconciliation", desc: "Match invoices to shipments automatically and flag discrepancies." }
+    ],
+    hours: "18+", savings: "$3.5K+"
+  },
+  recruitment: {
+    name: "Talent Engine: Hiring Automation",
+    icon: "&#128188;",
+    desc: "From resume to offer letter, this workflow screens candidates, schedules interviews, tracks pipelines, and handles references automatically.",
+    flow: [
+      { icon: "&#128221;", title: "Resume Ingest", desc: "Collect from email, LinkedIn, portals" },
+      { icon: "&#129302;", title: "AI Screening", desc: "Score and rank candidates instantly" },
+      { icon: "&#128197;", title: "Auto-Scheduling", desc: "Book interviews without back-and-forth" },
+      { icon: "&#128172;", title: "Pipeline Tracking", desc: "Move candidates through stages auto" }
+    ],
+    features: [
+      { icon: "&#9989;", title: "AI Resume Screening", desc: "Grade hundreds of resumes against your criteria in under a minute." },
+      { icon: "&#9989;", title: "Interview Auto-Scheduling", desc: "Candidates pick slots from your calendar. No email tennis." },
+      { icon: "&#9989;", title: "Pipeline Dashboard", desc: "Real-time view of every candidate stage with auto-reminders." },
+      { icon: "&#9989;", title: "Reference Automation", desc: "Send, chase, and collect references without lifting a finger." },
+      { icon: "&#9989;", title: "Offer Generation", desc: "Auto-create offer letters from approved templates." }
+    ],
+    hours: "20+", savings: "$4K+"
+  },
+  medical: {
+    name: "Clinic Flow: Patient Management",
+    icon: "&#127973;",
+    desc: "A patient communication and scheduling automation that reduces no-shows, replies to enquiries instantly, and ensures no follow-up is ever missed.",
+    flow: [
+      { icon: "&#128172;", title: "Enquiry Capture", desc: "Web, phone, email, WhatsApp" },
+      { icon: "&#129302;", title: "AI Triage", desc: "Instant reply with relevant info" },
+      { icon: "&#128197;", title: "Smart Scheduling", desc: "Book, confirm, and remind patients" },
+      { icon: "&#128227;", title: "Follow-Up Engine", desc: "Auto check-ins and care reminders" }
+    ],
+    features: [
+      { icon: "&#9989;", title: "Instant Enquiry Replies", desc: "Patients get answers in 60 seconds, 24/7, even at midnight." },
+      { icon: "&#9989;", title: "No-Show Reduction", desc: "Smart reminders via SMS, WhatsApp, and email cut no-shows by 40%." },
+      { icon: "&#9989;", title: "Appointment Routing", desc: "Auto-book into the right doctor slot based on symptoms." },
+      { icon: "&#9989;", title: "Follow-Up Sequences", desc: "Post-visit care instructions sent automatically." },
+      { icon: "&#9989;", title: "Insurance Pre-Check", desc: "Verify coverage before the patient arrives." }
+    ],
+    hours: "15+", savings: "$2.5K+"
+  },
+  saas: {
+    name: "Growth Engine: SaaS Automation",
+    icon: "&#128187;",
+    desc: "A revenue operations workflow that scores leads, converts trials, detects churn risk, and routes support without manual oversight.",
+    flow: [
+      { icon: "&#128101;", title: "Lead Capture", desc: "From website, ads, and partners" },
+      { icon: "&#129302;", title: "AI Scoring", desc: "Prioritize hot leads automatically" },
+      { icon: "&#127919;", title: "Trial Nudges", desc: "Convert trials with timed outreach" },
+      { icon: "&#128295;", title: "Churn Detection", desc: "Alert before customers leave" }
+    ],
+    features: [
+      { icon: "&#9989;", title: "Lead Scoring", desc: "AI ranks leads by behavior, firmographics, and intent signals." },
+      { icon: "&#9989;", title: "Trial Conversion Flows", desc: "Timed emails and in-app nudges that turn trials into paid users." },
+      { icon: "&#9989;", title: "Churn Early Warning", desc: "Detect at-risk accounts 14 days before they cancel." },
+      { icon: "&#9989;", title: "Support Auto-Routing", desc: "Tickets reach the right agent with context pre-loaded." },
+      { icon: "&#9989;", title: "Usage Alerts", desc: "Notify sales when customers hit plan limits." }
+    ],
+    hours: "12+", savings: "$5K+"
+  },
+  ecommerce: {
+    name: "Commerce Engine: Store Automation",
+    icon: "&#128722;",
+    desc: "An operations workflow that recovers abandoned carts, confirms orders, handles complaints, and manages inventory alerts across channels.",
+    flow: [
+      { icon: "&#128722;", title: "Order Trigger", desc: "Cart, order, or complaint event" },
+      { icon: "&#129302;", title: "AI Decision", desc: "Route to recovery, confirm, or support" },
+      { icon: "&#128231;", title: "Customer Message", desc: "Personalized email, SMS, or WhatsApp" },
+      { icon: "&#128200;", title: "Analytics", desc: "Track recovery and satisfaction rates" }
+    ],
+    features: [
+      { icon: "&#9989;", title: "Cart Recovery", desc: "Multi-step abandoned cart sequences via email and SMS." },
+      { icon: "&#9989;", title: "Order Confirmations", desc: "Instant branded confirmations with tracking info." },
+      { icon: "&#9989;", title: "Complaint Handling", desc: "Auto-escalate angry customers to humans, solve the rest with AI." },
+      { icon: "&#9989;", title: "Inventory Alerts", desc: "Get warned before stockouts, auto-create POs." },
+      { icon: "&#9989;", title: "Review Requests", desc: "Time review asks perfectly after delivery." }
+    ],
+    hours: "16+", savings: "$3K+"
+  },
+  realestate: {
+    name: "Property Flow: Real Estate Suite",
+    icon: "&#127968;",
+    desc: "A lead-to-close automation that replies to inquiries in seconds, schedules viewings, updates listings, and never forgets a follow-up.",
+    flow: [
+      { icon: "&#128172;", title: "Lead Capture", desc: "Portals, website, social, referrals" },
+      { icon: "&#129302;", title: "AI Qualification", desc: "Score and reply to hot leads first" },
+      { icon: "&#128197;", title: "Viewing Booking", desc: "Self-service calendar scheduling" },
+      { icon: "&#128221;", title: "Document Flow", desc: "Auto-collect and organize paperwork" }
+    ],
+    features: [
+      { icon: "&#9989;", title: "Instant Lead Response", desc: "Reply to inquiries in under 60 seconds, 24/7." },
+      { icon: "&#9989;", title: "Listing Sync", desc: "Update all portals from one source of truth." },
+      { icon: "&#9989;", title: "Viewing Scheduler", desc: "Prospects book slots that sync to your calendar." },
+      { icon: "&#9989;", title: "Document Collection", desc: "Auto-request and organize buyer/tenant docs." },
+      { icon: "&#9989;", title: "Follow-Up Engine", desc: "Never lose a warm lead to forgetfulness." }
+    ],
+    hours: "14+", savings: "$2.8K+"
+  },
+  finance: {
+    name: "Ledger Flow: Finance Automation",
+    icon: "&#128176;",
+    desc: "An accounting workflow that matches receipts, chases invoices, generates reports, and reconciles data across all your accounts.",
+    flow: [
+      { icon: "&#128449;", title: "Receipt Ingest", desc: "Email, photo, or bank feed" },
+      { icon: "&#129302;", title: "AI Matching", desc: "Match to transactions auto" },
+      { icon: "&#128197;", title: "Invoice Chaser", desc: "Send reminders on schedule" },
+      { icon: "&#128202;", title: "Report Builder", desc: "Auto-generate monthly reports" }
+    ],
+    features: [
+      { icon: "&#9989;", title: "Receipt Auto-Match", desc: "Photos and emails matched to bank lines instantly." },
+      { icon: "&#9989;", title: "Invoice Chasing", desc: "Polite but persistent reminders that escalate smartly." },
+      { icon: "&#9989;", title: "Report Automation", desc: "P&L, cash flow, and reconciliation reports on autopilot." },
+      { icon: "&#9989;", title: "Compliance Checks", desc: "Flag missing docs and regulatory gaps before audit." },
+      { icon: "&#9989;", title: "Bank Reconciliation", desc: "Match transactions across accounts without manual work." }
+    ],
+    hours: "20+", savings: "$4.5K+"
+  },
+  manufacturing: {
+    name: "Factory Sync: Production Suite",
+    icon: "&#128295;",
+    desc: "A production workflow that tracks quality, manages suppliers, monitors inventory, and alerts on maintenance needs before breakdowns.",
+    flow: [
+      { icon: "&#9881;", title: "Production Event", desc: "Quality check, order, or sensor alert" },
+      { icon: "&#129302;", title: "AI Analysis", desc: "Classify severity and route action" },
+      { icon: "&#128295;", title: "Alert & Assign", desc: "Notify team and schedule fix" },
+      { icon: "&#128200;", title: "Dashboard Update", desc: "Live production metrics" }
+    ],
+    features: [
+      { icon: "&#9989;", title: "Quality Reports", desc: "Auto-generate QC documentation from inspection data." },
+      { icon: "&#9989;", title: "Supplier Coordination", desc: "Auto-update suppliers on order changes and delays." },
+      { icon: "&#9989;", title: "Inventory Tracking", desc: "Real-time stock levels with reorder alerts." },
+      { icon: "&#9989;", title: "Predictive Maintenance", desc: "Machine alerts before breakdown, not after." },
+      { icon: "&#9989;", title: "Shift Scheduling", desc: "Auto-build rotas based on demand and availability." }
+    ],
+    hours: "18+", savings: "$5K+"
+  },
+  education: {
+    name: "Campus Flow: School Automation",
+    icon: "&#127891;",
+    desc: "An administration workflow that handles enrollments, parent communication, attendance, grading, and fee reminders automatically.",
+    flow: [
+      { icon: "&#128221;", title: "Form Submission", desc: "Enrollment, absence, or request" },
+      { icon: "&#129302;", title: "AI Processing", desc: "Validate and route to right dept" },
+      { icon: "&#128231;", title: "Auto-Response", desc: "Confirm and inform stakeholder" },
+      { icon: "&#128197;", title: "Calendar Sync", desc: "Update schedules and deadlines" }
+    ],
+    features: [
+      { icon: "&#9989;", title: "Enrollment Automation", desc: "Process applications, docs, and payments without manual data entry." },
+      { icon: "&#9989;", title: "Parent Broadcasts", desc: "Targeted updates to parents via their preferred channel." },
+      { icon: "&#9989;", title: "Attendance Sync", desc: "Roll call data flows to reports and parent alerts instantly." },
+      { icon: "&#9989;", title: "Grade Compilation", desc: "Aggregate scores from multiple teachers into report cards." },
+      { icon: "&#9989;", title: "Fee Reminders", desc: "Smart payment reminders with installment options." }
+    ],
+    hours: "16+", savings: "$2.2K+"
+  },
+  legal: {
+    name: "Case Flow: Legal Practice Suite",
+    icon: "&#9878;",
+    desc: "A practice automation that reviews contracts, tracks deadlines, drafts documents, and manages client intake without billable hour waste.",
+    flow: [
+      { icon: "&#128221;", title: "Document Ingest", desc: "Contract, intake form, or brief" },
+      { icon: "&#129302;", title: "AI Analysis", desc: "Extract clauses, risks, deadlines" },
+      { icon: "&#128204;", title: "Action Trigger", desc: "Draft, alert, or route to partner" },
+      { icon: "&#128197;", title: "Deadline Sync", desc: "Calendar and task management" }
+    ],
+    features: [
+      { icon: "&#9989;", title: "Contract Review AI", desc: "Flag risks, missing clauses, and inconsistencies in minutes." },
+      { icon: "&#9989;", title: "Deadline Guardian", desc: "Never miss a filing date with multi-channel alerts." },
+      { icon: "&#9989;", title: "Client Intake", desc: "Self-service onboarding that collects everything you need." },
+      { icon: "&#9989;", title: "Document Drafting", desc: "Generate first drafts from templates and client data." },
+      { icon: "&#9989;", title: "Time Capture", desc: "Auto-log billable activities as they happen." }
+    ],
+    hours: "15+", savings: "$6K+"
+  },
+  marketing: {
+    name: "Client Engine: Agency Automation",
+    icon: "&#128200;",
+    desc: "An agency operations workflow that reports on campaigns, schedules content, nurtures leads, and writes proposals at scale.",
+    flow: [
+      { icon: "&#128200;", title: "Data Collection", desc: "Pull from ad platforms and analytics" },
+      { icon: "&#129302;", title: "AI Synthesis", desc: "Analyze performance and trends" },
+      { icon: "&#128221;", title: "Content/Report", desc: "Generate report or post draft" },
+      { icon: "&#128231;", title: "Client Delivery", desc: "Send via email or portal" }
+    ],
+    features: [
+      { icon: "&#9989;", title: "Auto-Reporting", desc: "Beautiful client reports built from live data every week." },
+      { icon: "&#9989;", title: "Content Scheduling", desc: "Plan and publish across all channels from one dashboard." },
+      { icon: "&#9989;", title: "Lead Nurturing", desc: "Drip campaigns that adapt based on engagement." },
+      { icon: "&#9989;", title: "Proposal Generator", desc: "Scope, price, and format proposals in minutes." },
+      { icon: "&#9989;", title: "Campaign Alerts", desc: "Get notified when spend or performance drifts." }
+    ],
+    hours: "18+", savings: "$3.5K+"
+  },
+  hospitality: {
+    name: "Guest Flow: Hospitality Suite",
+    icon: "&#127860;",
+    desc: "A guest experience workflow that handles reservations, answers questions, monitors reviews, and coordinates housekeeping seamlessly.",
+    flow: [
+      { icon: "&#128172;", title: "Booking Event", desc: "Direct, OTA, or walk-in" },
+      { icon: "&#129302;", title: "AI Confirmation", desc: "Personalized welcome and upsell" },
+      { icon: "&#128295;", title: "Ops Alert", desc: "Housekeeping and front desk sync" },
+      { icon: "&#128227;", title: "Guest Comms", desc: "Pre-arrival and post-stay messages" }
+    ],
+    features: [
+      { icon: "&#9989;", title: "Reservation Auto-Confirm", desc: "Instant branded confirmations with local tips." },
+      { icon: "&#9989;", title: "Guest Messaging", desc: "AI answers FAQs and routes complex requests to staff." },
+      { icon: "&#9989;", title: "Review Monitoring", desc: "Aggregate and respond to reviews across platforms." },
+      { icon: "&#9989;", title: "Housekeeping Sync", desc: "Room turns coordinated automatically with occupancy." },
+      { icon: "&#9989;", title: "Upsell Engine", desc: "Offer upgrades and extras at the perfect moment." }
+    ],
+    hours: "20+", savings: "$2.5K+"
+  }
+};
+
+function getParam(name) {
+  const url = new URL(window.location.href);
+  return url.searchParams.get(name);
+}
+
+function init() {
+  const industry = getParam('industry');
+  const pain = getParam('pain') || '';
+  const tools = getParam('tools') || '';
+  
+  if (!industry || !workflowData[industry]) {
+    window.location.href = 'quiz.html';
+    return;
+  }
+  
+  const d = workflowData[industry];
+  
+  document.getElementById('result-icon').innerHTML = d.icon;
+  document.getElementById('workflow-name').textContent = d.name;
+  document.getElementById('workflow-desc').textContent = d.desc;
+  
+  const toolList = tools.split(',').filter(function(t) { return t; });
+  const allTools = toolList.length > 0 ? toolList : ['Your tools'];
+  const tagsHtml = allTools.map(function(t) {
+    return '<span class="tool-tag active">' + t + '</span>';
+  }).join('');
+  document.getElementById('tool-tags').innerHTML = tagsHtml;
+  
+  let diagramHtml = '';
+  d.flow.forEach(function(step, i) {
+    diagramHtml += '<div class="flow-step">';
+    diagramHtml += '<div class="flow-node">';
+    diagramHtml += '<div class="flow-icon">' + step.icon + '</div>';
+    diagramHtml += '<div class="flow-text"><h4>' + step.title + '</h4><p>' + step.desc + '</p></div>';
+    diagramHtml += '</div>';
+    if (i < d.flow.length - 1) {
+      diagramHtml += '<div class="flow-arrow">&rarr;</div>';
+    }
+    diagramHtml += '</div>';
+    if (i < d.flow.length - 1) {
+      diagramHtml += '<div class="flow-connector"></div>';
+    }
+  });
+  document.getElementById('workflow-diagram').innerHTML = diagramHtml;
+  
+  let featuresHtml = '';
+  d.features.forEach(function(f) {
+    const isHighlight = pain && f.title.toLowerCase().indexOf(pain.toLowerCase().split(' ')[0]) > -1;
+    featuresHtml += '<div class="feature-card' + (isHighlight ? ' highlight' : '') + '">';
+    featuresHtml += '<div class="f-icon">' + f.icon + '</div>';
+    featuresHtml += '<h4>' + f.title + '</h4>';
+    featuresHtml += '<p>' + f.desc + '</p>';
+    featuresHtml += '</div>';
+  });
+  document.getElementById('features-grid').innerHTML = featuresHtml;
+  
+  document.getElementById('hours-saved').textContent = d.hours;
+  document.getElementById('cost-saved').textContent = d.savings;
+  
+  document.title = d.name + ' - Your Zenmul Workflow';
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    const btn = document.querySelector('.share-btn');
+    const original = btn.innerHTML;
+    btn.innerHTML = '<span>&#9989;</span> Copied!';
+    btn.classList.add('copied');
+    setTimeout(function() {
+      btn.innerHTML = original;
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+function shareTwitter() {
+  const text = 'I just discovered the exact AI workflow I need for my business via @zenmul. Check it out:';
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(window.location.href), '_blank');
+}
+
+function shareLinkedIn() {
+  window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank');
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+
+</body>
+</html>
