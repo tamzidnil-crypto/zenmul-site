@@ -321,8 +321,8 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 .quiz-dot.active{background:var(--green);box-shadow:0 0 8px rgba(52,211,153,.4)}
 .quiz-question{font-size:22px;font-weight:700;text-align:center;margin-bottom:32px;letter-spacing:-.5px;line-height:1.3}
 .quiz-options{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:680px;margin:0 auto}
-.quiz-option{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;cursor:none;transition:border-color .25s,background .25s,transform .2s;text-align:left;color:#fff;font-size:15px;font-weight:500;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:12px}
-.quiz-option:hover{border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.04);transform:translateY(-2px)}
+.quiz-option{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;cursor:pointer;transition:border-color .25s,background .25s,transform .2s;text-align:left;color:#fff;font-size:15px;font-weight:500;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:12px;-webkit-tap-highlight-color:transparent;user-select:none}
+.quiz-option:hover{border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.08);transform:translateY(-2px)}.quiz-option:active{transform:translateY(0) scale(0.98)}
 .quiz-option svg{flex-shrink:0;color:var(--green);opacity:.7}
 .quiz-option.selected{border-color:var(--green);background:rgba(52,211,153,.08)}
 
@@ -1127,10 +1127,49 @@ window.addEventListener('scroll',()=>{document.getElementById('nav').style.backg
 </script>
 
 <!-- ════════════════════════════════════════════════════════
-     QUIZ LOGIC
+     QUIZ LOGIC (Fixed for all devices)
      ════════════════════════════════════════════════════════ -->
 <script>
 let quizAnswers = {};
+let quizCurrentStep = 1;
+
+// Initialize quiz when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  initQuiz();
+});
+
+function initQuiz() {
+  // Add click handlers to all quiz option buttons
+  document.querySelectorAll('.quiz-option').forEach(function(btn) {
+    // Remove any existing onclick to avoid duplicates
+    btn.removeAttribute('onclick');
+
+    // Add fresh click handler
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const step = parseInt(this.closest('.quiz-step').id.replace('quiz-step-', ''));
+      const value = this.getAttribute('data-value');
+
+      console.log('Quiz clicked: step=' + step + ', value=' + value);
+
+      if (step && value) {
+        quizNext(step, value);
+      }
+    });
+
+    // Also handle touch for mobile
+    btn.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      const step = parseInt(this.closest('.quiz-step').id.replace('quiz-step-', ''));
+      const value = this.getAttribute('data-value');
+      if (step && value) {
+        quizNext(step, value);
+      }
+    });
+  });
+}
 
 const quizWorkflows = {
   'logistics': {
@@ -1197,63 +1236,104 @@ const quizWorkflows = {
 
 function quizNext(step, value) {
   quizAnswers['step' + step] = value;
+  quizCurrentStep = step;
 
   // Highlight selected
-  const currentStep = document.getElementById('quiz-step-' + step);
-  currentStep.querySelectorAll('.quiz-option').forEach(btn => {
+  const currentStepEl = document.getElementById('quiz-step-' + step);
+  if (!currentStepEl) {
+    console.error('Step not found: quiz-step-' + step);
+    return;
+  }
+
+  currentStepEl.querySelectorAll('.quiz-option').forEach(function(btn) {
     btn.classList.remove('selected');
-    if (btn.dataset.value === value) btn.classList.add('selected');
+    if (btn.getAttribute('data-value') === value) {
+      btn.classList.add('selected');
+      btn.style.borderColor = '#34D399';
+      btn.style.background = 'rgba(52,211,153,.08)';
+    }
   });
 
-  // Small delay for visual feedback
-  setTimeout(() => {
+  // Small delay for visual feedback, then advance
+  setTimeout(function() {
     if (step < 3) {
       // Update progress dots
-      document.querySelectorAll('.quiz-dot')[step].classList.add('active');
+      var dots = document.querySelectorAll('.quiz-dot');
+      if (dots[step]) {
+        dots[step].classList.add('active');
+        dots[step].style.background = '#34D399';
+        dots[step].style.boxShadow = '0 0 8px rgba(52,211,153,.4)';
+      }
+
+      // Hide current step
+      currentStepEl.classList.remove('active');
+      currentStepEl.style.display = 'none';
+
       // Show next step
-      currentStep.classList.remove('active');
-      document.getElementById('quiz-step-' + (step + 1)).classList.add('active');
+      var nextStep = document.getElementById('quiz-step-' + (step + 1));
+      if (nextStep) {
+        nextStep.style.display = 'block';
+        nextStep.classList.add('active');
+        // Scroll to question
+        nextStep.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     } else {
       // Show result
       showQuizResult();
     }
-  }, 300);
+  }, 250);
 }
 
 function showQuizResult() {
-  const industry = quizAnswers.step1;
-  const pain = quizAnswers.step2;
-  const tools = quizAnswers.step3;
+  var industry = quizAnswers.step1 || 'other';
+  var pain = quizAnswers.step2 || '';
+  var tools = quizAnswers.step3 || '';
 
-  const workflow = quizWorkflows[industry] || quizWorkflows['other'];
+  var workflow = quizWorkflows[industry] || quizWorkflows['other'];
 
-  document.getElementById('quiz-result-title').textContent = workflow.title;
-  document.getElementById('quiz-result-desc').textContent = workflow.desc;
+  var titleEl = document.getElementById('quiz-result-title');
+  var descEl = document.getElementById('quiz-result-desc');
+  var flowsContainer = document.getElementById('quiz-workflow-flows');
+
+  if (titleEl) titleEl.textContent = workflow.title;
+  if (descEl) descEl.textContent = workflow.desc;
 
   // Build workflow visual
-  const flowsContainer = document.getElementById('quiz-workflow-flows');
-  flowsContainer.innerHTML = '';
-  workflow.flows.forEach(flow => {
-    const row = document.createElement('div');
-    row.className = 'quiz-flow';
-    flow.forEach(item => {
-      const span = document.createElement('span');
-      if (item === '→') {
-        span.className = 'quiz-flow-arrow';
-        span.textContent = item;
-      } else {
-        span.className = 'quiz-flow-pill';
-        span.textContent = item;
-      }
-      row.appendChild(span);
+  if (flowsContainer) {
+    flowsContainer.innerHTML = '';
+    workflow.flows.forEach(function(flow) {
+      var row = document.createElement('div');
+      row.className = 'quiz-flow';
+      flow.forEach(function(item) {
+        var span = document.createElement('span');
+        if (item === '→') {
+          span.className = 'quiz-flow-arrow';
+          span.textContent = item;
+        } else {
+          span.className = 'quiz-flow-pill';
+          span.textContent = item;
+        }
+        row.appendChild(span);
+      });
+      flowsContainer.appendChild(row);
     });
-    flowsContainer.appendChild(row);
-  });
+  }
 
   // Hide all steps, show result
-  document.querySelectorAll('.quiz-step').forEach(s => s.style.display = 'none');
-  document.getElementById('quiz-progress').style.display = 'none';
-  document.getElementById('quiz-result').style.display = 'block';
+  document.querySelectorAll('.quiz-step').forEach(function(s) {
+    s.style.display = 'none';
+    s.classList.remove('active');
+  });
+
+  var progress = document.getElementById('quiz-progress');
+  if (progress) progress.style.display = 'none';
+
+  var result = document.getElementById('quiz-result');
+  if (result) {
+    result.style.display = 'block';
+    result.classList.add('active');
+    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 }
 </script>
 
