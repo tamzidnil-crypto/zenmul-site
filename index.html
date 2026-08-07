@@ -292,6 +292,96 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 @media(max-width:900px){#sol-mini-grid{grid-template-columns:repeat(2,1fr)!important}}
 @media(max-width:560px){#sol-mini-grid{grid-template-columns:1fr!important}}
 
+
+/* ════════════════════════════════════════════════════════
+   NEW FEATURE 1: WORKFLOW PAIN SCANNER (Quiz Widget)
+   ════════════════════════════════════════════════════════ */
+.scanner-section{padding:0 48px 96px;max-width:1300px;margin:0 auto;position:relative;z-index:3}
+.scanner-wrap{background:var(--card);border:1px solid var(--border);border-radius:28px;padding:56px 48px;position:relative;overflow:hidden}
+.scanner-wrap::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(52,211,153,.08),transparent 65%);pointer-events:none}
+.scanner-wrap::after{content:'';position:absolute;bottom:-60px;left:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(52,211,153,.05),transparent 65%);pointer-events:none}
+.scanner-corner{position:absolute;width:40px;height:40px;pointer-events:none;z-index:2}
+.scanner-corner::before{content:'';position:absolute;width:6px;height:6px;background:rgba(52,211,153,.5);border-radius:50%;box-shadow:0 0 12px rgba(52,211,153,.3)}
+.scanner-corner.tl::before{top:16px;left:16px}
+.scanner-corner.tr::before{top:16px;right:16px}
+.scanner-corner.bl::before{bottom:16px;left:16px}
+.scanner-corner.br::before{bottom:16px;right:16px}
+.scanner-wrap::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(52,211,153,.08),transparent 65%);pointer-events:none}
+.scanner-wrap::after{content:'';position:absolute;bottom:-60px;left:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(52,211,153,.05),transparent 65%);pointer-events:none}
+.scanner-head{text-align:center;position:relative;z-index:1;margin-bottom:44px}
+.scanner-head .eyebrow{margin-bottom:16px;opacity:1;animation:none;justify-content:center}
+.scanner-head h2{font-size:clamp(26px,3.6vw,44px);font-weight:800;letter-spacing:-1.5px;margin-bottom:12px;line-height:1.1}
+.scanner-head p{font-size:16px;color:rgba(255,255,255,.48);max-width:480px;margin:0 auto;line-height:1.7}
+
+/* Quiz Steps */
+.quiz-step{display:none;position:relative;z-index:1}
+.quiz-step.active{display:block;animation:fadeUp .5s ease}
+.quiz-progress{display:flex;gap:6px;justify-content:center;margin-bottom:36px}
+.quiz-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.12);transition:background .3s}
+.quiz-dot.active{background:var(--green);box-shadow:0 0 8px rgba(52,211,153,.4)}
+.quiz-question{font-size:22px;font-weight:700;text-align:center;margin-bottom:32px;letter-spacing:-.5px;line-height:1.3}
+.quiz-options{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:680px;margin:0 auto}
+.quiz-option{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;cursor:none;transition:border-color .25s,background .25s,transform .2s;text-align:left;color:#fff;font-size:15px;font-weight:500;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:12px}
+.quiz-option:hover{border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.04);transform:translateY(-2px)}
+.quiz-option svg{flex-shrink:0;color:var(--green);opacity:.7}
+.quiz-option.selected{border-color:var(--green);background:rgba(52,211,153,.08)}
+
+/* Quiz Result */
+.quiz-result{text-align:center;position:relative;z-index:1}
+.quiz-result-icon{width:64px;height:64px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;color:var(--green)}
+.quiz-result h3{font-size:28px;font-weight:800;letter-spacing:-.8px;margin-bottom:12px}
+.quiz-result>p{font-size:15px;color:rgba(255,255,255,.5);max-width:520px;margin:0 auto 28px;line-height:1.7}
+.quiz-workflow-preview{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:18px;padding:28px;margin-bottom:28px;text-align:left}
+.quiz-workflow-preview h4{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.quiz-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.quiz-flow-pill{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:7px 14px;font-size:12px;color:rgba(255,255,255,.7);white-space:nowrap}
+.quiz-flow-arrow{color:rgba(52,211,153,.5);font-size:14px}
+.quiz-result-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:700px){
+  .scanner-section{padding:0 20px 64px}
+  .scanner-wrap{padding:36px 24px}
+  .quiz-options{grid-template-columns:1fr}
+  .quiz-question{font-size:18px}
+}
+
+
+/* ════════════════════════════════════════════════════════
+   NEW FEATURE 2: ASYNC VIDEO AUDIT FORM
+   ════════════════════════════════════════════════════════ */
+.audit-section{padding:0 48px 96px;max-width:1300px;margin:0 auto;position:relative;z-index:3}
+.audit-wrap{background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.18);border-radius:28px;padding:56px 48px;position:relative;overflow:hidden}
+.audit-wrap::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(52,211,153,.1),transparent 65%);pointer-events:none}
+.audit-head{text-align:center;position:relative;z-index:1;margin-bottom:40px}
+.audit-head .eyebrow{margin-bottom:16px;opacity:1;animation:none;justify-content:center}
+.audit-head h2{font-size:clamp(26px,3.6vw,44px);font-weight:800;letter-spacing:-1.5px;margin-bottom:12px;line-height:1.1}
+.audit-head p{font-size:16px;color:rgba(255,255,255,.48);max-width:520px;margin:0 auto;line-height:1.7}
+.audit-form{max-width:600px;margin:0 auto;position:relative;z-index:1}
+.audit-form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.audit-field{position:relative}
+.audit-field label{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,.55);margin-bottom:6px;letter-spacing:.02em}
+.audit-field input,.audit-field select,.audit-field textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:13px 16px;font-size:14px;color:#fff;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s,background .2s;cursor:none}
+.audit-field input:focus,.audit-field select:focus,.audit-field textarea:focus{border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.03)}
+.audit-field input::placeholder,.audit-field textarea::placeholder{color:rgba(255,255,255,.25)}
+.audit-field select option{background:#0E1214;color:#fff}
+.audit-field textarea{resize:vertical;min-height:100px;line-height:1.6}
+.audit-submit{width:100%;background:var(--green);color:#061210;font-weight:700;font-size:15px;padding:15px 28px;border-radius:12px;border:none;cursor:none;transition:opacity .2s,transform .2s;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px;font-family:'Inter',sans-serif}
+.audit-submit:hover{opacity:.9;transform:translateY(-2px)}
+.audit-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.audit-success{text-align:center;padding:40px 20px;display:none;position:relative;z-index:1}
+.audit-success.active{display:block;animation:fadeUp .5s ease}
+.audit-success-icon{width:72px;height:72px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;color:var(--green)}
+.audit-success h3{font-size:26px;font-weight:800;letter-spacing:-.6px;margin-bottom:10px}
+.audit-success p{font-size:15px;color:rgba(255,255,255,.5);max-width:440px;margin:0 auto 24px;line-height:1.7}
+.audit-success-note{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:18px 24px;font-size:13px;color:rgba(255,255,255,.45);line-height:1.7;text-align:left}
+.audit-success-note strong{color:var(--green)}
+
+@media(max-width:700px){
+  .audit-section{padding:0 20px 64px}
+  .audit-wrap{padding:36px 24px}
+  .audit-form-row{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -351,7 +441,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   <h1>Stop doing tasks<br>a system can <em>own</em>.</h1>
   <p class="hero-sub">Zenmul builds bespoke automation systems that handle the repetitive work, so your team can focus on the work that actually grows the business.</p>
   <div class="hero-ctas">
-    <a href="contact.html" class="btn-primary">Get your free audit <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <a href="#scanner" class="btn-primary">Find your automation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     <a href="what-we-build.html" class="btn-ghost">See what we build</a>
   </div>
   <div class="hero-stats">
@@ -361,6 +451,136 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   </div>
 </section>
 
+<!-- ════════════════════════════════════════════════════════
+     FEATURE 1: WORKFLOW PAIN SCANNER (Interactive Quiz)
+     Now positioned at the TOP of the page for immediate engagement
+     ════════════════════════════════════════════════════════ -->
+<section class="scanner-section" id="scanner">
+  <div class="scanner-wrap reveal"><div class="scanner-corner tl"></div><div class="scanner-corner tr"></div><div class="scanner-corner bl"></div><div class="scanner-corner br"></div>
+    <div class="scanner-head">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Workflow Pain Scanner</div>
+      <h2>Find your biggest automation opportunity</h2>
+      <p>Answer 3 quick questions. We will show you exactly what workflow we would build for your business and what it would save you.</p>
+    </div>
+
+    <!-- Progress Dots -->
+    <div class="quiz-progress" id="quiz-progress">
+      <div class="quiz-dot active"></div>
+      <div class="quiz-dot"></div>
+      <div class="quiz-dot"></div>
+    </div>
+
+    <!-- Step 1: Industry -->
+    <div class="quiz-step active" id="quiz-step-1">
+      <div class="quiz-question">What industry are you in?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" data-value="logistics" onclick="quizNext(1, 'logistics')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Logistics & Freight
+        </button>
+        <button class="quiz-option" data-value="recruitment" onclick="quizNext(1, 'recruitment')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+          Recruitment
+        </button>
+        <button class="quiz-option" data-value="clinic" onclick="quizNext(1, 'clinic')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Medical / Clinic
+        </button>
+        <button class="quiz-option" data-value="saas" onclick="quizNext(1, 'saas')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          B2B SaaS
+        </button>
+        <button class="quiz-option" data-value="ecommerce" onclick="quizNext(1, 'ecommerce')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          E-commerce
+        </button>
+        <button class="quiz-option" data-value="other" onclick="quizNext(1, 'other')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          Something else
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2: Biggest Pain -->
+    <div class="quiz-step" id="quiz-step-2">
+      <div class="quiz-question">What is your biggest time waster right now?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" data-value="data-entry" onclick="quizNext(2, 'data-entry')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Manual data entry
+        </button>
+        <button class="quiz-option" data-value="emails" onclick="quizNext(2, 'emails')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Repetitive emails
+        </button>
+        <button class="quiz-option" data-value="leads" onclick="quizNext(2, 'leads')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Finding / qualifying leads
+        </button>
+        <button class="quiz-option" data-value="followup" onclick="quizNext(2, 'followup')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Following up with people
+        </button>
+        <button class="quiz-option" data-value="reports" onclick="quizNext(2, 'reports')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Compiling reports
+        </button>
+        <button class="quiz-option" data-value="scheduling" onclick="quizNext(2, 'scheduling')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Scheduling / reminders
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 3: Current Tools -->
+    <div class="quiz-step" id="quiz-step-3">
+      <div class="quiz-question">What tools does your team use daily?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" data-value="google" onclick="quizNext(3, 'google')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Gmail / Google Sheets
+        </button>
+        <button class="quiz-option" data-value="excel" onclick="quizNext(3, 'excel')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Excel / CSV files
+        </button>
+        <button class="quiz-option" data-value="crm" onclick="quizNext(3, 'crm')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+          CRM (HubSpot, Pipedrive, etc.)
+        </button>
+        <button class="quiz-option" data-value="telegram" onclick="quizNext(3, 'telegram')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Telegram / Slack
+        </button>
+        <button class="quiz-option" data-value="forms" onclick="quizNext(3, 'forms')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          Forms / Surveys
+        </button>
+        <button class="quiz-option" data-value="mixed" onclick="quizNext(3, 'mixed')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          Mix of everything
+        </button>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="quiz-result" id="quiz-result" style="display:none">
+      <div class="quiz-result-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h3 id="quiz-result-title">Your automation is ready</h3>
+      <p id="quiz-result-desc">Based on your answers, here is the workflow we would build for you:</p>
+      <div class="quiz-workflow-preview" id="quiz-workflow-preview">
+        <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="6.8"/><line x1="7.5" y1="12" x2="16.5" y2="17.2"/></svg>Recommended Workflow</h4>
+        <div id="quiz-workflow-flows"></div>
+      </div>
+      <div class="quiz-result-cta">
+        <a href="#audit" class="btn-primary">Get your free video audit <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="case-studies.html" class="btn-ghost">See similar case studies</a>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-track" id="ticker-track">
@@ -427,7 +647,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
         <p>Order confirmations, cart recovery, complaint handling</p>
       </a>
     </div>
-    <p class="reveal" style="text-align:center;margin-top:28px;font-size:14px;color:rgba(255,255,255,.45)">Working in another industry? We’ve built workflow playbooks for 30+ — <a href="what-we-build.html" style="color:var(--green);text-decoration:none">see them all →</a></p>
+    <p class="reveal" style="text-align:center;margin-top:28px;font-size:14px;color:rgba(255,255,255,.45)">Working in another industry? We've built workflow playbooks for 30+  <a href="what-we-build.html" style="color:var(--green);text-decoration:none">see them all →</a></p>
   </div>
 </section>
 
@@ -717,6 +937,81 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   </div>
 </section>
 
+
+<!-- ════════════════════════════════════════════════════════
+     FEATURE 2: ASYNC VIDEO AUDIT FORM
+     ════════════════════════════════════════════════════════ -->
+<section class="audit-section" id="audit">
+  <div class="audit-wrap reveal">
+    <div class="audit-head">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>No Call Required</div>
+      <h2>Get your free 3-minute video audit</h2>
+      <p>Tell us about your biggest time-waster. Within 24 hours, we'll send you a personalized Loom video showing exactly how we'd automate it  with pricing.</p>
+    </div>
+
+    <form class="audit-form" id="audit-form" onsubmit="handleAuditSubmit(event)">
+      <div class="audit-form-row">
+        <div class="audit-field">
+          <label for="audit-name">Your name</label>
+          <input type="text" id="audit-name" name="name" placeholder="John Smith" required>
+        </div>
+        <div class="audit-field">
+          <label for="audit-email">Work email</label>
+          <input type="email" id="audit-email" name="email" placeholder="john@company.com" required>
+        </div>
+      </div>
+      <div class="audit-form-row">
+        <div class="audit-field">
+          <label for="audit-company">Company name</label>
+          <input type="text" id="audit-company" name="company" placeholder="Acme Inc.">
+        </div>
+        <div class="audit-field">
+          <label for="audit-industry">Industry</label>
+          <select id="audit-industry" name="industry" required>
+            <option value="" disabled selected>Select your industry</option>
+            <option value="logistics">Logistics & Freight</option>
+            <option value="recruitment">Recruitment</option>
+            <option value="medical">Medical / Clinic</option>
+            <option value="saas">B2B SaaS</option>
+            <option value="ecommerce">E-commerce</option>
+            <option value="property">Property / Real Estate</option>
+            <option value="finance">Finance / Accounting</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="audit-field" style="margin-bottom:16px">
+        <label for="audit-pain">What task do you want to stop doing manually?</label>
+        <textarea id="audit-pain" name="pain" placeholder="e.g. Every morning I spend 2 hours copying data from emails into a spreadsheet, then manually sending follow-up messages to each lead..." required></textarea>
+      </div>
+      <div class="audit-field" style="margin-bottom:16px">
+        <label for="audit-tools">What tools do you currently use? (optional)</label>
+        <input type="text" id="audit-tools" name="tools" placeholder="Gmail, Google Sheets, HubSpot, etc.">
+      </div>
+      <button type="submit" class="audit-submit" id="audit-submit-btn">
+        Send my audit request
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </form>
+
+    <div class="audit-success" id="audit-success">
+      <div class="audit-success-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h3>Request received!</h3>
+      <p>We're building your personalized video audit right now. You'll receive it within 24 hours.</p>
+      <div class="audit-success-note">
+        <strong>What happens next:</strong><br>
+        1. We review your submission and map your workflow<br>
+        2. We record a 3-minute Loom video showing the exact automation<br>
+        3. You receive it via email with a flat-price quote<br>
+        4. Reply "YES" to start  no call needed
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- FINAL CTA -->
 <div class="final-cta">
   <div class="final-cta-box reveal">
@@ -831,6 +1126,175 @@ window.addEventListener('scroll',()=>{document.getElementById('nav').style.backg
 })();
 </script>
 
+<!-- ════════════════════════════════════════════════════════
+     QUIZ LOGIC
+     ════════════════════════════════════════════════════════ -->
+<script>
+let quizAnswers = {};
+
+const quizWorkflows = {
+  'logistics': {
+    title: 'Cargo Brain: Logistics Automation Suite',
+    desc: 'For logistics teams drowning in Excel files and manual matching. We'll automate your entire container-to-customer pipeline.',
+    flows: [
+      ['Agent email (Excel/CSV)', '→', 'Auto-parser & normaliser'],
+      ['Container Master Database', '→', 'AI matching engine (hourly)'],
+      ['Match found', '→', 'Auto-notify customer + team'],
+      ['Exceptions', '→', 'Daily 8AM digest to your inbox']
+    ]
+  },
+  'recruitment': {
+    title: 'AI Candidate Screening Pipeline',
+    desc: 'Stop manually reviewing CVs and chasing candidates. We'll build a full screening and follow-up system.',
+    flows: [
+      ['Application received', '→', 'AI CV screening & scoring'],
+      ['Qualified candidate', '→', 'Auto-interview scheduler'],
+      ['Interview booked', '→', 'Reminder sequence (SMS/Email)'],
+      ['Placement made', '→', 'Auto onboarding & follow-up']
+    ]
+  },
+  'clinic': {
+    title: 'Enquiry Responder & No-Show Killer',
+    desc: 'Every patient enquiry answered in under 60 seconds. Automated reminders that quietly eliminate no-shows.',
+    flows: [
+      ['Patient enquiry (any channel)', '→', 'AI instant reply 24/7'],
+      ['Appointment booked', '→', 'Confirmation + calendar invite'],
+      ['24h before', '→', 'Reminder via SMS/Email/WhatsApp'],
+      ['No-show detected', '→', 'Auto-reschedule + waitlist fill']
+    ]
+  },
+  'saas': {
+    title: 'Lead Generation & Trial Conversion Engine',
+    desc: 'A daily pipeline of qualified leads, plus automated trial nurturing that converts free users to paid.',
+    flows: [
+      ['Funding/job boards scraped', '→', 'Apollo enrichment + verification'],
+      ['Qualified leads', '→', 'Daily Telegram/Slack digest'],
+      ['Trial signup', '→', 'Onboarding email sequence'],
+      ['Day 7 no-activity', '→', 'Re-engagement + demo offer']
+    ]
+  },
+  'ecommerce': {
+    title: 'StoreFlow: Revenue & Retention Suite',
+    desc: 'Six workflows covering the entire customer journey  from order confirmation to win-back campaigns.',
+    flows: [
+      ['Order placed', '→', 'Auto-confirmation + tracking'],
+      ['Cart abandoned', '→', 'Recovery sequence (3 emails)'],
+      ['Delivery complete', '→', 'Review request + upsell'],
+      ['30 days inactive', '→', 'Win-back offer + coupon']
+    ]
+  },
+  'other': {
+    title: 'Custom Workflow Built for You',
+    desc: 'Every business has unique repetitive tasks. We'll design and build a bespoke automation system tailored to your exact workflow.',
+    flows: [
+      ['Your manual task', '→', 'AI-powered automation'],
+      ['Data sources connected', '→', 'Smart processing engine'],
+      ['Decisions automated', '→', 'Actions triggered instantly'],
+      ['Results delivered', '→', 'You focus on growth']
+    ]
+  }
+};
+
+function quizNext(step, value) {
+  quizAnswers['step' + step] = value;
+
+  // Highlight selected
+  const currentStep = document.getElementById('quiz-step-' + step);
+  currentStep.querySelectorAll('.quiz-option').forEach(btn => {
+    btn.classList.remove('selected');
+    if (btn.dataset.value === value) btn.classList.add('selected');
+  });
+
+  // Small delay for visual feedback
+  setTimeout(() => {
+    if (step < 3) {
+      // Update progress dots
+      document.querySelectorAll('.quiz-dot')[step].classList.add('active');
+      // Show next step
+      currentStep.classList.remove('active');
+      document.getElementById('quiz-step-' + (step + 1)).classList.add('active');
+    } else {
+      // Show result
+      showQuizResult();
+    }
+  }, 300);
+}
+
+function showQuizResult() {
+  const industry = quizAnswers.step1;
+  const pain = quizAnswers.step2;
+  const tools = quizAnswers.step3;
+
+  const workflow = quizWorkflows[industry] || quizWorkflows['other'];
+
+  document.getElementById('quiz-result-title').textContent = workflow.title;
+  document.getElementById('quiz-result-desc').textContent = workflow.desc;
+
+  // Build workflow visual
+  const flowsContainer = document.getElementById('quiz-workflow-flows');
+  flowsContainer.innerHTML = '';
+  workflow.flows.forEach(flow => {
+    const row = document.createElement('div');
+    row.className = 'quiz-flow';
+    flow.forEach(item => {
+      const span = document.createElement('span');
+      if (item === '→') {
+        span.className = 'quiz-flow-arrow';
+        span.textContent = item;
+      } else {
+        span.className = 'quiz-flow-pill';
+        span.textContent = item;
+      }
+      row.appendChild(span);
+    });
+    flowsContainer.appendChild(row);
+  });
+
+  // Hide all steps, show result
+  document.querySelectorAll('.quiz-step').forEach(s => s.style.display = 'none');
+  document.getElementById('quiz-progress').style.display = 'none';
+  document.getElementById('quiz-result').style.display = 'block';
+}
+</script>
+
+<!-- ════════════════════════════════════════════════════════
+     AUDIT FORM LOGIC
+     ════════════════════════════════════════════════════════ -->
+<script>
+function handleAuditSubmit(e) {
+  e.preventDefault();
+
+  const btn = document.getElementById('audit-submit-btn');
+  const form = document.getElementById('audit-form');
+  const success = document.getElementById('audit-success');
+
+  // Simulate submission
+  btn.disabled = true;
+  btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation:spin 1s linear infinite"><circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/></svg> Sending...';
+
+  // Collect form data
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+  console.log('Audit request:', data);
+
+  // Here you would send to your backend / n8n webhook / email service
+  // Example:
+  // fetch('https://your-n8n-webhook.com/audit-request', {
+  //   method: 'POST',
+  //   headers: {'Content-Type': 'application/json'},
+  //   body: JSON.stringify(data)
+  // });
+
+  setTimeout(() => {
+    form.style.display = 'none';
+    success.classList.add('active');
+  }, 1500);
+}
+</script>
+
+<style>
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
 
 </body>
 </html>
