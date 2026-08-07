@@ -417,6 +417,25 @@ const workflowData = {
       { icon: "&#9989;", title: "Upsell Engine", desc: "Offer upgrades and extras at the perfect moment." }
     ],
     hours: "20+", savings: "$2.5K+"
+  },
+  other: {
+    name: "Custom Automation Suite",
+    icon: "&#9881;",
+    desc: "A tailored automation workflow built around your specific process, tools, and biggest time sink, designed the same way we build every Zenmul system.",
+    flow: [
+      { icon: "&#128172;", title: "Intake", desc: "Capture requests from wherever they start" },
+      { icon: "&#129302;", title: "AI Processing", desc: "Classify, extract, and route automatically" },
+      { icon: "&#9889;", title: "Action", desc: "Trigger the right workflow step" },
+      { icon: "&#128200;", title: "Reporting", desc: "Track results without manual effort" }
+    ],
+    features: [
+      { icon: "&#9989;", title: "Custom Intake", desc: "Built around however requests reach you today, no extra tools required." },
+      { icon: "&#9989;", title: "AI-Powered Routing", desc: "Every request classified and sent to the right next step automatically." },
+      { icon: "&#9989;", title: "Zero Manual Follow-Up", desc: "Reminders, updates, and chasing handled without you touching it." },
+      { icon: "&#9989;", title: "Live Reporting", desc: "See what is happening without pulling a manual report." },
+      { icon: "&#9989;", title: "Built Around Your Stack", desc: "Works with the tools your team already uses daily." }
+    ],
+    hours: "15+", savings: "$2K+"
   }
 };
 
@@ -430,12 +449,12 @@ function init() {
   const pain = getParam('pain') || '';
   const tools = getParam('tools') || '';
   
-  if (!industry || !workflowData[industry]) {
+  if (!industry) {
     window.location.href = 'quiz.html';
     return;
   }
   
-  const d = workflowData[industry];
+  const d = workflowData[industry] || workflowData['other'];
   
   document.getElementById('result-icon').innerHTML = d.icon;
   document.getElementById('workflow-name').textContent = d.name;

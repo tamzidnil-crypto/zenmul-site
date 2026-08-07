@@ -465,9 +465,9 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 
     <!-- Progress Dots -->
     <div class="quiz-progress" id="quiz-progress">
-      <div class="quiz-dot active"></div>
-      <div class="quiz-dot"></div>
-      <div class="quiz-dot"></div>
+      <div class="quiz-dot active" id="scanner-dot-0"></div>
+      <div class="quiz-dot" id="scanner-dot-1"></div>
+      <div class="quiz-dot" id="scanner-dot-2"></div>
     </div>
 
     <!-- Step 1: Industry -->
@@ -482,7 +482,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
           Recruitment
         </button>
-        <button class="quiz-option" data-value="clinic" onclick="quizNext(1, 'clinic')">
+        <button class="quiz-option" data-value="medical" onclick="quizNext(1, 'medical')">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           Medical / Clinic
         </button>
@@ -1166,6 +1166,34 @@ function handleAuditSubmit(e) {
 <style>
 @keyframes spin { to { transform: rotate(360deg); } }
 </style>
+
+<!-- ════════════════════════════════════════════════════════
+     WORKFLOW PAIN SCANNER LOGIC
+     ════════════════════════════════════════════════════════ -->
+<script>
+var scannerAnswers = {};
+
+function quizNext(step, value) {
+  scannerAnswers['step' + step] = value;
+
+  var dot = document.getElementById('scanner-dot-' + step);
+  if (dot) dot.classList.add('active');
+
+  var current = document.getElementById('quiz-step-' + step);
+  if (current) current.classList.remove('active');
+
+  if (step < 3) {
+    var next = document.getElementById('quiz-step-' + (step + 1));
+    if (next) next.classList.add('active');
+  } else {
+    var params = new URLSearchParams();
+    params.set('industry', scannerAnswers.step1 || 'other');
+    params.set('pain', scannerAnswers.step2 || '');
+    params.set('tools', scannerAnswers.step3 || '');
+    window.location.href = 'result.html?' + params.toString();
+  }
+}
+</script>
 
 </body>
 </html>
