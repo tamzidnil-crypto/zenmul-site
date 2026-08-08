@@ -50,6 +50,21 @@ body{background:var(--bg);color:#fff;font-family:'Inter',sans-serif;font-size:16
   .quiz-options{grid-template-columns:1fr}
   .quiz-question{font-size:18px}
 }
+.build-panel{max-width:680px;margin:20px auto 0;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px 28px 20px;position:relative;z-index:2}
+.build-title{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:22px}
+.build-title .live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+.build-track{display:flex;align-items:flex-start;gap:0}
+.build-node{display:flex;flex-direction:column;align-items:center;gap:10px;flex:1;position:relative;min-width:0}
+.build-node .node-dot{width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.15);transition:all .5s cubic-bezier(.34,1.56,.64,1);z-index:2;flex-shrink:0}
+.build-node.filled .node-dot{background:var(--green);border-color:var(--green);box-shadow:0 0 14px rgba(52,211,153,.55);transform:scale(1.2)}
+.build-node .node-label{font-size:10.5px;color:rgba(255,255,255,.32);text-align:center;transition:color .4s;line-height:1.35;padding:0 4px;word-break:break-word}
+.build-node.filled .node-label{color:rgba(255,255,255,.88);font-weight:600}
+.build-node:not(:last-child)::after{content:'';position:absolute;top:7px;left:calc(50% + 12px);right:calc(-50% + 12px);height:2px;background:rgba(255,255,255,.1);transition:background .5s ease .1s;z-index:1}
+.build-node.filled:not(:last-child)::after{background:var(--green)}
+@media(max-width:600px){
+  .build-panel{padding:20px 16px 16px}
+  .build-node .node-label{font-size:9px}
+}
 </style>
 </head>
 <body>
@@ -64,7 +79,7 @@ body{background:var(--bg);color:#fff;font-family:'Inter',sans-serif;font-size:16
     <div class="quiz-header">
       <div class="eyebrow"><span class="eyebrow-dot"></span>Workflow Pain Scanner</div>
       <h1>Find your biggest automation opportunity</h1>
-      <p>Answer 3 quick questions. We will show you exactly what workflow we would build for your business.</p>
+      <p>Answer 5 quick questions. Watch us build your workflow live, then see exactly what we would build for your business.</p>
     </div>
 
     <div class="quiz-card">
@@ -72,6 +87,8 @@ body{background:var(--bg);color:#fff;font-family:'Inter',sans-serif;font-size:16
         <div class="quiz-dot active" id="dot-0"></div>
         <div class="quiz-dot" id="dot-1"></div>
         <div class="quiz-dot" id="dot-2"></div>
+        <div class="quiz-dot" id="dot-3"></div>
+        <div class="quiz-dot" id="dot-4"></div>
       </div>
 
       <!-- Step 1: Industry -->
@@ -204,12 +221,99 @@ body{background:var(--bg);color:#fff;font-family:'Inter',sans-serif;font-size:16
         </div>
       </div>
 
+      <!-- Step 4: Hours lost -->
+      <div class="quiz-step" id="step-4">
+        <button class="quiz-back" onclick="quizPrev(4)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back
+        </button>
+        <div class="quiz-question">How many hours a week does this eat up?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="under5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Under 5 hrs/week
+          </button>
+          <button class="quiz-option" data-value="5to15">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            5 to 15 hrs/week
+          </button>
+          <button class="quiz-option" data-value="15to30">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            15 to 30 hrs/week
+          </button>
+          <button class="quiz-option" data-value="30plus">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            30+ hrs/week
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 5: Team size -->
+      <div class="quiz-step" id="step-5">
+        <button class="quiz-back" onclick="quizPrev(5)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back
+        </button>
+        <div class="quiz-question">How big is your team?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="solo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+            Just me
+          </button>
+          <button class="quiz-option" data-value="small">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            2 to 10 people
+          </button>
+          <button class="quiz-option" data-value="medium">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+            11 to 50 people
+          </button>
+          <button class="quiz-option" data-value="large">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            50+ people
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="build-panel reveal">
+      <div class="build-title"><span class="live-dot"></span>Building your workflow live</div>
+      <div class="build-track" id="build-track">
+        <div class="build-node" id="bnode-1"><div class="node-dot"></div><div class="node-label">Intake</div></div>
+        <div class="build-node" id="bnode-2"><div class="node-dot"></div><div class="node-label">Fixes pain point</div></div>
+        <div class="build-node" id="bnode-3"><div class="node-dot"></div><div class="node-label">Connects tools</div></div>
+        <div class="build-node" id="bnode-4"><div class="node-dot"></div><div class="node-label">Saves hours</div></div>
+        <div class="build-node" id="bnode-5"><div class="node-dot"></div><div class="node-label">Sized to team</div></div>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
 var quizAnswers = {};
+
+var BUILD_LABELS = {
+  1: { logistics:'Logistics intake', recruitment:'Recruitment intake', medical:'Clinic intake', saas:'SaaS intake', ecommerce:'Store intake', realestate:'Property intake', finance:'Advisory intake', legal:'Legal intake', restaurant:'Restaurant intake', salon:'Salon intake', gym:'Gym intake', education:'Coaching intake', construction:'Site intake', cleaning:'Cleaning intake', other:'Custom intake' },
+  2: { 'data-entry':'Kills data entry', 'emails':'Automates inbox', 'leads':'Qualifies leads', 'followup':'Enforces follow-up', 'reports':'Auto-reports', 'scheduling':'Kills no-shows' },
+  3: { google:'Runs on Gmail/Sheets', excel:'Runs on Excel/CSV', crm:'Syncs your CRM', telegram:'Alerts via Telegram', forms:'Captures via forms', mixed:'Unifies your stack' },
+  4: { under5:'Saves 3+ hrs/wk', '5to15':'Saves 7+ hrs/wk', '15to30':'Saves 15+ hrs/wk', '30plus':'Saves 24+ hrs/wk' },
+  5: { solo:'Built for just you', small:'Built for 2-10', medium:'Built for 11-50', large:'Built for 50+' }
+};
+
+function updateBuildNode(step, value) {
+  var node = document.getElementById('bnode-' + step);
+  if (!node) return;
+  var label = (BUILD_LABELS[step] && BUILD_LABELS[step][value]) || node.querySelector('.node-label').textContent;
+  node.querySelector('.node-label').textContent = label;
+  node.classList.add('filled');
+}
+
+function resetBuildNode(step) {
+  var node = document.getElementById('bnode-' + step);
+  if (!node) return;
+  node.classList.remove('filled');
+}
 
 document.addEventListener('DOMContentLoaded', function() {
   var buttons = document.querySelectorAll('.quiz-option');
@@ -248,6 +352,7 @@ function submitOther() {
 
 function handleAnswer(step, value) {
   quizAnswers['step' + step] = value;
+  updateBuildNode(step, value);
 
   var dot = document.getElementById('dot-' + step);
   if (dot) dot.classList.add('active');
@@ -258,14 +363,14 @@ function handleAnswer(step, value) {
     current.style.display = 'none';
   }
 
-  if (step < 3) {
+  if (step < 5) {
     var next = document.getElementById('step-' + (step + 1));
     if (next) {
       next.style.display = 'block';
       next.classList.add('active');
     }
   } else {
-    redirectToResult();
+    setTimeout(redirectToResult, 500);
   }
 }
 
@@ -286,6 +391,7 @@ function quizPrev(step) {
   var dot = document.getElementById('dot-' + step);
   if (dot) dot.classList.remove('active');
 
+  resetBuildNode(step);
   delete quizAnswers['step' + step];
 }
 
@@ -294,6 +400,8 @@ function redirectToResult() {
   params.set('industry', quizAnswers.step1 || 'other');
   params.set('pain', quizAnswers.step2 || '');
   params.set('tools', quizAnswers.step3 || '');
+  params.set('hours', quizAnswers.step4 || '');
+  params.set('team', quizAnswers.step5 || '');
   window.location.href = 'result.html?' + params.toString();
 }
 </script>

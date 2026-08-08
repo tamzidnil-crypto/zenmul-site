@@ -73,6 +73,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 48px 80px;max-width:1300px;margin:0 auto;position:relative;z-index:3}
+.audience-split{display:flex;gap:14px;margin:22px 0 30px;flex-wrap:wrap}
+.audience-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:12px;text-decoration:none;font-size:14px;font-weight:700;transition:transform .2s,border-color .2s,background .2s}
+.audience-btn:hover{transform:translateY(-2px)}
+.audience-btn-primary{background:var(--green);color:#061210}
+.audience-btn-primary:hover{opacity:.9}
+.audience-btn-ghost{background:rgba(255,255,255,.04);border:1px solid var(--border);color:#fff}
+.audience-btn-ghost:hover{border-color:rgba(52,211,153,.4);color:var(--green)}
+.audience-icon{display:flex;align-items:center}
+@media(max-width:600px){.audience-split{flex-direction:column}.audience-btn{justify-content:center}}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .7s ease forwards .1s}
 .eyebrow-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.7}}
@@ -122,6 +131,7 @@ section{position:relative;z-index:3}
 .cases-feature-cta a{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:#061210;font-weight:700;font-size:15px;padding:14px 30px;border-radius:11px;text-decoration:none;transition:opacity .2s,transform .2s}
 .cases-feature-cta a:hover{opacity:.9;transform:translateY(-2px)}
 @media(max-width:900px){.cases-grid{grid-template-columns:1fr}.cases-feature{padding:64px 0}}
+@media(max-width:760px){.teardown-row{grid-template-columns:1fr!important}.teardown-row>div:nth-child(2){transform:rotate(90deg);margin:4px auto}}
 .section-head h2{font-size:clamp(28px,3.8vw,48px);font-weight:800;letter-spacing:-1.2px;margin-bottom:16px}
 .section-head p{font-size:16px;color:rgba(255,255,255,.48);max-width:480px;margin:0 auto;line-height:1.7}
 
@@ -399,15 +409,15 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
     <li><a href="solutions.html">Solutions</a></li>
     <li><a href="how-it-works.html">How it works</a></li>
     <li class="nav-dd">
-      <a href="case-studies.html" class="nav-dd-toggle">Case Studies<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <a href="case-studies.html#studies" class="nav-dd-toggle">Case Studies<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
       <div class="nav-dd-menu">
-        <a href="case-saldev.html"><span class="ddt">SalDev Lead Generation</span><span class="ddd">Automated daily B2B lead pipeline</span></a>
-        <a href="case-logistics.html"><span class="ddt">Cargo Brain: Logistics</span><span class="ddd">Container matching cut to under an hour</span></a>
-        <a href="case-recruitment.html"><span class="ddt">Recruitment Automation</span><span class="ddd">AI screening and full pipeline suite</span></a>
-        <a href="case-clinic.html"><span class="ddt">Clinic No-Show Killer</span><span class="ddd">Instant replies and reminder sequences</span></a>
-        <a href="case-ecommerce.html"><span class="ddt">eCommerce Revenue Suite</span><span class="ddd">Cart recovery to win-back, six workflows</span></a>
-        <a href="case-realestate.html"><span class="ddt">PropFlow: Property Agents</span><span class="ddd">Full buyer, seller and tenant journey</span></a>
-        <a href="case-studies.html" class="nav-dd-all"><span class="ddt">View all 32 case studies <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
+        <a href="case-studies.html#saldev"><span class="ddt">SalDev Lead Generation</span><span class="ddd">Automated daily B2B lead pipeline</span></a>
+        <a href="case-studies.html#logistics"><span class="ddt">Cargo Brain: Logistics</span><span class="ddd">Container matching cut to under an hour</span></a>
+        <a href="case-studies.html#recruitment"><span class="ddt">Recruitment Automation</span><span class="ddd">AI screening and full pipeline suite</span></a>
+        <a href="case-studies.html#clinic"><span class="ddt">Clinic No-Show Killer</span><span class="ddd">Instant replies and reminder sequences</span></a>
+        <a href="case-studies.html#ecommerce"><span class="ddt">eCommerce Revenue Suite</span><span class="ddd">Cart recovery to win-back, six workflows</span></a>
+        <a href="case-studies.html#realestate"><span class="ddt">PropFlow: Property Agents</span><span class="ddd">Full buyer, seller and tenant journey</span></a>
+        <a href="case-studies.html#studies" class="nav-dd-all"><span class="ddt">View all 32 case studies <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
       </div>
     </li>
     <li><a href="roi-calculator.html">ROI Calculator</a></li>
@@ -415,6 +425,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
     <li><a href="compare.html">Compare</a></li>
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="about.html">About</a></li>
+  <li><a href="personal.html">For You</a></li>
   </ul>
   <div class="nav-right">
     <a href="contact.html" class="btn-nav">Free audit</a>
@@ -426,7 +437,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
   <a href="what-we-build.html">What we build</a>
   <a href="solutions.html">Solutions</a>
   <a href="how-it-works.html">How it works</a>
-  <a href="case-studies.html">Case Studies</a>
+  <a href="case-studies.html#studies">Case Studies</a>
   <a href="roi-calculator.html">ROI Calculator</a>
   <a href="integrations.html">Integrations</a>
   <a href="compare.html">Compare</a>
@@ -440,6 +451,16 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
 <!-- HERO -->
 <section class="hero">
   <div class="eyebrow"><span class="eyebrow-dot"></span>AI Automation Built for Your Industry</div>
+  <div class="audience-split reveal">
+    <a href="#scanner" class="audience-btn audience-btn-primary">
+      <span class="audience-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>
+      <span>For My Business</span>
+    </a>
+    <a href="personal.html" class="audience-btn audience-btn-ghost">
+      <span class="audience-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg></span>
+      <span>For Me Personally</span>
+    </a>
+  </div>
   <h1>Stop doing tasks<br>a system can <em>own</em>.</h1>
   <p class="hero-sub">Zenmul builds bespoke automation systems that handle the repetitive work, so your team can focus on the work that actually grows the business.</p>
   <div class="hero-ctas">
@@ -622,7 +643,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
       </div>
       <div class="quiz-result-cta">
         <a href="#audit" class="btn-primary">Get your free video audit <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        <a href="case-studies.html" class="btn-ghost">See similar case studies</a>
+        <a href="case-studies.html#studies" class="btn-ghost">See similar case studies</a>
       </div>
     </div>
   </div>
@@ -819,7 +840,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           <div class="metric"><div class="metric-val">0</div><div class="metric-lab">Manual Excel processing required</div></div>
           <div class="metric"><div class="metric-val">100%</div><div class="metric-lab">Container exceptions flagged daily</div></div>
         </div>
-        <a href="case-studies.html" class="btn-ghost" style="display:inline-flex;align-items:center;gap:8px">See all case studies <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="case-studies.html#studies" class="btn-ghost" style="display:inline-flex;align-items:center;gap:8px">See all case studies <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
       <div class="case-visual reveal rd3">
         <div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--green);text-transform:uppercase;margin-bottom:24px">Live Workflow View</div>
@@ -843,37 +864,37 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
       <p>Every build has its own story: the problem, the workflows, and the result. Open any one to read the full breakdown.</p>
     </div>
     <div class="cases-grid">
-      <a href="case-saldev.html" class="fcase reveal">
+      <a href="case-studies.html#saldev" class="fcase reveal">
         <span class="fcase-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>B2B SaaS</span>
         <h3>Automated Lead Generation for SalDev</h3>
         <p>A daily pipeline that scrapes, enriches, and verifies decision-maker leads, delivered every morning with zero manual work.</p>
         <span class="fcase-more">Read the full case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
-      <a href="case-logistics.html" class="fcase reveal rd1">
+      <a href="case-studies.html#logistics" class="fcase reveal rd1">
         <span class="fcase-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Logistics</span>
         <h3>Cargo Brain: Logistics Suite</h3>
         <p>Container matching that took one to four days by hand now happens within the hour, with a daily exception digest by 8AM.</p>
         <span class="fcase-more">Read the full case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
-      <a href="case-recruitment.html" class="fcase reveal rd2">
+      <a href="case-studies.html#recruitment" class="fcase reveal rd2">
         <span class="fcase-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Recruitment</span>
         <h3>AI Candidate Screening Suite</h3>
         <p>Five workflows that screen candidates with AI, cut interview no-shows, and follow up every placement automatically.</p>
         <span class="fcase-more">Read the full case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
-      <a href="case-clinic.html" class="fcase reveal">
+      <a href="case-studies.html#clinic" class="fcase reveal">
         <span class="fcase-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l7.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>Clinic</span>
         <h3>Enquiry Responder & No-Show Killer</h3>
         <p>Every enquiry answered in under 60 seconds, and a timed reminder sequence that quietly kills no-shows before they happen.</p>
         <span class="fcase-more">Read the full case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
-      <a href="case-ecommerce.html" class="fcase reveal rd1">
+      <a href="case-studies.html#ecommerce" class="fcase reveal rd1">
         <span class="fcase-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>eCommerce</span>
         <h3>StoreFlow: Revenue & Retention</h3>
         <p>Six workflows covering the whole journey, order confirmations, cart recovery, reviews, complaints, win-back, and a weekly digest.</p>
         <span class="fcase-more">Read the full case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
-      <a href="case-realestate.html" class="fcase reveal rd2">
+      <a href="case-studies.html#realestate" class="fcase reveal rd2">
         <span class="fcase-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Property</span>
         <h3>PropFlow: Property Agent System</h3>
         <p>The full buyer, seller, and tenant journey: instant enquiry replies, viewing lifecycle, renewals, and a weekly pipeline digest.</p>
@@ -881,7 +902,50 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
       </a>
     </div>
     <div class="cases-feature-cta reveal">
-      <a href="case-studies.html">View all 32 case studies <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="case-studies.html#studies">View all 32 case studies <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT TEARDOWNS -->
+<section class="teardowns" style="padding:96px 0;border-top:1px solid var(--border)">
+  <div class="section-inner">
+    <div class="cases-feature-head reveal">
+      <span class="section-eyebrow">Before / After</span>
+      <h2>What actually changed, not just a case study summary</h2>
+      <p>Real before-and-after breakdowns from real builds. No stock screenshots, no vague "increased efficiency" claims.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr;gap:20px;max-width:920px;margin:0 auto">
+
+      <div class="reveal teardown-row" style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:10px">Before</div>
+          <div style="font-size:15px;color:rgba(255,255,255,.65);line-height:1.65">A logistics team matched shipping containers to bookings by hand, cross-referencing spreadsheets and inbox threads. One match could take <strong style="color:#fff">1 to 4 days</strong>, and exceptions slipped through unnoticed until a customer called asking where their cargo was.</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;color:var(--green)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--green);text-transform:uppercase;margin-bottom:10px">After</div>
+          <div style="font-size:15px;color:rgba(255,255,255,.75);line-height:1.65">An automated pipeline ingests the shipping manifest, matches it against bookings, and flags exceptions the moment they appear. Matching now happens in <strong style="color:var(--green)">under an hour</strong>, with a daily exception digest delivered by 8AM.</div>
+        </div>
+        <a href="case-studies.html#logistics" style="grid-column:1/-1;font-size:13px;font-weight:700;color:var(--green);text-decoration:none;justify-self:start">Read the full Cargo Brain teardown →</a>
+      </div>
+
+      <div class="reveal rd1 teardown-row" style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:10px">Before</div>
+          <div style="font-size:15px;color:rgba(255,255,255,.65);line-height:1.65">A gym lost members to silent drift, missed sessions turned into missed weeks, then a cancellation, with no one catching it in time to intervene.</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;color:var(--green)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--green);text-transform:uppercase;margin-bottom:10px">After</div>
+          <div style="font-size:15px;color:rgba(255,255,255,.75);line-height:1.65">Five workflows cover the full member lifecycle: instant enquiry replies in <strong style="color:var(--green)">under 60 seconds</strong>, no-show recovery, and an automatic win-back nudge at 30 days lapsed.</div>
+        </div>
+        <a href="case-studies.html#gym" style="grid-column:1/-1;font-size:13px;font-weight:700;color:var(--green);text-decoration:none;justify-self:start">Read the full Gym Brain teardown →</a>
+      </div>
+
+    </div>
+    <div class="cases-feature-cta reveal">
+      <a href="#audit">Get a teardown of your own process <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </div>
 </section>
@@ -917,7 +981,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
           </div>
         </div>
       </div>
-      <p style="font-size:13px;color:rgba(255,255,255,.25);text-align:center;margin-top:20px">More client results in <a href="case-studies.html" style="color:rgba(52,211,153,.6);text-decoration:none">case studies</a></p>
+      <p style="font-size:13px;color:rgba(255,255,255,.25);text-align:center;margin-top:20px">More client results in <a href="case-studies.html#studies" style="color:rgba(52,211,153,.6);text-decoration:none">case studies</a></p>
     </div>
   </div>
 </section>
@@ -948,6 +1012,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
       </a>
     </div>
     <p class="reveal" style="text-align:center;margin-top:28px;font-size:14px;color:rgba(255,255,255,.45)">Full breakdown of what each plan includes on the <a href="pricing.html" style="color:var(--green);text-decoration:none">pricing page →</a></p>
+    <p class="reveal" style="text-align:center;margin-top:10px;font-size:14px;color:rgba(255,255,255,.45)">Only need one workflow to start? See <a href="pricing.html#packages" style="color:var(--green);text-decoration:none">single-workflow packages →</a></p>
   </div>
 </section>
 
@@ -1076,12 +1141,13 @@ footer{border-top:1px solid var(--border);padding:40px 48px;max-width:1300px;mar
     <li><a href="what-we-build.html">What we build</a></li>
     <li><a href="solutions.html">Solutions</a></li>
     <li><a href="how-it-works.html">How it works</a></li>
-    <li><a href="case-studies.html">Case studies</a></li>
+    <li><a href="case-studies.html#studies">Case studies</a></li>
     <li><a href="roi-calculator.html">ROI Calculator</a></li>
     <li><a href="integrations.html">Integrations</a></li>
     <li><a href="compare.html">Compare</a></li>
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="about.html">About</a></li>
+    <li><a href="personal.html">For You</a></li>
     <li><a href="contact.html">Free audit</a></li>
   </ul>
   <div class="footer-copy">&copy; 2026 Zenmul.</div>

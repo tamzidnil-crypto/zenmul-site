@@ -96,6 +96,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 48px; margin-top: 80
   .flow-step { gap: 8px; }
   .flow-arrow { width: 24px; }
   .nav-links { display: none; }
+  #radar-chart { width: 260px; height: 260px; }
 }
 </style>
 </head>
@@ -142,9 +143,16 @@ footer { border-top: 1px solid var(--border); padding: 40px 48px; margin-top: 80
         <div class="impact-number" id="hours-saved">15+</div>
         <div class="impact-label">Hours saved per week</div>
       </div>
-      <div class="card impact-card">
-        <div class="impact-number" id="cost-saved">$2K+</div>
+      <div class="card impact-card" id="cost-card" style="position:relative">
+        <div class="impact-number" id="cost-saved" style="filter:blur(7px);user-select:none">$2K+</div>
         <div class="impact-label">Monthly cost reduction</div>
+        <div id="cost-gate" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(7,9,10,.55);border-radius:12px">
+          <button onclick="document.getElementById('unlock-form').scrollIntoView({behavior:'smooth'})" style="background:var(--accent);color:#061210;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">Unlock number ↓</button>
+        </div>
+      </div>
+      <div class="card impact-card">
+        <div class="impact-number" id="readiness-score">70%</div>
+        <div class="impact-label">Automation readiness score</div>
       </div>
       <div class="card impact-card">
         <div class="impact-number">60s</div>
@@ -155,6 +163,47 @@ footer { border-top: 1px solid var(--border); padding: 40px 48px; margin-top: 80
         <div class="impact-label">Custom built for you</div>
       </div>
     </div>
+    <p id="proof-line" style="text-align:center;margin-top:28px;font-size:14px;color:var(--text-muted)"></p>
+  </div>
+</section>
+
+<section class="result-section alt" id="compound-section">
+  <div class="container" style="text-align:center">
+    <h2 class="section-title">That adds up faster than it looks</h2>
+    <p style="color:var(--text-muted);max-width:520px;margin:0 auto 36px">One week of saved time doesn't feel like much. A year of it does.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;max-width:700px;margin:0 auto">
+      <div class="card impact-card">
+        <div class="impact-number" id="annual-hours" data-target="0">0</div>
+        <div class="impact-label">Hours back this year</div>
+      </div>
+      <div class="card impact-card">
+        <div class="impact-number" id="annual-workdays" data-target="0">0</div>
+        <div class="impact-label">Full workdays back this year</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="result-section" id="radar-section">
+  <div class="container" style="text-align:center">
+    <h2 class="section-title">Your automation readiness breakdown</h2>
+    <p style="color:var(--text-muted);max-width:560px;margin:0 auto 36px">Not one score, five. Here's exactly where the opportunity is biggest for you right now.</p>
+    <div style="display:flex;justify-content:center">
+      <svg id="radar-chart" width="340" height="340" viewBox="0 0 300 300"></svg>
+    </div>
+    <div id="radar-legend" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px;max-width:600px;margin-left:auto;margin-right:auto"></div>
+  </div>
+</section>
+
+<section class="result-section alt" id="unlock-section">
+  <div class="container" style="max-width:520px;text-align:center">
+    <h2 class="section-title">See your exact number</h2>
+    <p style="color:var(--text-muted);margin-bottom:24px">Enter your email and we'll unlock your personalized monthly savings estimate right here, plus send you the full breakdown.</p>
+    <form id="unlock-form" onsubmit="handleUnlock(event)" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+      <input type="email" id="unlock-email" required placeholder="you@company.com" style="flex:1;min-width:220px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;padding:13px 16px;color:#fff;font-family:inherit;font-size:14px;outline:none">
+      <button type="submit" class="btn btn-primary" style="border:none;cursor:pointer;font-family:inherit">Unlock my number</button>
+    </form>
+    <p id="unlock-note" style="font-size:12px;color:var(--text-muted);margin-top:12px">No spam. Just your number and, if you want it, the roadmap to get there.</p>
   </div>
 </section>
 
@@ -454,10 +503,131 @@ function getParam(name) {
   return url.searchParams.get(name);
 }
 
+const CASE_LINKS = {
+  logistics: 'logistics', recruitment: 'recruitment', medical: 'clinic', saas: 'saas-suite',
+  ecommerce: 'ecommerce', realestate: 'realestate', finance: 'financial', legal: 'law',
+  marketing: 'creative', hospitality: 'hotels', education: 'coach', manufacturing: 'construction'
+};
+const HOURS_MAP = { under5: 4, '5to15': 10, '15to30': 22, '30plus': 35 };
+const RATE_MAP = { solo: 32, small: 27, medium: 23, large: 19 };
+
+let unlockedSavings = null;
+
+const INDUSTRY_LABELS = {
+  logistics:'Logistics', recruitment:'Recruitment', medical:'Clinic', saas:'SaaS', ecommerce:'Store',
+  realestate:'Property', finance:'Advisory', legal:'Firm', manufacturing:'Ops', education:'Coaching',
+  marketing:'Agency', hospitality:'Guest Ops', restaurant:'Restaurant', salon:'Salon', gym:'Gym',
+  construction:'Construction', cleaning:'Cleaning'
+};
+const PAIN_KILLERS = {
+  'data-entry':'Data Entry Killer', 'emails':'Inbox Autopilot', 'leads':'Lead Response Engine',
+  'followup':'Follow-Up Enforcer', 'reports':'Reporting Autopilot', 'scheduling':'No-Show Terminator'
+};
+
+function generateWorkflowName(industry, pain, fallbackName) {
+  const ind = INDUSTRY_LABELS[industry];
+  const killer = PAIN_KILLERS[pain];
+  if (ind && killer) return ind + ' ' + killer;
+  if (ind) return ind + ' Automation Suite';
+  return fallbackName;
+}
+
+function typeWriter(el, text, speed) {
+  el.textContent = '';
+  let i = 0;
+  function tick() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+      setTimeout(tick, speed);
+    }
+  }
+  tick();
+}
+
+function animateCounter(el, target, duration) {
+  const start = performance.now();
+  function step(ts) {
+    const progress = Math.min((ts - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(eased * target).toLocaleString();
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function computeRadarScores(industry, pain, tools, hoursKey, teamKey) {
+  const severity = HOURS_MAP[hoursKey] ? Math.min(15, HOURS_MAP[hoursKey] / 3) : 0;
+  let scores = {
+    'Response Speed': (pain === 'emails' || pain === 'leads') ? 32 : 66,
+    'Follow-Up': pain === 'followup' ? 26 : 62,
+    'Data Entry': pain === 'data-entry' ? 28 : (tools === 'excel' ? 46 : 66),
+    'Tool Stack': tools === 'mixed' ? 36 : (tools ? 70 : 55),
+    'Team Bandwidth': teamKey === 'solo' ? 30 : teamKey === 'small' ? 55 : teamKey === 'medium' ? 70 : teamKey === 'large' ? 82 : 50
+  };
+  const painAxisMap = { 'emails':'Response Speed', 'leads':'Response Speed', 'followup':'Follow-Up', 'data-entry':'Data Entry' };
+  const targetAxis = painAxisMap[pain];
+  if (targetAxis) scores[targetAxis] = Math.max(15, scores[targetAxis] - severity);
+  Object.keys(scores).forEach(function(k) { scores[k] = Math.max(15, Math.min(90, Math.round(scores[k]))); });
+  return scores;
+}
+
+function renderRadar(scores) {
+  const labels = Object.keys(scores);
+  const n = labels.length;
+  const cx = 150, cy = 150, maxR = 100;
+  function pointFor(i, r) {
+    const angle = (-90 + i * (360 / n)) * Math.PI / 180;
+    return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) };
+  }
+  let svg = '';
+  [0.25, 0.5, 0.75, 1].forEach(function(frac) {
+    let pts = [];
+    for (let i = 0; i < n; i++) { const p = pointFor(i, maxR * frac); pts.push(p.x + ',' + p.y); }
+    svg += '<polygon points="' + pts.join(' ') + '" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>';
+  });
+  for (let i = 0; i < n; i++) {
+    const p = pointFor(i, maxR);
+    svg += '<line x1="' + cx + '" y1="' + cy + '" x2="' + p.x + '" y2="' + p.y + '" stroke="rgba(255,255,255,.08)" stroke-width="1"/>';
+  }
+  let valuePts = [];
+  labels.forEach(function(label, i) {
+    const r = maxR * (scores[label] / 100);
+    const p = pointFor(i, r);
+    valuePts.push(p);
+  });
+  svg += '<polygon points="' + valuePts.map(function(p) { return p.x + ',' + p.y; }).join(' ') + '" fill="rgba(52,211,153,.18)" stroke="#34D399" stroke-width="2.5"/>';
+  valuePts.forEach(function(p) {
+    svg += '<circle cx="' + p.x + '" cy="' + p.y + '" r="4" fill="#34D399"/>';
+  });
+  document.getElementById('radar-chart').innerHTML = svg;
+
+  const legend = document.getElementById('radar-legend');
+  legend.innerHTML = labels.map(function(label) {
+    const val = scores[label];
+    const isLow = val < 45;
+    return '<span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:6px 12px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid ' + (isLow ? 'rgba(52,211,153,.4)' : 'var(--border)') + ';color:' + (isLow ? 'var(--accent)' : 'var(--text-muted)') + '"><strong style="color:' + (isLow ? '#fff' : 'var(--text-muted)') + '">' + label + '</strong>&nbsp;' + val + '%' + (isLow ? ' · biggest opportunity' : '') + '</span>';
+  }).join('');
+}
+
+function computeImpact(hoursKey, teamKey) {
+  const rawHours = HOURS_MAP[hoursKey] || 12;
+  const rate = RATE_MAP[teamKey] || 26;
+  const savedHours = Math.round(rawHours * 0.7);
+  const weeklySavings = savedHours * rate;
+  const monthlySavings = Math.round(weeklySavings * 4.33 / 50) * 50;
+  let score = 55 + Math.min(rawHours, 35) * 0.9;
+  if (teamKey === 'solo') score -= 4;
+  score = Math.max(50, Math.min(96, Math.round(score)));
+  return { savedHours: savedHours, monthlySavings: monthlySavings, score: score };
+}
+
 function init() {
   const industry = getParam('industry');
   const pain = getParam('pain') || '';
   const tools = getParam('tools') || '';
+  const hoursKey = getParam('hours') || '';
+  const teamKey = getParam('team') || '';
   
   if (!industry) {
     window.location.href = 'quiz.html';
@@ -467,7 +637,8 @@ function init() {
   const d = workflowData[industry] || workflowData['other'];
   
   document.getElementById('result-icon').innerHTML = d.icon;
-  document.getElementById('workflow-name').textContent = d.name;
+  const finalName = generateWorkflowName(industry, pain, d.name);
+  typeWriter(document.getElementById('workflow-name'), finalName, 22);
   document.getElementById('workflow-desc').textContent = d.desc;
   
   const toolList = tools.split(',').filter(function(t) { return t; });
@@ -505,10 +676,63 @@ function init() {
   });
   document.getElementById('features-grid').innerHTML = featuresHtml;
   
-  document.getElementById('hours-saved').textContent = d.hours;
-  document.getElementById('cost-saved').textContent = d.savings;
+  let savedHoursNum;
+  if (hoursKey && HOURS_MAP[hoursKey]) {
+    const impact = computeImpact(hoursKey, teamKey);
+    savedHoursNum = impact.savedHours;
+    document.getElementById('hours-saved').textContent = impact.savedHours + '+';
+    document.getElementById('readiness-score').textContent = impact.score + '%';
+    unlockedSavings = '$' + impact.monthlySavings.toLocaleString();
+  } else {
+    savedHoursNum = parseInt(d.hours, 10) || 15;
+    document.getElementById('hours-saved').textContent = d.hours;
+    document.getElementById('readiness-score').textContent = '70%';
+    unlockedSavings = d.savings;
+  }
+  document.getElementById('cost-saved').textContent = unlockedSavings;
+
+  animateCounter(document.getElementById('annual-hours'), savedHoursNum * 52, 1400);
+  animateCounter(document.getElementById('annual-workdays'), Math.round(savedHoursNum * 52 / 8), 1400);
+
+  const radarScores = computeRadarScores(industry, pain, tools, hoursKey, teamKey);
+  renderRadar(radarScores);
+
+  const caseSlug = CASE_LINKS[industry];
+  const proofEl = document.getElementById('proof-line');
+  if (caseSlug) {
+    proofEl.innerHTML = 'See a real result: <a href="case-studies.html#' + caseSlug + '" style="color:var(--accent);text-decoration:none">a workflow like this, already live →</a>';
+  } else {
+    proofEl.innerHTML = 'See real results: <a href="case-studies.html" style="color:var(--accent);text-decoration:none">browse our case studies →</a>';
+  }
   
-  document.title = d.name + ' - Your Zenmul Workflow';
+  document.title = finalName + ' - Your Zenmul Workflow';
+}
+
+function handleUnlock(event) {
+  event.preventDefault();
+  const email = document.getElementById('unlock-email').value;
+  document.getElementById('cost-saved').style.filter = 'none';
+  document.getElementById('cost-gate').style.display = 'none';
+  const note = document.getElementById('unlock-note');
+  note.textContent = 'Unlocked. Check your inbox, we\'re sending the full breakdown to ' + email + '.';
+  document.getElementById('unlock-form').style.display = 'none';
+  document.getElementById('cost-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  try {
+    fetch('https://your-n8n-instance.com/webhook/scanner-unlock', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        industry: getParam('industry'),
+        pain: getParam('pain'),
+        hours: getParam('hours'),
+        team: getParam('team'),
+        monthlySavings: unlockedSavings,
+        source: 'scanner-result'
+      })
+    }).catch(function(){});
+  } catch (e) {}
 }
 
 function copyLink() {
