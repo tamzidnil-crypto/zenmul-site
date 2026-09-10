@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Case studies | Zenmul</title>
+<meta name="description" content="Real automation systems built and shipped by Zenmul, with the results each produced. 37 case studies across 10 industries.">
+<link rel="canonical" href="https://zenmul.com/case-studies.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zenmul.com/case-studies.html">
+<meta property="og:title" content="Case studies | Zenmul">
+<meta property="og:description" content="Real automation systems built and shipped by Zenmul, with the results each produced. 37 case studies across 10 industries.">
+<meta property="og:image" content="https://zenmul.com/favicon-512.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('intro');
+  }
+</script>
+</head>
+<body style="background:#0C0D10;color:#EDEAE3">
+
+<div id="sky" aria-hidden="true"><canvas id="graph"></canvas></div>
+<div class="rail" aria-hidden="true"><div class="rail__fill" id="rail-fill"></div></div>
+
+<div class="page">
+
+<header class="header">
+  <a class="logo" href="index.html" aria-label="Zenmul">
+    <img src="favicon.svg" alt="" width="25" height="25"> Zenmul
+  </a>
+  <nav class="nav" id="site-nav" aria-label="Primary">
+    <a href="what-we-build.html">What we build</a>
+    <a href="case-studies.html">Case studies</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+  </nav>
+  <a class="btn btn--solid btn--sm header-cta" href="contact.html">
+    Get a free audit
+    <svg width="15" height="11" viewBox="0 0 21 18" fill="none" aria-hidden="true">
+      <path d="M0 9H20.1" stroke="currentColor" stroke-width="2"/>
+      <path d="M12.1 1L20.1 9L12.1 17" stroke="currentColor" stroke-width="2"/>
+    </svg>
+  </a>
+  <button class="burger" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><i></i><i></i><i></i></button>
+</header>
+
+<main>
+
+<section class="hero hero--inner" data-node="Case studies">
+  <div class="wrap">
+    <div class="hero__copy">
+      <p class="rule">Case studies</p>
+      <h1>
+        <span class="line"><span>Real workflows.</span></span>
+        <span class="line"><span><em>Real results.</em></span></span>
+      </h1>
+      <p class="lede">The first five are built, tested and running. The rest are the documented playbooks behind them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" data-node="Index">
+  <div class="wrap">
+    <div class="filters rise">
+      <button class="chip is-on" data-filter="all">All <i>37</i></button>
+      <button class="chip" data-filter="clinics">Clinics <i>6</i></button>
+      <button class="chip" data-filter="logistics">Logistics <i>4</i></button>
+      <button class="chip" data-filter="ecommerce">Ecommerce <i>3</i></button>
+      <button class="chip" data-filter="recruitment">Recruitment <i>1</i></button>
+      <button class="chip" data-filter="b2b-saas">B2B SaaS <i>2</i></button>
+      <button class="chip" data-filter="local-services">Local services <i>10</i></button>
+      <button class="chip" data-filter="professional-services">Professional services <i>5</i></button>
+      <button class="chip" data-filter="property">Property <i>1</i></button>
+      <button class="chip" data-filter="education">Education <i>3</i></button>
+      <button class="chip" data-filter="standalone-tools">Standalone tools <i>2</i></button>
+    </div>
+    <p class="count rise"><b id="count">37</b> shown</p>
+    <div class="cases rise" id="cases">
+      <article class="csx csx--flag" data-cat="clinics">
+        <div class="csx__main">
+          <span class="csx__n">01</span>
+          <span class="eyebrow">Clinics &middot; Shipped</span>
+          <h3>ClinIQ, a clinic operating system</h3>
+          <p>Seventy three nodes across six connected flows: dormant treatment recovery, no-show prediction, cancellation slot recovery, negative sentiment interception, patient lifetime value scoring, and a monthly clinic health report emailed to the owner.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Claude</span><span class="tag">WhatsApp Cloud API</span><span class="tag">Gmail</span><span class="tag">Telegram</span><span class="tag">Google Sheets</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>6 flows running as one system</li><li>Waitlist ranked and offered the moment a slot opens</li><li>Complaints intercepted before they reach a review site</li><li>Monthly health report compiled with no staff input</li></ul></div>
+      </article>
+      <article class="csx csx--flag" data-cat="ecommerce">
+        <div class="csx__main">
+          <span class="csx__n">02</span>
+          <span class="eyebrow">Ecommerce &middot; Shipped</span>
+          <h3>Returns Intelligence</h3>
+          <p>Reads the customer's own words on every return, classifies cause, subcategory and severity, marks whether it was preventable, alerts on high severity or high value, and reports the pattern every Monday.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Gemini</span><span class="tag">Google Sheets</span><span class="tag">Gmail</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>89% of returns identified as preventable</li><li>One product driving 44% of all returns, from a single defect</li><li>$165,620 annualised preventable cost surfaced</li><li>Weekly report compiled and emailed automatically</li></ul></div>
+      </article>
+      <article class="csx csx--flag" data-cat="logistics">
+        <div class="csx__main">
+          <span class="csx__n">03</span>
+          <span class="eyebrow">Logistics &middot; Shipped</span>
+          <h3>Freight Detention and Demurrage Audit</h3>
+          <p>Reads carrier invoices against gate records and each carrier's contracted free time, recalculates what should have been billed, flags every discrepancy and drafts the dispute email ready to send.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Claude</span><span class="tag">Google Sheets</span><span class="tag">Gmail</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Caught all 4 planted overcharges across 10 test containers</li><li>$905 in recoverable charges identified in one run</li><li>Zero false positives on correctly billed containers</li><li>Dispute email drafted automatically per discrepancy</li></ul></div>
+      </article>
+      <article class="csx csx--flag" data-cat="logistics">
+        <div class="csx__main">
+          <span class="csx__n">04</span>
+          <span class="eyebrow">Logistics &middot; Shipped</span>
+          <h3>Cargo Brain, container to booking reconciliation</h3>
+          <p>Batch Excel ingestion straight from agent emails, an hourly matching engine with a deterministic rule pass and an AI fallback, automated customer notification, and an exception digest delivered every morning.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Claude</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Match time cut from one to four days down to within the hour</li><li>5 workflows running as a single system</li><li>No spreadsheets processed by hand</li><li>Every exception flagged in an 8am digest</li></ul></div>
+      </article>
+      <article class="csx csx--flag" data-cat="standalone-tools">
+        <div class="csx__main">
+          <span class="csx__n">05</span>
+          <span class="eyebrow">Standalone tools &middot; Shipped</span>
+          <h3>Contract Ambush Defense</h3>
+          <p>Reads vendor and SaaS contracts out of Gmail or Drive, extracts the renewal date and notice period, and alerts before the cancellation window closes rather than after the auto renewal has charged.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Claude</span><span class="tag">Gmail</span><span class="tag">Google Drive</span><span class="tag">Google Sheets</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Renewal dates and notice periods extracted automatically</li><li>Alerts fire before the window closes, not after</li><li>Cancellation or renegotiation email drafted for you</li><li>Every tracked contract logged in one sheet</li></ul></div>
+      </article>
+      <article class="csx" data-cat="b2b-saas">
+        <div class="csx__main">
+          <span class="csx__n">06</span>
+          <span class="eyebrow">B2B SaaS</span>
+          <h3>Automated Lead Generation Pipeline for SalDev</h3>
+          <p>A fully automated daily pipeline scraping startup job boards, enriching leads via Apollo, verifying emails via Clearout, and delivering qualified prospects to Google Sheets with a daily summary. Zero manual work from the client every morning.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Apify</span><span class="tag">Apollo</span><span class="tag">Clearout</span><span class="tag">Google Sheets</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Verified, decision-maker leads delivered daily</li><li>Zero manual prospecting</li><li>Operational in under 7 days</li><li>Every email verified before it reaches the list</li></ul></div>
+      </article>
+      <article class="csx" data-cat="clinics">
+        <div class="csx__main">
+          <span class="csx__n">07</span>
+          <span class="eyebrow">Clinics</span>
+          <h3>Instant Enquiry Responder + No-Show Killer</h3>
+          <p>Two-workflow system that replies to clinic enquiries in under 60 seconds using AI, routes by intent, and sends a 3-stage appointment reminder sequence that cuts no-shows automatically.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Telegram</span><span class="tag">Google Sheets</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Sub-60 second AI reply to every enquiry</li><li>48h, 24h and 3h automated reminder sequence</li><li>Follow-up sent if no booking confirmed</li><li>Staff freed from repetitive inbox work</li></ul></div>
+      </article>
+      <article class="csx" data-cat="recruitment">
+        <div class="csx__main">
+          <span class="csx__n">08</span>
+          <span class="eyebrow">Recruitment</span>
+          <h3>AI Candidate Screening and Complete Recruitment Automation Suite</h3>
+          <p>A 5-workflow automation suite that screens candidates with AI, cuts interview no-shows, captures client job briefs, follows up on every placement, and tracks the full pipeline automatically.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Response time cut from hours to under 60 seconds</li><li>3 automatic reminders before every interview</li><li>100% of placements followed up automatically</li><li>Full pipeline tracked in Google Sheets</li></ul></div>
+      </article>
+      <article class="csx" data-cat="b2b-saas">
+        <div class="csx__main">
+          <span class="csx__n">09</span>
+          <span class="eyebrow">B2B SaaS</span>
+          <h3>B2B SaaS Lead and Retention Automation Suite</h3>
+          <p>A 4-workflow automation suite that scores inbound leads with AI, converts trial users with automated sequences, detects churn risk weekly, and eliminates demo no-shows with timed reminders.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Lead scored and contacted in under 60 seconds</li><li>Day 1, day 3 and day 7 trial sequences automated</li><li>Weekly churn scan covers 100% of accounts</li><li>Zero missed demo follow-ups</li></ul></div>
+      </article>
+      <article class="csx" data-cat="ecommerce">
+        <div class="csx__main">
+          <span class="csx__n">10</span>
+          <span class="eyebrow">Ecommerce</span>
+          <h3>Dropshipping Store Brain Automation Suite</h3>
+          <p>A 4-workflow automation suite that recovers abandoned carts with AI-scored emails, defends against shipping delays and chargebacks, auto-responds to WISMO support tickets, and harvests reviews on autopilot.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Telegram</span><span class="tag">Google Sheets</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Abandoned carts scored and emailed within minutes</li><li>Proactive delay emails sent before complaints</li><li>WISMO tickets auto-classified and replied instantly</li><li>Review requests sent after every delivery</li></ul></div>
+      </article>
+      <article class="csx" data-cat="logistics">
+        <div class="csx__main">
+          <span class="csx__n">11</span>
+          <span class="eyebrow">Logistics</span>
+          <h3>Cargo Brain: Logistics Automation Suite</h3>
+          <p>Four-workflow automation suite that eliminates the human sitting between container data, customer requirements, and agent updates. Batch Excel ingestion with automatic column normalisation, AI-powered container matching, agent email extraction, and a daily exception alert digest.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Google Sheets</span><span class="tag">Gmail</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>1 to 4 day matching delay eliminated to containers matched within the hour</li><li>Excel files from any agent format ingested and normalised automatically</li><li>Free-text agent emails parsed into structured data by AI</li><li>Daily Telegram digest flags every stuck, overdue, and unmatched container by 8AM</li><li>Running cost: $5 to $15/month</li></ul></div>
+      </article>
+      <article class="csx" data-cat="local-services">
+        <div class="csx__main">
+          <span class="csx__n">12</span>
+          <span class="eyebrow">Local services</span>
+          <h3>Salon Brain: Full Client Lifecycle Automation Suite</h3>
+          <p>A 5-workflow automation suite that confirms appointments instantly, recovers no-shows within the hour, harvests reviews after every visit, nudges lapsed clients back at 30 days, and replies to every new enquiry with AI in under 60 seconds.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Instant confirmation and 48h plus 2h reminders automated</li><li>No-shows detected and followed up within 60 minutes</li><li>Review requests sent 24h after every completed visit</li><li>Lapsed clients nudged back automatically at 30 days</li><li>Every new enquiry answered by AI in under 60 seconds</li></ul></div>
+      </article>
+      <article class="csx" data-cat="local-services">
+        <div class="csx__main">
+          <span class="csx__n">13</span>
+          <span class="eyebrow">Local services</span>
+          <h3>Restaurant Brain: Full Guest Lifecycle Automation Suite</h3>
+          <p>A 5-workflow automation suite that confirms reservations instantly, recovers no-shows within the hour, harvests reviews after every visit, replies to catering enquiries with AI in under 60 seconds, and nudges lapsed guests back at 30 days automatically.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Instant confirmation and 24h plus 2h reminders automated</li><li>No-shows detected and followed up within 60 minutes</li><li>Review requests sent after every completed visit</li><li>Every catering enquiry answered by AI in under 60 seconds</li><li>Lapsed guests nudged back automatically at 30 days</li></ul></div>
+      </article>
+      <article class="csx" data-cat="local-services">
+        <div class="csx__main">
+          <span class="csx__n">14</span>
+          <span class="eyebrow">Local services</span>
+          <h3>Gym Brain: Full Member Lifecycle Automation Suite</h3>
+          <p>A 5-workflow automation suite built for gyms and personal trainers. Replies to every new enquiry with AI in under 60 seconds, sends session reminders automatically, recovers no-shows with a motivating rebook email, checks in with clients 3 hours after every session, and wins back lapsed members at 30 days with a daily automated scan.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Every new enquiry answered by AI in under 60 seconds</li><li>Instant confirmation, 24h and 2h session reminders automated</li><li>No-shows recovered with AI-written rebook email instantly</li><li>Post-session check-in sent automatically 3 hours after every session</li><li>Lapsed members nudged back automatically at 30 days</li></ul></div>
+      </article>
+      <article class="csx" data-cat="professional-services">
+        <div class="csx__main">
+          <span class="csx__n">15</span>
+          <span class="eyebrow">Professional services</span>
+          <h3>Law Brain: Full Client Lifecycle Automation Suite</h3>
+          <p>A 5-workflow automation suite built for law firms and solicitors. Replies to new enquiries in under 60 seconds using AI, sends consultation reminders automatically, chases outstanding documents with 3 timed emails, recovers missed consultations with an AI-written rebook offer, and sends personalised onboarding emails the moment a new client is added.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Every new enquiry answered by AI in under 60 seconds</li><li>Instant confirmation, 24h and 2h consultation reminders automated</li><li>Outstanding documents chased at day 2, 5, and 10 automatically</li><li>No-shows recovered with AI-written rebook email before clients go cold</li><li>New clients onboarded with personalised welcome email in seconds</li></ul></div>
+      </article>
+      <article class="csx" data-cat="education">
+        <div class="csx__main">
+          <span class="csx__n">16</span>
+          <span class="eyebrow">Education</span>
+          <h3>Coach Brain: Full Student Lifecycle Automation Suite</h3>
+          <p>A 5-workflow automation suite built for coaches and e-learning businesses. Replies to every new student enquiry with AI in under 60 seconds, sends session reminders automatically, recovers no-shows with a motivating rebook email, collects post-session feedback without manual chasing, and wins back lapsed students at 30 days with a daily automated scan.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Every new enquiry answered by AI in under 60 seconds</li><li>Instant confirmation, 24h and 2h session reminders automated</li><li>No-shows recovered with AI-written rebook email instantly</li><li>Post-session feedback collected automatically after every class</li><li>Lapsed students re-engaged automatically at 30 days</li></ul></div>
+      </article>
+      <article class="csx" data-cat="property">
+        <div class="csx__main">
+          <span class="csx__n">17</span>
+          <span class="eyebrow">Property</span>
+          <h3>PropFlow: The Complete Property Agent Automation System</h3>
+          <p>A 5-workflow system built for residential and lettings agents. Replies to every buyer and seller enquiry in under 60 seconds, runs a full viewing lifecycle from confirmation to post-viewing feedback, sends 3-stage tenancy renewal reminders, re-engages cold leads at 14 and 30 days, and delivers a weekly pipeline digest to the team every Monday morning.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Instant Enquiry Responder: AI reply to every lead in under 60 seconds</li><li>Viewing Lifecycle Suite: confirmation, 24h reminder, 2h reminder, post-viewing feedback</li><li>Tenancy Renewal Sequence: automated reminders at 90, 60, and 30 days</li><li>Cold Lead Re-engagement: follow-up at 14 and 30 days for unconverted enquiries</li><li>Weekly Pipeline Digest: Monday 8AM Telegram summary of all active listings and leads</li></ul></div>
+      </article>
+      <article class="csx" data-cat="education">
+        <div class="csx__main">
+          <span class="csx__n">18</span>
+          <span class="eyebrow">Education</span>
+          <h3>LearnLoop: Full Student Lifecycle Automation for Coaches and Educators</h3>
+          <p>A 5-workflow automation system for online coaches, tutors, and course creators. Handles every enquiry instantly with a personalised AI reply, sends session reminders at 24h and 2h, recovers no-shows with a warm rebook offer, collects post-session feedback automatically, and re-engages lapsed students at 30 and 60 days with a targeted win-back sequence.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Enquiry Responder: AI-written reply to every student enquiry in under 60 seconds</li><li>Session Reminder Sequence: 24h and 2h reminders sent automatically before every session</li><li>No-Show Recovery Engine: rebook offer sent within 1 hour of a missed session</li><li>Post-Session Feedback Collector: automated review and rating request after every session</li><li>Lapsed Student Win-Back: re-engagement email at 30 and 60 days of inactivity</li></ul></div>
+      </article>
+      <article class="csx" data-cat="professional-services">
+        <div class="csx__main">
+          <span class="csx__n">19</span>
+          <span class="eyebrow">Professional services</span>
+          <h3>ClearBooks Ops: The Accountant's Hands-Free Client Management System</h3>
+          <p>A 5-workflow automation system built for accounting firms and bookkeepers. Eliminates manual document chasing, automates tax and VAT deadline reminders, onboards new clients with a personalised welcome sequence, handles all new enquiries with an instant AI reply, and delivers a weekly workload digest to the team every Monday.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Document Chase Sequence: automated chasers at day 3, 7, and 14 for missing records</li><li>Deadline Reminder Engine: tax return and VAT deadline reminders sent to every client on time</li><li>New Client Onboarding Flow: welcome email, document request, and setup confirmation automated</li><li>Enquiry Responder: AI reply to every new enquiry in under 60 seconds</li><li>Weekly Workload Digest: Monday morning Telegram summary of outstanding tasks and deadlines</li></ul></div>
+      </article>
+      <article class="csx" data-cat="clinics">
+        <div class="csx__main">
+          <span class="csx__n">20</span>
+          <span class="eyebrow">Clinics</span>
+          <h3>CareFlow: The Complete Patient Journey Automation System</h3>
+          <p>A 5-workflow system for dental practices, physiotherapists, and specialist clinics. Sends appointment confirmations and 48h plus 2h reminders, recovers no-shows within the hour, fires 6-month recall reminders automatically, requests reviews after every visit, and delivers new patient intake forms before their first appointment.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Appointment Reminder Suite: instant confirmation, 48h reminder, and 2h reminder automated</li><li>No-Show Recovery System: follow-up and rebook offer sent within 60 minutes of a missed appointment</li><li>Patient Recall Engine: 6-month and annual checkup reminders sent automatically to every patient</li><li>Post-Visit Review Harvester: review request sent 24h after every completed appointment</li><li>New Patient Intake Flow: intake form and welcome info sent automatically before first visit</li></ul></div>
+      </article>
+      <article class="csx" data-cat="local-services">
+        <div class="csx__main">
+          <span class="csx__n">21</span>
+          <span class="eyebrow">Local services</span>
+          <h3>EventEngine: The Event Planner's Complete Communication Automation System</h3>
+          <p>A 5-workflow system for event planners, wedding coordinators, and venue managers. Replies to every event enquiry instantly, chases vendor confirmations automatically, keeps clients updated on progress without manual emails, tracks RSVP responses with automated follow-ups, and requests a testimonial after every successful event.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Event Enquiry Responder: AI reply to every new enquiry in under 60 seconds</li><li>Vendor Confirmation Chaser: automated follow-ups for outstanding supplier confirmations</li><li>Client Progress Updater: milestone update emails sent to clients automatically</li><li>RSVP Tracker and Chaser: tracks responses and follows up non-replies automatically</li><li>Post-Event Testimonial Request: review and testimonial request sent 48h after every event</li></ul></div>
+      </article>
+      <article class="csx" data-cat="local-services">
+        <div class="csx__main">
+          <span class="csx__n">22</span>
+          <span class="eyebrow">Local services</span>
+          <h3>BuildTrack: The Construction Company's Project and Client Communication System</h3>
+          <p>A 5-workflow system for construction companies, builders, and project managers. Follows up unanswered quotes after 2 days, sends weekly automated site progress updates to clients, chases subcontractors for confirmations and completion reports, follows up unpaid invoices at 7 and 14 days, and delivers a Monday morning project status digest to the site team.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Quote Follow-Up Bot: unanswered quotes chased automatically after 2 days</li><li>Weekly Client Update: automated site progress email sent to clients every Friday</li><li>Subcontractor Chaser: confirmation and completion chasers sent automatically</li><li>Invoice Follow-Up Sequence: unpaid invoice reminders at 7 and 14 days</li><li>Monday Project Digest: weekly project status summary sent to team via Telegram</li></ul></div>
+      </article>
+      <article class="csx" data-cat="local-services">
+        <div class="csx__main">
+          <span class="csx__n">23</span>
+          <span class="eyebrow">Local services</span>
+          <h3>GuestPath: The Hotel's Complete Guest Lifecycle Automation System</h3>
+          <p>A 5-workflow system for hotels, B&Bs, and hospitality businesses. Sends instant booking confirmations, a pre-arrival email with upsell offers 3 days before, check-in reminder on the day, post-stay review request 24h after checkout, and a win-back offer to guests who haven't returned in 90 days.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Booking Confirmation Engine: instant confirmation email sent the moment every booking is made</li><li>Pre-Arrival Upsell: personalised email with room upgrades and add-ons sent 3 days before arrival</li><li>Check-In Day Reminder: arrival info and directions sent on the morning of check-in</li><li>Post-Stay Review Request: review link sent 24h after every checkout</li><li>Lapsed Guest Win-Back: exclusive return offer sent to guests inactive for 90 days</li></ul></div>
+      </article>
+      <article class="csx" data-cat="local-services">
+        <div class="csx__main">
+          <span class="csx__n">24</span>
+          <span class="eyebrow">Local services</span>
+          <h3>DriveLine: The Car Dealership's Lead and Service Automation System</h3>
+          <p>A 5-workflow system for car dealerships and vehicle sales businesses. Responds to every test drive and finance enquiry in under 60 seconds with AI, sends service due reminders at 30 and 7 days, follows up every unconverted lead at 7 and 14 days, re-engages customers due for their next vehicle at 24 months, and delivers a weekly sales and service digest every Monday.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Instant Enquiry Responder: AI reply to every test drive and finance enquiry in under 60 seconds</li><li>Service Reminder Sequence: automated reminders at 30 days and 7 days before service due date</li><li>Unconverted Lead Follow-Up: automated nudge at 7 and 14 days for leads that didn't convert</li><li>Vehicle Upgrade Re-engagement: personalised email to customers at 24-month ownership milestone</li><li>Weekly Sales Digest: Monday morning Telegram summary of leads, test drives, and conversions</li></ul></div>
+      </article>
+      <article class="csx" data-cat="education">
+        <div class="csx__main">
+          <span class="csx__n">25</span>
+          <span class="eyebrow">Education</span>
+          <h3>ClassSync: The Tutor's Complete Parent and Student Communication System</h3>
+          <p>A 5-workflow system for tutors, private schools, and education centres. Replies to every parent enquiry instantly with AI, sends session reminders 24h before every class, delivers weekly progress updates to parents automatically, chases outstanding fee payments at day 3 and 7, and re-engages students who haven't rebooked in 3 weeks.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Parent Enquiry Responder: AI reply to every new enquiry in under 60 seconds</li><li>Session Reminder Engine: automated 24h reminder sent before every class</li><li>Weekly Progress Updater: automated progress summary sent to parents every Friday</li><li>Fee Chase Sequence: outstanding payment reminders at day 3 and day 7</li><li>Student Re-engagement Flow: automated rebook nudge for students inactive for 21 days</li></ul></div>
+      </article>
+      <article class="csx" data-cat="professional-services">
+        <div class="csx__main">
+          <span class="csx__n">26</span>
+          <span class="eyebrow">Professional services</span>
+          <h3>RenewalReady: The Insurance Broker's Client Retention and Conversion System</h3>
+          <p>A 5-workflow system for insurance brokers and financial protection advisors. Sends policy renewal reminders at 60, 30, and 7 days, follows up unanswered quotes after 3 days, sends automated claim status updates to clients, onboards new clients with a personalised 3-step welcome sequence, and re-engages lapsed clients who didn't renew.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Renewal Reminder Sequence: automated emails at 60, 30, and 7 days before policy expiry</li><li>Quote Follow-Up Bot: unanswered quotes chased automatically after 3 days</li><li>Claim Status Updater: automated client updates when claim status changes in the sheet</li><li>New Client Welcome Sequence: 3-step onboarding email series sent automatically after sign-up</li><li>Lapsed Client Win-Back: re-engagement offer sent to clients who did not renew their policy</li></ul></div>
+      </article>
+      <article class="csx" data-cat="clinics">
+        <div class="csx__main">
+          <span class="csx__n">27</span>
+          <span class="eyebrow">Clinics</span>
+          <h3>ScriptFlow: The Pharmacy's Prescription and Patient Engagement System</h3>
+          <p>A 4-workflow system for independent pharmacies and dispensing practices. Notifies patients the moment their prescription is ready, sends refill reminders 7 days before a prescription runs out, requests a review 24h after collection, and sends a repeat prescription reminder to patients who haven't reordered in 28 days.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Prescription Ready Alert: instant notification to patient when prescription is ready to collect</li><li>Refill Reminder Engine: automated reminder sent 7 days before each prescription runs out</li><li>Post-Collection Review Request: review link sent 24h after every collection</li><li>Repeat Prescription Nudge: reminder sent to patients who haven't reordered in 28 days</li></ul></div>
+      </article>
+      <article class="csx" data-cat="local-services">
+        <div class="csx__main">
+          <span class="csx__n">28</span>
+          <span class="eyebrow">Local services</span>
+          <h3>SparkOps: The Cleaning Company's Complete Client Automation System</h3>
+          <p>A 5-workflow system for residential and commercial cleaning businesses. Confirms every booking instantly, sends reminders to client and cleaner 24h before each job, requests a review after every completed clean, re-engages lapsed clients at 30 days, and upsells a recurring clean package to one-off customers after their second booking.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Instant Booking Confirmation: automated confirmation sent to client the moment a booking is logged</li><li>Job Day Reminder: 24h reminder sent to both client and cleaner before every job</li><li>Post-Clean Review Request: review link sent within 2 hours of every completed job</li><li>Lapsed Client Win-Back: re-engagement offer sent to clients inactive for 30 days</li><li>Recurring Package Upsell: automated pitch for a monthly plan after a client's second one-off booking</li></ul></div>
+      </article>
+      <article class="csx" data-cat="clinics">
+        <div class="csx__main">
+          <span class="csx__n">29</span>
+          <span class="eyebrow">Clinics</span>
+          <h3>PawTrack: The Veterinary Practice's Complete Patient Lifecycle System</h3>
+          <p>A 5-workflow system for veterinary practices and animal clinics. Sends appointment reminders at 48h and 2h, recovers no-shows within the hour with a rebook offer, fires vaccination and annual health check recalls at the right time, requests a review after every visit, and re-engages pet owners who haven't booked in over 6 months.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Appointment Reminder Suite: 48h and 2h reminders sent automatically before every visit</li><li>No-Show Recovery System: rebook offer sent within 60 minutes of a missed appointment</li><li>Vaccination and Recall Engine: automated reminders at the right interval for every patient</li><li>Post-Visit Review Request: review request sent 24h after every completed appointment</li><li>Lapsed Patient Re-engagement: win-back email to pet owners inactive for 6 months</li></ul></div>
+      </article>
+      <article class="csx" data-cat="professional-services">
+        <div class="csx__main">
+          <span class="csx__n">30</span>
+          <span class="eyebrow">Professional services</span>
+          <h3>StudioOps: The Creative Agency's Project and Client Communication System</h3>
+          <p>A 5-workflow system for creative agencies, design studios, and marketing firms. Sends automated project progress updates at every milestone, chases outstanding creative approvals at day 2 and 5, follows up unpaid invoices at 7 and 14 days, delivers new client onboarding sequences automatically, and requests testimonials on project completion.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Milestone Update Engine: automated project progress email to clients at every stage</li><li>Approval Chaser: outstanding creative sign-off chased at day 2 and day 5</li><li>Invoice Follow-Up Sequence: unpaid invoice reminders sent at 7 and 14 days</li><li>New Client Onboarding Flow: welcome email, brief form, and kickoff pack sent automatically</li><li>Post-Project Testimonial Request: review and case study request sent on project completion</li></ul></div>
+      </article>
+      <article class="csx" data-cat="professional-services">
+        <div class="csx__main">
+          <span class="csx__n">31</span>
+          <span class="eyebrow">Professional services</span>
+          <h3>AdvisorFlow: The Financial Advisor's Client Lifecycle Automation System</h3>
+          <p>A 5-workflow system for independent financial advisors and wealth managers. Replies to every new enquiry instantly with AI, sends annual review reminders at 60 and 30 days, chases outstanding onboarding documents, delivers post-meeting summaries to clients automatically, and re-engages dormant clients who haven't had a review in over 12 months.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Enquiry Responder: AI-written reply to every new lead in under 60 seconds</li><li>Annual Review Reminder Sequence: automated emails at 60 and 30 days before review date</li><li>Onboarding Document Chaser: missing documents followed up at day 3, 7, and 14</li><li>Post-Meeting Summary Sender: AI-written meeting summary emailed to client within 1 hour</li><li>Dormant Client Re-engagement: personalised re-engagement email to clients with no review in 12 months</li></ul></div>
+      </article>
+      <article class="csx" data-cat="clinics">
+        <div class="csx__main">
+          <span class="csx__n">32</span>
+          <span class="eyebrow">Clinics</span>
+          <h3>TherapyOps: The Therapy Practice's Complete Admin Automation System</h3>
+          <p>A 5-workflow system for therapists, counsellors, and mental health practitioners. Sends appointment confirmations and gentle 48h and 2h reminders, delivers intake forms to new clients automatically, handles no-show recovery with a warm rebook email, sends a between-session check-in to clients in active treatment, and re-engages clients who paused their sessions.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Appointment Reminder Suite: confirmation, 48h reminder, and 2h reminder sent automatically</li><li>New Client Intake Flow: intake form and welcome information sent before first session</li><li>No-Show Recovery Engine: warm rebook email sent within 2 hours of a missed session</li><li>Between-Session Check-In: mid-week wellbeing check sent to active clients automatically</li><li>Paused Client Re-engagement: gentle return invitation sent to clients who stopped sessions</li></ul></div>
+      </article>
+      <article class="csx" data-cat="local-services">
+        <div class="csx__main">
+          <span class="csx__n">33</span>
+          <span class="eyebrow">Local services</span>
+          <h3>TradeSync: The Tradesperson's Lead Conversion and Client Retention System</h3>
+          <p>A 5-workflow system for plumbers, electricians, builders, and specialist contractors. Follows up every unanswered quote after 2 days with an AI-written nudge, sends a job day-before reminder to the client, requests a review within 2 hours of every completed job, chases unpaid invoices at 7 and 14 days, and re-engages past clients at 90 days with a seasonal offer.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Quote Follow-Up Bot: unanswered quotes automatically chased after 2 days</li><li>Job Day-Before Reminder: confirmation and arrival time reminder sent to client the evening before</li><li>Post-Job Review Request: review link sent within 2 hours of every completed job</li><li>Invoice Chase Sequence: payment reminders sent at 7 and 14 days for outstanding invoices</li><li>Past Client Re-engagement: seasonal offer email sent to clients inactive for 90 days</li></ul></div>
+      </article>
+      <article class="csx" data-cat="ecommerce">
+        <div class="csx__main">
+          <span class="csx__n">34</span>
+          <span class="eyebrow">Ecommerce</span>
+          <h3>StoreFlow: The eCommerce Brand's Full Revenue and Retention Automation System</h3>
+          <p>A 6-workflow system for ecommerce brands and online stores. Sends AI order confirmations the moment every order lands, recovers abandoned carts after 1 hour, requests reviews 3 days after delivery, handles complaints instantly with empathetic AI response and team Telegram alert, re-engages customers who haven't purchased in 60 days, and delivers a weekly sales digest every Monday.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Order Confirmation Bot: AI-written confirmation email sent the moment every order is placed</li><li>Abandoned Cart Recovery: persuasive recovery email sent 1 hour after cart abandonment</li><li>Post-Purchase Review Request: review request sent 3 days after every fulfilled order</li><li>Refund and Complaint Handler: instant empathetic AI reply with team Telegram alert</li><li>Lapsed Customer Win-Back: personalised re-engagement offer sent at 60 days of inactivity</li><li>Weekly Sales Digest: total orders, revenue, and top product sent to team every Monday</li></ul></div>
+      </article>
+      <article class="csx" data-cat="local-services">
+        <div class="csx__main">
+          <span class="csx__n">35</span>
+          <span class="eyebrow">Local services</span>
+          <h3>JourneyOps: The Travel Agency's Complete Guest Lifecycle Automation System</h3>
+          <p>A 5-workflow system for travel agencies, tour operators, and holiday booking businesses. Sends instant booking confirmations, pre-trip information and packing tips 7 days before departure, post-trip review requests 48h after return, a next-trip upsell 30 days after return, and a re-engagement campaign to customers who haven't booked in 6 months.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Booking Confirmation Engine: instant personalised confirmation sent the moment a booking is logged</li><li>Pre-Trip Information Pack: AI-written trip info email sent 7 days before every departure</li><li>Post-Trip Review Request: review and testimonial request sent 48h after every return</li><li>Next Trip Upsell: personalised recommendation email sent 30 days after return</li><li>Lapsed Customer Campaign: re-engagement offer sent to customers inactive for 6 months</li></ul></div>
+      </article>
+      <article class="csx" data-cat="logistics">
+        <div class="csx__main">
+          <span class="csx__n">36</span>
+          <span class="eyebrow">Logistics</span>
+          <h3>WareFlow: The 3PL Operator's Complete Client Communication and Exception System</h3>
+          <p>A 5-workflow system for warehouse operators and 3PL providers. Sends inbound delivery alerts to the team the moment a booking is logged, notifies clients of shipment status changes automatically, fires a daily exception digest flagging delayed or missing stock every morning, sends weekly KPI reports to each client, and alerts the team immediately when stock drops below minimum threshold.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">AI</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>Inbound Delivery Alert: instant team notification when a new inbound booking is logged</li><li>Shipment Status Updater: automated client email when shipment status changes in the sheet</li><li>Daily Exception Digest: 8AM Telegram report flagging delayed, damaged, or missing stock</li><li>Weekly Client KPI Report: automated performance summary emailed to each client every Monday</li><li>Low Stock Alert: instant Telegram alert when any SKU drops below its minimum threshold</li></ul></div>
+      </article>
+      <article class="csx" data-cat="standalone-tools">
+        <div class="csx__main">
+          <span class="csx__n">37</span>
+          <span class="eyebrow">Standalone tools</span>
+          <h3>Domain Watchlist Monitor: 21-Domain Expiry Alert System</h3>
+          <p>A standalone automation that monitors a watchlist of 21 target domains via the WhoisFreaks API every 2 days. Detects expiring and expired domains, logs each result with priority level and category to Google Sheets, and fires a Telegram alert with the domain name, priority rating, and a direct Namecheap buy link the moment an opportunity opens up.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">WhoisFreaks API</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <div class="csx__res"><span class="eyebrow">Results</span><ul><li>21 domains monitored automatically every 2 days</li><li>Expiring domains detected before competitors act</li><li>Every result logged with priority and category to Google Sheets</li><li>Instant Telegram alert with direct Namecheap buy link</li><li>Zero manual checking required</li></ul></div>
+      </article>
+    </div>
+    <p class="empty" id="empty" hidden>Nothing in that category yet.</p>
+  </div>
+</section>
+
+<section class="section closer" data-node="Start">
+  <div class="wrap rise">
+    <span class="eyebrow">Start</span>
+    <h2>Yours would be number 38.</h2>
+    <p>Tell us the one task you would most like to stop doing by hand. The audit comes back as a recorded video with the opportunities, the honest time savings and the cost.</p>
+    <a class="btn btn--solid" href="contact.html">Get a free audit
+      <svg width="17" height="13" viewBox="0 0 21 18" fill="none" aria-hidden="true"><path d="M0 9H20.1" stroke="currentColor" stroke-width="2"/><path d="M12.1 1L20.1 9L12.1 17" stroke="currentColor" stroke-width="2"/></svg>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <img class="watermark" src="assets/img/emblem.svg" alt="" aria-hidden="true" width="360" height="360">
+
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a class="logo" href="index.html" style="margin-bottom:0.9rem"><img src="favicon.svg" alt="" width="25" height="25"> Zenmul</a>
+        <p>Operational automation systems.</p>
+        <p style="margin-top:0.4rem"><a href="mailto:nazmul@zenmul.com">nazmul@zenmul.com</a></p>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/nazmul-hossen-7a6aa7265" target="_blank" rel="noopener" aria-label="Nazmul on LinkedIn" title="Nazmul on LinkedIn">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.5 8.75 21 11.1 21 14.1V21h-4v-6.1c0-1.45-.03-3.32-2.05-3.32-2.05 0-2.36 1.58-2.36 3.21V21H9z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/zenmul" target="_blank" rel="noopener" aria-label="Zenmul on LinkedIn" title="Zenmul company page">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10.5V17M7.5 7.6v.02M11.5 17v-3.6c0-1.2.8-2.1 2-2.1s2 .9 2 2.1V17"/></svg>
+        </a>
+        <a href="https://www.instagram.com/hossennaz.io/" target="_blank" rel="noopener" aria-label="Zenmul on Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="mailto:nazmul@zenmul.com" aria-label="Email Nazmul" title="nazmul@zenmul.com">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+        </a>
+      </div>
+      </div>
+      <nav>
+        <a href="what-we-build.html">What we build</a>
+        <a href="case-studies.html">Case studies</a>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="contact.html">Free audit</a>
+      </nav>
+    </div>
+    <p class="footer__base">&copy; 2026 Zenmul</p>
+  </div>
+</footer>
+
+</div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

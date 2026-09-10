@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What we build | Zenmul</title>
+<meta name="description" content="The automation systems Zenmul has built and shipped: clinic operations, freight auditing, returns intelligence, container reconciliation, instant response and daily prospecting.">
+<link rel="canonical" href="https://zenmul.com/what-we-build.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zenmul.com/what-we-build.html">
+<meta property="og:title" content="What we build | Zenmul">
+<meta property="og:description" content="The automation systems Zenmul has built and shipped: clinic operations, freight auditing, returns intelligence, container reconciliation, instant response and daily prospecting.">
+<meta property="og:image" content="https://zenmul.com/favicon-512.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('intro');
+  }
+</script>
+</head>
+<body style="background:#0C0D10;color:#EDEAE3">
+
+<div id="sky" aria-hidden="true"><canvas id="graph"></canvas></div>
+<div class="rail" aria-hidden="true"><div class="rail__fill" id="rail-fill"></div></div>
+
+<div class="page">
+
+<header class="header">
+  <a class="logo" href="index.html" aria-label="Zenmul">
+    <img src="favicon.svg" alt="" width="25" height="25"> Zenmul
+  </a>
+  <nav class="nav" id="site-nav" aria-label="Primary">
+    <a href="what-we-build.html">What we build</a>
+    <a href="case-studies.html">Case studies</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+  </nav>
+  <a class="btn btn--solid btn--sm header-cta" href="contact.html">
+    Get a free audit
+    <svg width="15" height="11" viewBox="0 0 21 18" fill="none" aria-hidden="true">
+      <path d="M0 9H20.1" stroke="currentColor" stroke-width="2"/>
+      <path d="M12.1 1L20.1 9L12.1 17" stroke="currentColor" stroke-width="2"/>
+    </svg>
+  </a>
+  <button class="burger" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><i></i><i></i><i></i></button>
+</header>
+
+<main>
+
+<section class="hero hero--inner" data-node="What we build">
+  <div class="wrap">
+    <div class="hero__copy">
+      <p class="rule">What we build</p>
+      <h1>
+        <span class="line"><span>Seven systems.</span></span>
+        <span class="line"><span><em>All of them running.</em></span></span>
+      </h1>
+      <p class="lede">Not a service menu. These are the systems that exist, what each one does, and the numbers they produced when tested against real data.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" data-node="Systems">
+  <div class="wrap">
+    <div class="systems rise">
+      <article class="sys" id="cliniq">
+        <div class="sys__head">
+          <span class="sys__n">01</span>
+          <span class="eyebrow">Clinics and medical</span>
+        </div>
+        <div class="sys__body">
+          <h3>ClinIQ</h3>
+          <p class="sys__line">A clinic operating system, not a chatbot.</p>
+          <p>Six connected flows covering the entire patient lifecycle. Dormant treatment recovery with AI urgency classification, a multi channel escalation ladder across WhatsApp, email and Telegram, no-show prediction scored per patient every morning, cancellation slot recovery that ranks the waitlist and gives the slot to the first reply, negative sentiment interception before a complaint reaches a review site, patient lifetime value scoring with VIP tagging, and a monthly clinic health report compiled and emailed to the owner.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Claude</span><span class="tag">WhatsApp Cloud API</span><span class="tag">Gmail</span><span class="tag">Telegram</span><span class="tag">Google Sheets</span></div>
+        </div>
+        <dl class="sys__stats"><div><dt>73</dt><dd>nodes across 6 flows</dd></div><div><dt>3</dt><dd>escalation channels</dd></div><div><dt>Monthly</dt><dd>health report, no staff input</dd></div></dl>
+      </article>
+      <article class="sys" id="returns">
+        <div class="sys__head">
+          <span class="sys__n">02</span>
+          <span class="eyebrow">Ecommerce and DTC</span>
+        </div>
+        <div class="sys__body">
+          <h3>Returns Intelligence</h3>
+          <p class="sys__line">Your returns are telling you something. This reads them.</p>
+          <p>Every return request is read in the customer's own words, then classified by cause, subcategory and severity from one to five, and marked preventable or not. High severity or high value returns trigger an instant alert. Every Monday morning the whole picture is compiled and emailed: what is driving returns, which product is responsible, and what it costs you annually.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Gemini</span><span class="tag">Google Sheets</span><span class="tag">Gmail</span></div>
+        </div>
+        <dl class="sys__stats"><div><dt>89%</dt><dd>of returns found preventable</dd></div><div><dt>44%</dt><dd>from one product, one defect</dd></div><div><dt>$165,620</dt><dd>annualised preventable cost surfaced</dd></div></dl>
+      </article>
+      <article class="sys" id="freight-audit">
+        <div class="sys__head">
+          <span class="sys__n">03</span>
+          <span class="eyebrow">Logistics and freight</span>
+        </div>
+        <div class="sys__body">
+          <h3>Freight Detention Audit</h3>
+          <p class="sys__line">Carriers overbill. Almost nobody checks.</p>
+          <p>Reads carrier invoices against your gate records and each carrier's contracted free time, recalculates what should have been billed, and flags every discrepancy. Each one comes back with a dispute email already drafted, a row in the disputes log, and a summary to your inbox and Telegram.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Claude</span><span class="tag">Google Sheets</span><span class="tag">Gmail</span><span class="tag">Telegram</span></div>
+        </div>
+        <dl class="sys__stats"><div><dt>4 of 4</dt><dd>planted overcharges caught in testing</dd></div><div><dt>$905</dt><dd>recoverable identified in a single run</dd></div><div><dt>0</dt><dd>false positives on correct invoices</dd></div></dl>
+      </article>
+      <article class="sys" id="cargo-brain">
+        <div class="sys__head">
+          <span class="sys__n">04</span>
+          <span class="eyebrow">Logistics and freight</span>
+        </div>
+        <div class="sys__body">
+          <h3>Cargo Brain</h3>
+          <p class="sys__line">Container to booking reconciliation, done before lunch.</p>
+          <p>Agent emails arrive with Excel attachments in whatever format the agent felt like using. The system ingests them in batch, normalises the columns with AI, and runs an hourly matching engine with a deterministic rule pass first and an AI fallback for the rest. Customers are notified automatically, and every exception lands in an 8am digest instead of surfacing as an angry phone call.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Claude</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span><span class="tag">Telegram</span></div>
+        </div>
+        <dl class="sys__stats"><div><dt>Under 1 hr</dt><dd>average match time, was one to four days</dd></div><div><dt>5</dt><dd>workflows running as one system</dd></div><div><dt>8am</dt><dd>daily exception digest</dd></div></dl>
+      </article>
+      <article class="sys" id="instant-response">
+        <div class="sys__head">
+          <span class="sys__n">05</span>
+          <span class="eyebrow">Any business with inbound leads</span>
+        </div>
+        <div class="sys__body">
+          <h3>Instant Response System</h3>
+          <p class="sys__line">The first reply wins. It is almost never the slowest one.</p>
+          <p>An enquiry arrives by form, SMS or missed call. Within a minute it is read, understood, and answered with a reply written for that specific enquiry, not a template. The booking is offered and confirmed, staff get an alert, and the whole thing is logged. Built for a Houston treatment centre losing leads to whoever answered first.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Claude</span><span class="tag">Twilio SMS</span><span class="tag">Google Calendar</span><span class="tag">Gmail</span><span class="tag">Google Sheets</span></div>
+        </div>
+        <dl class="sys__stats"><div><dt>Under 60s</dt><dd>from enquiry to a real reply</dd></div><div><dt>24/7</dt><dd>including nights and weekends</dd></div><div><dt>Auto</dt><dd>booked, alerted and logged</dd></div></dl>
+      </article>
+      <article class="sys" id="contract-defense">
+        <div class="sys__head">
+          <span class="sys__n">06</span>
+          <span class="eyebrow">Any business with vendors</span>
+        </div>
+        <div class="sys__body">
+          <h3>Contract Ambush Defense</h3>
+          <p class="sys__line">Auto renewals only surprise you once you stop watching.</p>
+          <p>Reads vendor and SaaS contracts out of Gmail or Drive, extracts the renewal date and the notice period, and tracks the cancellation window on every one. The alert fires before the window closes, with a cancellation or renegotiation email already drafted.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Claude</span><span class="tag">Gmail</span><span class="tag">Google Drive</span><span class="tag">Google Sheets</span></div>
+        </div>
+        <dl class="sys__stats"><div><dt>Before</dt><dd>the window closes, not after</dd></div><div><dt>Per contract</dt><dd>notice period tracked individually</dd></div><div><dt>Drafted</dt><dd>cancellation email ready to send</dd></div></dl>
+      </article>
+      <article class="sys" id="prospect-engine">
+        <div class="sys__head">
+          <span class="sys__n">07</span>
+          <span class="eyebrow">Agencies and B2B sales</span>
+        </div>
+        <div class="sys__body">
+          <h3>Daily Prospect Engine</h3>
+          <p class="sys__line">A full prospecting day, finished before you wake up.</p>
+          <p>Runs every morning on its own. Sources businesses matching your criteria, enriches them with real contact details, verifies every email so you are not burning your sending domain, deduplicates against everyone already contacted, writes a personalised opener referencing that specific business, and hands you the day list ready to send.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Claude</span><span class="tag">Apify</span><span class="tag">Apollo</span><span class="tag">Clearout</span><span class="tag">Google Sheets</span></div>
+        </div>
+        <dl class="sys__stats"><div><dt>Daily</dt><dd>runs at 7am without you</dd></div><div><dt>Verified</dt><dd>every email checked before the list</dd></div><div><dt>Deduped</dt><dd>against everyone already contacted</dd></div></dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" data-node="Anatomy">
+  <div class="wrap">
+    <div class="section__head rise">
+      <span class="eyebrow">Anatomy</span>
+      <h2>What every system is made of</h2>
+      <p>Different problems, same four parts. Once you see the shape, you can see it in your own business.</p>
+    </div>
+    <div class="steps rise">
+      <div class="step"><p class="step__n">TRIGGER</p><h3>Something happens</h3><p>An email lands, a form is filled, a file arrives, a booking is cancelled, or the clock hits a set time.</p></div>
+      <div class="step"><p class="step__n">READ</p><h3>It gets understood</h3><p>AI reads the actual content, not just fields. Intent, urgency, sentiment, or messy spreadsheet columns nobody standardised.</p></div>
+      <div class="step"><p class="step__n">DECIDE</p><h3>Rules run first</h3><p>Deterministic logic handles what it can, so results are predictable. AI only handles what rules cannot.</p></div>
+      <div class="step"><p class="step__n">ACT</p><h3>Something gets done</h3><p>A reply sent, a record written, a slot offered, an alert raised, a report compiled. Then logged, so you can check it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" data-node="Industries">
+  <div class="wrap">
+    <div class="section__head rise">
+      <span class="eyebrow">Coverage</span>
+      <h2>Playbooks by industry</h2>
+      <p>Thirty two documented automation playbooks across these industries, each one a starting point rather than a template.</p>
+    </div>
+    <div class="rows rise">
+      <a class="row" href="case-studies.html"><span class="row__n">01</span><span class="row__name">Clinics and medical</span><span class="row__desc">Dental, physio, aesthetic, veterinary, pharmacy, mental health practice</span><span class="row__go">View</span></a>
+      <a class="row" href="case-studies.html"><span class="row__n">02</span><span class="row__name">Logistics</span><span class="row__desc">Freight forwarding, warehousing and 3PL, carrier invoice auditing</span><span class="row__go">View</span></a>
+      <a class="row" href="case-studies.html"><span class="row__n">03</span><span class="row__name">Ecommerce</span><span class="row__desc">DTC brands, dropshipping stores, returns and retention</span><span class="row__go">View</span></a>
+      <a class="row" href="case-studies.html"><span class="row__n">04</span><span class="row__name">Recruitment</span><span class="row__desc">Candidate screening, interview no-shows, placement follow-up</span><span class="row__go">View</span></a>
+      <a class="row" href="case-studies.html"><span class="row__n">05</span><span class="row__name">B2B SaaS</span><span class="row__desc">Lead scoring, trial conversion, churn detection, demo reminders</span><span class="row__go">View</span></a>
+      <a class="row" href="case-studies.html"><span class="row__n">06</span><span class="row__name">Property and legal</span><span class="row__desc">Lettings, estate agency, law firms, insurance, financial advice</span><span class="row__go">View</span></a>
+      <a class="row" href="case-studies.html"><span class="row__n">07</span><span class="row__name">Service businesses</span><span class="row__desc">Salons, gyms, restaurants, hotels, cleaning, trades, construction</span><span class="row__go">View</span></a>
+      <a class="row" href="case-studies.html"><span class="row__n">08</span><span class="row__name">Education</span><span class="row__desc">Coaching, e-learning, tutoring, schools, event planning</span><span class="row__go">View</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" data-node="Stack">
+  <div class="wrap">
+    <div class="section__head rise">
+      <span class="eyebrow">Stack</span>
+      <h2>Built on tools you already pay for</h2>
+      <p>No proprietary platform, no new subscription, no software for your team to learn. If Zenmul disappeared, your systems keep running.</p>
+    </div>
+    <div class="tags tags--big rise">
+      <span class="tag">n8n</span><span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">Gmail</span>
+      <span class="tag">Google Sheets</span><span class="tag">Google Calendar</span><span class="tag">Google Drive</span>
+      <span class="tag">WhatsApp Cloud API</span><span class="tag">Telegram</span><span class="tag">Twilio</span>
+      <span class="tag">Apify</span><span class="tag">Apollo</span><span class="tag">Clearout</span><span class="tag">Shopify</span>
+      <span class="tag">Airtable</span><span class="tag">Slack</span><span class="tag">Stripe</span><span class="tag">Webhooks</span>
+    </div>
+  </div>
+</section>
+
+<section class="section closer" data-node="Start">
+  <div class="wrap rise">
+    <span class="eyebrow">Start</span>
+    <h2>Which of these is your problem?</h2>
+    <p>If one of them sounds like your week, the audit tells you what it would take to fix it. If none do, describe yours and you will get an honest answer either way.</p>
+    <a class="btn btn--solid" href="contact.html">Get a free audit
+      <svg width="17" height="13" viewBox="0 0 21 18" fill="none" aria-hidden="true"><path d="M0 9H20.1" stroke="currentColor" stroke-width="2"/><path d="M12.1 1L20.1 9L12.1 17" stroke="currentColor" stroke-width="2"/></svg>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <img class="watermark" src="assets/img/emblem.svg" alt="" aria-hidden="true" width="360" height="360">
+
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a class="logo" href="index.html" style="margin-bottom:0.9rem"><img src="favicon.svg" alt="" width="25" height="25"> Zenmul</a>
+        <p>Operational automation systems.</p>
+        <p style="margin-top:0.4rem"><a href="mailto:nazmul@zenmul.com">nazmul@zenmul.com</a></p>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/nazmul-hossen-7a6aa7265" target="_blank" rel="noopener" aria-label="Nazmul on LinkedIn" title="Nazmul on LinkedIn">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.5 8.75 21 11.1 21 14.1V21h-4v-6.1c0-1.45-.03-3.32-2.05-3.32-2.05 0-2.36 1.58-2.36 3.21V21H9z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/zenmul" target="_blank" rel="noopener" aria-label="Zenmul on LinkedIn" title="Zenmul company page">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10.5V17M7.5 7.6v.02M11.5 17v-3.6c0-1.2.8-2.1 2-2.1s2 .9 2 2.1V17"/></svg>
+        </a>
+        <a href="https://www.instagram.com/hossennaz.io/" target="_blank" rel="noopener" aria-label="Zenmul on Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="mailto:nazmul@zenmul.com" aria-label="Email Nazmul" title="nazmul@zenmul.com">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+        </a>
+      </div>
+      </div>
+      <nav>
+        <a href="what-we-build.html">What we build</a>
+        <a href="case-studies.html">Case studies</a>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="contact.html">Free audit</a>
+      </nav>
+    </div>
+    <p class="footer__base">&copy; 2026 Zenmul</p>
+  </div>
+</footer>
+
+</div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

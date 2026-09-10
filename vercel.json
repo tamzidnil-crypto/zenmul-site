@@ -1,0 +1,62 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/solutions",
+      "destination": "/what-we-build",
+      "permanent": true
+    },
+    {
+      "source": "/how-it-works",
+      "destination": "/what-we-build",
+      "permanent": true
+    },
+    {
+      "source": "/integrations",
+      "destination": "/what-we-build",
+      "permanent": true
+    },
+    {
+      "source": "/compare",
+      "destination": "/what-we-build",
+      "permanent": true
+    },
+    {
+      "source": "/case-saldev",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/roi-calculator",
+      "destination": "/pricing",
+      "permanent": true
+    },
+    {
+      "source": "/personal",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/quiz",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/result",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zenmul | Hire a system, not another person</title>
+<meta name="description" content="Zenmul builds custom automation systems for logistics, recruitment, clinics and ecommerce teams. Answer three questions and watch your first workflow build itself.">
+<link rel="canonical" href="https://zenmul.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zenmul.com/">
+<meta property="og:title" content="Zenmul | Hire a system, not another person">
+<meta property="og:description" content="Custom automation systems for logistics, recruitment, clinics and ecommerce teams.">
+<meta property="og:image" content="https://zenmul.com/favicon-512.png">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon-192.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('intro');
+  }
+</script>
+</head>
+<body style="background:#060607;color:#EDEAE3">
+
+<div id="sky" aria-hidden="true"><canvas id="graph"></canvas></div>
+
+<div class="rail" aria-hidden="true"><div class="rail__fill" id="rail-fill"></div></div>
+
+<div class="page">
+
+<header class="header">
+  <a class="logo" href="#top" aria-label="Zenmul">
+    <img src="favicon.svg" alt="" width="25" height="25"> Zenmul
+  </a>
+
+  <nav class="nav" id="site-nav" aria-label="Primary">
+    <a href="what-we-build.html">What we build</a>
+    <a href="case-studies.html">Case studies</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <a class="btn btn--solid btn--sm header-cta" href="contact.html">
+    Get a free audit
+    <svg width="15" height="11" viewBox="0 0 21 18" fill="none" aria-hidden="true">
+      <path d="M0 9H20.1" stroke="currentColor" stroke-width="2"/>
+      <path d="M12.1 1L20.1 9L12.1 17" stroke="currentColor" stroke-width="2"/>
+    </svg>
+  </a>
+
+  <button class="burger" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><i></i><i></i><i></i></button>
+</header>
+
+<main>
+
+<!-- Hero: a workflow running behind the pitch -->
+<section class="hero" id="top" data-node="Trigger">
+  <div class="wrap">
+    <div class="hero__copy">
+      <p class="rule">Operational automation</p>
+
+      <h1>
+        <span class="line"><span>Hire a system,</span></span>
+        <span class="line"><span><em>not another person.</em></span></span>
+      </h1>
+
+      <p class="lede">Custom automation systems for logistics, recruitment, clinics and ecommerce teams. The repetitive work gets handled before anyone asks. No new software for your team to learn, no salary attached.</p>
+
+      <div class="hero-actions">
+        <a class="btn btn--ghost btn--pill" href="#build">Build one now</a>
+      </div>
+
+      <dl class="stats">
+        <div class="stat"><dt>74</dt><dd>Workflows in production</dd></div>
+        <div class="stat"><dt>5 to 10 days</dt><dd>First call to live system</dd></div>
+        <div class="stat"><dt>Flat</dt><dd>No per task billing</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- Scanner: the live build -->
+<section class="section" id="build" data-node="Input">
+  <div class="wrap">
+    <div class="section__head rise">
+      <span class="eyebrow">01 / Live build</span>
+      <h2>Three questions. A working system, specced in front of you.</h2>
+      <p>The same first pass we run in a paid audit. Every answer adds a node, and at the end you get the build sheet: what fires it, what it does, what it hands back, and roughly what it gives you in return.</p>
+    </div>
+
+    <div class="scanner rise" id="pain-scanner">
+      <div class="scanner__ask">
+        <div class="scanner__step is-active" data-step="1">
+          <span class="eyebrow">Question 1 of 3</span>
+          <p class="scanner__q">What industry are you in?</p>
+          <div class="scanner__opts">
+            <button class="scanner__opt" data-value="logistics">Logistics and freight</button>
+            <button class="scanner__opt" data-value="recruitment">Recruitment</button>
+            <button class="scanner__opt" data-value="clinic">Clinic or medical</button>
+            <button class="scanner__opt" data-value="saas">B2B SaaS</button>
+            <button class="scanner__opt" data-value="ecommerce">Ecommerce</button>
+            <button class="scanner__opt" data-value="other">Something else</button>
+          </div>
+        </div>
+
+        <div class="scanner__step" data-step="2">
+          <span class="eyebrow">Question 2 of 3</span>
+          <p class="scanner__q">What eats the most time right now?</p>
+          <div class="scanner__opts">
+            <button class="scanner__opt" data-value="entry">Manual data entry</button>
+            <button class="scanner__opt" data-value="email">Repetitive emails</button>
+            <button class="scanner__opt" data-value="leads">Finding and qualifying leads</button>
+            <button class="scanner__opt" data-value="followup">Following up with people</button>
+            <button class="scanner__opt" data-value="reports">Compiling reports</button>
+            <button class="scanner__opt" data-value="scheduling">Scheduling and reminders</button>
+          </div>
+          <button class="scanner__back">Back</button>
+        </div>
+
+        <div class="scanner__step" data-step="3">
+          <span class="eyebrow">Question 3 of 3</span>
+          <p class="scanner__q">What does your team use every day?</p>
+          <div class="scanner__opts">
+            <button class="scanner__opt" data-value="google">Gmail and Google Sheets</button>
+            <button class="scanner__opt" data-value="excel">Excel and CSV files</button>
+            <button class="scanner__opt" data-value="crm">A CRM</button>
+            <button class="scanner__opt" data-value="chat">Telegram or Slack</button>
+            <button class="scanner__opt" data-value="mixed">A mix of everything</button>
+          </div>
+          <button class="scanner__back">Back</button>
+        </div>
+
+        <div class="scanner__step scanner__result" data-step="4">
+          <span class="eyebrow" id="scanner-tag"></span>
+          <p class="scanner__q" id="scanner-title"></p>
+          <p id="scanner-body"></p>
+          <dl class="spec">
+            <div><dt id="spec-hours">&mdash;</dt><dd>hours a week back, estimated</dd></div>
+            <div><dt id="spec-days">&mdash;</dt><dd>working days to live</dd></div>
+            <div><dt id="spec-price">&mdash;</dt><dd>setup, then monthly</dd></div>
+          </dl>
+          <div class="hero-actions">
+            <a class="btn btn--solid" href="contact.html">Get this built</a>
+            <a class="btn btn--ghost" href="case-studies.html">See a similar system</a>
+          </div>
+          <button class="scanner__back" data-restart>Start again</button>
+        </div>
+      </div>
+
+      <div class="scanner__canvas">
+        <div class="canvas__bar">
+          <span class="eyebrow">Build sheet</span>
+          <span class="canvas__status" id="build-status"><i></i>Waiting for input</span>
+        </div>
+        <div class="chain" id="chain" aria-live="polite">
+          <p class="chain__empty">Answer the first question and the system starts assembling here.</p>
+        </div>
+        <div class="canvas__foot" id="build-foot" hidden>
+          <span><b id="node-count">0</b> nodes</span>
+          <span id="build-run">Not yet running</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Industries -->
+<section class="section" data-node="Route">
+  <div class="wrap">
+    <div class="section__head rise">
+      <span class="eyebrow">02 / Routing</span>
+      <h2>Built for your industry, not adapted to it</h2>
+      <p>Every system is designed around how your business already runs, using the tools you already pay for.</p>
+    </div>
+    <div class="rows rise">
+      <a class="row" href="what-we-build.html?filter=logistics">
+        <span class="row__n">01</span><span class="row__name">Logistics</span>
+        <span class="row__desc">Container matching, Excel ingestion, exception alerting</span><span class="row__go">View</span>
+      </a>
+      <a class="row" href="what-we-build.html?filter=recruitment">
+        <span class="row__n">02</span><span class="row__name">Recruitment</span>
+        <span class="row__desc">Candidate responders, interview reminders, pipeline tracking</span><span class="row__go">View</span>
+      </a>
+      <a class="row" href="what-we-build.html?filter=clinic">
+        <span class="row__n">03</span><span class="row__name">Clinics and medical</span>
+        <span class="row__desc">Instant enquiry replies, no-show reduction, appointment flows</span><span class="row__go">View</span>
+      </a>
+      <a class="row" href="what-we-build.html?filter=saas">
+        <span class="row__n">04</span><span class="row__name">B2B SaaS</span>
+        <span class="row__desc">Lead scoring, trial conversion, churn detection, demo reminders</span><span class="row__go">View</span>
+      </a>
+      <a class="row" href="what-we-build.html?filter=ecommerce">
+        <span class="row__n">05</span><span class="row__name">Ecommerce</span>
+        <span class="row__desc">Order confirmations, cart recovery, complaint handling</span><span class="row__go">View</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="section" data-node="Process">
+  <div class="wrap">
+    <div class="section__head rise">
+      <span class="eyebrow">03 / Process</span>
+      <h2>From audit to live in days</h2>
+    </div>
+    <div class="steps rise">
+      <div class="step"><p class="step__n">STEP 01</p><h3>Free audit</h3><p>We work out where your time actually goes and where automation pays back fastest.</p></div>
+      <div class="step"><p class="step__n">STEP 02</p><h3>Workflow map</h3><p>You see every trigger, decision point and action written out before anything is built.</p></div>
+      <div class="step"><p class="step__n">STEP 03</p><h3>Build and test</h3><p>Built and tested against your real data until it behaves exactly as mapped.</p></div>
+      <div class="step"><p class="step__n">STEP 04</p><h3>Live and maintained</h3><p>Edge cases, changes and monitoring stay on us, not on your team.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Case study -->
+<section class="section" data-node="Output">
+  <div class="wrap">
+    <div class="section__head rise">
+      <span class="eyebrow">04 / Output</span>
+      <h2>Four day container matching, now done within the hour</h2>
+    </div>
+    <div class="case rise">
+      <div>
+        <p>A freight forwarding operation was matching containers to customers by hand, cross referencing spreadsheets against inbox threads. A single match took one to four days, and exceptions only surfaced when a customer called asking where their cargo was.</p>
+        <p>We built five connected workflows: batch Excel ingestion straight from agent emails, an hourly matching engine with a deterministic rule pass and an AI fallback, automated customer notification, and an exception digest that lands at 8am every morning.</p>
+        <div class="hero-actions"><a class="btn btn--ghost" href="case-studies.html">Read the full breakdown</a></div>
+      </div>
+      <div>
+        <dl class="case__stats">
+          <div><dt>1 hr</dt><dd>Average match time, previously one to four days</dd></div>
+          <div><dt>5</dt><dd>Workflows running as one system</dd></div>
+          <div><dt>0</dt><dd>Spreadsheets processed by hand</dd></div>
+          <div><dt>8am</dt><dd>Daily exception digest, every exception flagged</dd></div>
+        </dl>
+        <blockquote class="quote">
+          <p>Nazmul built us a full AI lead generation pipeline that scrapes funding databases, enriches leads through Apollo, verifies emails, and delivers a daily Telegram digest. It runs every day without anyone touching it.</p>
+          <footer>Faisal Ahmed, Founder at SalDev</footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Systems shipped -->
+<section class="section" data-node="Systems">
+  <div class="wrap">
+    <div class="section__head rise">
+      <span class="eyebrow">05 / Systems</span>
+      <h2>Seven systems, built and running</h2>
+      <p>Not concepts and not a service menu. Each one was designed, built, tested against real data and shipped.</p>
+    </div>
+    <div class="rows rise">
+      <a class="row row--sys" href="what-we-build.html#cliniq">
+        <span class="row__n">01</span>
+        <span class="row__name">ClinIQ</span>
+        <span class="row__desc">A clinic operating system, not a chatbot.</span>
+        <span class="row__stat">73</span>
+      </a>
+      <a class="row row--sys" href="what-we-build.html#returns">
+        <span class="row__n">02</span>
+        <span class="row__name">Returns Intelligence</span>
+        <span class="row__desc">Your returns are telling you something. This reads them.</span>
+        <span class="row__stat">89%</span>
+      </a>
+      <a class="row row--sys" href="what-we-build.html#freight-audit">
+        <span class="row__n">03</span>
+        <span class="row__name">Freight Detention Audit</span>
+        <span class="row__desc">Carriers overbill. Almost nobody checks.</span>
+        <span class="row__stat">4 of 4</span>
+      </a>
+      <a class="row row--sys" href="what-we-build.html#cargo-brain">
+        <span class="row__n">04</span>
+        <span class="row__name">Cargo Brain</span>
+        <span class="row__desc">Container to booking reconciliation, done before lunch.</span>
+        <span class="row__stat">Under 1 hr</span>
+      </a>
+      <a class="row row--sys" href="what-we-build.html#instant-response">
+        <span class="row__n">05</span>
+        <span class="row__name">Instant Response System</span>
+        <span class="row__desc">The first reply wins. It is almost never the slowest one.</span>
+        <span class="row__stat">Under 60s</span>
+      </a>
+      <a class="row row--sys" href="what-we-build.html#contract-defense">
+        <span class="row__n">06</span>
+        <span class="row__name">Contract Ambush Defense</span>
+        <span class="row__desc">Auto renewals only surprise you once you stop watching.</span>
+        <span class="row__stat">Before</span>
+      </a>
+      <a class="row row--sys" href="what-we-build.html#prospect-engine">
+        <span class="row__n">07</span>
+        <span class="row__name">Daily Prospect Engine</span>
+        <span class="row__desc">A full prospecting day, finished before you wake up.</span>
+        <span class="row__stat">Daily</span>
+      </a>
+    </div>
+    <div class="hero-actions rise" style="margin-top:2rem">
+      <a class="btn btn--ghost" href="what-we-build.html">See how each one works</a>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section" data-node="Terms">
+  <div class="wrap">
+    <div class="section__head rise">
+      <span class="eyebrow">06 / Pricing</span>
+      <h2>Flat pricing, agreed before we start</h2>
+      <p>One setup fee, one monthly fee. No per task billing and no surprise invoices. Billed worldwide in USD.</p>
+    </div>
+    <div class="plans rise">
+      <div class="plan">
+        <h3>Starter</h3>
+        <p class="plan__price">$697</p>
+        <p class="plan__per">setup, then $247 / month</p>
+        <ul><li>One core workflow, built end to end</li><li>Monitoring and maintenance included</li><li>Changes when your process changes</li></ul>
+        <a class="btn btn--ghost" href="pricing.html">What is included</a>
+      </div>
+      <div class="plan plan--featured">
+        <h3>Full Suite</h3>
+        <p class="plan__price">$997</p>
+        <p class="plan__per">setup, then $397 / month</p>
+        <ul><li>A multi workflow system, connected</li><li>Monitoring and maintenance included</li><li>Priority turnaround on changes</li><li>Most businesses start here</li></ul>
+        <a class="btn btn--solid" href="pricing.html">What is included</a>
+      </div>
+      <div class="plan">
+        <h3>Automation Partner</h3>
+        <p class="plan__price">$1,997</p>
+        <p class="plan__per">setup, then $797 / month</p>
+        <ul><li>Ongoing builds every month</li><li>Monthly review of what to automate next</li><li>Direct line for anything urgent</li></ul>
+        <a class="btn btn--ghost" href="pricing.html">What is included</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" data-node="Questions">
+  <div class="wrap">
+    <div class="section__head rise">
+      <span class="eyebrow">07 / Questions</span>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq rise">
+      <details><summary>Do I need any technical knowledge?</summary><p>None. You describe what you want to stop doing by hand. Design, build, testing and maintenance are handled. You use the result.</p></details>
+      <details><summary>How long until it is live?</summary><p>Most systems go live within 5 to 10 business days of the audit. Larger multi workflow systems take longer, and you get the timeline in writing before anything starts.</p></details>
+      <details><summary>What tools do you build on?</summary><p>Primarily n8n, with AI handling the language tasks, connected to Gmail, Google Sheets, Telegram and whatever else your business already uses. No new software for your team to learn.</p></details>
+      <details><summary>What happens if it breaks?</summary><p>Monitoring and maintenance are included in every ongoing plan. If something breaks or your process changes, fixing it is our job, not yours.</p></details>
+      <details><summary>What if my industry is not listed?</summary><p>Book the audit anyway. Slow responses, missed follow ups and manual data entry exist in every service business. If it can be solved you will hear exactly how, and if it cannot you will hear that too.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- Closer -->
+<section class="section closer" data-node="Start">
+  <div class="wrap rise">
+    <span class="eyebrow">08 / Start</span>
+    <h2>Find out what is worth automating.</h2>
+    <p>Tell us the one task you would most like to stop doing. You get a straight answer on whether it is worth automating, what it takes, and what it costs.</p>
+    <a class="btn btn--solid" href="contact.html">
+      Get a free audit
+      <svg width="17" height="13" viewBox="0 0 21 18" fill="none" aria-hidden="true">
+        <path d="M0 9H20.1" stroke="currentColor" stroke-width="2"/>
+        <path d="M12.1 1L20.1 9L12.1 17" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <img class="watermark" src="assets/img/emblem.svg" alt="" aria-hidden="true" width="360" height="360">
+
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a class="logo" href="#top" style="margin-bottom:0.9rem"><img src="favicon.svg" alt="" width="25" height="25"> Zenmul</a>
+        <p>Automation systems that do the repetitive work,<br>so nobody on your team has to.</p>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/nazmul-hossen-7a6aa7265" target="_blank" rel="noopener" aria-label="Nazmul on LinkedIn" title="Nazmul on LinkedIn" data-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.5 8.75 21 11.1 21 14.1V21h-4v-6.1c0-1.45-.03-3.32-2.05-3.32-2.05 0-2.36 1.58-2.36 3.21V21H9z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/zenmul" target="_blank" rel="noopener" aria-label="Zenmul on LinkedIn" title="Zenmul company page" data-label="Company">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10.5V17M7.5 7.6v.02M11.5 17v-3.6c0-1.2.8-2.1 2-2.1s2 .9 2 2.1V17"/></svg>
+        </a>
+        <a href="https://www.instagram.com/hossennaz.io/" target="_blank" rel="noopener" aria-label="Zenmul on Instagram" title="Instagram" data-label="Instagram">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="mailto:nazmul@zenmul.com" aria-label="Email Nazmul" title="nazmul@zenmul.com" data-label="Email">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+        </a>
+      </div>
+      </div>
+      <nav>
+        <a href="what-we-build.html">What we build</a>
+        <a href="case-studies.html">Case studies</a>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="contact.html">Free audit</a>
+      </nav>
+    </div>
+    <p class="footer__base">&copy; 2026 Zenmul</p>
+  </div>
+</footer>
+
+</div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

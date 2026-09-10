@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Free audit | Zenmul</title>
+<meta name="description" content="Tell us about the manual work eating your week and get a recorded automation audit back within one business day. Free, no call required.">
+<link rel="canonical" href="https://zenmul.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zenmul.com/contact.html">
+<meta property="og:title" content="Free audit | Zenmul">
+<meta property="og:description" content="Tell us about the manual work eating your week and get a recorded automation audit back within one business day. Free, no call required.">
+<meta property="og:image" content="https://zenmul.com/favicon-512.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('intro');
+  }
+</script>
+</head>
+<body style="background:#0C0D10;color:#EDEAE3">
+
+<div id="sky" aria-hidden="true"><canvas id="graph"></canvas></div>
+<div class="rail" aria-hidden="true"><div class="rail__fill" id="rail-fill"></div></div>
+
+<div class="page">
+
+<header class="header">
+  <a class="logo" href="index.html" aria-label="Zenmul">
+    <img src="favicon.svg" alt="" width="25" height="25"> Zenmul
+  </a>
+  <nav class="nav" id="site-nav" aria-label="Primary">
+    <a href="what-we-build.html">What we build</a>
+    <a href="case-studies.html">Case studies</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+  </nav>
+  <a class="btn btn--solid btn--sm header-cta" href="contact.html">
+    Get a free audit
+    <svg width="15" height="11" viewBox="0 0 21 18" fill="none" aria-hidden="true">
+      <path d="M0 9H20.1" stroke="currentColor" stroke-width="2"/>
+      <path d="M12.1 1L20.1 9L12.1 17" stroke="currentColor" stroke-width="2"/>
+    </svg>
+  </a>
+  <button class="burger" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><i></i><i></i><i></i></button>
+</header>
+
+<main>
+
+<section class="hero hero--inner" data-node="Audit">
+  <div class="wrap">
+    <div class="hero__copy">
+      <p class="rule">Free audit</p>
+      <h1>
+        <span class="line"><span>Get your free</span></span>
+        <span class="line"><span><em>video audit.</em></span></span>
+      </h1>
+      <p class="lede">Tell me about your business and the manual tasks eating your week. I record a short personalised video walking through exactly what is worth automating, what it would save you, and what it costs. Free, no call required.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" data-node="Form">
+  <div class="wrap">
+    <div class="case rise">
+      <div>
+        <div class="section__head" style="margin-bottom:1.25rem">
+          <span class="eyebrow">What you get</span>
+          <h2>An honest answer, in writing</h2>
+        </div>
+        <ul class="ticks">
+          <li>A prioritised list of automation opportunities specific to your business</li>
+          <li>An honest time savings estimate, with no inflated numbers</li>
+          <li>Yours to keep, whether or not you work with me</li>
+          <li>A reply within one business day</li>
+        </ul>
+      </div>
+
+      <div class="formcard">
+        <form id="audit-form" novalidate>
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-email">Work email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="f-company">Company</label>
+            <input id="f-company" name="company" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="f-industry">Industry</label>
+            <select id="f-industry" name="industry">
+              <option value="">Select your industry</option>
+            <option>Property and Lettings</option>
+            <option>Recruitment</option>
+            <option>Medical or Aesthetic Clinic</option>
+            <option>Dental and Physio</option>
+            <option>Mental Health Practice</option>
+            <option>Pharmacy</option>
+            <option>Veterinary Practice</option>
+            <option>B2B SaaS</option>
+            <option>Logistics and Freight</option>
+            <option>Warehousing and 3PL</option>
+            <option>Ecommerce Brand</option>
+            <option>Dropshipping</option>
+            <option>Beauty and Salons</option>
+            <option>Gym and Personal Training</option>
+            <option>Restaurant and Hospitality</option>
+            <option>Hotels and Hospitality</option>
+            <option>Travel and Tourism</option>
+            <option>Law Firm</option>
+            <option>Architecture Studio</option>
+            <option>Creative Agency</option>
+            <option>Financial Advisor</option>
+            <option>Accountant and Bookkeeper</option>
+            <option>Insurance Broker</option>
+            <option>E-learning and Coaching</option>
+            <option>School and Tutoring</option>
+            <option>Event Planning</option>
+            <option>Construction Company</option>
+            <option>Trades and Contractors</option>
+            <option>Cleaning Company</option>
+            <option>Auto Dealership</option>
+            <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-message">Describe your business and the manual tasks eating your time</label>
+            <textarea id="f-message" name="message" rows="5" required></textarea>
+          </div>
+          <div class="field">
+            <label for="f-links">Website or links (optional)</label>
+            <input id="f-links" name="links" type="text">
+          </div>
+
+          <button class="btn btn--solid" type="submit" id="f-submit">Get my free audit</button>
+          <p class="formnote">Free, no call required. Reply within one business day.</p>
+          <p class="formerr" id="f-error" role="alert" hidden></p>
+        </form>
+
+        <div class="formdone" id="f-done" hidden>
+          <h3>Request received.</h3>
+          <p>I will review your details and send your personalised automation roadmap within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section closer" data-node="Direct">
+  <div class="wrap rise">
+    <span class="eyebrow">Or just email</span>
+    <h2>Prefer to skip the form?</h2>
+    <p>Write to nazmul@zenmul.com with one line about the task you would most like to stop doing by hand. That is enough to start.</p>
+    <a class="btn btn--ghost btn--pill" href="mailto:nazmul@zenmul.com">nazmul@zenmul.com</a>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <img class="watermark" src="assets/img/emblem.svg" alt="" aria-hidden="true" width="360" height="360">
+
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a class="logo" href="index.html" style="margin-bottom:0.9rem"><img src="favicon.svg" alt="" width="25" height="25"> Zenmul</a>
+        <p>Automation systems that do the repetitive work,<br>so nobody on your team has to.</p>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/nazmul-hossen-7a6aa7265" target="_blank" rel="noopener" aria-label="Nazmul on LinkedIn" title="Nazmul on LinkedIn" data-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.5 8.75 21 11.1 21 14.1V21h-4v-6.1c0-1.45-.03-3.32-2.05-3.32-2.05 0-2.36 1.58-2.36 3.21V21H9z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/zenmul" target="_blank" rel="noopener" aria-label="Zenmul on LinkedIn" title="Zenmul company page" data-label="Company">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10.5V17M7.5 7.6v.02M11.5 17v-3.6c0-1.2.8-2.1 2-2.1s2 .9 2 2.1V17"/></svg>
+        </a>
+        <a href="https://www.instagram.com/hossennaz.io/" target="_blank" rel="noopener" aria-label="Zenmul on Instagram" title="Instagram" data-label="Instagram">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="mailto:nazmul@zenmul.com" aria-label="Email Nazmul" title="nazmul@zenmul.com" data-label="Email">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+        </a>
+      </div>
+      </div>
+      <nav>
+        <a href="what-we-build.html">What we build</a>
+        <a href="case-studies.html">Case studies</a>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="contact.html">Free audit</a>
+      </nav>
+    </div>
+    <p class="footer__base">&copy; 2026 Zenmul</p>
+  </div>
+</footer>
+
+</div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
