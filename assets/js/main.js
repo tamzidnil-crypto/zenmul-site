@@ -578,3 +578,45 @@ var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     empty.hidden = shown > 0;
   });
 })();
+
+/* --- 9. System filters (what we build) -----------------------------------
+   Also reads ?filter= from the URL so industry links arrive pre-filtered. */
+(function () {
+  var wrap = document.getElementById('sys-filters');
+  var grid = document.getElementById('systems');
+  if (!wrap || !grid) return;
+
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.sys'));
+  var count = document.getElementById('sys-count');
+  var empty = document.getElementById('sys-empty');
+
+  function apply(f, scroll) {
+    var shown = 0;
+    cards.forEach(function (c) {
+      var on = (f === 'all') || (' ' + (c.dataset.cat || '') + ' ').indexOf(' ' + f + ' ') > -1;
+      c.classList.toggle('is-off', !on);
+      if (on) shown++;
+    });
+    wrap.querySelectorAll('.chip').forEach(function (c) {
+      c.classList.toggle('is-on', c.dataset.filter === f);
+    });
+    if (count) count.textContent = shown;
+    if (empty) empty.hidden = shown > 0;
+    if (scroll) wrap.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  }
+
+  wrap.addEventListener('click', function (e) {
+    var btn = e.target.closest('.chip');
+    if (!btn) return;
+    apply(btn.dataset.filter, false);
+    history.replaceState(null, '', btn.dataset.filter === 'all'
+      ? location.pathname
+      : location.pathname + '?filter=' + btn.dataset.filter);
+  });
+
+  var param = new URLSearchParams(location.search).get('filter');
+  var known = Array.prototype.map.call(wrap.querySelectorAll('.chip'), function (c) { return c.dataset.filter; });
+  if (param && known.indexOf(param) > -1) {
+    apply(param, true);
+  }
+})();
