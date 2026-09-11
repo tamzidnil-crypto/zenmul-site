@@ -56,7 +56,7 @@ img, svg, canvas { display: block; max-width: 100%; }
   -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%);
 }
 .logo { justify-self: start; display: inline-flex; align-items: center; gap: 0.55rem; font-weight: 700; letter-spacing: -0.04em; }
-.logo img { width: 25px; height: 25px; border-radius: 5px; }
+.logo img { width: 26px; height: 26px; border-radius: 0; }
 
 .nav { justify-self: center; display: flex; gap: 0.35rem; }
 .nav a {
@@ -413,6 +413,7 @@ html.intro .line > span { transform: translateY(115%); }
 
 /* --- 21. Systems (what we build) ------------------------------------------ */
 .systems { border-top: 1px solid var(--line-soft); }
+#sys-filters { margin-bottom: 1rem; }
 .sys {
   display: grid; grid-template-columns: 7rem 1fr 15rem; gap: clamp(1.25rem, 3vw, 3rem);
   padding: clamp(2rem, 4vw, 3.25rem) 0; border-bottom: 1px solid var(--line-soft);
