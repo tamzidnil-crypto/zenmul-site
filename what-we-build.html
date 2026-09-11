@@ -68,8 +68,19 @@
 
 <section class="section" data-node="Systems">
   <div class="wrap">
-    <div class="systems rise">
-      <article class="sys" id="cliniq">
+    <div class="filters rise" id="sys-filters">
+      <button class="chip is-on" data-filter="all">All systems</button>
+      <button class="chip" data-filter="logistics">Logistics</button>
+      <button class="chip" data-filter="clinic">Clinics and medical</button>
+      <button class="chip" data-filter="ecommerce">Ecommerce</button>
+      <button class="chip" data-filter="recruitment">Recruitment</button>
+      <button class="chip" data-filter="saas">B2B SaaS</button>
+      <button class="chip" data-filter="services">Service businesses</button>
+    </div>
+    <p class="count rise"><b id="sys-count">7</b> shown</p>
+
+    <div class="systems rise" id="systems">
+      <article class="sys" id="cliniq" data-cat="clinic">
         <div class="sys__head">
           <span class="sys__n">01</span>
           <span class="eyebrow">Clinics and medical</span>
@@ -82,7 +93,7 @@
         </div>
         <dl class="sys__stats"><div><dt>73</dt><dd>nodes across 6 flows</dd></div><div><dt>3</dt><dd>escalation channels</dd></div><div><dt>Monthly</dt><dd>health report, no staff input</dd></div></dl>
       </article>
-      <article class="sys" id="returns">
+      <article class="sys" id="returns" data-cat="ecommerce">
         <div class="sys__head">
           <span class="sys__n">02</span>
           <span class="eyebrow">Ecommerce and DTC</span>
@@ -95,7 +106,7 @@
         </div>
         <dl class="sys__stats"><div><dt>89%</dt><dd>of returns found preventable</dd></div><div><dt>44%</dt><dd>from one product, one defect</dd></div><div><dt>$165,620</dt><dd>annualised preventable cost surfaced</dd></div></dl>
       </article>
-      <article class="sys" id="freight-audit">
+      <article class="sys" id="freight-audit" data-cat="logistics">
         <div class="sys__head">
           <span class="sys__n">03</span>
           <span class="eyebrow">Logistics and freight</span>
@@ -108,7 +119,7 @@
         </div>
         <dl class="sys__stats"><div><dt>4 of 4</dt><dd>planted overcharges caught in testing</dd></div><div><dt>$905</dt><dd>recoverable identified in a single run</dd></div><div><dt>0</dt><dd>false positives on correct invoices</dd></div></dl>
       </article>
-      <article class="sys" id="cargo-brain">
+      <article class="sys" id="cargo-brain" data-cat="logistics">
         <div class="sys__head">
           <span class="sys__n">04</span>
           <span class="eyebrow">Logistics and freight</span>
@@ -121,7 +132,7 @@
         </div>
         <dl class="sys__stats"><div><dt>Under 1 hr</dt><dd>average match time, was one to four days</dd></div><div><dt>5</dt><dd>workflows running as one system</dd></div><div><dt>8am</dt><dd>daily exception digest</dd></div></dl>
       </article>
-      <article class="sys" id="instant-response">
+      <article class="sys" id="instant-response" data-cat="clinic recruitment ecommerce saas logistics services">
         <div class="sys__head">
           <span class="sys__n">05</span>
           <span class="eyebrow">Any business with inbound leads</span>
@@ -134,7 +145,7 @@
         </div>
         <dl class="sys__stats"><div><dt>Under 60s</dt><dd>from enquiry to a real reply</dd></div><div><dt>24/7</dt><dd>including nights and weekends</dd></div><div><dt>Auto</dt><dd>booked, alerted and logged</dd></div></dl>
       </article>
-      <article class="sys" id="contract-defense">
+      <article class="sys" id="contract-defense" data-cat="clinic recruitment ecommerce saas logistics services">
         <div class="sys__head">
           <span class="sys__n">06</span>
           <span class="eyebrow">Any business with vendors</span>
@@ -147,7 +158,7 @@
         </div>
         <dl class="sys__stats"><div><dt>Before</dt><dd>the window closes, not after</dd></div><div><dt>Per contract</dt><dd>notice period tracked individually</dd></div><div><dt>Drafted</dt><dd>cancellation email ready to send</dd></div></dl>
       </article>
-      <article class="sys" id="prospect-engine">
+      <article class="sys" id="prospect-engine" data-cat="saas recruitment services">
         <div class="sys__head">
           <span class="sys__n">07</span>
           <span class="eyebrow">Agencies and B2B sales</span>
@@ -161,6 +172,7 @@
         <dl class="sys__stats"><div><dt>Daily</dt><dd>runs at 7am without you</dd></div><div><dt>Verified</dt><dd>every email checked before the list</dd></div><div><dt>Deduped</dt><dd>against everyone already contacted</dd></div></dl>
       </article>
     </div>
+    <p class="empty" id="sys-empty" hidden>No system built for that industry yet. The playbooks below cover it, and the audit tells you what a first build would look like.</p>
   </div>
 </section>
 
