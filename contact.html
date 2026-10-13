@@ -3,30 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Free audit | Zenmul</title>
-<meta name="description" content="Tell us about the manual work eating your week and get a recorded automation audit back within one business day. Free, no call required.">
+<title>Send a document | Zenmul</title>
+<meta name="description" content="Email one freight invoice, deduction report or unemployment claim notice to nazmul@zenmul.com and get an honest answer on whether there is anything worth recovering.">
 <link rel="canonical" href="https://www.zenmul.com/contact">
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.zenmul.com/contact">
-<meta property="og:title" content="Free audit | Zenmul">
-<meta property="og:description" content="Tell us about the manual work eating your week and get a recorded automation audit back within one business day. Free, no call required.">
+<meta property="og:title" content="Send a document | Zenmul">
+<meta property="og:description" content="Send one bill or notice and get an honest answer.">
 <meta property="og:image" content="https://www.zenmul.com/favicon-512.png">
+
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon-192.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/main.css">
+
 <script>
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.documentElement.classList.add('intro');
   }
 </script>
 </head>
-<body style="background:#0C0D10;color:#EDEAE3">
+<body style="background:#060607;color:#EDEAE3">
 
 <div id="sky" aria-hidden="true"><canvas id="graph"></canvas></div>
+
 <div class="rail" aria-hidden="true"><div class="rail__fill" id="rail-fill"></div></div>
 
 <div class="page">
@@ -35,135 +40,103 @@
   <a class="logo" href="index.html" aria-label="Zenmul">
     <img src="assets/img/mark.svg" alt="" width="26" height="26"> Zenmul
   </a>
+
   <nav class="nav" id="site-nav" aria-label="Primary">
-    <a href="what-we-build.html">What we build</a>
-    <a href="case-studies.html">Case studies</a>
-    <a href="pricing.html">Pricing</a>
+    <a href="freight-charges.html">Freight</a>
+    <a href="retail-deductions.html">Deductions</a>
+    <a href="unemployment-claims.html">Claims</a>
+    <a href="automation.html">Automation</a>
     <a href="about.html">About</a>
   </nav>
+
   <a class="btn btn--solid btn--sm header-cta" href="contact.html">
-    Get a free audit
+    Send a document
     <svg width="15" height="11" viewBox="0 0 21 18" fill="none" aria-hidden="true">
       <path d="M0 9H20.1" stroke="currentColor" stroke-width="2"/>
       <path d="M12.1 1L20.1 9L12.1 17" stroke="currentColor" stroke-width="2"/>
     </svg>
   </a>
+
   <button class="burger" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><i></i><i></i><i></i></button>
 </header>
 
 <main>
-
-<section class="hero hero--inner" data-node="Audit">
+<!-- Hero -->
+<section class="hero hero--inner" id="top" data-node="Start">
   <div class="wrap">
     <div class="hero__copy">
-      <p class="rule">Free audit</p>
+      <p class="rule">Send a document</p>
       <h1>
-        <span class="line"><span>Get your free</span></span>
-        <span class="line"><span><em>video audit.</em></span></span>
+        <span class="line"><span>Send one bill</span></span>
+        <span class="line"><span>or notice.</span></span>
       </h1>
-      <p class="lede">Tell me about your business and the manual tasks eating your week. I record a short personalised video walking through exactly what is worth automating, what it would save you, and what it costs. Free, no call required.</p>
+      <p class="lede">Email it to nazmul@zenmul.com. You get an honest answer on whether there is anything worth recovering, and what the work would cost, before anything starts.</p>
+      <div class="hero-actions">
+        <a class="btn btn--solid" href="mailto:nazmul@zenmul.com?subject=Document%20review">Email nazmul@zenmul.com</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" data-node="Form">
+<!-- What to send -->
+<section class="section" data-node="Route">
+  <div class="wrap">
+    <div class="section__head rise">
+      <span class="eyebrow">01 / What to attach</span>
+      <h2>Pick what you have. Each link opens an email with the right subject.</h2>
+      <p>Send what you have. Anything missing gets asked for, not guessed.</p>
+    </div>
+    <div class="rows rise">
+      <a class="row" href="mailto:nazmul@zenmul.com?subject=Freight%20D%26D%20audit">
+        <span class="row__n">D&amp;D</span>
+        <span class="row__name">Freight invoices</span>
+        <span class="row__desc">Detention and demurrage invoices, plus pickup, gate out and empty return dates, and free time terms if you have them</span>
+        <span class="row__go">Email</span>
+      </a>
+      <a class="row" href="mailto:nazmul@zenmul.com?subject=Deduction%20review">
+        <span class="row__n">AP</span>
+        <span class="row__name">Deduction report</span>
+        <span class="row__desc">Your APDP or Synergy export, plus the POs, invoices, bills of lading and proof of delivery behind it</span>
+        <span class="row__go">Email</span>
+      </a>
+      <a class="row" href="mailto:nazmul@zenmul.com?subject=Unemployment%20claim%20response">
+        <span class="row__n">UI</span>
+        <span class="row__name">Claim notice</span>
+        <span class="row__desc">The state notice with its date, plus hire and separation dates and any warnings or resignation message</span>
+        <span class="row__go">Email</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- What happens next -->
+<section class="section" data-node="Next">
   <div class="wrap">
     <div class="case rise">
-      <div>
-        <div class="section__head" style="margin-bottom:1.25rem">
-          <span class="eyebrow">What you get</span>
-          <h2>An honest answer, in writing</h2>
-        </div>
-        <ul class="ticks">
-          <li>A prioritised list of automation opportunities specific to your business</li>
-          <li>An honest time savings estimate, with no inflated numbers</li>
-          <li>Yours to keep, whether or not you work with me</li>
-          <li>A reply within one business day</li>
-        </ul>
+      <div class="section__head" style="margin-bottom:0">
+        <span class="eyebrow">02 / What happens next</span>
+        <h2>You decide after you see the answer.</h2>
       </div>
-
-      <div class="formcard">
-        <form id="audit-form" novalidate>
-          <div class="field">
-            <label for="f-name">Your name</label>
-            <input id="f-name" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="f-email">Work email</label>
-            <input id="f-email" name="email" type="email" autocomplete="email" required>
-          </div>
-          <div class="field">
-            <label for="f-company">Company</label>
-            <input id="f-company" name="company" type="text" autocomplete="organization">
-          </div>
-          <div class="field">
-            <label for="f-industry">Industry</label>
-            <select id="f-industry" name="industry">
-              <option value="">Select your industry</option>
-            <option>Property and Lettings</option>
-            <option>Recruitment</option>
-            <option>Medical or Aesthetic Clinic</option>
-            <option>Dental and Physio</option>
-            <option>Mental Health Practice</option>
-            <option>Pharmacy</option>
-            <option>Veterinary Practice</option>
-            <option>B2B SaaS</option>
-            <option>Logistics and Freight</option>
-            <option>Warehousing and 3PL</option>
-            <option>Ecommerce Brand</option>
-            <option>Dropshipping</option>
-            <option>Beauty and Salons</option>
-            <option>Gym and Personal Training</option>
-            <option>Restaurant and Hospitality</option>
-            <option>Hotels and Hospitality</option>
-            <option>Travel and Tourism</option>
-            <option>Law Firm</option>
-            <option>Architecture Studio</option>
-            <option>Creative Agency</option>
-            <option>Financial Advisor</option>
-            <option>Accountant and Bookkeeper</option>
-            <option>Insurance Broker</option>
-            <option>E-learning and Coaching</option>
-            <option>School and Tutoring</option>
-            <option>Event Planning</option>
-            <option>Construction Company</option>
-            <option>Trades and Contractors</option>
-            <option>Cleaning Company</option>
-            <option>Auto Dealership</option>
-            <option>Other</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="f-message">Describe your business and the manual tasks eating your time</label>
-            <textarea id="f-message" name="message" rows="5" required></textarea>
-          </div>
-          <div class="field">
-            <label for="f-links">Website or links (optional)</label>
-            <input id="f-links" name="links" type="text">
-          </div>
-
-          <button class="btn btn--solid" type="submit" id="f-submit">Get my free audit</button>
-          <p class="formnote">Free, no call required. Reply within one business day.</p>
-          <p class="formerr" id="f-error" role="alert" hidden></p>
-        </form>
-
-        <div class="formdone" id="f-done" hidden>
-          <h3>Request received.</h3>
-          <p>I will review your details and send your personalised automation roadmap within one business day.</p>
-        </div>
-      </div>
+      <ul class="ticks">
+        <li>I read what you sent and reply by email.</li>
+        <li>You hear whether there is anything worth recovering, and what the work would cost.</li>
+        <li>Nothing starts until you say yes.</li>
+        <li>You can black out anything the review does not need, like bank or account numbers, before you send.</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section class="section closer" data-node="Direct">
+<!-- Closer -->
+<section class="section closer" data-node="Send">
   <div class="wrap rise">
-    <span class="eyebrow">Or just email</span>
-    <h2>Prefer to skip the form?</h2>
-    <p>Write to nazmul@zenmul.com with one line about the task you would most like to stop doing by hand. That is enough to start.</p>
-    <a class="btn btn--ghost btn--pill" href="mailto:nazmul@zenmul.com">nazmul@zenmul.com</a>
+    <span class="eyebrow">03 / Or say hello</span>
+    <h2>Not ready to send a document?</h2>
+    <p>Write one line about the bill, deduction or claim that is bothering you. That is enough to start.</p>
+    <a class="btn btn--ghost" href="mailto:nazmul@zenmul.com">nazmul@zenmul.com</a>
   </div>
 </section>
+
 </main>
 
 <footer class="footer">
@@ -173,7 +146,7 @@
     <div class="footer__grid">
       <div>
         <a class="logo" href="index.html" style="margin-bottom:0.9rem"><img src="assets/img/mark.svg" alt="" width="26" height="26"> Zenmul</a>
-        <p>Automation systems that do the repetitive work,<br>so nobody on your team has to.</p>
+        <p>Money leak recovery for small US businesses.<br>Find it. Recover it. Stop it.</p>
       <div class="social">
         <a href="https://www.linkedin.com/in/nazmul-hossen-7a6aa7265" target="_blank" rel="noopener" aria-label="Nazmul on LinkedIn" title="Nazmul on LinkedIn" data-label="LinkedIn">
           <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.5 8.75 21 11.1 21 14.1V21h-4v-6.1c0-1.45-.03-3.32-2.05-3.32-2.05 0-2.36 1.58-2.36 3.21V21H9z"/></svg>
@@ -190,13 +163,14 @@
       </div>
       </div>
       <nav>
-        <a href="what-we-build.html">What we build</a>
-        <a href="case-studies.html">Case studies</a>
-        <a href="pricing.html">Pricing</a>
+        <a href="freight-charges.html">Freight charges</a>
+        <a href="retail-deductions.html">Retail deductions</a>
+        <a href="unemployment-claims.html">Employer claims</a>
+        <a href="automation.html">Automation</a>
       </nav>
       <nav>
         <a href="about.html">About</a>
-        <a href="contact.html">Free audit</a>
+        <a href="contact.html">Send a document</a>
       </nav>
     </div>
     <p class="footer__base">&copy; 2026 Zenmul</p>

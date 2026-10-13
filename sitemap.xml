@@ -2,32 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.zenmul.com/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <priority>1.0</priority>
+    <lastmod>2026-10-13</lastmod>
   </url>
   <url>
-    <loc>https://www.zenmul.com/what-we-build</loc>
-    <lastmod>2026-09-11</lastmod>
-    <priority>0.9</priority>
+    <loc>https://www.zenmul.com/freight-charges</loc>
+    <lastmod>2026-10-13</lastmod>
   </url>
   <url>
-    <loc>https://www.zenmul.com/case-studies</loc>
-    <lastmod>2026-09-11</lastmod>
-    <priority>0.9</priority>
+    <loc>https://www.zenmul.com/retail-deductions</loc>
+    <lastmod>2026-10-13</lastmod>
   </url>
   <url>
-    <loc>https://www.zenmul.com/pricing</loc>
-    <lastmod>2026-09-11</lastmod>
-    <priority>0.8</priority>
+    <loc>https://www.zenmul.com/unemployment-claims</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+  <url>
+    <loc>https://www.zenmul.com/automation</loc>
+    <lastmod>2026-10-13</lastmod>
   </url>
   <url>
     <loc>https://www.zenmul.com/about</loc>
-    <lastmod>2026-09-11</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-10-13</lastmod>
   </url>
   <url>
     <loc>https://www.zenmul.com/contact</loc>
-    <lastmod>2026-09-11</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2026-10-13</lastmod>
   </url>
 </urlset>

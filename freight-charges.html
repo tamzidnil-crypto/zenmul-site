@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Freight detention and demurrage audit | Zenmul</title>
+<meta name="description" content="Detention and demurrage audits for US importers. Every line checked against your dates and contract, with a dispute file you submit yourself. Includes lookback audits for charges since June 16, 2022.">
+<link rel="canonical" href="https://www.zenmul.com/freight-charges">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.zenmul.com/freight-charges">
+<meta property="og:title" content="Freight detention and demurrage audit | Zenmul">
+<meta property="og:description" content="Every detention and demurrage line checked against your dates and contract.">
+<meta property="og:image" content="https://www.zenmul.com/favicon-512.png">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon-192.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('intro');
+  }
+</script>
+</head>
+<body style="background:#060607;color:#EDEAE3">
+
+<div id="sky" aria-hidden="true"><canvas id="graph"></canvas></div>
+
+<div class="rail" aria-hidden="true"><div class="rail__fill" id="rail-fill"></div></div>
+
+<div class="page">
+
+<header class="header">
+  <a class="logo" href="index.html" aria-label="Zenmul">
+    <img src="assets/img/mark.svg" alt="" width="26" height="26"> Zenmul
+  </a>
+
+  <nav class="nav" id="site-nav" aria-label="Primary">
+    <a href="freight-charges.html">Freight</a>
+    <a href="retail-deductions.html">Deductions</a>
+    <a href="unemployment-claims.html">Claims</a>
+    <a href="automation.html">Automation</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <a class="btn btn--solid btn--sm header-cta" href="contact.html">
+    Send a document
+    <svg width="15" height="11" viewBox="0 0 21 18" fill="none" aria-hidden="true">
+      <path d="M0 9H20.1" stroke="currentColor" stroke-width="2"/>
+      <path d="M12.1 1L20.1 9L12.1 17" stroke="currentColor" stroke-width="2"/>
+    </svg>
+  </a>
+
+  <button class="burger" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><i></i><i></i><i></i></button>
+</header>
+
+<main>
+<!-- Hero -->
+<section class="hero hero--inner" id="top" data-node="Start">
+  <div class="wrap">
+    <div class="hero__copy">
+      <p class="rule">Freight charges</p>
+      <h1>
+        <span class="line"><span>Freight detention and</span></span>
+        <span class="line"><span>demurrage audit</span></span>
+      </h1>
+      <p class="lede">For US importers. I check every detention and demurrage line against your dates and your contract, then prepare the dispute file. You submit it.</p>
+      <div class="hero-actions">
+        <a class="btn btn--solid" href="contact.html">Send your invoices</a>
+        <a class="btn btn--ghost" href="#video">Watch the one minute video</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Where it goes wrong -->
+<section class="section" data-node="Leak">
+  <div class="wrap">
+    <div class="case rise">
+      <div class="section__head" style="margin-bottom:0">
+        <span class="eyebrow">01 / Where it goes wrong</span>
+        <h2>Detention and demurrage bills break in a few predictable ways.</h2>
+        <p>Most of these are not obvious from the total. They show up when each line is checked against the actual dates.</p>
+      </div>
+      <ul class="ticks">
+        <li>Free time counted wrong, so billing starts too early.</li>
+        <li>The top tier rate charged on every day instead of the tier that applies.</li>
+        <li>Days the container could not move, still on the bill.</li>
+        <li>Charges for the same container billed twice, or to the wrong party.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- The rules -->
+<section class="section" data-node="Rules">
+  <div class="wrap">
+    <div class="case rise">
+      <div class="section__head" style="margin-bottom:0">
+        <span class="eyebrow">02 / The rules</span>
+        <h2>For US ocean shipments, the billing rules are on your side.</h2>
+        <p>The Federal Maritime Commission sets what a detention or demurrage invoice must contain and when it must be sent, in 46 CFR Part 541.</p>
+      </div>
+      <ul class="ticks">
+        <li>If an invoice is missing any of the required minimum information, there is no obligation to pay that charge (46 CFR 541.5).</li>
+        <li>If the invoice is issued more than 30 calendar days after the charge was last incurred, you are not required to pay it (46 CFR 541.7).</li>
+        <li>You have at least 30 calendar days from the invoice to request mitigation, refund or waiver (46 CFR 541.8).</li>
+      </ul>
+    </div>
+    <p class="note rise">This is a plain summary of the published rule, not legal advice.</p>
+  </div>
+</section>
+
+<!-- Lookback -->
+<section class="section" data-node="Lookback">
+  <div class="wrap">
+    <div class="case rise">
+      <div class="section__head" style="margin-bottom:0">
+        <span class="eyebrow">03 / Lookback audit</span>
+        <h2>Invoices you already paid are not necessarily closed.</h2>
+        <p>In a rule published September 1, 2026, the FMC confirmed that charge complaints have no statute of limitations, as long as the charge was assessed on or after June 16, 2022. The same rule confirms the carrier carries the burden of proving its charge was reasonable.</p>
+      </div>
+      <div>
+        <p class="mono">A lookback audit goes through the detention and demurrage you have already paid since June 16, 2022, and sorts each charge by whether it is worth raising.</p>
+        <p class="mono" style="margin-top:1rem">You decide what to file. I prepare the file.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What you send / what you get -->
+<section class="section" data-node="Exchange">
+  <div class="wrap">
+    <div class="case rise">
+      <div>
+        <span class="eyebrow" style="display:block;margin-bottom:0.9rem">04 / What you send</span>
+        <ul class="ticks">
+          <li>The detention and demurrage invoices, as PDFs or exports.</li>
+          <li>Pickup, gate out and empty return dates for each container.</li>
+          <li>Your free time terms, from your contract or the carrier's tariff, if you have them.</li>
+          <li>Any emails about terminal closures, holds or missing return appointments, if you have them.</li>
+        </ul>
+      </div>
+      <div>
+        <span class="eyebrow" style="display:block;margin-bottom:0.9rem">05 / What you get</span>
+        <ul class="ticks">
+          <li>A line by line sheet where every charge is marked overcharged, correct or missing proof.</li>
+          <li>A dispute file for each invoice worth raising, with the evidence lined up.</li>
+          <li>A short summary of what is recoverable and what is not.</li>
+          <li>If it keeps happening, a monthly check that flags bad invoices early. <a href="automation.html" style="color:var(--accent)">How that works</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video -->
+<section class="section" id="video" data-node="Watch">
+  <div class="wrap">
+    <div class="case rise">
+      <video style="width:100%;height:auto;max-width:560px" controls preload="none" playsinline poster="assets/img/poster-freight.jpg">
+        <source src="assets/video/freight-dd-audit.mp4" type="video/mp4">
+      </video>
+      <div class="section__head" style="margin-bottom:0">
+        <span class="eyebrow">06 / Watch</span>
+        <h2>The audit in one minute</h2>
+        <p>Figures in the video are examples, not a client result.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" data-node="Questions">
+  <div class="wrap">
+    <div class="section__head rise">
+      <span class="eyebrow">07 / Questions</span>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq rise">
+      <details><summary>What does this cover?</summary><p>Detention and demurrage on US ocean shipments, billed by ocean carriers, NVOCCs or marine terminals.</p></details>
+      <details><summary>I already paid. Is it too late?</summary><p>For charges assessed on or after June 16, 2022, a charge complaint can still go to the FMC with no filing deadline. Whether a charge is worth raising depends on the amount and the evidence, and that is what the audit tells you.</p></details>
+      <details><summary>Will you contact the carrier for me?</summary><p>No. I prepare the dispute file and you submit it. I never negotiate on your behalf and never need your carrier portal login.</p></details>
+      <details><summary>What if I do not have my contract terms?</summary><p>Send what you have. Many checks only need the invoice and the container dates. Anything that cannot be checked without the contract gets marked missing proof, not guessed.</p></details>
+      <details><summary>How much does it cost?</summary><p>It depends on how many invoices there are. Send them over and I will tell you what the audit would cost before any work starts.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- Closer -->
+<section class="section closer" data-node="Send">
+  <div class="wrap rise">
+    <span class="eyebrow">08 / Start</span>
+    <h2>Send me your invoices.</h2>
+    <p>Email them to nazmul@zenmul.com. If something slipped through, I will find it. If nothing did, you will hear that too.</p>
+    <a class="btn btn--solid" href="mailto:nazmul@zenmul.com?subject=Freight%20D%26D%20audit">
+      Email nazmul@zenmul.com
+      <svg width="17" height="13" viewBox="0 0 21 18" fill="none" aria-hidden="true">
+        <path d="M0 9H20.1" stroke="currentColor" stroke-width="2"/>
+        <path d="M12.1 1L20.1 9L12.1 17" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <img class="watermark" src="assets/img/emblem.svg" alt="" aria-hidden="true" width="360" height="360">
+
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a class="logo" href="index.html" style="margin-bottom:0.9rem"><img src="assets/img/mark.svg" alt="" width="26" height="26"> Zenmul</a>
+        <p>Money leak recovery for small US businesses.<br>Find it. Recover it. Stop it.</p>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/nazmul-hossen-7a6aa7265" target="_blank" rel="noopener" aria-label="Nazmul on LinkedIn" title="Nazmul on LinkedIn" data-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.5 8.75 21 11.1 21 14.1V21h-4v-6.1c0-1.45-.03-3.32-2.05-3.32-2.05 0-2.36 1.58-2.36 3.21V21H9z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/zenmul" target="_blank" rel="noopener" aria-label="Zenmul on LinkedIn" title="Zenmul company page" data-label="Company">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10.5V17M7.5 7.6v.02M11.5 17v-3.6c0-1.2.8-2.1 2-2.1s2 .9 2 2.1V17"/></svg>
+        </a>
+        <a href="https://www.instagram.com/hossennaz.io/" target="_blank" rel="noopener" aria-label="Zenmul on Instagram" title="Instagram" data-label="Instagram">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="mailto:nazmul@zenmul.com" aria-label="Email Nazmul" title="nazmul@zenmul.com" data-label="Email">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+        </a>
+      </div>
+      </div>
+      <nav>
+        <a href="freight-charges.html">Freight charges</a>
+        <a href="retail-deductions.html">Retail deductions</a>
+        <a href="unemployment-claims.html">Employer claims</a>
+        <a href="automation.html">Automation</a>
+      </nav>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="contact.html">Send a document</a>
+      </nav>
+    </div>
+    <p class="footer__base">&copy; 2026 Zenmul</p>
+  </div>
+</footer>
+
+</div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

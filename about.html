@@ -4,29 +4,34 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>About | Zenmul</title>
-<meta name="description" content="Zenmul is an automation studio founded by Nazmul Hossen, building custom operational systems for small teams.">
+<meta name="description" content="Zenmul is run by Nazmul Hossen. Document reviews for freight bills, retail deductions and unemployment claims, done by one person, with no logins and honest verdicts.">
 <link rel="canonical" href="https://www.zenmul.com/about">
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.zenmul.com/about">
 <meta property="og:title" content="About | Zenmul">
-<meta property="og:description" content="Zenmul is an automation studio founded by Nazmul Hossen, building custom operational systems for small teams.">
+<meta property="og:description" content="One person, from the first document to the final file.">
 <meta property="og:image" content="https://www.zenmul.com/favicon-512.png">
+
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon-192.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/main.css">
+
 <script>
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.documentElement.classList.add('intro');
   }
 </script>
 </head>
-<body style="background:#0C0D10;color:#EDEAE3">
+<body style="background:#060607;color:#EDEAE3">
 
 <div id="sky" aria-hidden="true"><canvas id="graph"></canvas></div>
+
 <div class="rail" aria-hidden="true"><div class="rail__fill" id="rail-fill"></div></div>
 
 <div class="page">
@@ -35,96 +40,108 @@
   <a class="logo" href="index.html" aria-label="Zenmul">
     <img src="assets/img/mark.svg" alt="" width="26" height="26"> Zenmul
   </a>
+
   <nav class="nav" id="site-nav" aria-label="Primary">
-    <a href="what-we-build.html">What we build</a>
-    <a href="case-studies.html">Case studies</a>
-    <a href="pricing.html">Pricing</a>
+    <a href="freight-charges.html">Freight</a>
+    <a href="retail-deductions.html">Deductions</a>
+    <a href="unemployment-claims.html">Claims</a>
+    <a href="automation.html">Automation</a>
     <a href="about.html">About</a>
   </nav>
+
   <a class="btn btn--solid btn--sm header-cta" href="contact.html">
-    Get a free audit
+    Send a document
     <svg width="15" height="11" viewBox="0 0 21 18" fill="none" aria-hidden="true">
       <path d="M0 9H20.1" stroke="currentColor" stroke-width="2"/>
       <path d="M12.1 1L20.1 9L12.1 17" stroke="currentColor" stroke-width="2"/>
     </svg>
   </a>
+
   <button class="burger" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><i></i><i></i><i></i></button>
 </header>
 
 <main>
-
-<section class="hero hero--inner" data-node="About">
+<!-- Hero -->
+<section class="hero hero--inner" id="top" data-node="Start">
   <div class="wrap">
     <div class="hero__copy">
       <p class="rule">About</p>
       <h1>
-        <span class="line"><span>Small teams should not lose</span></span>
-        <span class="line"><span><em>business to slow follow-ups.</em></span></span>
+        <span class="line"><span>One person, from the first</span></span>
+        <span class="line"><span>document to the final file.</span></span>
       </h1>
-      <p class="lede">Zenmul builds the automation layer that keeps enquiries answered, appointments kept and clients followed up, while you do the actual work.</p>
+      <p class="lede">Zenmul is run by Nazmul Hossen. I check the paperwork other companies send small businesses, prepare the file to get money back, and set up checks so it stops.</p>
     </div>
   </div>
 </section>
 
-<section class="section" data-node="Studio">
+<!-- Why -->
+<section class="section" data-node="Why">
   <div class="wrap">
-    <div class="prose rise">
-      <p>Zenmul is an automation studio founded by Nazmul Hossen. What started as a single lead generation pipeline for a B2B startup grew into full automation suites for clinics, recruitment agencies, property firms, logistics operators, ecommerce brands and salons.</p>
-      <p>Every system ships from the same conviction: most businesses do not need more software. They need the software they already use to talk to each other. A freight operator drowning in Excel files and agent emails does not need a new platform. They need the data they already receive to flow somewhere useful, automatically.</p>
+    <div class="case rise">
+      <div class="section__head" style="margin-bottom:0">
+        <span class="eyebrow">01 / Why this work</span>
+        <h2>The other side has a team. Small businesses usually have nobody checking.</h2>
+      </div>
+      <div class="prose">
+        <p>Carriers, retailers and state agencies all have people and systems working on their side of every bill, deduction and claim. A small business owner has a busy week and a pile of documents that look routine.</p>
+        <p>Most of those documents are fine. Some are not, and those only get caught when someone reads them line by line against the dates, the contract and the rules. That is the job.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" data-node="How we work">
+<!-- How I work -->
+<section class="section" data-node="Terms">
   <div class="wrap">
     <div class="section__head rise">
-      <span class="eyebrow">How we work</span>
-      <h2>Built to keep working, with or without us</h2>
+      <span class="eyebrow">02 / How I work</span>
+      <h2>Four things that do not change</h2>
     </div>
     <div class="steps rise">
-      <div class="step"><p class="step__n">01</p><h3>You own everything</h3><p>Built on proven open tools like n8n and Google Workspace. No proprietary lock-in. If Zenmul disappeared tomorrow, your systems keep running.</p></div>
-      <div class="step"><p class="step__n">02</p><h3>Fixed pricing, no surprises</h3><p>Every project is scoped and priced upfront. You know the cost before a single workflow is written.</p></div>
-      <div class="step"><p class="step__n">03</p><h3>Audit first, build second</h3><p>Every engagement starts with a free audit. You see exactly what would be automated and why, before spending anything.</p></div>
-      <div class="step"><p class="step__n">04</p><h3>One person, start to finish</h3><p>No account managers and no handoffs. The person who scopes your system is the person who builds and maintains it.</p></div>
+      <div class="step"><p class="step__n">ONE PERSON</p><h3>No handoffs</h3><p>I review every document myself and build every monthly check myself. You deal with one person, by email.</p></div>
+      <div class="step"><p class="step__n">YOUR CONTROL</p><h3>No logins</h3><p>I never ask for passwords, never negotiate for you, and never submit anything. You do.</p></div>
+      <div class="step"><p class="step__n">HONEST</p><h3>Clear verdicts</h3><p>If a charge is fair, I say so. You only dispute what is worth disputing.</p></div>
+      <div class="step"><p class="step__n">UPFRONT</p><h3>Cost before work</h3><p>You know what the review costs before any work starts.</p></div>
     </div>
   </div>
 </section>
 
+<!-- Founder -->
 <section class="section" data-node="Founder">
   <div class="wrap">
     <div class="case rise">
-      <div>
-        <div class="section__head" style="margin-bottom:1.25rem">
-          <span class="eyebrow">Founder</span>
-          <h2>Nazmul Hossen</h2>
-        </div>
-        <p class="mono">Self-taught automation engineer. Nazmul builds every Zenmul system personally and works directly with every client from first audit to final handover. You work with the person who builds it.</p>
-        <div class="hero-actions">
-          <a class="btn btn--ghost" href="contact.html">Work with Nazmul</a>
-        </div>
+      <div class="section__head" style="margin-bottom:0">
+        <span class="eyebrow">03 / Founder</span>
+        <h2>Nazmul Hossen</h2>
       </div>
       <div>
-        <dl class="case__stats">
-          <div><dt>74</dt><dd>Workflows in production</dd></div>
-          <div><dt>12+</dt><dd>Industries served</dd></div>
-          <div><dt>Under 60s</dt><dd>Average automated response time</dd></div>
-          <div><dt>24/7</dt><dd>Automations working while you sleep</dd></div>
-        </dl>
+        <p class="mono">Business studies graduate (BBS). I taught myself automation. I do the document reviews by hand and build the monthly checks in n8n.</p>
+        <p class="mono" style="margin-top:1rem">I am not a lawyer or an accountant. I prepare files and you submit them.</p>
+        <div class="hero-actions" style="justify-content:flex-start">
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/nazmul-hossen-7a6aa7265" target="_blank" rel="noopener">Nazmul on LinkedIn</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section closer" data-node="Start">
+<!-- Closer -->
+<section class="section closer" data-node="Send">
   <div class="wrap rise">
-    <span class="eyebrow">Start</span>
-    <h2>Work directly with the person who builds it.</h2>
-    <p>Start with a free automation audit. No call required.</p>
-    <a class="btn btn--solid" href="contact.html">Get a free audit
-      <svg width="17" height="13" viewBox="0 0 21 18" fill="none" aria-hidden="true"><path d="M0 9H20.1" stroke="currentColor" stroke-width="2"/><path d="M12.1 1L20.1 9L12.1 17" stroke="currentColor" stroke-width="2"/></svg>
+    <span class="eyebrow">04 / Start</span>
+    <h2>Send one bill or notice.</h2>
+    <p>Email it to nazmul@zenmul.com. I will tell you honestly whether there is anything worth recovering.</p>
+    <a class="btn btn--solid" href="mailto:nazmul@zenmul.com?subject=Document%20review">
+      Email nazmul@zenmul.com
+      <svg width="17" height="13" viewBox="0 0 21 18" fill="none" aria-hidden="true">
+        <path d="M0 9H20.1" stroke="currentColor" stroke-width="2"/>
+        <path d="M12.1 1L20.1 9L12.1 17" stroke="currentColor" stroke-width="2"/>
+      </svg>
     </a>
   </div>
 </section>
+
 </main>
 
 <footer class="footer">
@@ -134,7 +151,7 @@
     <div class="footer__grid">
       <div>
         <a class="logo" href="index.html" style="margin-bottom:0.9rem"><img src="assets/img/mark.svg" alt="" width="26" height="26"> Zenmul</a>
-        <p>Automation systems that do the repetitive work,<br>so nobody on your team has to.</p>
+        <p>Money leak recovery for small US businesses.<br>Find it. Recover it. Stop it.</p>
       <div class="social">
         <a href="https://www.linkedin.com/in/nazmul-hossen-7a6aa7265" target="_blank" rel="noopener" aria-label="Nazmul on LinkedIn" title="Nazmul on LinkedIn" data-label="LinkedIn">
           <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.5 8.75 21 11.1 21 14.1V21h-4v-6.1c0-1.45-.03-3.32-2.05-3.32-2.05 0-2.36 1.58-2.36 3.21V21H9z"/></svg>
@@ -151,13 +168,14 @@
       </div>
       </div>
       <nav>
-        <a href="what-we-build.html">What we build</a>
-        <a href="case-studies.html">Case studies</a>
-        <a href="pricing.html">Pricing</a>
+        <a href="freight-charges.html">Freight charges</a>
+        <a href="retail-deductions.html">Retail deductions</a>
+        <a href="unemployment-claims.html">Employer claims</a>
+        <a href="automation.html">Automation</a>
       </nav>
       <nav>
         <a href="about.html">About</a>
-        <a href="contact.html">Free audit</a>
+        <a href="contact.html">Send a document</a>
       </nav>
     </div>
     <p class="footer__base">&copy; 2026 Zenmul</p>
