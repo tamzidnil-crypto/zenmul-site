@@ -13,7 +13,13 @@
     { "source": "/roi-calculator", "destination": "/contact", "permanent": true },
     { "source": "/personal", "destination": "/", "permanent": true },
     { "source": "/quiz", "destination": "/", "permanent": true },
-    { "source": "/result", "destination": "/", "permanent": true }
+    { "source": "/result", "destination": "/", "permanent": true },
+    { "source": "/automation", "destination": "/freight-guard", "permanent": true },
+    { "source": "/unemployment-claims", "destination": "/", "permanent": true },
+    { "source": "/blog/unemployment-claim-tax-rate", "destination": "/blog", "permanent": true },
+    { "source": "/blog/quit-fired-laid-off", "destination": "/blog", "permanent": true },
+    { "source": "/blog/respond-unemployment-claim-notice", "destination": "/blog", "permanent": true },
+    { "source": "/blog/unemployment-hearing-prep", "destination": "/blog", "permanent": true }
   ],
   "headers": [
     {
