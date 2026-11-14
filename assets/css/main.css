@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Zenmul — main.css
+   Zenmul: main.css
    "The website is the workflow." One stylesheet for the whole site.
    ========================================================================== */
 
@@ -301,13 +301,14 @@ html.intro .line > span { transform: translateY(115%); }
   .header-cta { display: none; }
   .burger { display: grid; }
   .nav {
-    position: fixed; inset: 0; flex-direction: column; justify-content: center; align-items: stretch;
+    position: fixed; inset: 0; justify-self: stretch; flex-direction: column; justify-content: center; align-items: stretch;
     gap: 0.5rem; padding: 5rem 1.5rem 2rem; background: rgba(12,13,16,0.97);
     backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s ease; z-index: 70;
   }
   body.nav-open .nav { opacity: 1; visibility: visible; }
   body.nav-open { overflow: hidden; }
+  body.nav-open .header { backdrop-filter: none; -webkit-backdrop-filter: none; mask-image: none; -webkit-mask-image: none; }
   .nav a { height: 52px; justify-content: center; font-size: 0.95rem; border-color: var(--line-soft); }
   .steps { grid-template-columns: 1fr; }
   .stats { gap: 1.5rem 2rem; }
